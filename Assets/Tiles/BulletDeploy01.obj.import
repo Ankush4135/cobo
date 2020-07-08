@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/BulletDeploy01.obj-4d05fd4a1cf7582af7f7ffa80b344f6a.mesh"
+
+[deps]
+
+files=[ "res://.import/BulletDeploy01.obj-4d05fd4a1cf7582af7f7ffa80b344f6a.mesh" ]
+
+source_file="res://Assets/Tiles/BulletDeploy01.obj"
+dest_files=[ "res://.import/BulletDeploy01.obj-4d05fd4a1cf7582af7f7ffa80b344f6a.mesh", "res://.import/BulletDeploy01.obj-4d05fd4a1cf7582af7f7ffa80b344f6a.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

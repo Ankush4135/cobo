@@ -1,0 +1,1210 @@
+[gd_scene load_steps=38 format=2]
+
+[ext_resource path="res://Assets/Material/Wall.material" type="Material" id=1]
+[ext_resource path="res://Scripts/Follow_Target.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Buttons/transparent.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sets/Level_01.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://Scripts/FPSLabel.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Material/Level.material" type="Material" id=6]
+[ext_resource path="res://Scripts/Control_TouchScreenButton.gd" type="Script" id=7]
+[ext_resource path="res://Objects/Player_Ball.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/Coin.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Objects/bounce_Force_object.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Objects/UserInterface/UserInterface.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Objects/Target.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Objects/Spike.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Scene_trans.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scripts/Character_mounts.gd" type="Script" id=15]
+[ext_resource path="res://Assets/Material/vignette.shader" type="Shader" id=16]
+[ext_resource path="res://Scripts/Character_Animation_Blend.gd" type="Script" id=17]
+[ext_resource path="res://Scripts/Camera.gd" type="Script" id=18]
+[ext_resource path="res://Objects/Attract_Force_object.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Assets/Material/Environment/Environment_Cyan.tres" type="Environment" id=20]
+[ext_resource path="res://Scripts/level.gd" type="Script" id=21]
+[ext_resource path="res://Scenes/Level_End.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Objects/End_Shatered.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scripts/Shake_Camera.gd" type="Script" id=24]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 16 )
+shader_param/radius = 0.75
+shader_param/softness = 0.45
+
+[sub_resource type="ConcavePolygonShape" id=2]
+data = PoolVector3Array( 31, -8, 2, 0, -8, 2, 31, 0, 2, 31, 0, 2, 0, -8, 2, 0, 0, 2, 31, -8, 2, 31, 0, 2, 35, -8, 2, 35, -8, 2, 31, 0, 2, 35, 2, 2, 35, -8, 2, 35, 2, 2, 51, -8, 2, 51, -8, 2, 35, 2, 2, 51, 2, 2, 51, -8, 2, 51, 2, 2, 55, -8, 2, 55, -8, 2, 51, 2, 2, 55, 4, 2, 55, -8, 2, 55, 4, 2, 59, -8, 2, 59, -8, 2, 55, 4, 2, 59, -0.0052, 2, 59, -0.0052, 2, 55, 4, 2, 59, 4, 2, 0, 0, 2, 0, -8, 2, -12.8044, 0, 2, -12.8044, 0, 2, 0, -8, 2, -12.8044, -8, 2, 0, 0, 2, -12.8044, 0, 2, 0, 7, 2, 0, 7, 2, -12.8044, 0, 2, -12.8044, 7, 2, 0, 7, 2, -12.8044, 7, 2, 0, 17, 2, 0, 17, 2, -12.8044, 7, 2, -12.8044, 17, 2, 59, -8, 2, 59, -0.0052, 2, 66, -8, 2, 66, -8, 2, 59, -0.0052, 2, 66, -0.0052, 2, 0, 7, 2, 0, 17, 2, 37.115, 7, 2, 37.115, 7, 2, 0, 17, 2, 37.115, 17, 2, 37.115, 7, 2, 37.115, 17, 2, 49.1453, 7, 2, 49.1453, 7, 2, 37.115, 17, 2, 49.1453, 17, 2, 49.1453, 7, 2, 49.1453, 17, 2, 87, 7, 2, 87, 7, 2, 49.1453, 17, 2, 87, 17, 2, 37.115, 7, 2, 49.1453, 7, 2, 37.115, 4, 2, 37.115, 4, 2, 49.1453, 7, 2, 49.1453, 4, 2, 108, 7, 2, 108, 17, 2, 109, 7, 2, 109, 7, 2, 108, 17, 2, 109, 17, 2, 108, -15, 2, 109, -15, 2, 108, -21, 2, 108, -21, 2, 109, -15, 2, 109, -21, 2, 94, -15, 2, 94, -21, 2, 74, -15, 2, 74, -15, 2, 94, -21, 2, 74, -21, 2, 35, -8, 2, 51, -8, 2, 35, -21, 2, 35, -21, 2, 51, -8, 2, 51, -21, 2, 35, -21, 2, 51, -21, 2, 35, -28, 2, 35, -28, 2, 51, -21, 2, 61.5, -28, 2, 35, -28, 2, 61.5, -28, 2, 35, -31, 2, 35, -31, 2, 61.5, -28, 2, 61.5, -31, 2, 66, -8, 2, 66, -0.0052, 2, 68, -8, 2, 68, -8, 2, 66, -0.0052, 2, 68, -0.0052, 2, 68, -8, 2, 68, -0.0052, 2, 87, -8, 2, 87, -8, 2, 68, -0.0052, 2, 87, -0.0052, 2, 66, -8, 2, 68, -8, 2, 66, -11, 2, 66, -11, 2, 68, -8, 2, 68, -11, 2, 72, -15, 2, 72, -21, 2, 58, -15, 2, 58, -15, 2, 72, -21, 2, 58, -21, 2, 74, -15, 2, 74, -21, 2, 72, -15, 2, 72, -15, 2, 74, -21, 2, 72, -21, 2, 74, -15, 2, 72, -15, 2, 74, -12, 2, 74, -12, 2, 72, -15, 2, 72, -12, 2, 78, -31, 2, 78, -28, 2, 97, -31, 2, 97, -31, 2, 78, -28, 2, 97, -28, 2, 61.5, -31, 2, 61.5, -28, 2, 62.5, -31, 2, 62.5, -31, 2, 61.5, -28, 2, 62.5, -28, 2, 35, -31, 2, 61.5, -31, 2, 35, -36, 2, 35, -36, 2, 61.5, -31, 2, 61.5, -36, 2, 61.5, -31, 2, 62.5, -31, 2, 61.5, -36, 2, 61.5, -36, 2, 62.5, -31, 2, 62.5, -36, 2, 62.5, -31, 2, 78, -31, 2, 62.5, -36, 2, 62.5, -36, 2, 78, -31, 2, 78, -36, 2, 78, -31, 2, 97, -31, 2, 78, -36, 2, 78, -36, 2, 97, -31, 2, 97, -36, 2, 97, -31, 2, 97, -28, 2, 116, -31, 2, 116, -31, 2, 97, -28, 2, 116, -28, 2, 116, -31, 2, 116, -28, 2, 129, -31, 2, 129, -31, 2, 116, -28, 2, 129, -28, 2, 129, -17, 2, 116, -17, 2, 129, 0, 2, 129, 0, 2, 116, -17, 2, 116, 0, 2, 109, 7, 2, 109, 17, 2, 116, 7, 2, 116, 7, 2, 109, 17, 2, 116, 17, 2, 136, 7, 2, 136, 17, 2, 149, 7, 2, 149, 7, 2, 136, 17, 2, 149, 17, 2, 136, 7, 2, 149, 7, 2, 136, -13, 2, 136, -13, 2, 149, 7, 2, 149, -13, 2, 94, 7, 2, 94, 17, 2, 108, 7, 2, 108, 7, 2, 94, 17, 2, 108, 17, 2, 108, 5, 2, 94, 5, 2, 108, 7, 2, 108, 7, 2, 94, 5, 2, 94, 7, 2, 108, -13, 2, 108, -15, 2, 94, -13, 2, 94, -13, 2, 108, -15, 2, 94, -15, 2, 108, -15, 2, 108, -21, 2, 94, -15, 2, 94, -15, 2, 108, -21, 2, 94, -21, 2, 108, -5, 2, 94, -5, 2, 108, -3, 2, 108, -3, 2, 94, -5, 2, 94, -3, 2, 108, -5, 2, 108, -13, 2, 94, -5, 2, 94, -5, 2, 108, -13, 2, 94, -13, 2, 108, -5, 2, 109, -5, 2, 108, -13, 2, 108, -13, 2, 109, -5, 2, 109, -13, 2, 108, 5, 2, 108, -3, 2, 94, 5, 2, 94, 5, 2, 108, -3, 2, 94, -3, 2, 109, 5, 2, 109, -3, 2, 108, 5, 2, 108, 5, 2, 109, -3, 2, 108, -3, 2, 129, -19, 2, 116, -19, 2, 129, -17, 2, 129, -17, 2, 116, -19, 2, 116, -17, 2, 129, -31, 2, 129, -28, 2, 155.801, -31, 2, 155.801, -31, 2, 129, -28, 2, 155.801, -28, 2, 129, -19, 2, 129, -17, 2, 155.801, -19, 2, 155.801, -19, 2, 129, -17, 2, 155.801, -17, 2, 163.007, -31, 2, 163.007, -28, 2, 173, -31, 2, 173, -31, 2, 163.007, -28, 2, 173, -28, 2, 173, -5, 2, 163.007, -14, 2, 173, -2, 2, 173, -2, 2, 163.007, -14, 2, 163.007, -10.715, 2, 149, 7, 2, 149, 17, 2, 173, 7, 2, 173, 7, 2, 149, 17, 2, 173, 9, 2, 149, -13, 2, 149, 7, 2, 173, 5, 2, 173, 5, 2, 149, 7, 2, 173, 7, 2, 160.995, -14, 2, 155.801, -19, 2, 160.995, -12.4703, 2, 160.995, -12.4703, 2, 155.801, -19, 2, 155.801, -17, 2, 160.995, -31, 2, 155.801, -31, 2, 160.995, -28, 2, 160.995, -28, 2, 155.801, -31, 2, 155.801, -28, 2, 160.995, -31, 2, 160.995, -28, 2, 163.007, -31, 2, 163.007, -31, 2, 160.995, -28, 2, 163.007, -28, 2, 129, -28, 2, 116, -28, 2, 129, -19, 2, 129, -19, 2, 116, -28, 2, 116, -19, 2, 129, -19, 2, 155.801, -19, 2, 129, -28, 2, 129, -28, 2, 155.801, -19, 2, 155.801, -28, 2, 160.995, -14, 2, 160.995, -28, 2, 155.801, -19, 2, 155.801, -19, 2, 160.995, -28, 2, 155.801, -28, 2, 163.007, -14, 2, 163.007, -28, 2, 160.995, -14, 2, 160.995, -14, 2, 163.007, -28, 2, 160.995, -28, 2, 173, -5, 2, 173, -28, 2, 163.007, -14, 2, 163.007, -14, 2, 173, -28, 2, 163.007, -28, 2, 116, -17, 2, 116, -19, 2, 111, -17, 2, 111, -17, 2, 116, -19, 2, 111, -19, 2, 173, -31, 2, 173, -28, 2, 178, -31, 2, 178, -31, 2, 173, -28, 2, 178, -28, 2, 173, -28, 2, 173, -5, 2, 178, -28, 2, 178, -28, 2, 173, -5, 2, 178, -5, 2, 173, -5, 2, 173, -2, 2, 178, -5, 2, 178, -5, 2, 173, -2, 2, 178, -2, 2, 182, -31, 2, 182, -28, 2, 190, -31, 2, 190, -31, 2, 182, -28, 2, 190, -28, 2, 182, -28, 2, 182, -5, 2, 190, -28, 2, 190, -28, 2, 182, -5, 2, 190, -5, 2, 182, -5, 2, 182, -2, 2, 190, -5, 2, 190, -5, 2, 182, -2, 2, 190, -2, 2, 182, -2, 2, 182, 13, 2, 190, -2, 2, 190, -2, 2, 182, 13, 2, 190, 13, 2, 182, 13, 2, 182, 24, 2, 190, 13, 2, 190, 13, 2, 182, 24, 2, 190, 24, 2, 182, 24, 2, 182, 30, 2, 190, 24, 2, 190, 24, 2, 182, 30, 2, 190, 30, 2, 149, 30, 2, 149, 24, 2, 109, 30, 2, 109, 30, 2, 149, 24, 2, 109, 24, 2, 116, 7, 2, 116, 17, 2, 133, 7, 2, 133, 7, 2, 116, 17, 2, 133, 17, 2, 133, 7, 2, 133, 17, 2, 136, 7, 2, 136, 7, 2, 133, 17, 2, 136, 17, 2, 133, 17, 2, 116, 17, 2, 133, 22, 2, 133, 22, 2, 116, 17, 2, 116, 22, 2, 105, 33, 2, 105, 21, 2, 91, 33, 2, 91, 33, 2, 105, 21, 2, 91, 21, 2, 87, 7, 2, 87, 17, 2, 94, 7, 2, 94, 7, 2, 87, 17, 2, 94, 17, 2, 87, 17, 2, 49.1453, 17, 2, 87, 37, 2, 87, 37, 2, 49.1453, 17, 2, 49.1453, 37, 2, 87, 37, 2, 49.1453, 37, 2, 87, 47, 2, 87, 47, 2, 49.1453, 37, 2, 49.1453, 47, 2, 87, 37, 2, 87, 47, 2, 182, 37, 2, 182, 37, 2, 87, 47, 2, 182, 47, 2, 182, 24, 2, 149, 24, 2, 182, 30, 2, 182, 30, 2, 149, 24, 2, 149, 30, 2, 182, 13, 2, 178, 13, 2, 182, 24, 2, 182, 24, 2, 178, 13, 2, 149, 24, 2, 182, -2, 2, 178, -2, 2, 182, 13, 2, 182, 13, 2, 178, -2, 2, 178, 13, 2, 178, -5, 2, 178, -2, 2, 182, -5, 2, 182, -5, 2, 178, -2, 2, 182, -2, 2, 178, -28, 2, 178, -5, 2, 182, -28, 2, 182, -28, 2, 178, -5, 2, 182, -5, 2, 178, -31, 2, 178, -28, 2, 182, -31, 2, 182, -31, 2, 178, -28, 2, 182, -28, 2, 190, 30, 2, 182, 30, 2, 190, 37, 2, 190, 37, 2, 182, 30, 2, 182, 37, 2, 190, 37, 2, 182, 37, 2, 190, 47, 2, 190, 47, 2, 182, 37, 2, 182, 47, 2, 31, 0, 2, 0, 0, 2, 31, 0, -2, 31, 0, -2, 0, 0, 2, 0, 0, -2, 35, 2, 2, 31, 0, 2, 35, 2, -2, 35, 2, -2, 31, 0, 2, 31, 0, -2, 51, 2, 2, 35, 2, 2, 51, 2, -2, 51, 2, -2, 35, 2, 2, 35, 2, -2, 51, -8, 2, 55, -8, 2, 51, -8, -2, 51, -8, -2, 55, -8, 2, 55, -8, -2, 55, 4, 2, 51, 2, 2, 55, 4, -2, 55, 4, -2, 51, 2, 2, 51, 2, -2, 55, -8, 2, 59, -8, 2, 55, -8, -2, 55, -8, -2, 59, -8, 2, 59, -8, -2, 59, 4, 2, 55, 4, 2, 59, 4, -2, 59, 4, -2, 55, 4, 2, 55, 4, -2, 59, -0.0052, 2, 59, 4, 2, 59, -0.0052, -2, 59, -0.0052, -2, 59, 4, 2, 59, 4, -2, 0, 0, 2, 0, 7, 2, 0, 0, -2, 0, 0, -2, 0, 7, 2, 0, 7, -2, 59, -8, 2, 66, -8, 2, 59, -8, -2, 59, -8, -2, 66, -8, 2, 66, -8, -2, 66, -0.0052, 2, 59, -0.0052, 2, 66, -0.0052, -2, 66, -0.0052, -2, 59, -0.0052, 2, 59, -0.0052, -2, 87, -8, 2, 87, -0.0052, 2, 87, -8, -2, 87, -8, -2, 87, -0.0052, 2, 87, -0.0052, -2, 0, 7, 2, 37.115, 7, 2, 0, 7, -2, 0, 7, -2, 37.115, 7, 2, 37.115, 7, -2, 49.1453, 7, 2, 87, 7, 2, 49.1453, 7, -2, 49.1453, 7, -2, 87, 7, 2, 87, 7, -2, 37.115, 7, 2, 37.115, 4, 2, 37.115, 7, -2, 37.115, 7, -2, 37.115, 4, 2, 37.115, 4, -2, 49.1453, 4, 2, 49.1453, 7, 2, 49.1453, 4, -2, 49.1453, 4, -2, 49.1453, 7, 2, 49.1453, 7, -2, 37.115, 4, 2, 49.1453, 4, 2, 37.115, 4, -2, 37.115, 4, -2, 49.1453, 4, 2, 49.1453, 4, -2, 108, 17, 2, 94, 17, 2, 108, 17, -2, 108, 17, -2, 94, 17, 2, 94, 17, -2, 94, 7, 2, 94, 5, 2, 94, 7, -2, 94, 7, -2, 94, 5, 2, 94, 5, -2, 94, -21, 2, 108, -21, 2, 94, -21, -2, 94, -21, -2, 108, -21, 2, 108, -21, -2, 109, -21, 2, 109, -15, 2, 109, -21, -2, 109, -21, -2, 109, -15, 2, 109, -15, -2, 94, -15, 2, 74, -15, 2, 94, -15, -2, 94, -15, -2, 74, -15, 2, 74, -15, -2, 74, -21, 2, 94, -21, 2, 74, -21, -2, 74, -21, -2, 94, -21, 2, 94, -21, -2, 58, -15, 2, 58, -21, 2, 58, -15, -2, 58, -15, -2, 58, -21, 2, 58, -21, -2, 51, -21, 2, 51, -8, 2, 51, -21, -2, 51, -21, -2, 51, -8, 2, 51, -8, -2, 61.5, -28, 2, 51, -21, 2, 61.5, -28, -2, 61.5, -28, -2, 51, -21, 2, 51, -21, -2, 68, -0.0052, 2, 66, -0.0052, 2, 68, -0.0052, -2, 68, -0.0052, -2, 66, -0.0052, 2, 66, -0.0052, -2, 68, -8, 2, 87, -8, 2, 68, -8, -2, 68, -8, -2, 87, -8, 2, 87, -8, -2, 87, -0.0052, 2, 68, -0.0052, 2, 87, -0.0052, -2, 87, -0.0052, -2, 68, -0.0052, 2, 68, -0.0052, -2, 66, -8, 2, 66, -11, 2, 66, -8, -2, 66, -8, -2, 66, -11, 2, 66, -11, -2, 68, -11, 2, 68, -8, 2, 68, -11, -2, 68, -11, -2, 68, -8, 2, 68, -8, -2, 66, -11, 2, 68, -11, 2, 66, -11, -2, 66, -11, -2, 68, -11, 2, 68, -11, -2, 72, -15, 2, 58, -15, 2, 72, -15, -2, 72, -15, -2, 58, -15, 2, 58, -15, -2, 58, -21, 2, 72, -21, 2, 58, -21, -2, 58, -21, -2, 72, -21, 2, 72, -21, -2, 72, -21, 2, 74, -21, 2, 72, -21, -2, 72, -21, -2, 74, -21, 2, 74, -21, -2, 74, -15, 2, 74, -12, 2, 74, -15, -2, 74, -15, -2, 74, -12, 2, 74, -12, -2, 72, -12, 2, 72, -15, 2, 72, -12, -2, 72, -12, -2, 72, -15, 2, 72, -15, -2, 74, -12, 2, 72, -12, 2, 74, -12, -2, 74, -12, -2, 72, -12, 2, 72, -12, -2, 62.5, -28, 2, 61.5, -28, 2, 62.5, -28, -2, 62.5, -28, -2, 61.5, -28, 2, 61.5, -28, -2, 62.5, -31, 2, 62.5, -28, 2, 62.5, -31, -2, 62.5, -31, -2, 62.5, -28, 2, 62.5, -28, -2, 97, -28, 2, 78, -28, 2, 97, -28, -2, 97, -28, -2, 78, -28, 2, 78, -28, -2, 78, -28, 2, 78, -31, 2, 78, -28, -2, 78, -28, -2, 78, -31, 2, 78, -31, -2, 78, -31, 2, 62.5, -31, 2, 78, -31, -2, 78, -31, -2, 62.5, -31, 2, 62.5, -31, -2, 116, -28, 2, 97, -28, 2, 116, -28, -2, 116, -28, -2, 97, -28, 2, 97, -28, -2, 116, -19, 2, 116, -28, 2, 116, -19, -2, 116, -19, -2, 116, -28, 2, 116, -28, -2, 129, 0, 2, 116, 0, 2, 129, 0, -2, 129, 0, -2, 116, 0, 2, 116, 0, -2, 109, 7, 2, 116, 7, 2, 109, 7, -2, 109, 7, -2, 116, 7, 2, 116, 7, -2, 116, 17, 2, 109, 17, 2, 116, 17, -2, 116, 17, -2, 109, 17, 2, 109, 17, -2, 149, 17, 2, 136, 17, 2, 149, 17, -2, 149, 17, -2, 136, 17, 2, 136, 17, -2, 136, 7, 2, 136, -13, 2, 136, 7, -2, 136, 7, -2, 136, -13, 2, 136, -13, -2, 136, -13, 2, 149, -13, 2, 136, -13, -2, 136, -13, -2, 149, -13, 2, 149, -13, -2, 94, -13, 2, 94, -15, 2, 94, -13, -2, 94, -13, -2, 94, -15, 2, 94, -15, -2, 109, 17, 2, 108, 17, 2, 109, 17, -2, 109, 17, -2, 108, 17, 2, 108, 17, -2, 108, 7, 2, 109, 7, 2, 108, 7, -2, 108, 7, -2, 109, 7, 2, 109, 7, -2, 108, -13, 2, 109, -13, 2, 108, -13, -2, 108, -13, -2, 109, -13, 2, 109, -13, -2, 109, -15, 2, 108, -15, 2, 109, -15, -2, 109, -15, -2, 108, -15, 2, 108, -15, -2, 108, -21, 2, 109, -21, 2, 108, -21, -2, 108, -21, -2, 109, -21, 2, 109, -21, -2, 108, 5, 2, 108, 7, 2, 108, 5, -2, 108, 5, -2, 108, 7, 2, 108, 7, -2, 108, -15, 2, 108, -13, 2, 108, -15, -2, 108, -15, -2, 108, -13, 2, 108, -13, -2, 94, -3, 2, 94, -5, 2, 94, -3, -2, 94, -3, -2, 94, -5, 2, 94, -5, -2, 108, -5, 2, 108, -3, 2, 108, -5, -2, 108, -5, -2, 108, -3, 2, 108, -3, -2, 108, -3, 2, 109, -3, 2, 108, -3, -2, 108, -3, -2, 109, -3, 2, 109, -3, -2, 94, -5, 2, 94, -13, 2, 94, -5, -2, 94, -5, -2, 94, -13, 2, 94, -13, -2, 109, -13, 2, 109, -5, 2, 109, -13, -2, 109, -13, -2, 109, -5, 2, 109, -5, -2, 109, -5, 2, 108, -5, 2, 109, -5, -2, 109, -5, -2, 108, -5, 2, 108, -5, -2, 94, 5, 2, 94, -3, 2, 94, 5, -2, 94, 5, -2, 94, -3, 2, 94, -3, -2, 109, -3, 2, 109, 5, 2, 109, -3, -2, 109, -3, -2, 109, 5, 2, 109, 5, -2, 109, 5, 2, 108, 5, 2, 109, 5, -2, 109, 5, -2, 108, 5, 2, 108, 5, -2, 116, 0, 2, 116, -17, 2, 116, 0, -2, 116, 0, -2, 116, -17, 2, 116, -17, -2, 129, -17, 2, 129, 0, 2, 129, -17, -2, 129, -17, -2, 129, 0, 2, 129, 0, -2, 155.801, -17, 2, 129, -17, 2, 155.801, -17, -2, 155.801, -17, -2, 129, -17, 2, 129, -17, -2, 160.995, -12.4703, 2, 155.801, -17, 2, 160.995, -12.4703, -2, 160.995, -12.4703, -2, 155.801, -17, 2, 155.801, -17, -2, 173, 9, 2, 149, 17, 2, 173, 9, -2, 173, 9, -2, 149, 17, 2, 149, 17, -2, 173, 7, 2, 173, 9, 2, 173, 7, -2, 173, 7, -2, 173, 9, 2, 173, 9, -2, 149, -13, 2, 173, 5, 2, 149, -13, -2, 149, -13, -2, 173, 5, 2, 173, 5, -2, 173, 5, 2, 173, 7, 2, 173, 5, -2, 173, 5, -2, 173, 7, 2, 173, 7, -2, 160.995, -14, 2, 160.995, -12.4703, 2, 160.995, -14, -2, 160.995, -14, -2, 160.995, -12.4703, 2, 160.995, -12.4703, -2, 173, -2, 2, 163.007, -10.715, 2, 173, -2, -2, 173, -2, -2, 163.007, -10.715, 2, 163.007, -10.715, -2, 163.007, -10.715, 2, 163.007, -14, 2, 163.007, -10.715, -2, 163.007, -10.715, -2, 163.007, -14, 2, 163.007, -14, -2, 163.007, -14, 2, 160.995, -14, 2, 163.007, -14, -2, 163.007, -14, -2, 160.995, -14, 2, 160.995, -14, -2, 111, -19, 2, 116, -19, 2, 111, -19, -2, 111, -19, -2, 116, -19, 2, 116, -19, -2, 116, -17, 2, 111, -17, 2, 116, -17, -2, 116, -17, -2, 111, -17, 2, 111, -17, -2, 111, -17, 2, 111, -19, 2, 111, -17, -2, 111, -17, -2, 111, -19, 2, 111, -19, -2, 178, -2, 2, 173, -2, 2, 178, -2, -2, 178, -2, -2, 173, -2, 2, 173, -2, -2, 178, 13, 2, 178, -2, 2, 178, 13, -2, 178, 13, -2, 178, -2, 2, 178, -2, -2, 149, 24, 2, 178, 13, 2, 149, 24, -2, 149, 24, -2, 178, 13, 2, 178, 13, -2, 182, 30, 2, 149, 30, 2, 182, 30, -2, 182, 30, -2, 149, 30, 2, 149, 30, -2, 109, 24, 2, 149, 24, 2, 109, 24, -2, 109, 24, -2, 149, 24, 2, 149, 24, -2, 149, 30, 2, 109, 30, 2, 149, 30, -2, 149, 30, -2, 109, 30, 2, 109, 30, -2, 109, 30, 2, 109, 24, 2, 109, 30, -2, 109, 30, -2, 109, 24, 2, 109, 24, -2, 116, 7, 2, 133, 7, 2, 116, 7, -2, 116, 7, -2, 133, 7, 2, 133, 7, -2, 133, 7, 2, 136, 7, 2, 133, 7, -2, 133, 7, -2, 136, 7, 2, 136, 7, -2, 136, 17, 2, 133, 17, 2, 136, 17, -2, 136, 17, -2, 133, 17, 2, 133, 17, -2, 116, 22, 2, 116, 17, 2, 116, 22, -2, 116, 22, -2, 116, 17, 2, 116, 17, -2, 133, 17, 2, 133, 22, 2, 133, 17, -2, 133, 17, -2, 133, 22, 2, 133, 22, -2, 133, 22, 2, 116, 22, 2, 133, 22, -2, 133, 22, -2, 116, 22, 2, 116, 22, -2, 91, 33, 2, 91, 21, 2, 91, 33, -2, 91, 33, -2, 91, 21, 2, 91, 21, -2, 91, 21, 2, 105, 21, 2, 91, 21, -2, 91, 21, -2, 105, 21, 2, 105, 21, -2, 105, 33, 2, 91, 33, 2, 105, 33, -2, 105, 33, -2, 91, 33, 2, 91, 33, -2, 105, 21, 2, 105, 33, 2, 105, 21, -2, 105, 21, -2, 105, 33, 2, 105, 33, -2, 87, 7, 2, 94, 7, 2, 87, 7, -2, 87, 7, -2, 94, 7, 2, 94, 7, -2, 94, 17, 2, 87, 17, 2, 94, 17, -2, 94, 17, -2, 87, 17, 2, 87, 17, -2, 87, 17, 2, 87, 37, 2, 87, 17, -2, 87, 17, -2, 87, 37, 2, 87, 37, -2, 87, 37, 2, 182, 37, 2, 87, 37, -2, 87, 37, -2, 182, 37, 2, 182, 37, -2, 182, 37, 2, 182, 30, 2, 182, 37, -2, 182, 37, -2, 182, 30, 2, 182, 30, -2, 97, -31, 2, 116, -31, 2, 97, -36, 2, 97, -36, 2, 116, -31, 2, 116, -36, 2, 116, -31, 2, 129, -31, 2, 116, -36, 2, 116, -36, 2, 129, -31, 2, 129, -36, 2, 129, -31, 2, 155.801, -31, 2, 129, -36, 2, 129, -36, 2, 155.801, -31, 2, 155.801, -36, 2, 155.801, -31, 2, 160.995, -31, 2, 155.801, -36, 2, 155.801, -36, 2, 160.995, -31, 2, 160.995, -36, 2, 160.995, -31, 2, 163.007, -31, 2, 160.995, -36, 2, 160.995, -36, 2, 163.007, -31, 2, 163.007, -36, 2, 163.007, -31, 2, 173, -31, 2, 163.007, -36, 2, 163.007, -36, 2, 173, -31, 2, 173, -36, 2, 173, -31, 2, 178, -31, 2, 173, -36, 2, 173, -36, 2, 178, -31, 2, 178, -36, 2, 178, -31, 2, 182, -31, 2, 178, -36, 2, 178, -36, 2, 182, -31, 2, 182, -36, 2, 182, -31, 2, 190, -31, 2, 182, -36, 2, 182, -36, 2, 190, -31, 2, 190, -36, 2 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.60589, 2.99245, 1 )
+
+[sub_resource type="QuadMesh" id=4]
+size = Vector2( 100, 100 )
+
+[sub_resource type="Animation" id=5]
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Rot_Z/Rot_X:rotation_degrees:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -8.53774e-07, -0.25, 0, 0.25, 0, -5.5, -0.25, 0, 0.25, 0, -5.5, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 0.8, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Rot_Z:rotation_degrees:z")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 720, -0.287951, -4.46033, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Animation" id=6]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -180, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "turnleft"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "turnright"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "turnleft"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=11]
+blend_point_0/node = SubResource( 8 )
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource( 9 )
+blend_point_1/pos = 1.0
+blend_point_2/node = SubResource( 10 )
+blend_point_2/pos = -1.0
+
+[sub_resource type="AnimationNodeBlendTree" id=12]
+graph_offset = Vector2( -362, 104 )
+nodes/left_right_blend/node = SubResource( 11 )
+nodes/left_right_blend/position = Vector2( -140, 160 )
+nodes/output/position = Vector2( 380, 160 )
+node_connections = [ "output", 0, "left_right_blend" ]
+
+[sub_resource type="PhysicsMaterial" id=13]
+
+[node name="Template" type="Spatial"]
+script = ExtResource( 21 )
+Current_Scene_Path = "res://Scenes/Template.tscn"
+
+[node name="overlay" type="CanvasLayer" parent="."]
+layer = 25
+
+[node name="ColorRect" type="ColorRect" parent="overlay"]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scene_trans" parent="." instance=ExtResource( 14 )]
+Fadein = true
+
+[node name="Level_01" type="MeshInstance" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -61.152, 1, 0 )
+mesh = ExtResource( 4 )
+material/0 = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody" type="StaticBody" parent="Level_01"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Level_01/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="Level_End" parent="." instance=ExtResource( 22 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 185.679, 61, 0 )
+
+[node name="End_Shatered" parent="Level_End" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.5992, 3.55711, 0 )
+
+[node name="Game_End_Triger" type="Area" parent="Level_End"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.8274, 3.25196, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Level_End/Game_End_Triger"]
+shape = SubResource( 3 )
+
+[node name="Wall" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, -20 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Wall2" type="MeshInstance" parent="Wall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 1 )
+
+[node name="Wall3" type="MeshInstance" parent="Wall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 1 )
+
+[node name="Wall4" type="MeshInstance" parent="Wall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 1 )
+
+[node name="Wall5" type="MeshInstance" parent="Wall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 400, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 1 )
+
+[node name="Wall2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 100, -20 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Wall2" type="MeshInstance" parent="Wall2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 1 )
+
+[node name="Wall3" type="MeshInstance" parent="Wall2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 1 )
+
+[node name="Wall4" type="MeshInstance" parent="Wall2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 1 )
+
+[node name="Wall5" type="MeshInstance" parent="Wall2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 400, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 1 )
+
+[node name="Wall3" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50, -100, -20 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Wall2" type="MeshInstance" parent="Wall3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 1 )
+
+[node name="Wall3" type="MeshInstance" parent="Wall3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 1 )
+
+[node name="Wall4" type="MeshInstance" parent="Wall3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 1 )
+
+[node name="Wall5" type="MeshInstance" parent="Wall3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 400, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = ExtResource( 1 )
+
+[node name="Character_Follow" type="Spatial" parent="."]
+transform = Transform( 1, 0, 6.51682e-07, 0, 1, 0, -6.51682e-07, 0, 1, -44.823, 3.894, 0 )
+script = ExtResource( 2 )
+Follow_Target = NodePath("../../Template/Ball")
+
+[node name="SpotLight" type="SpotLight" parent="Character_Follow"]
+transform = Transform( 1, 6.51682e-07, 1.06173e-13, 0, -1.62921e-07, 1, 6.51682e-07, -1, -1.62921e-07, 0.0527, 11.2422, 0.271028 )
+light_bake_mode = 0
+spot_range = 15.258
+spot_angle = 18.5445
+
+[node name="Character_mounts" type="Spatial" parent="Character_Follow"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.53674e-07, 1.45435e-05 )
+script = ExtResource( 15 )
+
+[node name="Rot_Z" type="Spatial" parent="Character_Follow/Character_mounts"]
+
+[node name="Rot_X" type="Spatial" parent="Character_Follow/Character_mounts/Rot_Z"]
+transform = Transform( 1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 0, 0, 0 )
+
+[node name="mount_right" type="Position3D" parent="Character_Follow/Character_mounts/Rot_Z/Rot_X"]
+transform = Transform( 1, 0, 5.68434e-14, 0, 1, -1.49012e-08, -5.68434e-14, 1.49012e-08, 1, 0, 0, 0 )
+
+[node name="mount_antina" type="Position3D" parent="Character_Follow/Character_mounts/Rot_Z/Rot_X"]
+transform = Transform( 1, 0, 5.68434e-14, 0, 1, -1.49012e-08, -5.68434e-14, 1.49012e-08, 1, 0, 0.106881, 1.14465 )
+
+[node name="mount_left" type="Position3D" parent="Character_Follow/Character_mounts/Rot_Z/Rot_X"]
+transform = Transform( 1, 0, -5.68434e-14, 0, 1, 1.49012e-08, -5.68434e-14, 1.49012e-08, -1, 0, 0, 0 )
+
+[node name="Chanacter_Animation" type="AnimationPlayer" parent="Character_Follow/Character_mounts"]
+autoplay = "turnright"
+anims/collision = SubResource( 5 )
+anims/turnleft = SubResource( 6 )
+anims/turnright = SubResource( 7 )
+
+[node name="Character_Animation_Blend" type="AnimationTree" parent="Character_Follow/Character_mounts"]
+tree_root = SubResource( 12 )
+anim_player = NodePath("../Chanacter_Animation")
+parameters/left_right_blend/blend_position = 0.998201
+script = ExtResource( 17 )
+
+[node name="Camera_Position" type="Spatial" parent="Character_Follow"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.28882e-05, 3.606, 35 )
+
+[node name="Target_L" parent="Character_Follow" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.75, 16.106, -1.54774e-05 )
+
+[node name="Target_R" parent="Character_Follow" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.75, 16.106, 1.54774e-05 )
+
+[node name="Shake_Camera" type="Spatial" parent="."]
+transform = Transform( 1, 0, 6.51682e-07, 0, 1, 0, -6.51682e-07, 0, 1, -44.823, 7.5, 35 )
+script = ExtResource( 24 )
+
+[node name="Camera" type="Camera" parent="Shake_Camera"]
+current = true
+fov = 35.0
+script = ExtResource( 18 )
+Follow_Target = NodePath("../../Ball")
+
+[node name="Ball" parent="." groups=[
+"player",
+] instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.823, 3.894, 1.46052e-05 )
+physics_material_override = SubResource( 13 )
+gravity_scale = 3.0
+Target_L_path = NodePath("../Character_Follow/Target_L")
+Target_R_path = NodePath("../Character_Follow/Target_R")
+Impulse_power = 80.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 20 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( -0.973916, -0.0952142, 0.205968, 0.225666, -0.50138, 0.83528, 0.0237378, 0.859972, 0.509789, -41.2129, 20.404, 13.2258 )
+shadow_enabled = true
+shadow_bias = -0.1
+shadow_reverse_cull_face = true
+directional_shadow_normal_bias = 0.5
+directional_shadow_depth_range = 1
+
+[node name="DirectionalLight2" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.587785, -0.809017, 0, 0.809017, 0.587785, -41.2129, 20.404, 13.2258 )
+light_energy = 0.2
+
+[node name="UserInterfaceLayer" type="CanvasLayer" parent="."]
+layer = 50
+
+[node name="UserInterface" parent="UserInterfaceLayer" instance=ExtResource( 11 )]
+
+[node name="TouchcontolsLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Touch_Contols" type="Control" parent="TouchcontolsLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="TouchcontolsLayer/Touch_Contols"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TouchcontolsLayer/Touch_Contols/MarginContainer"]
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+
+[node name="Top" type="Control" parent="TouchcontolsLayer/Touch_Contols/MarginContainer/VBoxContainer"]
+margin_right = 1280.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TouchcontolsLayer/Touch_Contols/MarginContainer/VBoxContainer"]
+margin_top = 104.0
+margin_right = 1280.0
+margin_bottom = 676.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="left" type="Control" parent="TouchcontolsLayer/Touch_Contols/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 20.0
+margin_bottom = 572.0
+rect_min_size = Vector2( 20, 0 )
+size_flags_vertical = 3
+
+[node name="Left_Button_Con" type="Control" parent="TouchcontolsLayer/Touch_Contols/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 24.0
+margin_right = 631.0
+margin_bottom = 572.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Left_TouchScreenButton" type="TouchScreenButton" parent="TouchcontolsLayer/Touch_Contols/MarginContainer/VBoxContainer/HBoxContainer/Left_Button_Con"]
+normal = ExtResource( 3 )
+action = "left"
+script = ExtResource( 7 )
+
+[node name="Center" type="Control" parent="TouchcontolsLayer/Touch_Contols/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 635.0
+margin_right = 645.0
+margin_bottom = 572.0
+rect_min_size = Vector2( 10, 0 )
+size_flags_vertical = 3
+
+[node name="Right_Button_Con" type="Control" parent="TouchcontolsLayer/Touch_Contols/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 649.0
+margin_right = 1256.0
+margin_bottom = 572.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Right_TouchScreenButton" type="TouchScreenButton" parent="TouchcontolsLayer/Touch_Contols/MarginContainer/VBoxContainer/HBoxContainer/Right_Button_Con"]
+normal = ExtResource( 3 )
+action = "right"
+script = ExtResource( 7 )
+
+[node name="Right" type="Control" parent="TouchcontolsLayer/Touch_Contols/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 1260.0
+margin_right = 1280.0
+margin_bottom = 572.0
+rect_min_size = Vector2( 20, 0 )
+size_flags_vertical = 3
+
+[node name="Bottom" type="Control" parent="TouchcontolsLayer/Touch_Contols/MarginContainer/VBoxContainer"]
+margin_top = 680.0
+margin_right = 1280.0
+margin_bottom = 720.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fps_lable" type="CanvasLayer" parent="."]
+script = ExtResource( 5 )
+margin = 68
+
+[node name="Coins" type="Spatial" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.684, 2.49058, 0 )
+reverb_bus_enable = true
+
+[node name="Coin2" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.357028, 2.49058, 0 )
+reverb_bus_enable = true
+
+[node name="Coin3" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.67092, 10.9169, 0 )
+reverb_bus_enable = true
+
+[node name="Coin4" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.7099, 10.9169, 0 )
+reverb_bus_enable = true
+
+[node name="Coin5" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55.2723, 10.9169, 0 )
+reverb_bus_enable = true
+
+[node name="Coin6" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61.4629, 9.88508, 0 )
+reverb_bus_enable = true
+
+[node name="Coin7" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.7039, 7.7295, 0 )
+reverb_bus_enable = true
+
+[node name="Coin8" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 70.2716, 5.00816, 0 )
+reverb_bus_enable = true
+
+[node name="Coin9" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.912, 2.49058, 0 )
+reverb_bus_enable = true
+
+[node name="Coin10" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80.6485, 2.49058, 0 )
+reverb_bus_enable = true
+
+[node name="Coin11" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 88.5463, 4.64242, 0 )
+reverb_bus_enable = true
+
+[node name="Coin12" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 96.8864, 7.54124, 0 )
+reverb_bus_enable = true
+
+[node name="Coin13" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 106.602, 8.93927, 0 )
+reverb_bus_enable = true
+
+[node name="Coin14" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 115.2, 10.143, 0 )
+reverb_bus_enable = true
+
+[node name="Coin15" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 121.907, 10.401, 0 )
+reverb_bus_enable = true
+
+[node name="Coin16" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 124.739, -0.780665, 0 )
+reverb_bus_enable = true
+
+[node name="Coin17" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 124.739, -12.7364, 0 )
+reverb_bus_enable = true
+
+[node name="Coin18" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 120.961, -27.0145, 0 )
+reverb_bus_enable = true
+
+[node name="Coin19" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 114.94, -24.7027, 0 )
+reverb_bus_enable = true
+
+[node name="Coin20" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 107.199, -22.2453, 0 )
+reverb_bus_enable = true
+
+[node name="Coin21" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 98.7696, -20.0995, 0 )
+reverb_bus_enable = true
+
+[node name="Coin22" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 90.6844, -19.1335, 0 )
+reverb_bus_enable = true
+
+[node name="Coin23" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.3943, -18.3916, 0 )
+reverb_bus_enable = true
+
+[node name="Coin24" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 77.0944, -17.5105, 0 )
+reverb_bus_enable = true
+
+[node name="Coin25" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 43.7215, -40.5185, 0 )
+reverb_bus_enable = true
+
+[node name="Coin26" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.3621, -43.6449, 0 )
+reverb_bus_enable = true
+
+[node name="Coin27" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.1068, -46.9093, 0 )
+reverb_bus_enable = true
+
+[node name="Coin28" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 57.8648, -50.0033, 0 )
+reverb_bus_enable = true
+
+[node name="Coin29" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.1875, -52.5937, 0 )
+reverb_bus_enable = true
+
+[node name="Coin30" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 133.261, -53.0659, 0 )
+reverb_bus_enable = true
+
+[node name="Coin31" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 137.749, -53.0659, 0 )
+reverb_bus_enable = true
+
+[node name="Coin32" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 142.749, -53.0659, 0 )
+reverb_bus_enable = true
+
+[node name="Coin33" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 148.134, -53.0659, 0 )
+reverb_bus_enable = true
+
+[node name="Coin37" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 133.261, -48.8933, 0 )
+reverb_bus_enable = true
+
+[node name="Coin36" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 137.749, -48.8933, 0 )
+reverb_bus_enable = true
+
+[node name="Coin35" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 142.749, -48.8933, 0 )
+reverb_bus_enable = true
+
+[node name="Coin34" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 148.134, -48.8933, 0 )
+reverb_bus_enable = true
+
+[node name="Coin41" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 133.261, -44.5942, 0 )
+reverb_bus_enable = true
+
+[node name="Coin40" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 137.749, -44.5942, 0 )
+reverb_bus_enable = true
+
+[node name="Coin39" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 142.749, -44.5942, 0 )
+reverb_bus_enable = true
+
+[node name="Coin38" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 148.134, -44.5942, 0 )
+reverb_bus_enable = true
+
+[node name="Coin42" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 156.092, -27.899, 0 )
+reverb_bus_enable = true
+
+[node name="Coin43" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 156.092, -7.80262, 0 )
+reverb_bus_enable = true
+
+[node name="Coin44" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 156.092, 12.3347, 0 )
+reverb_bus_enable = true
+
+[node name="Coin45" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 169.249, -18.8268, 0 )
+reverb_bus_enable = true
+
+[node name="Coin46" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 169.249, -15.1913, 0 )
+reverb_bus_enable = true
+
+[node name="Coin47" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 173.631, 2.55344, 0 )
+reverb_bus_enable = true
+
+[node name="Coin48" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 177.353, 2.55344, 0 )
+reverb_bus_enable = true
+
+[node name="Coin49" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 181.322, 2.55344, 0 )
+reverb_bus_enable = true
+
+[node name="Coin50" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 185.328, 2.55344, 0 )
+reverb_bus_enable = true
+
+[node name="Coin51" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 189.493, 2.55344, 0 )
+reverb_bus_enable = true
+
+[node name="Coin52" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 193.659, 2.55344, 0 )
+reverb_bus_enable = true
+
+[node name="Coin53" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 249.587, -31.0171, 0 )
+reverb_bus_enable = true
+
+[node name="Coin54" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 258.062, -24.1092, 0 )
+reverb_bus_enable = true
+
+[node name="Coin55" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 266.646, -16.7261, 0 )
+reverb_bus_enable = true
+
+[node name="Coin56" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 274.269, -10.3033, 0 )
+reverb_bus_enable = true
+
+[node name="Coin57" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 282.012, -3.94061, 0 )
+reverb_bus_enable = true
+
+[node name="Coin58" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 288.362, 28.2372, 0 )
+reverb_bus_enable = true
+
+[node name="Coin59" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 279.178, 31.5387, 0 )
+reverb_bus_enable = true
+
+[node name="Coin60" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 270.294, 34.9001, 0 )
+reverb_bus_enable = true
+
+[node name="Coin61" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 260.593, 38.3407, 0 )
+reverb_bus_enable = true
+
+[node name="Coin62" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 251.77, 41.7622, 0 )
+reverb_bus_enable = true
+
+[node name="Coin63" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 242.045, 45.4838, 0 )
+reverb_bus_enable = true
+
+[node name="Coin64" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 234.942, 47.5008, 0 )
+reverb_bus_enable = true
+
+[node name="Coin65" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 226.611, 47.5008, 0 )
+reverb_bus_enable = true
+
+[node name="Coin66" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 217.666, 47.5008, 0 )
+reverb_bus_enable = true
+
+[node name="Coin67" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 210.016, 47.5008, 0 )
+reverb_bus_enable = true
+
+[node name="Coin68" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 202.543, 47.5008, 0 )
+reverb_bus_enable = true
+
+[node name="Coin69" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 196.579, 47.5008, 0 )
+reverb_bus_enable = true
+
+[node name="Coin70" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 190.616, 47.5008, 0 )
+reverb_bus_enable = true
+
+[node name="Coin71" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 184.689, 47.5737, 0 )
+reverb_bus_enable = true
+
+[node name="Coin72" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 179.039, 47.574, 0 )
+reverb_bus_enable = true
+
+[node name="Coin73" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 173.689, 47.5737, 0 )
+reverb_bus_enable = true
+
+[node name="Coin74" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 150.8, 45.165, 0 )
+reverb_bus_enable = true
+
+[node name="Coin75" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 150.8, 51.7423, 0 )
+reverb_bus_enable = true
+
+[node name="Coin76" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 150.8, 58.4073, 0 )
+reverb_bus_enable = true
+
+[node name="Coin77" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 150.8, 64.9846, 0 )
+reverb_bus_enable = true
+
+[node name="Coin78" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 118.615, 64.9846, 0 )
+reverb_bus_enable = true
+
+[node name="Coin79" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 118.615, 58.4073, 0 )
+reverb_bus_enable = true
+
+[node name="Coin80" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 118.615, 51.7423, 0 )
+reverb_bus_enable = true
+
+[node name="Coin81" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 118.615, 45.165, 0 )
+reverb_bus_enable = true
+
+[node name="Coin82" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 123.175, 41.3484, 0 )
+reverb_bus_enable = true
+
+[node name="Coin83" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 130.279, 41.3484, 0 )
+reverb_bus_enable = true
+
+[node name="Coin84" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 137.805, 41.3484, 0 )
+reverb_bus_enable = true
+
+[node name="Coin85" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 145.84, 41.3484, 0 )
+reverb_bus_enable = true
+
+[node name="Coin86" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 145.84, 68.4788, 0 )
+reverb_bus_enable = true
+
+[node name="Coin87" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 137.805, 68.4788, 0 )
+reverb_bus_enable = true
+
+[node name="Coin88" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 130.279, 68.4788, 0 )
+reverb_bus_enable = true
+
+[node name="Coin89" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 123.175, 68.4788, 0 )
+reverb_bus_enable = true
+
+[node name="Coin90" parent="Coins" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 241.309, -31.0441, 0 )
+reverb_bus_enable = true
+
+[node name="Spikes" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.58396, 0.974437, 0 )
+
+[node name="Spike" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -6, 14, 0 )
+
+[node name="Spike2" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -4, 14, 0 )
+
+[node name="Spike3" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -2, 14, 0 )
+
+[node name="Spike4" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 1.43051e-06, 14, 0 )
+
+[node name="Spike5" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 2, 14, 0 )
+
+[node name="Spike6" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 70.6869, -62, 0 )
+
+[node name="Spike7" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 72.6869, -62, 0 )
+
+[node name="Spike8" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 74.6869, -62, 0 )
+
+[node name="Spike9" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 76.6869, -62, 0 )
+
+[node name="Spike13" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 78.6869, -62, 0 )
+
+[node name="Spike12" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 80.6869, -62, 0 )
+
+[node name="Spike11" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 82.6869, -62, 0 )
+
+[node name="Spike10" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 84.6869, -62, 0 )
+
+[node name="Spike17" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 86.6869, -62, 0 )
+
+[node name="Spike16" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 88.6869, -62, 0 )
+
+[node name="Spike15" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 90.6869, -62, 0 )
+
+[node name="Spike14" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 92.6869, -62, 0 )
+
+[node name="Spike19" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 94.6869, -62, 0 )
+
+[node name="Spike18" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 96.6869, -62, 0 )
+
+[node name="Spike20" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 98.6869, -62, 0 )
+
+[node name="Spike21" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -2.18557e-07, -1, 0, 1, -2.18557e-07, 0, 0, 0, 1, 176.411, -28.9712, 0 )
+
+[node name="Spike22" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -2.18557e-07, -1, 0, 1, -2.18557e-07, 0, 0, 0, 1, 176.411, -26.9712, 0 )
+
+[node name="Spike24" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -2.18557e-07, -1, 0, 1, -2.18557e-07, 0, 0, 0, 1, 176.411, -9.69678, 0 )
+
+[node name="Spike23" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -2.18557e-07, -1, 0, 1, -2.18557e-07, 0, 0, 0, 1, 176.411, -7.69678, 0 )
+
+[node name="Spike26" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 3.0598e-07, 1, 0, -1, 3.0598e-07, 0, 0, 0, 1, 162.379, -17.4105, 0 )
+
+[node name="Spike25" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 3.0598e-07, 1, 0, -1, 3.0598e-07, 0, 0, 0, 1, 162.379, -19.4105, 0 )
+
+[node name="Spike27" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, 2.62269e-07, 0, -2.62269e-07, -1, 0, 0, 0, 1, 182.889, 14.0033, 0 )
+
+[node name="Spike28" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, 2.62269e-07, 0, -2.62269e-07, -1, 0, 0, 0, 1, 184.889, 14.0033, 0 )
+
+[node name="Spike29" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, 2.62269e-07, 0, -2.62269e-07, -1, 0, 0, 0, 1, 186.889, 14.0033, 0 )
+
+[node name="Spike30" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, 2.62269e-07, 0, -2.62269e-07, -1, 0, 0, 0, 1, 188.889, 14.0033, 0 )
+
+[node name="Spike31" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, 2.62269e-07, 0, -2.62269e-07, -1, 0, 0, 0, 1, 190.889, 14.0033, 0 )
+
+[node name="Spike32" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, 2.62269e-07, 0, -2.62269e-07, -1, 0, 0, 0, 1, 192.889, 14.0033, 0 )
+
+[node name="Spike33" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, 2.62269e-07, 0, -2.62269e-07, -1, 0, 0, 0, 1, 194.889, 14.0033, 0 )
+
+[node name="Spike40" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 3.0598e-07, 1, 0, -1, 3.0598e-07, 0, 0, 0, 1, 202.45, -32.6118, 0 )
+
+[node name="Spike39" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 3.0598e-07, 1, 0, -1, 3.0598e-07, 0, 0, 0, 1, 202.45, -30.6118, 0 )
+
+[node name="Spike38" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 3.0598e-07, 1, 0, -1, 3.0598e-07, 0, 0, 0, 1, 202.45, -28.6118, 0 )
+
+[node name="Spike37" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 3.0598e-07, 1, 0, -1, 3.0598e-07, 0, 0, 0, 1, 202.45, -26.6118, 0 )
+
+[node name="Spike36" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 3.0598e-07, 1, 0, -1, 3.0598e-07, 0, 0, 0, 1, 202.45, -24.6118, 0 )
+
+[node name="Spike35" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 3.0598e-07, 1, 0, -1, 3.0598e-07, 0, 0, 0, 1, 202.45, -22.6118, 0 )
+
+[node name="Spike34" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 3.0598e-07, 1, 0, -1, 3.0598e-07, 0, 0, 0, 1, 202.45, -20.6118, 0 )
+
+[node name="Spike47" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -3.93403e-07, -1, 0, 1, -3.93403e-07, 0, 0, 0, 1, 216.432, 11.6898, 0 )
+
+[node name="Spike46" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -3.93403e-07, -1, 0, 1, -3.93403e-07, 0, 0, 0, 1, 216.432, 9.68985, 0 )
+
+[node name="Spike45" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -3.93403e-07, -1, 0, 1, -3.93403e-07, 0, 0, 0, 1, 216.432, 7.68985, 0 )
+
+[node name="Spike44" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -3.93403e-07, -1, 0, 1, -3.93403e-07, 0, 0, 0, 1, 216.432, 5.68985, 0 )
+
+[node name="Spike43" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -3.93403e-07, -1, 0, 1, -3.93403e-07, 0, 0, 0, 1, 216.432, 3.68985, 0 )
+
+[node name="Spike42" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -3.93403e-07, -1, 0, 1, -3.93403e-07, 0, 0, 0, 1, 216.432, 1.68985, 0 )
+
+[node name="Spike41" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -3.93403e-07, -1, 0, 1, -3.93403e-07, 0, 0, 0, 1, 216.432, -0.310149, 0 )
+
+[node name="Spike54" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 279.026, 1.4408, 0 )
+
+[node name="Spike53" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 280.623, 2.64432, 0 )
+
+[node name="Spike52" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 282.22, 3.84785, 0 )
+
+[node name="Spike51" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 283.818, 5.05136, 0 )
+
+[node name="Spike50" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 285.415, 6.25489, 0 )
+
+[node name="Spike49" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 287.012, 7.4584, 0 )
+
+[node name="Spike48" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 288.61, 8.66191, 0 )
+
+[node name="Spike61" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 267.619, -7.1036, 0 )
+
+[node name="Spike60" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 269.216, -5.90009, 0 )
+
+[node name="Spike59" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 270.814, -4.69656, 0 )
+
+[node name="Spike58" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 272.411, -3.49305, 0 )
+
+[node name="Spike57" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 274.008, -2.28952, 0 )
+
+[node name="Spike56" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 275.606, -1.08601, 0 )
+
+[node name="Spike55" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 277.203, 0.117504, 0 )
+
+[node name="Spike68" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 256.361, -15.5518, 0 )
+
+[node name="Spike67" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 257.958, -14.3482, 0 )
+
+[node name="Spike66" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 259.555, -13.1447, 0 )
+
+[node name="Spike65" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 261.153, -11.9412, 0 )
+
+[node name="Spike64" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 262.75, -10.7377, 0 )
+
+[node name="Spike63" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 264.348, -9.53416, 0 )
+
+[node name="Spike62" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 265.945, -8.33065, 0 )
+
+[node name="Spike75" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 245.053, -24.0623, 0 )
+
+[node name="Spike74" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 246.65, -22.8588, 0 )
+
+[node name="Spike73" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 248.248, -21.6553, 0 )
+
+[node name="Spike72" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 249.845, -20.4518, 0 )
+
+[node name="Spike71" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 251.442, -19.2482, 0 )
+
+[node name="Spike70" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 253.04, -18.0447, 0 )
+
+[node name="Spike69" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -0.798677, 0.60176, 0, -0.60176, -0.798677, 0, 0, 0, 1, 254.637, -16.8412, 0 )
+
+[node name="Spike103" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 0.949212, 0.314638, 0, -0.314638, 0.949212, 0, 0, 0, 1, 252.377, 30.7346, 0 )
+
+[node name="Spike102" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 0.949212, 0.314638, 0, -0.314638, 0.949212, 0, 0, 0, 1, 250.479, 31.3639, 0 )
+
+[node name="Spike101" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 0.949212, 0.314638, 0, -0.314638, 0.949212, 0, 0, 0, 1, 248.58, 31.9932, 0 )
+
+[node name="Spike100" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 0.949212, 0.314638, 0, -0.314638, 0.949212, 0, 0, 0, 1, 246.682, 32.6225, 0 )
+
+[node name="Spike99" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 0.949212, 0.314638, 0, -0.314638, 0.949212, 0, 0, 0, 1, 244.783, 33.2518, 0 )
+
+[node name="Spike96" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 0.949212, 0.314638, 0, -0.314638, 0.949212, 0, 0, 0, 1, 265.893, 26.2127, 0 )
+
+[node name="Spike95" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 0.949212, 0.314638, 0, -0.314638, 0.949212, 0, 0, 0, 1, 263.994, 26.8419, 0 )
+
+[node name="Spike94" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 0.949212, 0.314638, 0, -0.314638, 0.949212, 0, 0, 0, 1, 262.096, 27.4712, 0 )
+
+[node name="Spike93" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 0.949212, 0.314638, 0, -0.314638, 0.949212, 0, 0, 0, 1, 260.197, 28.1005, 0 )
+
+[node name="Spike92" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 0.949212, 0.314638, 0, -0.314638, 0.949212, 0, 0, 0, 1, 258.299, 28.7298, 0 )
+
+[node name="Spike91" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 0.949212, 0.314638, 0, -0.314638, 0.949212, 0, 0, 0, 1, 256.401, 29.3591, 0 )
+
+[node name="Spike90" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 0.949212, 0.314638, 0, -0.314638, 0.949212, 0, 0, 0, 1, 254.502, 29.9883, 0 )
+
+[node name="Spike89" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 0.949212, 0.314638, 0, -0.314638, 0.949212, 0, 0, 0, 1, 279.245, 21.758, 0 )
+
+[node name="Spike88" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 0.949212, 0.314638, 0, -0.314638, 0.949212, 0, 0, 0, 1, 277.346, 22.3872, 0 )
+
+[node name="Spike87" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 0.949212, 0.314638, 0, -0.314638, 0.949212, 0, 0, 0, 1, 275.448, 23.0165, 0 )
+
+[node name="Spike86" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 0.949212, 0.314638, 0, -0.314638, 0.949212, 0, 0, 0, 1, 273.549, 23.6458, 0 )
+
+[node name="Spike85" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 0.949212, 0.314638, 0, -0.314638, 0.949212, 0, 0, 0, 1, 271.651, 24.2751, 0 )
+
+[node name="Spike84" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 0.949212, 0.314638, 0, -0.314638, 0.949212, 0, 0, 0, 1, 269.752, 24.9044, 0 )
+
+[node name="Spike83" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 0.949212, 0.314638, 0, -0.314638, 0.949212, 0, 0, 0, 1, 267.854, 25.5336, 0 )
+
+[node name="Spike80" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 0.949212, 0.314638, 0, -0.314638, 0.949212, 0, 0, 0, 1, 288.879, 18.5566, 0 )
+
+[node name="Spike81" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0, 1, 290.446, 16.1047, 0 )
+
+[node name="Spike82" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0, 1, 290.446, 14.1047, 0 )
+
+[node name="Spike97" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0, 1, 290.446, 12.1047, 0 )
+
+[node name="Spike79" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 0.949212, 0.314638, 0, -0.314638, 0.949212, 0, 0, 0, 1, 286.981, 19.1859, 0 )
+
+[node name="Spike78" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 0.949212, 0.314638, 0, -0.314638, 0.949212, 0, 0, 0, 1, 285.082, 19.8152, 0 )
+
+[node name="Spike77" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 0.949212, 0.314638, 0, -0.314638, 0.949212, 0, 0, 0, 1, 283.184, 20.4445, 0 )
+
+[node name="Spike76" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( 0.949212, 0.314638, 0, -0.314638, 0.949212, 0, 0, 0, 1, 281.286, 21.0737, 0 )
+
+[node name="Spike104" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 118.474, 37.3558, 0 )
+
+[node name="Spike105" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 118.474, 39.3558, 0 )
+
+[node name="Spike106" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 118.474, 41.3558, 0 )
+
+[node name="Spike107" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 118.474, 43.3558, 0 )
+
+[node name="Spike108" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 118.474, 45.3558, 0 )
+
+[node name="Spike109" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 118.474, 47.3558, 0 )
+
+[node name="Spike115" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 118.474, 49.3558, 0 )
+
+[node name="Spike114" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 118.474, 51.3558, 0 )
+
+[node name="Spike113" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 118.474, 53.3558, 0 )
+
+[node name="Spike112" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 118.474, 55.3558, 0 )
+
+[node name="Spike111" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 118.474, 57.3558, 0 )
+
+[node name="Spike110" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 118.474, 59.3558, 0 )
+
+[node name="Spike121" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 118.474, 61.3558, 0 )
+
+[node name="Spike120" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 118.474, 63.3558, 0 )
+
+[node name="Spike119" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 118.474, 65.3558, 0 )
+
+[node name="Spike118" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 118.474, 67.3558, 0 )
+
+[node name="Spike126" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 131.031, 74.0284, 0 )
+
+[node name="Spike125" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 133.031, 74.0284, 0 )
+
+[node name="Spike124" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 135.031, 74.0284, 0 )
+
+[node name="Spike123" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 137.031, 74.0284, 0 )
+
+[node name="Spike122" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 139.031, 74.0284, 0 )
+
+[node name="Spike133" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 141.031, 74.0284, 0 )
+
+[node name="Spike132" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 143.031, 74.0284, 0 )
+
+[node name="Spike131" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 145.031, 74.0284, 0 )
+
+[node name="Spike130" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 147.031, 74.0284, 0 )
+
+[node name="Spike129" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 149.031, 74.0284, 0 )
+
+[node name="Attract_Force" type="Spatial" parent="."]
+
+[node name="Attract_Force" parent="Attract_Force" instance=ExtResource( 19 )]
+transform = Transform( -1, 2.62268e-07, 0, -2.62268e-07, -1, 0, 0, 0, 1, -25, 15, 0 )
+
+[node name="Attract_Force2" parent="Attract_Force" instance=ExtResource( 19 )]
+transform = Transform( -1, 2.62268e-07, 0, -2.62268e-07, -1, 0, 0, 0, 1, 80.6582, -41, 0 )
+
+[node name="Attract_Force3" parent="Attract_Force" instance=ExtResource( 19 )]
+transform = Transform( -1, 2.62268e-07, 0, -2.62268e-07, -1, 0, 0, 0, 1, 111.658, -41, 0 )
+
+[node name="Bounce_Forces" type="Spatial" parent="."]
+
+[node name="Bounce_Force" parent="Bounce_Forces" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.959, 1.06418, 0 )
+
+[node name="Bounce_Force2" parent="Bounce_Forces" instance=ExtResource( 10 )]
+transform = Transform( -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 0, 0, 1, 112.901, 74.9703, 0 )
+[connection signal="body_entered" from="Level_End/Game_End_Triger" to="." method="_on_Game_End_Triger_body_entered"]
+[connection signal="reload_scene" from="UserInterfaceLayer/UserInterface" to="." method="_on_reload_scene_pressed"]
+[connection signal="force_position" from="Attract_Force/Attract_Force" to="Ball" method="_on_Attract_Force_position_colides"]
+[connection signal="force_position" from="Attract_Force/Attract_Force2" to="Ball" method="_on_Attract_Force_position_colides"]
+[connection signal="force_position" from="Attract_Force/Attract_Force3" to="Ball" method="_on_Attract_Force_position_colides"]
+[connection signal="force_position" from="Bounce_Forces/Bounce_Force" to="Ball" method="_on_Bounce_Force_position_Colides"]
+[connection signal="force_position" from="Bounce_Forces/Bounce_Force2" to="Ball" method="_on_Bounce_Force_position_Colides"]

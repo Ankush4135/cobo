@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Objects/Spikes.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Assets/Material/Spike.tres" type="Material" id=2]
+[ext_resource path="res://Scripts/Spike.gd" type="Script" id=3]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.832168, 0.170629, 0.676372 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.759731, 0.299593, 0.776379 )
+
+[node name="Spike" type="Area"]
+script = ExtResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.622217, 0 )
+shape = SubResource( 1 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.329956, 0 )
+shape = SubResource( 2 )
+[connection signal="body_entered" from="." to="." method="_on_Spike_body_entered"]

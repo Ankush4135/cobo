@@ -1,0 +1,446 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Fonts/Gasalt-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/UserInterface.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/Gasalt-Black.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/Buttons/Progress_Bar.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Buttons/Progress_under.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Buttons/Progress_Bar_Ends.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Buttons/pause-button.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/Pause.gd" type="Script" id=8]
+[ext_resource path="res://Assets/Buttons/play-button.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Buttons/replay-button.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Buttons/home-button.png" type="Texture" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 60
+font_data = ExtResource( 3 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 140, 140 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 44
+extra_spacing_top = 6
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 150
+extra_spacing_top = 26
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 200
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "Default"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("pause_menu:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -304.459 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../main_UI:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("pause_menu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("pause_menu/ColorRect/HBoxContainer/Play")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("pause_menu:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -304.459 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../main_UI:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -100 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("pause_menu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.000819445 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("pause_menu/ColorRect/HBoxContainer/Home")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.259664 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "grab_focus"
+} ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("pause_menu:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -304.459 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../main_UI:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -100 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("pause_menu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.298206, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+
+[node name="UserInterface" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+Max_Time = 181.0
+
+[node name="main_UI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 0.00012207
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="health" type="TextureProgress" parent="main_UI"]
+anchor_right = 0.348
+margin_left = 150.464
+margin_top = 26.4917
+margin_right = 85.0239
+margin_bottom = 60.4917
+value = 100.0
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 4 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="main_UI/health"]
+margin_left = -2.513
+margin_right = 0.487
+margin_bottom = 34.0
+rect_scale = Vector2( 1.88, 1 )
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="main_UI/health"]
+anchor_left = 0.998
+anchor_right = 0.998
+margin_left = -0.239929
+margin_right = 3.53506
+margin_bottom = 34.0
+texture = ExtResource( 6 )
+expand = true
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coinstext" type="Label" parent="main_UI"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -191.0
+margin_top = 22.0
+margin_bottom = 63.0
+custom_fonts/font = SubResource( 1 )
+text = "Coins: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coinscount" type="Label" parent="main_UI"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -97.0
+margin_top = 16.0
+margin_bottom = 76.0
+custom_fonts/font = SubResource( 2 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer_Text" type="Label" parent="main_UI"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 24.0
+margin_top = 16.0
+margin_right = 64.0
+margin_bottom = 76.0
+custom_fonts/font = SubResource( 3 )
+text = "1"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="main_UI"]
+one_shot = true
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="main_UI"]
+position = Vector2( 54.648, 26.492 )
+scale = Vector2( 0.15, 0.15 )
+normal = ExtResource( 7 )
+shape = SubResource( 4 )
+passby_press = true
+action = "ui_cancel"
+
+[node name="Pause" type="Control" parent="."]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 3.0
+margin_bottom = 3.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="PauseBG" type="ColorRect" parent="Pause"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.203922 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pause_menu" type="Control" parent="Pause"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -304.459
+margin_bottom = -304.459
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Pause/pause_menu"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -279.0
+margin_top = 70.3002
+margin_right = 279.0
+margin_bottom = 239.3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pause/pause_menu/ColorRect"]
+anchor_right = 1.0
+margin_top = 169.889
+margin_bottom = 197.889
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Restart" type="Button" parent="Pause/pause_menu/ColorRect/HBoxContainer"]
+margin_right = 183.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+
+[node name="Restart_icon" type="TextureRect" parent="Pause/pause_menu/ColorRect/HBoxContainer/Restart"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Home" type="Button" parent="Pause/pause_menu/ColorRect/HBoxContainer"]
+margin_left = 187.0
+margin_right = 370.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+
+[node name="Home_icon" type="TextureRect" parent="Pause/pause_menu/ColorRect/HBoxContainer/Home"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="Button" parent="Pause/pause_menu/ColorRect/HBoxContainer"]
+margin_left = 374.0
+margin_right = 558.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+
+[node name="Play_icon" type="TextureRect" parent="Pause/pause_menu/ColorRect/HBoxContainer/Play"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Pause/pause_menu/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -279.0
+margin_top = -88.8889
+margin_right = 279.0
+margin_bottom = 266.111
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Pause
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resume_Counter_Text" type="Label" parent="Pause"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -33.5
+margin_top = -100.5
+margin_right = 33.5
+margin_bottom = 100.5
+custom_fonts/font = SubResource( 7 )
+text = "3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="Pause/Resume_Counter_Text"]
+wait_time = 3.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pause"]
+autoplay = "Default"
+anims/Default = SubResource( 8 )
+anims/Pause_in = SubResource( 9 )
+anims/pause_out = SubResource( 10 )
+[connection signal="value_changed" from="main_UI/health" to="." method="_on_health_value_changed"]
+[connection signal="timeout" from="main_UI/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="gotohome" from="Pause" to="." method="_on_Pause_gotohome"]
+[connection signal="restart_level" from="Pause" to="." method="_on_Pause_restart_level"]
+[connection signal="button_up" from="Pause/pause_menu/ColorRect/HBoxContainer/Restart" to="Pause" method="_on_Restart_button_up"]
+[connection signal="pressed" from="Pause/pause_menu/ColorRect/HBoxContainer/Home" to="Pause" method="_on_Home_pressed"]
+[connection signal="pressed" from="Pause/pause_menu/ColorRect/HBoxContainer/Play" to="Pause" method="_on_Play_pressed"]

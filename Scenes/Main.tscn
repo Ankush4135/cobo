@@ -1,0 +1,189 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Scenes/LoadingScreen.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Fonts/Gasalt-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Character_Tile_Scene.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Material/vignette.shader" type="Shader" id=5]
+[ext_resource path="res://Fonts/Gasalt-Black.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Assets/Textures/glow_With_alpha.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Scene_trans.tscn" type="PackedScene" id=8]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 5 )
+shader_param/radius = 0.75
+shader_param/softness = 1.0
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0.290909 ), 0.0, 1.6, 0, 0, Vector2( 0.996212, 1 ), -0.150001, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0.250712, 1 )
+colors = PoolColorArray( 0, 1, 1, 1, 0, 0, 0, 0 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 200
+outline_size = 14
+outline_color = Color( 0, 1, 1, 0.32549 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 200
+outline_size = 32
+outline_color = Color( 0, 1, 1, 0.117647 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="Theme" id=6]
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+
+[sub_resource type="DynamicFont" id=7]
+size = 80
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 16
+font_data = ExtResource( 2 )
+
+[sub_resource type="GDScript" id=8]
+script/source = "extends Button
+
+
+
+func _on_Quit_button_up():
+	get_tree().quit()
+"
+
+[node name="Main" type="Node"]
+script = ExtResource( 3 )
+Change_Scene = "res://Scenes/Template.tscn"
+
+[node name="Scene_trans" parent="." instance=ExtResource( 8 )]
+Fadein = true
+
+[node name="Character_Tile_Scene" parent="." instance=ExtResource( 4 )]
+
+[node name="Vignette" type="ColorRect" parent="."]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Particles" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = 15.5068
+margin_right = 20.0
+margin_bottom = 55.5068
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Particles"]
+amount = 10
+lifetime = 8.0
+lifetime_randomness = 1.0
+texture = ExtResource( 7 )
+emission_shape = 2
+emission_rect_extents = Vector2( 640, 0 )
+direction = Vector2( 0.5, -1 )
+initial_velocity = 334.47
+linear_accel_random = 0.46
+angle = 529.7
+angle_random = 0.54
+scale_amount_random = 0.09
+scale_amount_curve = SubResource( 2 )
+color_ramp = SubResource( 3 )
+
+[node name="Title" type="Control" parent="."]
+anchor_right = 1.0
+margin_top = 46.654
+margin_bottom = 250.654
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Title"]
+anchor_right = 1.0
+margin_bottom = 201.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "cobo"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title_Outline" type="Label" parent="Title"]
+anchor_right = 1.0
+margin_bottom = 201.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "cobo"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons_Lists" type="VBoxContainer" parent="Menu"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -247.0
+margin_top = 233.0
+margin_right = 248.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="Button" parent="Menu/Buttons_Lists"]
+margin_right = 495.0
+margin_bottom = 103.0
+size_flags_horizontal = 3
+theme = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="Menu/Buttons_Lists"]
+margin_top = 118.0
+margin_right = 495.0
+margin_bottom = 221.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+text = "Quit"
+script = SubResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadingScreen" parent="." instance=ExtResource( 1 )]
+visible = false
+[connection signal="scene_changed" from="." to="LoadingScreen" method="_on_Main_scene_changed"]
+[connection signal="pressed" from="Menu/Buttons_Lists/Play" to="." method="_on_Button_pressed"]
+[connection signal="button_up" from="Menu/Buttons_Lists/Quit" to="Menu/Buttons_Lists/Quit" method="_on_Quit_button_up"]

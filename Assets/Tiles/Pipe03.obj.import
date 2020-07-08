@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Pipe03.obj-4f1e1e756782d70a99f6490e5d9cffd4.mesh"
+
+[deps]
+
+files=[ "res://.import/Pipe03.obj-4f1e1e756782d70a99f6490e5d9cffd4.mesh" ]
+
+source_file="res://Assets/Tiles/Pipe03.obj"
+dest_files=[ "res://.import/Pipe03.obj-4f1e1e756782d70a99f6490e5d9cffd4.mesh", "res://.import/Pipe03.obj-4f1e1e756782d70a99f6490e5d9cffd4.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
