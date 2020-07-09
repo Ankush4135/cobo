@@ -1202,6 +1202,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.959, 1.06418, 0 )
 [node name="Bounce_Force2" parent="Bounce_Forces" instance=ExtResource( 10 )]
 transform = Transform( -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 0, 0, 1, 112.901, 74.9703, 0 )
 [connection signal="body_entered" from="Level_End/Game_End_Triger" to="." method="_on_Game_End_Triger_body_entered"]
+[connection signal="health_changed" from="UserInterfaceLayer/UserInterface" to="." method="_on_health_changed"]
 [connection signal="reload_scene" from="UserInterfaceLayer/UserInterface" to="." method="_on_reload_scene_pressed"]
 [connection signal="force_position" from="Attract_Force/Attract_Force" to="Ball" method="_on_Attract_Force_position_colides"]
 [connection signal="force_position" from="Attract_Force/Attract_Force2" to="Ball" method="_on_Attract_Force_position_colides"]

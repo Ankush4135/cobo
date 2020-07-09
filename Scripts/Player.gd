@@ -4,21 +4,19 @@ extends RigidBody
 export  var Target_L_path = NodePath()
 onready var Target_L = get_node(Target_L_path)
 var Target_L_position = Vector3()
-
 # geting the taget Right Position
 export  var Target_R_path = NodePath()
 onready var Target_R = get_node(Target_R_path)
 var Target_R_position = Vector3()
-
+# how much player will move
 var Player_Pos = Vector3()
-
 export var  Impulse_power = float(01) 
 var Impulse_dir_L = Vector3()
 var Impulse_dir_R = Vector3()
-
-onready var camerashake = get_node("../Shake_Camera")
 var attract_force = false
 var attract_pos = Vector3()
+
+onready var camerashake = get_node("../Shake_Camera")
 
 func _ready():
 	PlayerData.connect("player_died", self, "_player_died")
@@ -27,7 +25,6 @@ func _physics_process(delta):
 	Target_L_position = Target_L.get_global_transform().origin
 	Target_R_position = Target_R.get_global_transform().origin
 	Player_Pos = get_translation()
-#	camerashake.shake(0.25, 40, 0.2)
 	
 	if PlayerData.Die == false:
 		if Input.is_action_pressed("left"):
@@ -44,6 +41,7 @@ func _physics_process(delta):
 		yield(get_tree().create_timer(3),"timeout")
 
 func _on_Bounce_Force_position_Colides(x, y, z):
+	camerashake.shake(0.25, 30, 0.18)
 	var bounce_dir 
 	var bounce_pos = Vector3()
 	bounce_pos.x = x

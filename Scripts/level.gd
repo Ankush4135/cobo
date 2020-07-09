@@ -1,7 +1,7 @@
 extends Spatial
 
-
 onready var fadeanim = $Scene_trans/AnimationPlayer
+onready var camerashake = $Shake_Camera
 
 export(String, FILE) var Current_Scene_Path = ""
 
@@ -21,3 +21,7 @@ func _on_Game_End_Triger_body_entered(body):
 		yield(fadeanim,"animation_finished")
 		get_tree().change_scene("res://Scenes/Game_End.tscn")
 		queue_free()
+
+
+func _on_health_changed(): #chamera shake on every hit when the helth is decreased
+	camerashake.shake(0.25, 20, 0.1)
