@@ -41,7 +41,7 @@ func _physics_process(delta):
 		yield(get_tree().create_timer(3),"timeout")
 
 func _on_Bounce_Force_position_Colides(x, y, z):
-	camerashake.shake(0.25, 30, 0.18)
+	camerashake.shake(0.1, 30, 0.18)
 	var bounce_dir 
 	var bounce_pos = Vector3()
 	bounce_pos.x = x

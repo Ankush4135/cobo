@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Assets/Material/Wall.material" type="Material" id=1]
 [ext_resource path="res://Scripts/Follow_Target.gd" type="Script" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Scenes/Level_End.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Objects/End_Shatered.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Scripts/Shake_Camera.gd" type="Script" id=24]
+[ext_resource path="res://Objects/Energy_Ball.tscn" type="PackedScene" id=25]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 16 )
@@ -118,6 +119,10 @@ node_connections = [ "output", 0, "left_right_blend" ]
 [node name="Template" type="Spatial"]
 script = ExtResource( 21 )
 Current_Scene_Path = "res://Scenes/Template.tscn"
+
+[node name="Energy_Ball" parent="." instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.84181, 10.3626, 0 )
+visible = false
 
 [node name="overlay" type="CanvasLayer" parent="."]
 layer = 25

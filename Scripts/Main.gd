@@ -9,6 +9,7 @@ onready var colorec = $Scene_trans/ColorRect
 export(String, FILE) var Change_Scene = ""
 
 func _ready():
+	
 	$Menu/Buttons_Lists/Play.grab_focus()
 
 func _on_Button_pressed():

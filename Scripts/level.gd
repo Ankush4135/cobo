@@ -24,4 +24,4 @@ func _on_Game_End_Triger_body_entered(body):
 
 
 func _on_health_changed(): #chamera shake on every hit when the helth is decreased
-	camerashake.shake(0.25, 20, 0.1)
+	camerashake.shake(0.1, 20, 0.15)
