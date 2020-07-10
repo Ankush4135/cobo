@@ -5,6 +5,8 @@ onready var camerashake = $Shake_Camera
 
 export(String, FILE) var Current_Scene_Path = ""
 
+func _ready():
+		get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_DISABLED, SceneTree.STRETCH_ASPECT_IGNORE, Vector2(1280, 720))
 
 func _on_reload_scene_pressed():
 	fadeanim.play("Fadeout")
@@ -24,4 +26,4 @@ func _on_Game_End_Triger_body_entered(body):
 
 
 func _on_health_changed(): #chamera shake on every hit when the helth is decreased
-	camerashake.shake(0.1, 20, 0.15)
+	camerashake.shake(0.1, 20, 0.18)

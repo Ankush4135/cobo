@@ -23,6 +23,10 @@ func _ready():
 func _process(delta):
 	var time_left = timer.get_time_left()
 	timer_label.text = str((int(time_left))) #how much time left to complete the level
+	if time_left < 31:
+		timer_label.add_color_override("font_color", Color(1,0,0))
+		timer_label.rect_scale = Vector2(1.5,1.5)
+		
 
 func update_text(): #coin collected 
 	coinscore.text = str(PlayerData.score)
@@ -37,7 +41,6 @@ func _on_Pause_gotohome(): # this will change scene to the main scene
 	yield(scene_trans_anim,"animation_finished")
 	get_parent().get_parent().queue_free()
 	get_tree().change_scene("res://Scenes/Main.tscn")
-	
 
 func _on_Pause_restart_level(): # restart the level
 	emit_signal("reload_scene")

@@ -9,7 +9,7 @@ onready var colorec = $Scene_trans/ColorRect
 export(String, FILE) var Change_Scene = ""
 
 func _ready():
-	
+	get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_2D, SceneTree.STRETCH_ASPECT_EXPAND, Vector2(1280, 720))
 	$Menu/Buttons_Lists/Play.grab_focus()
 
 func _on_Button_pressed():
