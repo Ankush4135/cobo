@@ -24,7 +24,7 @@
 [ext_resource path="res://Scenes/Level_End.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Objects/End_Shatered.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Scripts/Shake_Camera.gd" type="Script" id=24]
-[ext_resource path="res://Objects/Energy_Ball.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Objects/Orb.tscn" type="PackedScene" id=25]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 16 )
@@ -301,11 +301,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.75, 16.106, 1.54774e-05 )
 transform = Transform( 1, 0, 6.51682e-07, 0, 1, 0, -6.51682e-07, 0, 1, -44.823, 7.5, 35 )
 script = ExtResource( 24 )
 
-[node name="Camera" type="Camera" parent="Shake_Camera"]
-current = true
-fov = 35.0
+[node name="Spatial" type="Spatial" parent="Shake_Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.824638, -3.71314, -34.3216 )
 script = ExtResource( 18 )
 Follow_Target = NodePath("../../Ball")
+
+[node name="Camera" type="Camera" parent="Shake_Camera/Spatial"]
+transform = Transform( 1, 0, 6.51682e-07, 0, 1, 0, -6.51682e-07, 0, 1, 0, 3.606, 35 )
+current = true
+fov = 35.0
 
 [node name="Ball" parent="." groups=[
 "player",
@@ -1110,13 +1114,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.959, 1.06418, 0 )
 [node name="Bounce_Force2" parent="Bounce_Forces" instance=ExtResource( 10 )]
 transform = Transform( -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 0, 0, 1, 112.988, 74.8715, 0 )
 
-[node name="Energy_Ball" type="Spatial" parent="."]
+[node name="Orbs" type="Spatial" parent="."]
 
-[node name="Energy_Ball" parent="Energy_Ball" instance=ExtResource( 25 )]
+[node name="Orb" parent="Orbs" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 156.055, 12.7126, 0 )
 
-[node name="Energy_Ball2" parent="Energy_Ball" instance=ExtResource( 25 )]
+[node name="Orb2" parent="Orbs" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 263.029, -24.8876, 0 )
+[connection signal="Entered_Tunnel" from="Level_End" to="Ball" method="_on_Level_End_Entered_Tunnel"]
 [connection signal="body_entered" from="Level_End/Game_End_Triger" to="." method="_on_Game_End_Triger_body_entered"]
 [connection signal="health_changed" from="UserInterfaceLayer/UserInterface" to="." method="_on_health_changed"]
 [connection signal="reload_scene" from="UserInterfaceLayer/UserInterface" to="." method="_on_reload_scene_pressed"]

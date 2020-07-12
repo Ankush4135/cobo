@@ -12,6 +12,7 @@ onready var scene_trans_anim = get_node("../../Scene_trans/AnimationPlayer")
 export(float) var Max_Time
 
 func _ready():
+	PlayerData.orbs = 0
 	PlayerData.health = 100 #reset helth on start
 	PlayerData.Die = false
 	coinscore.text = str(PlayerData.score)

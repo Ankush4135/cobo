@@ -18,6 +18,9 @@ var attract_pos = Vector3()
 
 onready var camerashake = get_node("../Shake_Camera")
 
+var enter_in_tunnel = false # check if the player is enter_in_tunnel or not
+var tunnel_dir = Vector3()
+
 func _ready():
 	PlayerData.connect("player_died", self, "_player_died")
 
@@ -26,7 +29,7 @@ func _physics_process(delta):
 	Target_R_position = Target_R.get_global_transform().origin
 	Player_Pos = get_translation()
 	
-	if PlayerData.Die == false:
+	if PlayerData.Die == false && enter_in_tunnel == false:
 		if Input.is_action_pressed("left"):
 			Impulse_dir_L = (Player_Pos - Target_L_position).normalized() * -Impulse_power * delta
 			apply_impulse(Vector3(), Impulse_dir_L)
@@ -38,7 +41,11 @@ func _physics_process(delta):
 		var attract_dir
 		attract_dir = (Player_Pos - attract_pos).normalized() * 200 * delta
 		apply_impulse(Vector3(), -attract_dir)
-		yield(get_tree().create_timer(3),"timeout")
+	
+	if enter_in_tunnel == true:
+		var speed_multiplyer = 500
+		var speed = tunnel_dir * speed_multiplyer * delta
+		apply_impulse(Vector3(), speed)
 
 func _on_Bounce_Force_position_Colides(x, y, z):
 	camerashake.shake(0.1, 30, 0.18)
@@ -58,7 +65,13 @@ func _player_died(): # this will happen when the player is died
 	if PlayerData.Die == true:
 		axis_lock_linear_z = false
 		apply_impulse(Vector3(), Vector3(0,-.1,10))
-		print("player_died")
+
+func _on_Level_End_Entered_Tunnel(x):
+	enter_in_tunnel = true
+	tunnel_dir.x = x 
+	yield(get_tree().create_timer(.65),"timeout")	
+	enter_in_tunnel = false
+
 
 
 

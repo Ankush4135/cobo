@@ -4,7 +4,7 @@ signal score_Update
 signal reduce_health
 signal player_died
 signal total_score_update
-signal has_orbs
+#signal has_orbs
 
 var restart_level = "" setget set_restart_level
 var total_score = 0 setget set_total_score
@@ -39,7 +39,7 @@ func set_restart_level(reload):
 
 func _set_orbs(update_orb):
 	orbs = update_orb
-	emit_signal("has_orbs")
+#	emit_signal("has_orbs")
 
 
 
