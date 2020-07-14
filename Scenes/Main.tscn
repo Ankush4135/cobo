@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scenes/LoadingScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fonts/Gasalt-Regular.ttf" type="DynamicFontData" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Fonts/Gasalt-Black.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Assets/Textures/glow_With_alpha.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/Scene_trans.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/UserInterface/Base_UI.theme" type="Theme" id=9]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 5 )
@@ -34,13 +35,21 @@ outline_color = Color( 0, 1, 1, 0.117647 )
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=6]
-size = 65
+size = 50
+extra_spacing_top = 12
 font_data = ExtResource( 2 )
 
-[sub_resource type="Theme" id=7]
-default_font = SubResource( 6 )
+[sub_resource type="DynamicFont" id=7]
+size = 50
+extra_spacing_top = 12
+font_data = ExtResource( 2 )
 
-[sub_resource type="GDScript" id=8]
+[sub_resource type="DynamicFont" id=8]
+size = 50
+extra_spacing_top = 12
+font_data = ExtResource( 2 )
+
+[sub_resource type="GDScript" id=9]
 script/source = "extends Button
 
 
@@ -82,6 +91,7 @@ __meta__ = {
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Particles"]
 amount = 10
 lifetime = 8.0
+preprocess = 5.0
 lifetime_randomness = 1.0
 texture = ExtResource( 7 )
 emission_shape = 2
@@ -148,7 +158,7 @@ margin_right = 248.0
 margin_bottom = 353.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = SubResource( 7 )
+theme = ExtResource( 9 )
 custom_constants/separation = 15
 __meta__ = {
 "_edit_use_anchors_": false
@@ -156,20 +166,46 @@ __meta__ = {
 
 [node name="Play" type="Button" parent="Menu/Buttons_Lists"]
 margin_right = 495.0
-margin_bottom = 72.0
+margin_bottom = 63.0
 size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
 text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="play_text" type="Label" parent="Menu/Buttons_Lists/Play"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+text = "Play"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Quit" type="Button" parent="Menu/Buttons_Lists"]
-margin_top = 87.0
+margin_top = 78.0
 margin_right = 495.0
-margin_bottom = 159.0
+margin_bottom = 141.0
 size_flags_horizontal = 3
+custom_fonts/font = SubResource( 8 )
 text = "Quit"
-script = SubResource( 8 )
+script = SubResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="play_text2" type="Label" parent="Menu/Buttons_Lists/Quit"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+text = "Quit"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

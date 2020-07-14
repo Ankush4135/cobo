@@ -2,6 +2,7 @@ extends Spatial
 
 onready var fadeanim = $Scene_trans/AnimationPlayer
 onready var camerashake = $Shake_Camera
+onready var playeranim = $Ball/AnimationPlayer
 
 export(String, FILE) var Current_Scene_Path = ""
 
@@ -25,3 +26,4 @@ func _on_Game_End_Triger_body_entered(body):
 
 func _on_health_changed(): #chamera shake on every hit when the helth is decreased
 	camerashake.shake(0.1, 20, 0.18)
+	playeranim.play("Collided")

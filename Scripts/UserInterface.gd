@@ -8,6 +8,10 @@ onready var timer_label = $main_UI/Timer_Text
 onready var timer = $main_UI/Timer
 onready var health_value = $main_UI/health
 onready var scene_trans_anim = get_node("../../Scene_trans/AnimationPlayer")
+onready var pause = $Pause
+onready var orbs = get_node("../../Orbs")
+onready var camera = get_node("../../Shake_Camera/Camera_Pivot")
+onready var tween = get_node("../../Shake_Camera/Camera_Pivot/Camera/Tween")
 
 export(float) var Max_Time
 
@@ -27,7 +31,7 @@ func _process(delta):
 	if time_left < 31:
 		timer_label.add_color_override("font_color", Color(1,0,0))
 		timer_label.rect_scale = Vector2(1.5,1.5)
-		
+	
 
 func update_text(): #coin collected 
 	coinscore.text = str(PlayerData.score)
@@ -54,3 +58,17 @@ func _on_health_value_changed(value):
 
 func _on_Timer_timeout():
 	PlayerData.Die = true
+
+func _on_Pause_goto_orb():
+	var offset = camera.get_parent().get_translation()
+	var cam_Current_pos = camera.get_translation()
+	var orb_pos = Vector3()
+	camera.follow = false
+	orb_pos = orbs.get_child(0).get_global_transform().origin - offset
+	tween.interpolate_property(camera, "translation", cam_Current_pos, orb_pos, 2,Tween.TRANS_SINE,Tween.EASE_IN_OUT)
+	tween.start()
+	yield(tween,"tween_completed")
+	yield(get_tree().create_timer(2),"timeout")
+	camera.follow = true
+	yield(get_tree().create_timer(.5),"timeout")
+	pause.paused = false

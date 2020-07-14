@@ -301,15 +301,18 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.75, 16.106, 1.54774e-05 )
 transform = Transform( 1, 0, 6.51682e-07, 0, 1, 0, -6.51682e-07, 0, 1, -44.823, 7.5, 35 )
 script = ExtResource( 24 )
 
-[node name="Spatial" type="Spatial" parent="Shake_Camera"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.824638, -3.71314, -34.3216 )
+[node name="Camera_Pivot" type="Spatial" parent="Shake_Camera"]
+pause_mode = 2
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.713, -35 )
 script = ExtResource( 18 )
 Follow_Target = NodePath("../../Ball")
 
-[node name="Camera" type="Camera" parent="Shake_Camera/Spatial"]
+[node name="Camera" type="Camera" parent="Shake_Camera/Camera_Pivot"]
 transform = Transform( 1, 0, 6.51682e-07, 0, 1, 0, -6.51682e-07, 0, 1, 0, 3.606, 35 )
 current = true
 fov = 35.0
+
+[node name="Tween" type="Tween" parent="Shake_Camera/Camera_Pivot/Camera"]
 
 [node name="Ball" parent="." groups=[
 "player",
@@ -726,6 +729,36 @@ transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 1.43051
 [node name="Spike5" parent="Spikes" instance=ExtResource( 13 )]
 transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 2, 14, 0 )
 
+[node name="Spike98" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 78.7189, 14, 0 )
+
+[node name="Spike116" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 80.7189, 14, 0 )
+
+[node name="Spike117" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 82.7189, 14, 0 )
+
+[node name="Spike127" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 84.7189, 14, 0 )
+
+[node name="Spike128" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 86.7189, 14, 0 )
+
+[node name="Spike134" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 88.7189, 14, 0 )
+
+[node name="Spike135" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 90.7189, 14, 0 )
+
+[node name="Spike136" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 92.7189, 14, 0 )
+
+[node name="Spike137" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 94.7189, 14, 0 )
+
+[node name="Spike138" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 96.7189, 14, 0 )
+
 [node name="Spike6" parent="Spikes" instance=ExtResource( 13 )]
 transform = Transform( 1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, 70.6869, -62, 0 )
 
@@ -1098,18 +1131,15 @@ transform = Transform( -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 149.031
 [node name="Attract_Force" type="Spatial" parent="."]
 
 [node name="Attract_Force" parent="Attract_Force" instance=ExtResource( 19 )]
-transform = Transform( -1, 2.62268e-07, 0, -2.62268e-07, -1, 0, 0, 0, 1, -25, 15, 0 )
+transform = Transform( -1, 2.62268e-07, 0, -2.62268e-07, -1, 0, 0, 0, 1, 78.2402, -40.9889, 0 )
 
 [node name="Attract_Force2" parent="Attract_Force" instance=ExtResource( 19 )]
-transform = Transform( -1, 2.62268e-07, 0, -2.62268e-07, -1, 0, 0, 0, 1, 80.6582, -41, 0 )
-
-[node name="Attract_Force3" parent="Attract_Force" instance=ExtResource( 19 )]
-transform = Transform( -1, 2.62268e-07, 0, -2.62268e-07, -1, 0, 0, 0, 1, 111.658, -41, 0 )
+transform = Transform( -1, 2.62268e-07, 0, -2.62268e-07, -1, 0, 0, 0, 1, 111.626, -40.9889, 0 )
 
 [node name="Bounce_Forces" type="Spatial" parent="."]
 
 [node name="Bounce_Force" parent="Bounce_Forces" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.959, 1.06418, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 123.015, -55.0083, 0 )
 
 [node name="Bounce_Force2" parent="Bounce_Forces" instance=ExtResource( 10 )]
 transform = Transform( -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 0, 0, 1, 112.988, 74.8715, 0 )
@@ -1127,6 +1157,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 263.029, -24.8876, 0 )
 [connection signal="reload_scene" from="UserInterfaceLayer/UserInterface" to="." method="_on_reload_scene_pressed"]
 [connection signal="force_position" from="Attract_Force/Attract_Force" to="Ball" method="_on_Attract_Force_position_colides"]
 [connection signal="force_position" from="Attract_Force/Attract_Force2" to="Ball" method="_on_Attract_Force_position_colides"]
-[connection signal="force_position" from="Attract_Force/Attract_Force3" to="Ball" method="_on_Attract_Force_position_colides"]
 [connection signal="force_position" from="Bounce_Forces/Bounce_Force" to="Ball" method="_on_Bounce_Force_position_Colides"]
 [connection signal="force_position" from="Bounce_Forces/Bounce_Force2" to="Ball" method="_on_Bounce_Force_position_Colides"]

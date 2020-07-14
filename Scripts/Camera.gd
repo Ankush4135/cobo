@@ -3,6 +3,8 @@ extends Spatial
 export  var Follow_Target = NodePath()
 onready var Target = get_node(Follow_Target)
 
+onready var tween = $Tween
+
 var Target_position = Vector3()
 var offset = Vector3()
 var follow = true
@@ -19,10 +21,12 @@ func _process(delta):
 	Changing_Position = Target_position + offset
 	if follow == true: #follow player only if the player is not die
 		self.set_translation(Changing_Position)
-
+	print(get_translation())
+	
 func _player_died(): #if player is die
 	if PlayerData.Die == true:
 		yield(get_tree().create_timer(.8), "timeout") #delay it then execute
 		follow = false
 	
+
 

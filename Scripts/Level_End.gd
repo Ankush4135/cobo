@@ -3,6 +3,9 @@ extends Spatial
 signal Entered_Tunnel(x)
 
 onready var anim = $AnimationPlayer
+onready var orb_prompt = get_node("../UserInterfaceLayer/UserInterface/Pause/not_enough_orbs")
+onready var pause = get_node("../UserInterfaceLayer/UserInterface/Pause")
+onready var find_button = get_node("../UserInterfaceLayer/UserInterface/Pause/not_enough_orbs/HBoxContainer/find")
 
 export var End_Right_side = true
 var endside = 1
@@ -24,7 +27,10 @@ func _on_orb_checker_body_entered(body):
 			yield(anim,"animation_finished")
 			$orb_checker.free()
 		else:
-			print("you dont have enough orbs")
+			orb_prompt.visible = true
+			find_button.grab_focus()
+			yield(get_tree().create_timer(.5),"timeout")
+			pause.paused = true
 
 func _on_Entered_Tunnel_body_entered(body):
 	if body.is_in_group("player"):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Objects/Character_Ball.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://Assets/Textures/glow_With_alpha.png" type="Texture" id=2]
@@ -28,7 +28,48 @@ albedo_color = Color( 0, 1, 1, 1 )
 albedo_texture = ExtResource( 2 )
 
 [sub_resource type="Animation" id=5]
-resource_name = "default"
+resource_name = "Pickedup"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Spatial:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CPUParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Spatial")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "free"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
 length = 2.0
 loop = true
 tracks/0/type = "bezier"
@@ -41,14 +82,51 @@ tracks/0/keys = {
 "points": PoolRealArray( -0.2, -0.25, 0, 0.25, 0, 0.2, -0.25, 0, 0.25, 0, -0.2, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 1, 2 )
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Spatial:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="SpatialMaterial" id=7]
+flags_transparent = true
+flags_unshaded = true
+params_diffuse_mode = 1
+params_specular_mode = 4
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0, 0.596078, 0.596078, 1 )
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="QuadMesh" id=8]
+material = SubResource( 7 )
+
+[sub_resource type="Curve" id=9]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.919308, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 72.7273 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=10]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.0631081 ), 0.0, 0.0, 0, 0 ]
 
 [node name="Orb" type="Spatial" groups=[
 "orb",
 ]]
+pause_mode = 2
 script = ExtResource( 3 )
 
 [node name="Spatial" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.86265e-09, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0 )
 
 [node name="Energy_Ball" type="Area" parent="Spatial"]
 
@@ -72,5 +150,25 @@ omni_range = 3.70749
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "default"
-anims/default = SubResource( 5 )
+anims/Pickedup = SubResource( 5 )
+anims/default = SubResource( 6 )
+
+[node name="CPUParticles" type="CPUParticles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0 )
+emitting = false
+amount = 40
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+mesh = SubResource( 8 )
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3( 0, 0, 1 )
+spread = 94.04
+gravity = Vector3( 0, 1.757, 0 )
+initial_velocity = 4.23
+linear_accel_curve = SubResource( 9 )
+damping = 4.18
+scale_amount_curve = SubResource( 10 )
 [connection signal="body_entered" from="Spatial/Energy_Ball" to="." method="_on_Energy_Ball_body_entered"]

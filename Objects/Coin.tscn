@@ -13,6 +13,11 @@ radial_segments = 10
 [sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 1, 0.74902, 0, 1 )
 roughness = 0.0
+emission_enabled = true
+emission = Color( 0.235294, 0.235294, 0, 1 )
+emission_energy = 0.25
+emission_operator = 0
+emission_on_uv2 = false
 
 [sub_resource type="ArrayMesh" id=4]
 surfaces/0 = {
@@ -134,16 +139,16 @@ material = SubResource( 8 )
 size = Vector2( 0.45, 0.45 )
 
 [sub_resource type="Curve" id=10]
-min_value = -200.0
 max_value = 200.0
-_data = [ Vector2( 0, 7.27274 ), 0.0, 0.0, 0, 0, Vector2( 1, 181.818 ), 0.0, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 21.8182 ), 0.0, -42.692, 0, 0, Vector2( 1, 149.091 ), -52.823, 0.0, 0, 0 ]
 
 [sub_resource type="Curve" id=11]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.790323, 0.894014 ), -0.644156, -0.644156, 0, 0, Vector2( 1, 0.291352 ), -0.651314, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.790323, 0.894014 ), -0.644156, -0.644156, 0, 0, Vector2( 1, 0.145455 ), -0.651314, 0.0, 0, 0 ]
 
 [node name="Coin" type="Spatial" groups=[
 "coins",
 ]]
+pause_mode = 2
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
 script = ExtResource( 1 )
 
@@ -186,6 +191,4 @@ tangential_accel_random = 0.2
 tangential_accel_curve = SubResource( 10 )
 damping = 8.0
 scale_amount_curve = SubResource( 11 )
-hue_variation = 0.4
-hue_variation_random = 0.28
 [connection signal="body_entered" from="Coin_Pickup_Detect" to="." method="_on_Coin_body_entered"]
