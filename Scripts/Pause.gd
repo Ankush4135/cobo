@@ -3,6 +3,7 @@ extends Control
 signal gotohome 
 signal restart_level
 signal goto_orb
+signal goto_next_level
 
 onready var scene_tree = get_tree()
 onready var animation = $AnimationPlayer
@@ -83,3 +84,7 @@ func _on_hint_pressed():
 		emit_signal("goto_orb")
 	else:
 		$not_enough_orbs/HBoxContainer/hint.disabled = true
+
+func _on_Next_pressed():
+	self.paused = !self.paused
+	emit_signal("goto_next_level")

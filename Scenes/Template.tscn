@@ -1154,6 +1154,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 263.029, -24.8876, 0 )
 [connection signal="Entered_Tunnel" from="Level_End" to="Ball" method="_on_Level_End_Entered_Tunnel"]
 [connection signal="body_entered" from="Level_End/Game_End_Triger" to="." method="_on_Game_End_Triger_body_entered"]
 [connection signal="health_changed" from="UserInterfaceLayer/UserInterface" to="." method="_on_health_changed"]
+[connection signal="next_scene" from="UserInterfaceLayer/UserInterface" to="." method="_on_next_scene_pressed"]
 [connection signal="reload_scene" from="UserInterfaceLayer/UserInterface" to="." method="_on_reload_scene_pressed"]
 [connection signal="force_position" from="Attract_Force/Attract_Force" to="Ball" method="_on_Attract_Force_position_colides"]
 [connection signal="force_position" from="Attract_Force/Attract_Force2" to="Ball" method="_on_Attract_Force_position_colides"]

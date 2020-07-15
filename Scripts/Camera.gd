@@ -21,7 +21,6 @@ func _process(delta):
 	Changing_Position = Target_position + offset
 	if follow == true: #follow player only if the player is not die
 		self.set_translation(Changing_Position)
-	print(get_translation())
 	
 func _player_died(): #if player is die
 	if PlayerData.Die == true:

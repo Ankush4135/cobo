@@ -2,6 +2,7 @@ extends Control
 
 signal reload_scene
 signal health_changed
+signal next_scene
 
 onready var coinscore = $main_UI/coinscount
 onready var timer_label = $main_UI/Timer_Text
@@ -17,6 +18,7 @@ export(float) var Max_Time
 
 func _ready():
 	PlayerData.orbs = 0
+	PlayerData.score = 0
 	PlayerData.health = 100 #reset helth on start
 	PlayerData.Die = false
 	coinscore.text = str(PlayerData.score)
@@ -72,3 +74,6 @@ func _on_Pause_goto_orb():
 	camera.follow = true
 	yield(get_tree().create_timer(.5),"timeout")
 	pause.paused = false
+
+func _on_Pause_goto_next_level():
+	emit_signal("next_scene")

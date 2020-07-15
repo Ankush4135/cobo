@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Fonts/Gasalt-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/UserInterface.gd" type="Script" id=2]
@@ -13,6 +13,9 @@
 [ext_resource path="res://Assets/Buttons/home-button.png" type="Texture" id=11]
 [ext_resource path="res://Objects/UserInterface/Base_UI.theme" type="Theme" id=12]
 [ext_resource path="res://Assets/UI/counter_container.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Buttons/next-button.png" type="Texture" id=14]
+[ext_resource path="res://Assets/UI/star_empty.png" type="Texture" id=15]
+[ext_resource path="res://Assets/UI/star.png" type="Texture" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -42,6 +45,29 @@ font_data = ExtResource( 1 )
 [sub_resource type="DynamicFont" id=7]
 size = 200
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 50
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 50
+extra_spacing_top = 12
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 40
+extra_spacing_top = 7
+font_data = ExtResource( 1 )
+
+[sub_resource type="Curve" id=17]
+_data = [ Vector2( 0, 0.263636 ), 0.0, 0.673171, 0, 0, Vector2( 1, 0.939436 ), 0.043125, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=18]
+offsets = PoolRealArray( 0.634783, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
 [sub_resource type="Animation" id=8]
 resource_name = "Default"
@@ -92,6 +118,18 @@ tracks/3/keys = {
 "times": PoolRealArray(  ),
 "transitions": PoolRealArray(  ),
 "values": [  ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("End_score:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -144,6 +182,131 @@ tracks/3/keys = {
 "points": PoolRealArray( -304.459, -0.25, 0, 0.130605, 10.459, -1, -0.121332, 59, 0.0264881, -12, 0, -0.00978979, -1, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.402448, 0.5 )
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("End_score:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "one_Star"
+tracks/0/type = "value"
+tracks/0/path = NodePath("End_score:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 15 ), ExtResource( 16 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect2:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 15 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect3:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 15 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("End_score/ColorRect2/button_HBoxContainer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("End_score/ColorRect2/button_HBoxContainer:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect/Control/CPUParticles2D:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("pause_menu:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/8/type = "method"
+tracks/8/path = NodePath("End_score/ColorRect2/button_HBoxContainer/Next")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "grab_focus"
+} ]
+}
 
 [sub_resource type="Animation" id=10]
 length = 0.5
@@ -181,22 +344,281 @@ tracks/2/keys = {
 "points": PoolRealArray( 0, -0.25, 0, 0.251209, 160, -304.459, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.5 )
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("End_score:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
-[sub_resource type="DynamicFont" id=11]
-size = 50
-use_mipmaps = true
-use_filter = true
-font_data = ExtResource( 1 )
+[sub_resource type="Animation" id=15]
+resource_name = "three_Star"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("End_score:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 15 ), ExtResource( 16 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect2:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 15 ), ExtResource( 15 ), ExtResource( 16 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect3:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 15 ), ExtResource( 15 ), ExtResource( 16 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("End_score/ColorRect2/button_HBoxContainer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("End_score/ColorRect2/button_HBoxContainer:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect/Control/CPUParticles2D:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect2/Control/CPUParticles2D:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect3/Control/CPUParticles2D:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("pause_menu:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/10/type = "method"
+tracks/10/path = NodePath("End_score/ColorRect2/button_HBoxContainer/Next")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "grab_focus"
+} ]
+}
 
-[sub_resource type="DynamicFont" id=12]
-size = 50
-extra_spacing_top = 12
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=13]
-size = 40
-extra_spacing_top = 7
-font_data = ExtResource( 1 )
+[sub_resource type="Animation" id=16]
+resource_name = "two_Star"
+tracks/0/type = "value"
+tracks/0/path = NodePath("End_score:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 15 ), ExtResource( 16 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect2:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 15 ), ExtResource( 15 ), ExtResource( 16 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect3:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 15 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("End_score/ColorRect2/button_HBoxContainer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("End_score/ColorRect2/button_HBoxContainer:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect/Control/CPUParticles2D:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect2/Control/CPUParticles2D:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("pause_menu:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/9/type = "method"
+tracks/9/path = NodePath("End_score/ColorRect2/button_HBoxContainer/Next")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "grab_focus"
+} ]
+}
 
 [node name="UserInterface" type="Control"]
 anchor_right = 1.0
@@ -349,10 +771,10 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Pause/pause_menu/ColorRect"]
-anchor_top = 1.0
+anchor_top = 0.983
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 0.889206
+margin_top = 5.6322
 margin_bottom = 28.8892
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -415,6 +837,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Next" type="Button" parent="Pause/pause_menu/ColorRect/HBoxContainer"]
+visible = false
+margin_left = 420.0
+margin_right = 558.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+
+[node name="Next_icon" type="TextureRect" parent="Pause/pause_menu/ColorRect/HBoxContainer/Next"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Title" type="Label" parent="Pause/pause_menu/ColorRect"]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -429,6 +870,7 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Pause
 "
 align = 1
+percent_visible = -0.2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -452,12 +894,6 @@ __meta__ = {
 [node name="Timer" type="Timer" parent="Pause/Resume_Counter_Text"]
 wait_time = 3.0
 one_shot = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Pause"]
-autoplay = "Default"
-anims/Default = SubResource( 8 )
-anims/Pause_in = SubResource( 9 )
-anims/pause_out = SubResource( 10 )
 
 [node name="not_enough_orbs" type="Popup" parent="Pause"]
 anchor_right = 1.0
@@ -565,13 +1001,284 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="End_score" type="Control" parent="Pause"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="Pause/End_score"]
+anchor_left = 0.282
+anchor_top = 0.307
+anchor_right = 0.718
+anchor_bottom = 0.693
+margin_left = 0.039978
+margin_top = -42.768
+margin_right = -0.0400391
+margin_bottom = -43.232
+color = Color( 0.631373, 0.631373, 0.631373, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="star_HBoxContainer" type="HBoxContainer" parent="Pause/End_score/ColorRect2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Pause/End_score/ColorRect2/star_HBoxContainer"]
+margin_right = 165.0
+margin_bottom = 277.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
+texture = ExtResource( 15 )
+expand = true
+stretch_mode = 6
+
+[node name="Control" type="Control" parent="Pause/End_score/ColorRect2/star_HBoxContainer/TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Pause/End_score/ColorRect2/star_HBoxContainer/TextureRect/Control"]
+emitting = false
+amount = 50
+lifetime = 6.0
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.44
+draw_order = 1
+texture = ExtResource( 16 )
+emission_shape = 1
+emission_sphere_radius = 44.02
+direction = Vector2( 0, 0 )
+spread = 180.0
+gravity = Vector2( 0, 50 )
+initial_velocity = 275.86
+initial_velocity_random = 1.0
+angular_velocity = 101.0
+angular_velocity_random = 0.33
+tangential_accel = 41.38
+tangential_accel_random = 1.0
+angle = 24.8
+scale_amount = 0.05
+scale_amount_curve = SubResource( 17 )
+color_ramp = SubResource( 18 )
+hue_variation = 0.09
+hue_variation_random = 0.64
+
+[node name="TextureRect2" type="TextureRect" parent="Pause/End_score/ColorRect2/star_HBoxContainer"]
+margin_left = 169.0
+margin_right = 389.0
+margin_bottom = 277.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 15 )
+expand = true
+stretch_mode = 6
+
+[node name="Control" type="Control" parent="Pause/End_score/ColorRect2/star_HBoxContainer/TextureRect2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Pause/End_score/ColorRect2/star_HBoxContainer/TextureRect2/Control"]
+emitting = false
+amount = 50
+lifetime = 6.0
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.44
+draw_order = 1
+texture = ExtResource( 16 )
+emission_shape = 1
+emission_sphere_radius = 44.02
+direction = Vector2( 0, 0 )
+spread = 180.0
+gravity = Vector2( 0, 50 )
+initial_velocity = 275.86
+initial_velocity_random = 1.0
+angular_velocity = 101.0
+angular_velocity_random = 0.33
+tangential_accel = 41.38
+tangential_accel_random = 1.0
+angle = 24.8
+scale_amount = 0.05
+scale_amount_curve = SubResource( 17 )
+color_ramp = SubResource( 18 )
+hue_variation = 0.09
+hue_variation_random = 0.64
+
+[node name="TextureRect3" type="TextureRect" parent="Pause/End_score/ColorRect2/star_HBoxContainer"]
+margin_left = 393.0
+margin_right = 558.0
+margin_bottom = 277.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
+texture = ExtResource( 15 )
+expand = true
+stretch_mode = 6
+
+[node name="Control" type="Control" parent="Pause/End_score/ColorRect2/star_HBoxContainer/TextureRect3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Pause/End_score/ColorRect2/star_HBoxContainer/TextureRect3/Control"]
+emitting = false
+amount = 50
+lifetime = 6.0
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.44
+draw_order = 1
+texture = ExtResource( 16 )
+emission_shape = 1
+emission_sphere_radius = 44.02
+direction = Vector2( 0, 0 )
+spread = 180.0
+gravity = Vector2( 0, 50 )
+initial_velocity = 275.86
+initial_velocity_random = 1.0
+angular_velocity = 101.0
+angular_velocity_random = 0.33
+tangential_accel = 41.38
+tangential_accel_random = 1.0
+angle = 24.8
+scale_amount = 0.05
+scale_amount_curve = SubResource( 17 )
+color_ramp = SubResource( 18 )
+hue_variation = 0.09
+hue_variation_random = 0.64
+
+[node name="button_HBoxContainer" type="HBoxContainer" parent="Pause/End_score/ColorRect2"]
+visible = false
+anchor_top = 0.943
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 17.0099
+margin_bottom = 28.8892
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 12 )
+custom_constants/separation = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Restart" type="Button" parent="Pause/End_score/ColorRect2/button_HBoxContainer"]
+margin_right = 183.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+
+[node name="Restart_icon" type="TextureRect" parent="Pause/End_score/ColorRect2/button_HBoxContainer/Restart"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Home" type="Button" parent="Pause/End_score/ColorRect2/button_HBoxContainer"]
+margin_left = 187.0
+margin_right = 370.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+
+[node name="Home_icon" type="TextureRect" parent="Pause/End_score/ColorRect2/button_HBoxContainer/Home"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Next" type="Button" parent="Pause/End_score/ColorRect2/button_HBoxContainer"]
+margin_left = 374.0
+margin_right = 558.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+
+[node name="Next_icon" type="TextureRect" parent="Pause/End_score/ColorRect2/button_HBoxContainer/Next"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Pause/End_score/ColorRect2"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -279.0
+margin_top = -88.8889
+margin_right = 279.0
+margin_bottom = 266.111
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Pause
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pause"]
+autoplay = "Default"
+anims/Default = SubResource( 8 )
+anims/Pause_in = SubResource( 9 )
+anims/one_Star = SubResource( 14 )
+anims/pause_out = SubResource( 10 )
+anims/three_Star = SubResource( 15 )
+anims/two_Star = SubResource( 16 )
 [connection signal="value_changed" from="main_UI/health" to="." method="_on_health_value_changed"]
 [connection signal="timeout" from="main_UI/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="goto_next_level" from="Pause" to="." method="_on_Pause_goto_next_level"]
 [connection signal="goto_orb" from="Pause" to="." method="_on_Pause_goto_orb"]
 [connection signal="gotohome" from="Pause" to="." method="_on_Pause_gotohome"]
 [connection signal="restart_level" from="Pause" to="." method="_on_Pause_restart_level"]
 [connection signal="button_up" from="Pause/pause_menu/ColorRect/HBoxContainer/Restart" to="Pause" method="_on_Restart_button_up"]
 [connection signal="pressed" from="Pause/pause_menu/ColorRect/HBoxContainer/Home" to="Pause" method="_on_Home_pressed"]
 [connection signal="pressed" from="Pause/pause_menu/ColorRect/HBoxContainer/Play" to="Pause" method="_on_Play_pressed"]
+[connection signal="pressed" from="Pause/pause_menu/ColorRect/HBoxContainer/Next" to="Pause" method="_on_Play_pressed"]
 [connection signal="pressed" from="Pause/not_enough_orbs/HBoxContainer/find" to="Pause" method="_on_find_pressed"]
 [connection signal="pressed" from="Pause/not_enough_orbs/HBoxContainer/hint" to="Pause" method="_on_hint_pressed"]
+[connection signal="button_up" from="Pause/End_score/ColorRect2/button_HBoxContainer/Restart" to="Pause" method="_on_Restart_button_up"]
+[connection signal="pressed" from="Pause/End_score/ColorRect2/button_HBoxContainer/Home" to="Pause" method="_on_Home_pressed"]
+[connection signal="pressed" from="Pause/End_score/ColorRect2/button_HBoxContainer/Next" to="Pause" method="_on_Next_pressed"]

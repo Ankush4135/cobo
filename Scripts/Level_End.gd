@@ -21,7 +21,7 @@ func _ready():
 	orb_count = orb_list.size()
 
 func _on_orb_checker_body_entered(body):
-	if body.is_in_group("player"):
+	if body.is_in_group("player") && anim.is_playing() == false:
 		if PlayerData.orbs == orb_count:
 			anim.play("opengate")
 			yield(anim,"animation_finished")
