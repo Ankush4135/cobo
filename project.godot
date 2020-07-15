@@ -638,11 +638,11 @@ pointing/emulate_touch_from_mouse=true
 [rendering]
 
 quality/driver/driver_name="GLES2"
+quality/intended_usage/framebuffer_allocation.mobile=2
 vram_compression/import_etc=true
 quality/reflections/texture_array_reflections=false
 quality/reflections/high_quality_ggx=false
 quality/shading/force_vertex_shading.mobile=false
 quality/shading/force_lambert_over_burley.mobile=false
 quality/shading/force_blinn_over_ggx.mobile=false
-quality/filters/use_nearest_mipmap_filter=true
 environment/default_environment="res://default_env.tres"

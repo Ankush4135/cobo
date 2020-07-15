@@ -3,8 +3,6 @@ extends Spatial
 export  var Follow_Target = NodePath()
 onready var Target = get_node(Follow_Target)
 
-onready var tween = $Tween
-
 var Target_position = Vector3()
 var offset = Vector3()
 var follow = true

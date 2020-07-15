@@ -82,8 +82,8 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=7]
 resource_name = "picked"
 length = 2.0
-tracks/0/type = "method"
-tracks/0/path = NodePath("Coin_Pickup_Detect")
+tracks/0/type = "value"
+tracks/0/path = NodePath("CPUParticles:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -91,30 +91,16 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "free"
-} ]
+"update": 1,
+"values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CPUParticles:emitting")
+tracks/1/path = NodePath("coin_mesh:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("coin_mesh:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,

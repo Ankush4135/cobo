@@ -99,7 +99,7 @@ mesh = ExtResource( 2 )
 material/0 = ExtResource( 3 )
 
 [node name="field" type="MeshInstance" parent="."]
-transform = Transform( 6.965, 0, 0, 0, 6.965, 0, 0, 0, 2.62156, 0, 7.116, -0.002 )
+transform = Transform( 6.965, 0, 0, 0, 6.965, 0, 0, 0, 4.13524, 0, 7.116, -0.002 )
 cast_shadow = 0
 mesh = ExtResource( 2 )
 material/0 = SubResource( 3 )

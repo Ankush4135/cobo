@@ -18,6 +18,7 @@ var paused: = false setget set_paused
 
 func _ready():
 	PlayerData.connect("player_died", self, "_player_died")
+	hint_count_text.text = str(PlayerData.hints)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
@@ -37,8 +38,7 @@ func _unhandled_input(event):
 func _process(delta):
 	var time_left = timer.get_time_left()
 	resume_count.text = str((int(time_left) + 1))
-	$pause_menu/ColorRect/HBoxContainer/Play.visible = !PlayerData.Die
-	hint_count_text.text = str(PlayerData.hints)
+#	hint_count_text.text = str(PlayerData.hints)
 
 func set_paused(value):
 	paused = value
@@ -68,6 +68,7 @@ func _on_Home_pressed():
 
 func _player_died():
 	if PlayerData.Die == true:
+		$pause_menu/ColorRect/HBoxContainer/Play.visible = false
 		title.text = "Died"
 		yield(get_tree().create_timer(1), "timeout") #delay it then execute
 		animation.play("Pause_in")
@@ -80,6 +81,7 @@ func _on_find_pressed():
 func _on_hint_pressed():
 	if PlayerData.hints > 0:
 		PlayerData.hints -= 1
+		hint_count_text.text = str(PlayerData.hints)
 		orb_prompt.visible = false
 		emit_signal("goto_orb")
 	else:

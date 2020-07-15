@@ -54,20 +54,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [ true ]
 }
-tracks/2/type = "method"
-tracks/2/path = NodePath("Spatial")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "free"
-} ]
-}
 
 [sub_resource type="Animation" id=6]
 length = 2.0
@@ -127,6 +113,7 @@ script = ExtResource( 3 )
 
 [node name="Spatial" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0 )
+visible = false
 
 [node name="Energy_Ball" type="Area" parent="Spatial"]
 
