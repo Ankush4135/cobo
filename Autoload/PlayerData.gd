@@ -6,6 +6,7 @@ signal player_died
 signal total_score_update
 
 var restart_level = "" setget set_restart_level
+var next_level = "" setget set_next_level
 var total_score = 0 setget set_total_score
 var score = 0 setget set_score, get_score
 var health = 100 setget set_health
@@ -36,6 +37,9 @@ func set_die(died):
 
 func set_restart_level(reload):
 	restart_level = reload
+
+func set_next_level(next):
+	next_level = next
 
 func _set_orbs(update_orb):
 	orbs = update_orb

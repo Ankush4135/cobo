@@ -7,12 +7,14 @@ onready var UI_anim = $UserInterfaceLayer/UserInterface/Pause/AnimationPlayer
 onready var pause = $UserInterfaceLayer/UserInterface/Pause
 
 export(String, FILE) var Current_Scene_Path = ""
+export(String, FILE) var Next_Scene_Path = ""
+
 
 var coin_count = 0
 var play_anim = ""
 
 func _ready():
-	get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_DISABLED, SceneTree.STRETCH_ASPECT_IGNORE, Vector2(1280, 720))
+	get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_DISABLED, SceneTree.STRETCH_ASPECT_IGNORE, Vector2(1920, 1080))
 	var coin_list
 	coin_list = get_tree().get_nodes_in_group("coins")
 	coin_count = coin_list.size()
