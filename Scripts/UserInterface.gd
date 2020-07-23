@@ -15,8 +15,10 @@ onready var camera = get_node("../../Shake_Camera/Camera_Pivot")
 onready var tween = get_node("../../Shake_Camera/Camera_Pivot/Camera/Tween")
 
 export(float) var Max_Time
+export(String) var Level_Number = 01
 
 func _ready():
+	$main_UI/level_indicate.text = "LEVEL " +  str(Level_Number)
 	PlayerData.orbs = 0
 	PlayerData.score = 0
 	PlayerData.health = 100 #reset helth on start

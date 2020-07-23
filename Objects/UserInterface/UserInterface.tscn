@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Fonts/Gasalt-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/UserInterface.gd" type="Script" id=2]
@@ -32,45 +32,80 @@ font_data = ExtResource( 3 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 200, 200 )
 
+[sub_resource type="CanvasItemMaterial" id=22]
+blend_mode = 1
+
 [sub_resource type="DynamicFont" id=5]
+size = 120
+outline_size = 3
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=21]
+resource_name = "level_title"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("level_indicate:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.999999 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("level_indicate:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="DynamicFont" id=6]
 size = 44
 extra_spacing_top = 6
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=7]
 size = 150
 extra_spacing_top = 26
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=8]
 size = 200
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=9]
 size = 50
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=10]
 size = 50
 extra_spacing_top = 12
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=11]
 size = 40
 extra_spacing_top = 7
 font_data = ExtResource( 1 )
 
-[sub_resource type="Curve" id=17]
+[sub_resource type="Curve" id=12]
 _data = [ Vector2( 0, 0.263636 ), 0.0, 0.673171, 0, 0, Vector2( 1, 0.939436 ), 0.043125, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=18]
+[sub_resource type="Gradient" id=13]
 offsets = PoolRealArray( 0.634783, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="Animation" id=8]
-resource_name = "Default"
+[sub_resource type="Animation" id=14]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("pause_menu:rect_position")
@@ -131,8 +166,20 @@ tracks/4/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("PauseBG:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=15]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("../main_UI:rect_position")
@@ -195,8 +242,49 @@ tracks/4/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=14]
-resource_name = "one_Star"
+[sub_resource type="Animation" id=16]
+resource_name = "end_button_animation"
+length = 0.1
+tracks/0/type = "method"
+tracks/0/path = NodePath("End_score/ColorRect2/button_HBoxContainer/Next")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "grab_focus"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("End_score/ColorRect2/button_HBoxContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("End_score/ColorRect2/button_HBoxContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=17]
 tracks/0/type = "value"
 tracks/0/path = NodePath("End_score:visible")
 tracks/0/interp = 1
@@ -252,25 +340,25 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false, true ]
+"values": [ false ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("End_score/ColorRect2/button_HBoxContainer:modulate")
+tracks/5/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect/Control/CPUParticles2D:emitting")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect/Control/CPUParticles2D:emitting")
+tracks/6/path = NodePath("pause_menu:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -279,10 +367,10 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("pause_menu:visible")
+tracks/7/path = NodePath("PauseBG:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -291,24 +379,22 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ true ]
 }
-tracks/8/type = "method"
-tracks/8/path = NodePath("End_score/ColorRect2/button_HBoxContainer/Next")
+tracks/8/type = "value"
+tracks/8/path = NodePath("PauseBG:color")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "grab_focus"
-} ]
+"times": PoolRealArray( 0, 0.0100521 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.203922 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=18]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("../main_UI:rect_position")
@@ -357,8 +443,7 @@ tracks/3/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=15]
-resource_name = "three_Star"
+[sub_resource type="Animation" id=19]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("End_score:visible")
@@ -415,88 +500,85 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("End_score/ColorRect2/button_HBoxContainer:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect/Control/CPUParticles2D:emitting")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect2/Control/CPUParticles2D:emitting")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect3/Control/CPUParticles2D:emitting")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0.2 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("pause_menu:visible")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
 }
-tracks/10/type = "method"
-tracks/10/path = NodePath("End_score/ColorRect2/button_HBoxContainer/Next")
+tracks/5/type = "value"
+tracks/5/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect/Control/CPUParticles2D:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect2/Control/CPUParticles2D:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect3/Control/CPUParticles2D:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("pause_menu:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("PauseBG:color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.01 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.203922 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("PauseBG:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0.3 ),
+"times": PoolRealArray( 0.01 ),
 "transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "grab_focus"
-} ]
+"update": 1,
+"values": [ true ]
 }
 
-[sub_resource type="Animation" id=16]
-resource_name = "two_Star"
+[sub_resource type="Animation" id=20]
 tracks/0/type = "value"
 tracks/0/path = NodePath("End_score:visible")
 tracks/0/interp = 1
@@ -552,49 +634,49 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false, true ]
+"values": [ false ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("End_score/ColorRect2/button_HBoxContainer:modulate")
+tracks/5/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect/Control/CPUParticles2D:emitting")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect/Control/CPUParticles2D:emitting")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect2/Control/CPUParticles2D:emitting")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
+tracks/6/type = "value"
+tracks/6/path = NodePath("End_score/ColorRect2/star_HBoxContainer/TextureRect2/Control/CPUParticles2D:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
 "times": PoolRealArray( 0.1 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("pause_menu:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 tracks/8/type = "value"
-tracks/8/path = NodePath("pause_menu:visible")
+tracks/8/path = NodePath("PauseBG:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -603,21 +685,19 @@ tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ true ]
 }
-tracks/9/type = "method"
-tracks/9/path = NodePath("End_score/ColorRect2/button_HBoxContainer/Next")
+tracks/9/type = "value"
+tracks/9/path = NodePath("PauseBG:color")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0.2 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "grab_focus"
-} ]
+"times": PoolRealArray( 0, 0.00998234 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.203922 ) ]
 }
 
 [node name="UserInterface" type="Control"]
@@ -628,11 +708,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 Max_Time = 181.0
+Level_Number = "01"
 
 [node name="main_UI" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = 0.00012207
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -729,6 +809,29 @@ shape = SubResource( 4 )
 passby_press = true
 action = "ui_cancel"
 
+[node name="level_indicate" type="Label" parent="main_UI"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 22 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -211.5
+margin_top = -198.823
+margin_right = 211.5
+margin_bottom = -78.8234
+custom_fonts/font = SubResource( 5 )
+text = "LEVEL 01"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="main_UI"]
+autoplay = "level_title"
+anims/level_title = SubResource( 21 )
+
 [node name="Pause" type="Control" parent="."]
 pause_mode = 2
 anchor_right = 1.0
@@ -789,7 +892,7 @@ margin_right = 183.0
 margin_bottom = 51.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 
 [node name="Restart_icon" type="TextureRect" parent="Pause/pause_menu/ColorRect/HBoxContainer/Restart"]
 anchor_right = 1.0
@@ -807,7 +910,7 @@ margin_right = 370.0
 margin_bottom = 51.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 
 [node name="Home_icon" type="TextureRect" parent="Pause/pause_menu/ColorRect/HBoxContainer/Home"]
 anchor_right = 1.0
@@ -825,7 +928,7 @@ margin_right = 558.0
 margin_bottom = 51.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 
 [node name="Play_icon" type="TextureRect" parent="Pause/pause_menu/ColorRect/HBoxContainer/Play"]
 anchor_right = 1.0
@@ -844,7 +947,7 @@ margin_right = 558.0
 margin_bottom = 51.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 
 [node name="Next_icon" type="TextureRect" parent="Pause/pause_menu/ColorRect/HBoxContainer/Next"]
 anchor_right = 1.0
@@ -865,12 +968,11 @@ margin_left = -279.0
 margin_top = -88.8889
 margin_right = 279.0
 margin_bottom = 266.111
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Pause
 "
 align = 1
-percent_visible = -0.2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -885,7 +987,7 @@ margin_left = -33.5
 margin_top = -100.5
 margin_right = 33.5
 margin_bottom = 100.5
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 text = "3"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -919,7 +1021,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="Pause/not_enough_orbs"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 9 )
 text = "You don't have enough Orbs"
 align = 1
 valign = 1
@@ -943,7 +1045,7 @@ margin_right = 190.0
 margin_bottom = 63.0
 size_flags_horizontal = 3
 theme = ExtResource( 12 )
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 10 )
 text = "Find"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -967,7 +1069,7 @@ margin_right = 775.0
 margin_bottom = 63.0
 size_flags_horizontal = 3
 theme = ExtResource( 12 )
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 10 )
 text = "Hint"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -994,7 +1096,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 3.0
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 11 )
 text = "00"
 align = 1
 valign = 1
@@ -1034,12 +1136,12 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="Pause/End_score/ColorRect2/star_HBoxContainer"]
-margin_right = 165.0
-margin_bottom = 277.0
+margin_right = 248.0
+margin_bottom = 416.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 expand = true
 stretch_mode = 6
 
@@ -1057,6 +1159,7 @@ emitting = false
 amount = 50
 lifetime = 6.0
 one_shot = true
+speed_scale = 1.8
 explosiveness = 1.0
 lifetime_randomness = 0.44
 draw_order = 1
@@ -1074,18 +1177,18 @@ tangential_accel = 41.38
 tangential_accel_random = 1.0
 angle = 24.8
 scale_amount = 0.05
-scale_amount_curve = SubResource( 17 )
-color_ramp = SubResource( 18 )
+scale_amount_curve = SubResource( 12 )
+color_ramp = SubResource( 13 )
 hue_variation = 0.09
 hue_variation_random = 0.64
 
 [node name="TextureRect2" type="TextureRect" parent="Pause/End_score/ColorRect2/star_HBoxContainer"]
-margin_left = 169.0
-margin_right = 389.0
-margin_bottom = 277.0
+margin_left = 252.0
+margin_right = 583.0
+margin_bottom = 416.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 expand = true
 stretch_mode = 6
 
@@ -1103,6 +1206,7 @@ emitting = false
 amount = 50
 lifetime = 6.0
 one_shot = true
+speed_scale = 1.8
 explosiveness = 1.0
 lifetime_randomness = 0.44
 draw_order = 1
@@ -1120,19 +1224,19 @@ tangential_accel = 41.38
 tangential_accel_random = 1.0
 angle = 24.8
 scale_amount = 0.05
-scale_amount_curve = SubResource( 17 )
-color_ramp = SubResource( 18 )
+scale_amount_curve = SubResource( 12 )
+color_ramp = SubResource( 13 )
 hue_variation = 0.09
 hue_variation_random = 0.64
 
 [node name="TextureRect3" type="TextureRect" parent="Pause/End_score/ColorRect2/star_HBoxContainer"]
-margin_left = 393.0
-margin_right = 558.0
-margin_bottom = 277.0
+margin_left = 587.0
+margin_right = 837.0
+margin_bottom = 416.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 expand = true
 stretch_mode = 6
 
@@ -1150,6 +1254,7 @@ emitting = false
 amount = 50
 lifetime = 6.0
 one_shot = true
+speed_scale = 1.8
 explosiveness = 1.0
 lifetime_randomness = 0.44
 draw_order = 1
@@ -1167,8 +1272,8 @@ tangential_accel = 41.38
 tangential_accel_random = 1.0
 angle = 24.8
 scale_amount = 0.05
-scale_amount_curve = SubResource( 17 )
-color_ramp = SubResource( 18 )
+scale_amount_curve = SubResource( 12 )
+color_ramp = SubResource( 13 )
 hue_variation = 0.09
 hue_variation_random = 0.64
 
@@ -1188,11 +1293,11 @@ __meta__ = {
 }
 
 [node name="Restart" type="Button" parent="Pause/End_score/ColorRect2/button_HBoxContainer"]
-margin_right = 183.0
+margin_right = 276.0
 margin_bottom = 51.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 
 [node name="Restart_icon" type="TextureRect" parent="Pause/End_score/ColorRect2/button_HBoxContainer/Restart"]
 anchor_right = 1.0
@@ -1205,12 +1310,12 @@ __meta__ = {
 }
 
 [node name="Home" type="Button" parent="Pause/End_score/ColorRect2/button_HBoxContainer"]
-margin_left = 187.0
-margin_right = 370.0
+margin_left = 280.0
+margin_right = 556.0
 margin_bottom = 51.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 
 [node name="Home_icon" type="TextureRect" parent="Pause/End_score/ColorRect2/button_HBoxContainer/Home"]
 anchor_right = 1.0
@@ -1223,12 +1328,12 @@ __meta__ = {
 }
 
 [node name="Next" type="Button" parent="Pause/End_score/ColorRect2/button_HBoxContainer"]
-margin_left = 374.0
-margin_right = 558.0
+margin_left = 560.0
+margin_right = 837.0
 margin_bottom = 51.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 
 [node name="Next_icon" type="TextureRect" parent="Pause/End_score/ColorRect2/button_HBoxContainer/Next"]
 anchor_right = 1.0
@@ -1250,7 +1355,7 @@ margin_left = -279.0
 margin_top = -88.8889
 margin_right = 279.0
 margin_bottom = 266.111
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Pause
 "
@@ -1261,12 +1366,13 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pause"]
 autoplay = "Default"
-anims/Default = SubResource( 8 )
-anims/Pause_in = SubResource( 9 )
-anims/one_Star = SubResource( 14 )
-anims/pause_out = SubResource( 10 )
-anims/three_Star = SubResource( 15 )
-anims/two_Star = SubResource( 16 )
+anims/Default = SubResource( 14 )
+anims/Pause_in = SubResource( 15 )
+anims/end_button_animation = SubResource( 16 )
+anims/one_Star = SubResource( 17 )
+anims/pause_out = SubResource( 18 )
+anims/three_Star = SubResource( 19 )
+anims/two_Star = SubResource( 20 )
 [connection signal="value_changed" from="main_UI/health" to="." method="_on_health_value_changed"]
 [connection signal="timeout" from="main_UI/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="goto_next_level" from="Pause" to="." method="_on_Pause_goto_next_level"]

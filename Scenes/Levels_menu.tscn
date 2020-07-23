@@ -1,21 +1,30 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Fonts/Gasalt-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Objects/UserInterface/Base_UI.theme" type="Theme" id=2]
 [ext_resource path="res://Assets/Material/vignette.shader" type="Shader" id=3]
-[ext_resource path="res://Scenes/Levels_Set.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/UI/Level_Set_1_BG.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Levels_Set_1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/UI/Blueprint_Texture.jpg" type="Texture" id=5]
 [ext_resource path="res://Scripts/Levels_menu.gd" type="Script" id=6]
 [ext_resource path="res://Assets/Buttons/play-button.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/LoadingScreen.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Scene_trans.tscn" type="PackedScene" id=9]
 
-[sub_resource type="ShaderMaterial" id=3]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )
 shader_param/radius = 0.855
 shader_param/softness = 0.601
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 50
+extra_spacing_char = 2
 font_data = ExtResource( 1 )
+
+[sub_resource type="CanvasItemMaterial" id=3]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 3
 
 [node name="Levels_menu" type="Control"]
 anchor_right = 1.0
@@ -26,24 +35,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Scene_trans" parent="." instance=ExtResource( 9 )]
+Fadein = true
+
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 0.560784, 0.560784, 0.560784, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 5 )
 expand = true
+stretch_mode = 7
+flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-material = SubResource( 3 )
+material = SubResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Set_1" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 241.0
@@ -54,15 +69,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TabContainer" type="TabContainer" parent="MarginContainer"]
+[node name="Level_Set_01" type="TabContainer" parent="Set_1"]
 margin_right = 1438.0
 margin_bottom = 742.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+tab_align = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Normal" type="Control" parent="MarginContainer/TabContainer"]
+[node name="Normal" type="Control" parent="Set_1/Level_Set_01"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 40.0
@@ -72,9 +88,59 @@ margin_bottom = -40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Levels_Set" parent="MarginContainer/TabContainer/Normal" instance=ExtResource( 4 )]
+[node name="bg" type="ColorRect" parent="Set_1/Level_Set_01/Normal"]
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.0745098, 0.0745098, 0.0745098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="Levels_Set_1" parent="Set_1/Level_Set_01/Normal" instance=ExtResource( 4 )]
+
+[node name="Dark" type="Control" parent="Set_1/Level_Set_01"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 91.0
+margin_right = -40.0
+margin_bottom = -40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="bg" type="ColorRect" parent="Set_1/Level_Set_01/Dark"]
+material = SubResource( 4 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.623529, 0.623529, 0.623529, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Levels_Set_1" parent="Set_1/Level_Set_01/Dark" instance=ExtResource( 4 )]
+Level_Mode = 1
+
+[node name="Onetouch" type="Control" parent="Set_1/Level_Set_01"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 91.0
+margin_right = -40.0
+margin_bottom = -40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Levels_Set_1" parent="Set_1/Level_Set_01/Onetouch" instance=ExtResource( 4 )]
+Level_Mode = 2
+
+[node name="rightbuttonholder" type="Control" parent="."]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -82,18 +148,35 @@ anchor_bottom = 0.5
 margin_left = -157.0
 margin_top = -241.022
 margin_bottom = 168.978
-texture = ExtResource( 7 )
-expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect3" type="TextureRect" parent="."]
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="rightbuttonholder"]
+position = Vector2( 0.966309, -3.69189 )
+scale = Vector2( 0.630574, 1.66508 )
+normal = ExtResource( 7 )
+
+[node name="leftbuttonholder" type="Control" parent="."]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -241.022
-margin_right = 157.0
-margin_bottom = 168.978
-texture = ExtResource( 7 )
-expand = true
-flip_h = true
+margin_top = -241.0
+margin_right = 62.0
+margin_bottom = 169.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="leftbuttonholder"]
+position = Vector2( 155.71, 413.03 )
+rotation = -3.14159
+scale = Vector2( 0.630574, 1.66508 )
+normal = ExtResource( 7 )
+
+[node name="LoadingScreen" parent="." instance=ExtResource( 8 )]
+visible = false
+Autoload = false
+[connection signal="Play_Level" from="." to="LoadingScreen" method="_on_Levels_menu_Play_Level"]
+[connection signal="Play_Level_Path" from="Set_1/Level_Set_01/Normal/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]
+[connection signal="Play_Level_Path" from="Set_1/Level_Set_01/Dark/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]
+[connection signal="Play_Level_Path" from="Set_1/Level_Set_01/Onetouch/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]

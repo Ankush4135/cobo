@@ -38,12 +38,12 @@ func _unhandled_input(event):
 func _process(delta):
 	var time_left = timer.get_time_left()
 	resume_count.text = str((int(time_left) + 1))
-#	hint_count_text.text = str(PlayerData.hints)
 
 func set_paused(value):
 	paused = value
 	scene_tree.paused = value
 	pausebg.visible = value
+
 
 func _on_Restart_button_up():
 	if PlayerData.Die == false:

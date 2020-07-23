@@ -591,6 +591,7 @@ config/icon="res://icon.png"
 [autoload]
 
 PlayerData="*res://Autoload/PlayerData.tscn"
+LevelManager="*res://Autoload/LevelManager.gd"
 
 [display]
 
