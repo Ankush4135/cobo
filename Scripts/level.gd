@@ -14,10 +14,12 @@ var coin_count = 0
 var play_anim = ""
 
 func _ready():
+	Audio.BG2.play()
 	if LevelManager.level_mode == 0:
 		pass
 	if LevelManager.level_mode == 1:
 		$DirectionalLight.visible = false
+		$DirectionalLight2.visible = false
 	if LevelManager.level_mode == 2:
 		PlayerData.health_reduced = 1
 	get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_DISABLED, SceneTree.STRETCH_ASPECT_IGNORE, Vector2(1920, 1080))
@@ -64,6 +66,7 @@ func _on_health_changed(): #chamera shake on every hit when the helth is decreas
 	playeranim.play("Collided")
 
 func _exit_tree():
+	Audio.BG2.stop()
 	PlayerData.total_score += PlayerData.score
 
 

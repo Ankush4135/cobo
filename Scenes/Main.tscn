@@ -55,6 +55,7 @@ script/source = "extends Button
 
 
 func _on_Quit_button_up():
+	Audio.Select.play()
 	get_tree().quit()
 "
 

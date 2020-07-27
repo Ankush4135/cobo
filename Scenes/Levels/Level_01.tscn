@@ -141,6 +141,7 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -61.152, 1, 0 )
 mesh = ExtResource( 4 )
 material/0 = ExtResource( 6 )
 __meta__ = {
+"_edit_group_": true,
 "_edit_lock_": true
 }
 

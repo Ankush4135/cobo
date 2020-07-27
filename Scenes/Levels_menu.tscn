@@ -72,6 +72,7 @@ __meta__ = {
 [node name="Level_Set_01" type="TabContainer" parent="Set_1"]
 margin_right = 1438.0
 margin_bottom = 742.0
+rect_min_size = Vector2( 1438, 742 )
 custom_fonts/font = SubResource( 2 )
 tab_align = 0
 __meta__ = {
@@ -140,6 +141,235 @@ size_flags_vertical = 3
 [node name="Levels_Set_1" parent="Set_1/Level_Set_01/Onetouch" instance=ExtResource( 4 )]
 Level_Mode = 2
 
+[node name="ScrollContainer" type="ScrollContainer" parent="Set_1"]
+visible = false
+margin_right = 1438.0
+margin_bottom = 742.0
+follow_focus = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Set_1/ScrollContainer"]
+margin_right = 4322.0
+margin_bottom = 742.0
+size_flags_vertical = 3
+
+[node name="Level_Set_02" type="TabContainer" parent="Set_1/ScrollContainer/HBoxContainer"]
+margin_right = 1438.0
+margin_bottom = 742.0
+rect_min_size = Vector2( 1438, 742 )
+custom_fonts/font = SubResource( 2 )
+tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Normal" type="Control" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_02"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 91.0
+margin_right = -40.0
+margin_bottom = -40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="bg" type="ColorRect" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_02/Normal"]
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.0745098, 0.0745098, 0.0745098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Levels_Set_1" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_02/Normal" instance=ExtResource( 4 )]
+
+[node name="Dark" type="Control" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_02"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 91.0
+margin_right = -40.0
+margin_bottom = -40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="bg" type="ColorRect" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_02/Dark"]
+material = SubResource( 4 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.623529, 0.623529, 0.623529, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Levels_Set_1" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_02/Dark" instance=ExtResource( 4 )]
+Level_Mode = 1
+
+[node name="Onetouch" type="Control" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_02"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 91.0
+margin_right = -40.0
+margin_bottom = -40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Levels_Set_1" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_02/Onetouch" instance=ExtResource( 4 )]
+Level_Mode = 2
+
+[node name="Level_Set_03" type="TabContainer" parent="Set_1/ScrollContainer/HBoxContainer"]
+margin_left = 1442.0
+margin_right = 2880.0
+margin_bottom = 742.0
+rect_min_size = Vector2( 1438, 742 )
+custom_fonts/font = SubResource( 2 )
+tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Normal" type="Control" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_03"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 91.0
+margin_right = -40.0
+margin_bottom = -40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="bg" type="ColorRect" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_03/Normal"]
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.0745098, 0.0745098, 0.0745098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Levels_Set_1" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_03/Normal" instance=ExtResource( 4 )]
+
+[node name="Dark" type="Control" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_03"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 91.0
+margin_right = -40.0
+margin_bottom = -40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="bg" type="ColorRect" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_03/Dark"]
+material = SubResource( 4 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.623529, 0.623529, 0.623529, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Levels_Set_1" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_03/Dark" instance=ExtResource( 4 )]
+Level_Mode = 1
+
+[node name="Onetouch" type="Control" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_03"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 91.0
+margin_right = -40.0
+margin_bottom = -40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Levels_Set_1" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_03/Onetouch" instance=ExtResource( 4 )]
+Level_Mode = 2
+
+[node name="Level_Set_04" type="TabContainer" parent="Set_1/ScrollContainer/HBoxContainer"]
+margin_left = 2884.0
+margin_right = 4322.0
+margin_bottom = 742.0
+rect_min_size = Vector2( 1438, 742 )
+custom_fonts/font = SubResource( 2 )
+tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Normal" type="Control" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_04"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 91.0
+margin_right = -40.0
+margin_bottom = -40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="bg" type="ColorRect" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_04/Normal"]
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.0745098, 0.0745098, 0.0745098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Levels_Set_1" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_04/Normal" instance=ExtResource( 4 )]
+
+[node name="Dark" type="Control" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_04"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 91.0
+margin_right = -40.0
+margin_bottom = -40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="bg" type="ColorRect" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_04/Dark"]
+material = SubResource( 4 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.623529, 0.623529, 0.623529, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Levels_Set_1" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_04/Dark" instance=ExtResource( 4 )]
+Level_Mode = 1
+
+[node name="Onetouch" type="Control" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_04"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 91.0
+margin_right = -40.0
+margin_bottom = -40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Levels_Set_1" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_04/Onetouch" instance=ExtResource( 4 )]
+Level_Mode = 2
+
 [node name="rightbuttonholder" type="Control" parent="."]
 anchor_left = 1.0
 anchor_top = 0.5
@@ -180,3 +410,12 @@ Autoload = false
 [connection signal="Play_Level_Path" from="Set_1/Level_Set_01/Normal/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]
 [connection signal="Play_Level_Path" from="Set_1/Level_Set_01/Dark/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]
 [connection signal="Play_Level_Path" from="Set_1/Level_Set_01/Onetouch/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]
+[connection signal="Play_Level_Path" from="Set_1/ScrollContainer/HBoxContainer/Level_Set_02/Normal/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]
+[connection signal="Play_Level_Path" from="Set_1/ScrollContainer/HBoxContainer/Level_Set_02/Dark/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]
+[connection signal="Play_Level_Path" from="Set_1/ScrollContainer/HBoxContainer/Level_Set_02/Onetouch/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]
+[connection signal="Play_Level_Path" from="Set_1/ScrollContainer/HBoxContainer/Level_Set_03/Normal/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]
+[connection signal="Play_Level_Path" from="Set_1/ScrollContainer/HBoxContainer/Level_Set_03/Dark/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]
+[connection signal="Play_Level_Path" from="Set_1/ScrollContainer/HBoxContainer/Level_Set_03/Onetouch/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]
+[connection signal="Play_Level_Path" from="Set_1/ScrollContainer/HBoxContainer/Level_Set_04/Normal/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]
+[connection signal="Play_Level_Path" from="Set_1/ScrollContainer/HBoxContainer/Level_Set_04/Dark/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]
+[connection signal="Play_Level_Path" from="Set_1/ScrollContainer/HBoxContainer/Level_Set_04/Onetouch/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]

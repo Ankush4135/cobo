@@ -587,17 +587,21 @@ _global_script_class_icons={
 config/name="cobo"
 run/main_scene="res://Scenes/Main.tscn"
 config/icon="res://icon.png"
+config/windows_native_icon="res://cobo.ico"
 
 [autoload]
 
 PlayerData="*res://Autoload/PlayerData.tscn"
 LevelManager="*res://Autoload/LevelManager.gd"
+Audio="*res://Autoload/Audio.tscn"
 
 [display]
 
 window/size/width=1920
 window/size/height=1080
 window/size/always_on_top=true
+window/size/test_width=960
+window/size/test_height=540
 
 [input]
 
@@ -641,9 +645,7 @@ pointing/emulate_touch_from_mouse=true
 quality/driver/driver_name="GLES2"
 quality/intended_usage/framebuffer_allocation.mobile=2
 vram_compression/import_etc=true
-quality/reflections/texture_array_reflections=false
-quality/reflections/high_quality_ggx=false
 quality/shading/force_vertex_shading.mobile=false
-quality/shading/force_lambert_over_burley.mobile=false
-quality/shading/force_blinn_over_ggx.mobile=false
+quality/shading/force_lambert_over_burley=true
+quality/shading/force_blinn_over_ggx=true
 environment/default_environment="res://default_env.tres"

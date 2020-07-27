@@ -1094,15 +1094,6 @@ transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -30.530
 [node name="Spike22" parent="Spikes" instance=ExtResource( 13 )]
 transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -28.5305, 58, 0 )
 
-[node name="Spike23" parent="Spikes" instance=ExtResource( 13 )]
-transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 22.4695, 32, 0 )
-
-[node name="Spike24" parent="Spikes" instance=ExtResource( 13 )]
-transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 24.4695, 32, 0 )
-
-[node name="Spike25" parent="Spikes" instance=ExtResource( 13 )]
-transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 26.4695, 32, 0 )
-
 [node name="Spike26" parent="Spikes" instance=ExtResource( 13 )]
 transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -26.5305, 58, 0 )
 
@@ -1118,32 +1109,23 @@ transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -20.530
 [node name="Spike30" parent="Spikes" instance=ExtResource( 13 )]
 transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -18.5305, 58, 0 )
 
-[node name="Spike31" parent="Spikes" instance=ExtResource( 13 )]
-transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 62.4695, 58, 0 )
-
-[node name="Spike32" parent="Spikes" instance=ExtResource( 13 )]
-transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 64.4695, 58, 0 )
-
-[node name="Spike33" parent="Spikes" instance=ExtResource( 13 )]
-transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 66.4695, 58, 0 )
-
 [node name="Spike34" parent="Spikes" instance=ExtResource( 13 )]
-transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 68.4695, 58, 0 )
-
-[node name="Spike35" parent="Spikes" instance=ExtResource( 13 )]
 transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 70.4695, 58, 0 )
 
-[node name="Spike36" parent="Spikes" instance=ExtResource( 13 )]
+[node name="Spike35" parent="Spikes" instance=ExtResource( 13 )]
 transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 72.4695, 58, 0 )
 
-[node name="Spike37" parent="Spikes" instance=ExtResource( 13 )]
+[node name="Spike36" parent="Spikes" instance=ExtResource( 13 )]
 transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 74.4695, 58, 0 )
 
-[node name="Spike38" parent="Spikes" instance=ExtResource( 13 )]
+[node name="Spike37" parent="Spikes" instance=ExtResource( 13 )]
 transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 76.4695, 58, 0 )
 
-[node name="Spike39" parent="Spikes" instance=ExtResource( 13 )]
+[node name="Spike38" parent="Spikes" instance=ExtResource( 13 )]
 transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 78.4695, 58, 0 )
+
+[node name="Spike39" parent="Spikes" instance=ExtResource( 13 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 80.4695, 58, 0 )
 
 [node name="Spike41" parent="Spikes" instance=ExtResource( 13 )]
 transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 7.4695, 58, 0 )
@@ -1432,12 +1414,6 @@ transform = Transform( 1.62921e-07, 1, 0, -1, 1.62921e-07, 0, 0, 0, 1, 118.469, 
 
 [node name="Spike139" parent="Spikes" instance=ExtResource( 13 )]
 transform = Transform( 1.62921e-07, 1, 0, -1, 1.62921e-07, 0, 0, 0, 1, 118.469, 53, 0 )
-
-[node name="Spike140" parent="Spikes" instance=ExtResource( 13 )]
-transform = Transform( -1, 1.19209e-07, 0, -1.19209e-07, -1, 0, 0, 0, 1, 124.469, 84, 0 )
-
-[node name="Spike141" parent="Spikes" instance=ExtResource( 13 )]
-transform = Transform( -1, 1.19209e-07, 0, -1.19209e-07, -1, 0, 0, 0, 1, 126.469, 84, 0 )
 
 [node name="Spike142" parent="Spikes" instance=ExtResource( 13 )]
 transform = Transform( -1, 1.19209e-07, 0, -1.19209e-07, -1, 0, 0, 0, 1, 128.469, 84, 0 )
@@ -1765,13 +1741,16 @@ transform = Transform( 4.37114e-08, 1, 0, -1, 4.37114e-08, 0, 0, 0, 1, -169.236,
 [node name="Bounce_Forces" type="Spatial" parent="."]
 
 [node name="Bounce_Force" parent="Bounce_Forces" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 23, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 23, 0 )
 
 [node name="Bounce_Force2" parent="Bounce_Forces" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 70.8, -29.1, 0 )
 
 [node name="Bounce_Force3" parent="Bounce_Forces" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 121.8, -57.1, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 108.8, -57.1, 0 )
+
+[node name="Bounce_Force7" parent="Bounce_Forces" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8, -57.1, 0 )
 
 [node name="Bounce_Force4" parent="Bounce_Forces" instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 112.8, 10.9, 0 )
@@ -1804,6 +1783,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -213.157, -11.6053, 0 )
 [connection signal="force_position" from="Bounce_Forces/Bounce_Force" to="Ball" method="_on_Bounce_Force_position_Colides"]
 [connection signal="force_position" from="Bounce_Forces/Bounce_Force2" to="Ball" method="_on_Bounce_Force_position_Colides"]
 [connection signal="force_position" from="Bounce_Forces/Bounce_Force3" to="Ball" method="_on_Bounce_Force_position_Colides"]
+[connection signal="force_position" from="Bounce_Forces/Bounce_Force7" to="Ball" method="_on_Bounce_Force_position_Colides"]
 [connection signal="force_position" from="Bounce_Forces/Bounce_Force4" to="Ball" method="_on_Bounce_Force_position_Colides"]
 [connection signal="force_position" from="Bounce_Forces/Bounce_Force5" to="Ball" method="_on_Bounce_Force_position_Colides"]
 [connection signal="force_position" from="Bounce_Forces/Bounce_Force6" to="Ball" method="_on_Bounce_Force_position_Colides"]

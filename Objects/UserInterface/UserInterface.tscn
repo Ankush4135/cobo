@@ -32,15 +32,15 @@ font_data = ExtResource( 3 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 200, 200 )
 
-[sub_resource type="CanvasItemMaterial" id=22]
+[sub_resource type="CanvasItemMaterial" id=5]
 blend_mode = 1
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=6]
 size = 120
 outline_size = 3
 font_data = ExtResource( 3 )
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=7]
 resource_name = "level_title"
 length = 2.0
 tracks/0/type = "value"
@@ -68,44 +68,44 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=8]
 size = 44
 extra_spacing_top = 6
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=9]
 size = 150
 extra_spacing_top = 26
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=10]
 size = 200
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=11]
 size = 50
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=12]
 size = 50
 extra_spacing_top = 12
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=13]
 size = 40
 extra_spacing_top = 7
 font_data = ExtResource( 1 )
 
-[sub_resource type="Curve" id=12]
+[sub_resource type="Curve" id=14]
 _data = [ Vector2( 0, 0.263636 ), 0.0, 0.673171, 0, 0, Vector2( 1, 0.939436 ), 0.043125, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=13]
+[sub_resource type="Gradient" id=15]
 offsets = PoolRealArray( 0.634783, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=16]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("pause_menu:rect_position")
@@ -179,7 +179,7 @@ tracks/5/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=17]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("../main_UI:rect_position")
@@ -242,8 +242,7 @@ tracks/4/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=16]
-resource_name = "end_button_animation"
+[sub_resource type="Animation" id=18]
 length = 0.1
 tracks/0/type = "method"
 tracks/0/path = NodePath("End_score/ColorRect2/button_HBoxContainer/Next")
@@ -284,7 +283,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=19]
 tracks/0/type = "value"
 tracks/0/path = NodePath("End_score:visible")
 tracks/0/interp = 1
@@ -394,7 +393,7 @@ tracks/8/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.203922 ) ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=20]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("../main_UI:rect_position")
@@ -443,7 +442,7 @@ tracks/3/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=21]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("End_score:visible")
@@ -578,7 +577,7 @@ tracks/10/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=22]
 tracks/0/type = "value"
 tracks/0/path = NodePath("End_score:visible")
 tracks/0/interp = 1
@@ -810,9 +809,8 @@ passby_press = true
 action = "ui_cancel"
 
 [node name="level_indicate" type="Label" parent="main_UI"]
-visible = false
 modulate = Color( 1, 1, 1, 0 )
-material = SubResource( 22 )
+material = SubResource( 5 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -821,7 +819,7 @@ margin_left = -211.5
 margin_top = -198.823
 margin_right = 211.5
 margin_bottom = -78.8234
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "LEVEL 01"
 align = 1
 __meta__ = {
@@ -830,7 +828,12 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="main_UI"]
 autoplay = "level_title"
-anims/level_title = SubResource( 21 )
+anims/level_title = SubResource( 7 )
+
+[node name="health_update_Wait_time" type="Timer" parent="main_UI"]
+process_mode = 0
+wait_time = 1.5
+one_shot = true
 
 [node name="Pause" type="Control" parent="."]
 pause_mode = 2
@@ -892,7 +895,7 @@ margin_right = 183.0
 margin_bottom = 51.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 8 )
 
 [node name="Restart_icon" type="TextureRect" parent="Pause/pause_menu/ColorRect/HBoxContainer/Restart"]
 anchor_right = 1.0
@@ -910,7 +913,7 @@ margin_right = 370.0
 margin_bottom = 51.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 8 )
 
 [node name="Home_icon" type="TextureRect" parent="Pause/pause_menu/ColorRect/HBoxContainer/Home"]
 anchor_right = 1.0
@@ -928,7 +931,7 @@ margin_right = 558.0
 margin_bottom = 51.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 8 )
 
 [node name="Play_icon" type="TextureRect" parent="Pause/pause_menu/ColorRect/HBoxContainer/Play"]
 anchor_right = 1.0
@@ -947,7 +950,7 @@ margin_right = 558.0
 margin_bottom = 51.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 8 )
 
 [node name="Next_icon" type="TextureRect" parent="Pause/pause_menu/ColorRect/HBoxContainer/Next"]
 anchor_right = 1.0
@@ -968,7 +971,7 @@ margin_left = -279.0
 margin_top = -88.8889
 margin_right = 279.0
 margin_bottom = 266.111
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Pause
 "
@@ -987,7 +990,7 @@ margin_left = -33.5
 margin_top = -100.5
 margin_right = 33.5
 margin_bottom = 100.5
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 10 )
 text = "3"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1021,7 +1024,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="Pause/not_enough_orbs"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 11 )
 text = "You don't have enough Orbs"
 align = 1
 valign = 1
@@ -1045,7 +1048,7 @@ margin_right = 190.0
 margin_bottom = 63.0
 size_flags_horizontal = 3
 theme = ExtResource( 12 )
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 12 )
 text = "Find"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1069,7 +1072,7 @@ margin_right = 775.0
 margin_bottom = 63.0
 size_flags_horizontal = 3
 theme = ExtResource( 12 )
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 12 )
 text = "Hint"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1096,7 +1099,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 3.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 13 )
 text = "00"
 align = 1
 valign = 1
@@ -1177,8 +1180,8 @@ tangential_accel = 41.38
 tangential_accel_random = 1.0
 angle = 24.8
 scale_amount = 0.05
-scale_amount_curve = SubResource( 12 )
-color_ramp = SubResource( 13 )
+scale_amount_curve = SubResource( 14 )
+color_ramp = SubResource( 15 )
 hue_variation = 0.09
 hue_variation_random = 0.64
 
@@ -1224,8 +1227,8 @@ tangential_accel = 41.38
 tangential_accel_random = 1.0
 angle = 24.8
 scale_amount = 0.05
-scale_amount_curve = SubResource( 12 )
-color_ramp = SubResource( 13 )
+scale_amount_curve = SubResource( 14 )
+color_ramp = SubResource( 15 )
 hue_variation = 0.09
 hue_variation_random = 0.64
 
@@ -1272,8 +1275,8 @@ tangential_accel = 41.38
 tangential_accel_random = 1.0
 angle = 24.8
 scale_amount = 0.05
-scale_amount_curve = SubResource( 12 )
-color_ramp = SubResource( 13 )
+scale_amount_curve = SubResource( 14 )
+color_ramp = SubResource( 15 )
 hue_variation = 0.09
 hue_variation_random = 0.64
 
@@ -1297,7 +1300,7 @@ margin_right = 276.0
 margin_bottom = 51.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 8 )
 
 [node name="Restart_icon" type="TextureRect" parent="Pause/End_score/ColorRect2/button_HBoxContainer/Restart"]
 anchor_right = 1.0
@@ -1315,7 +1318,7 @@ margin_right = 556.0
 margin_bottom = 51.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 8 )
 
 [node name="Home_icon" type="TextureRect" parent="Pause/End_score/ColorRect2/button_HBoxContainer/Home"]
 anchor_right = 1.0
@@ -1333,7 +1336,7 @@ margin_right = 837.0
 margin_bottom = 51.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 8 )
 
 [node name="Next_icon" type="TextureRect" parent="Pause/End_score/ColorRect2/button_HBoxContainer/Next"]
 anchor_right = 1.0
@@ -1355,7 +1358,7 @@ margin_left = -279.0
 margin_top = -88.8889
 margin_right = 279.0
 margin_bottom = 266.111
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Pause
 "
@@ -1366,13 +1369,13 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pause"]
 autoplay = "Default"
-anims/Default = SubResource( 14 )
-anims/Pause_in = SubResource( 15 )
-anims/end_button_animation = SubResource( 16 )
-anims/one_Star = SubResource( 17 )
-anims/pause_out = SubResource( 18 )
-anims/three_Star = SubResource( 19 )
-anims/two_Star = SubResource( 20 )
+anims/Default = SubResource( 16 )
+anims/Pause_in = SubResource( 17 )
+anims/end_button_animation = SubResource( 18 )
+anims/one_Star = SubResource( 19 )
+anims/pause_out = SubResource( 20 )
+anims/three_Star = SubResource( 21 )
+anims/two_Star = SubResource( 22 )
 [connection signal="value_changed" from="main_UI/health" to="." method="_on_health_value_changed"]
 [connection signal="timeout" from="main_UI/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="goto_next_level" from="Pause" to="." method="_on_Pause_goto_next_level"]

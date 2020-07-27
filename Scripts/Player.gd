@@ -54,6 +54,7 @@ func _on_Bounce_Force_position_Colides(x, y, z):
 	bounce_pos.x = x
 	bounce_pos.y = y
 	bounce_dir = (Player_Pos - bounce_pos).normalized() * 50
+	Audio.Bounce.play(0.0)
 	apply_impulse(Vector3(), bounce_dir)
 
 func _on_Attract_Force_position_colides(x, y, z, boolen):
@@ -65,6 +66,7 @@ func _player_died(): # this will happen when the player is died
 	if PlayerData.Die == true:
 		axis_lock_linear_z = false
 		apply_impulse(Vector3(), Vector3(0,-.1,10))
+		Audio.Death.play()
 
 func _on_Level_End_Entered_Tunnel(x):
 	enter_in_tunnel = true

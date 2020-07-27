@@ -13,6 +13,8 @@ onready var pause = $Pause
 onready var orbs = get_node("../../Orbs")
 onready var camera = get_node("../../Shake_Camera/Camera_Pivot")
 onready var tween = get_node("../../Shake_Camera/Camera_Pivot/Camera/Tween")
+onready var wait_time = $main_UI/health_update_Wait_time
+var wait = true
 
 export(float) var Max_Time
 export(String) var Level_Number = 01
@@ -41,7 +43,13 @@ func update_text(): #coin collected
 	coinscore.text = str(PlayerData.score)
 	
 func update_health(): #Current Health
-	health_value.value = float(PlayerData.health)
+		if wait:
+			wait = false
+			wait_time.start()
+			PlayerData.health -= 100 / PlayerData.health_reduced  #it send the date to the autoload 
+			yield(wait_time,"timeout")
+			wait = true
+		health_value.value = float(PlayerData.health)
 
 func _on_Pause_gotohome(): # this will change scene to the main scene
 	scene_trans_anim.play("Fadeout")

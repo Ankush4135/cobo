@@ -4,7 +4,7 @@
 [ext_resource path="res://Fonts/Gasalt-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Fonts/Gasalt-Black.ttf" type="DynamicFontData" id=3]
 
-[sub_resource type="GDScript" id=4]
+[sub_resource type="GDScript" id=1]
 script/source = "extends Node
 
 
@@ -14,20 +14,20 @@ func _on_Button_pressed():
 	get_tree().change_scene(\"res://Scenes/Main.tscn\")
 "
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 50
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 76
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 50
 font_data = ExtResource( 2 )
 
 [node name="Node" type="Node"]
-script = SubResource( 4 )
+script = SubResource( 1 )
 
 [node name="Character_Tile_Scene" parent="." instance=ExtResource( 1 )]
 
@@ -48,7 +48,7 @@ margin_left = -298.5
 margin_top = -102.328
 margin_right = 298.5
 margin_bottom = -51.3284
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Next level hasn't be created yet "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -63,7 +63,7 @@ margin_left = -308.0
 margin_top = -201.008
 margin_right = 308.0
 margin_bottom = -123.008
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "Thank you for testing "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -78,7 +78,7 @@ margin_left = -150.5
 margin_top = -28.5
 margin_right = 150.5
 margin_bottom = 28.5
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Goto Home"
 __meta__ = {
 "_edit_use_anchors_": false

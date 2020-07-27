@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Objects/Character_Ear_Antina01.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://Assets/Textures/Character/Character_antina1_Mixed_AO.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Textures/Character/Character_antina1_Base_Color.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Textures/glow.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Ear_Antina.gd" type="Script" id=5]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 3 )
@@ -34,14 +35,15 @@ albedo_texture = ExtResource( 4 )
 [node name="Ear_Antina01" type="MeshInstance"]
 mesh = ExtResource( 1 )
 material/0 = SubResource( 1 )
+script = ExtResource( 5 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
+[node name="Glow" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13185, 0 )
 visible = false
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
-[node name="OmniLight" type="OmniLight" parent="."]
+[node name="Glowlight" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13185, 0 )
 visible = false
 light_bake_mode = 0
