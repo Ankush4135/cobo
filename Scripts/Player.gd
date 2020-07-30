@@ -1,5 +1,6 @@
 extends RigidBody
 
+onready var anim = $AnimationPlayer
 # geting the taget left Position
 export  var Target_L_path = NodePath()
 onready var Target_L = get_node(Target_L_path)
@@ -62,6 +63,9 @@ func _on_Attract_Force_position_colides(x, y, z, boolen):
 	attract_pos.x = x
 	attract_pos.y = y
 
+func _on_Ball_body_entered(body):
+	anim.play("Simple_collision")
+
 func _player_died(): # this will happen when the player is died
 	if PlayerData.Die == true:
 		axis_lock_linear_z = false
@@ -73,8 +77,5 @@ func _on_Level_End_Entered_Tunnel(x):
 	tunnel_dir.x = x 
 	yield(get_tree().create_timer(.65),"timeout")	
 	enter_in_tunnel = false
-
-
-
 
 

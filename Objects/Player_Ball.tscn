@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Material/Player_Ball.material" type="Material" id=2]
+[ext_resource path="res://Assets/Textures/glow_With_alpha.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Objects/Character_Ball.obj" type="ArrayMesh" id=4]
 
 [sub_resource type="SphereShape" id=1]
@@ -42,6 +43,40 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0, 0.0, 1.0, 0.0 ]
 }
 
+[sub_resource type="Animation" id=8]
+resource_name = "Simple_collision"
+tracks/0/type = "value"
+tracks/0/path = NodePath("for_Collision:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_transparent = true
+flags_unshaded = true
+flags_vertex_lighting = true
+params_diffuse_mode = 1
+params_specular_mode = 4
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="QuadMesh" id=6]
+material = SubResource( 5 )
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0.278388, 0.579062 ), 0.0, -0.344148, 0, 0, Vector2( 1, 0.324517 ), 0.0, 0.0, 0, 0 ]
+
 [node name="Ball" type="RigidBody"]
 axis_lock_linear_z = true
 script = ExtResource( 1 )
@@ -59,3 +94,19 @@ material/0 = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Collided = SubResource( 4 )
+anims/Simple_collision = SubResource( 8 )
+
+[node name="for_Collision" type="CPUParticles" parent="."]
+emitting = false
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+draw_order = 2
+mesh = SubResource( 6 )
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+initial_velocity = 10.0
+scale_amount_curve = SubResource( 7 )
+[connection signal="body_entered" from="." to="." method="_on_Ball_body_entered"]

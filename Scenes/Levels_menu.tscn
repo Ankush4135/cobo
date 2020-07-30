@@ -1,30 +1,30 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Fonts/Gasalt-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Objects/UserInterface/Base_UI.theme" type="Theme" id=2]
 [ext_resource path="res://Assets/Material/vignette.shader" type="Shader" id=3]
-[ext_resource path="res://Scenes/Levels_Set_1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/UI/Blueprint_Texture.jpg" type="Texture" id=5]
 [ext_resource path="res://Scripts/Levels_menu.gd" type="Script" id=6]
 [ext_resource path="res://Assets/Buttons/play-button.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/LoadingScreen.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Scene_trans.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Objects/UserInterface/Level_Button.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )
 shader_param/radius = 0.855
 shader_param/softness = 0.601
 
-[sub_resource type="DynamicFont" id=2]
-size = 50
-extra_spacing_char = 2
-font_data = ExtResource( 1 )
-
-[sub_resource type="CanvasItemMaterial" id=3]
-blend_mode = 1
-
-[sub_resource type="CanvasItemMaterial" id=4]
+[sub_resource type="CanvasItemMaterial" id=2]
 blend_mode = 3
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.796078, 0.796078, 0.796078, 0 )
+border_width_left = 20
+border_width_right = 20
+border_color = Color( 1, 1, 1, 1 )
+border_blend = true
+corner_radius_top_left = 100
+corner_radius_top_right = 100
 
 [node name="Levels_menu" type="Control"]
 anchor_right = 1.0
@@ -58,325 +58,95 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Set_1" type="MarginContainer" parent="."]
+[node name="Set" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 241.0
+margin_left = 295.0
 margin_top = 141.0
-margin_right = -241.0
+margin_right = -295.0
 margin_bottom = -197.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Level_Set_01" type="TabContainer" parent="Set_1"]
-margin_right = 1438.0
+[node name="ScrollContainer" type="ScrollContainer" parent="Set"]
+material = SubResource( 2 )
+margin_right = 1330.0
 margin_bottom = 742.0
-rect_min_size = Vector2( 1438, 742 )
-custom_fonts/font = SubResource( 2 )
-tab_align = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Normal" type="Control" parent="Set_1/Level_Set_01"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 40.0
-margin_top = 91.0
-margin_right = -40.0
-margin_bottom = -40.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="bg" type="ColorRect" parent="Set_1/Level_Set_01/Normal"]
-material = SubResource( 3 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color( 0.0745098, 0.0745098, 0.0745098, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Levels_Set_1" parent="Set_1/Level_Set_01/Normal" instance=ExtResource( 4 )]
-
-[node name="Dark" type="Control" parent="Set_1/Level_Set_01"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 40.0
-margin_top = 91.0
-margin_right = -40.0
-margin_bottom = -40.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="bg" type="ColorRect" parent="Set_1/Level_Set_01/Dark"]
-material = SubResource( 4 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color( 0.623529, 0.623529, 0.623529, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Levels_Set_1" parent="Set_1/Level_Set_01/Dark" instance=ExtResource( 4 )]
-Level_Mode = 1
-
-[node name="Onetouch" type="Control" parent="Set_1/Level_Set_01"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 40.0
-margin_top = 91.0
-margin_right = -40.0
-margin_bottom = -40.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Levels_Set_1" parent="Set_1/Level_Set_01/Onetouch" instance=ExtResource( 4 )]
-Level_Mode = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Set_1"]
-visible = false
-margin_right = 1438.0
-margin_bottom = 742.0
+custom_styles/bg = SubResource( 3 )
 follow_focus = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Set_1/ScrollContainer"]
-margin_right = 4322.0
-margin_bottom = 742.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Set/ScrollContainer"]
+margin_left = 20.0
+margin_right = 2306.0
+margin_bottom = 730.0
 size_flags_vertical = 3
 
-[node name="Level_Set_02" type="TabContainer" parent="Set_1/ScrollContainer/HBoxContainer"]
-margin_right = 1438.0
-margin_bottom = 742.0
-rect_min_size = Vector2( 1438, 742 )
-custom_fonts/font = SubResource( 2 )
-tab_align = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Button_1" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_bottom = 730.0
 
-[node name="Normal" type="Control" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_02"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 40.0
-margin_top = 91.0
-margin_right = -40.0
-margin_bottom = -40.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="Button_2" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_left = 229.0
+margin_right = 454.0
+margin_bottom = 730.0
+Level = "02"
 
-[node name="bg" type="ColorRect" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_02/Normal"]
-material = SubResource( 3 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color( 0.0745098, 0.0745098, 0.0745098, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Button_3" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_left = 458.0
+margin_right = 683.0
+margin_bottom = 730.0
+Level = "03"
 
-[node name="Levels_Set_1" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_02/Normal" instance=ExtResource( 4 )]
+[node name="Button_4" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_left = 687.0
+margin_right = 912.0
+margin_bottom = 730.0
+Level = "04"
 
-[node name="Dark" type="Control" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_02"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 40.0
-margin_top = 91.0
-margin_right = -40.0
-margin_bottom = -40.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="Button_5" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_left = 916.0
+margin_right = 1141.0
+margin_bottom = 730.0
+Level = "05"
 
-[node name="bg" type="ColorRect" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_02/Dark"]
-material = SubResource( 4 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color( 0.623529, 0.623529, 0.623529, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Button_6" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_left = 1145.0
+margin_right = 1370.0
+margin_bottom = 730.0
+Level = "06"
 
-[node name="Levels_Set_1" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_02/Dark" instance=ExtResource( 4 )]
-Level_Mode = 1
+[node name="Button_7" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_left = 1374.0
+margin_right = 1599.0
+margin_bottom = 730.0
+Level = "07"
 
-[node name="Onetouch" type="Control" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_02"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 40.0
-margin_top = 91.0
-margin_right = -40.0
-margin_bottom = -40.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="Button_8" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_left = 1603.0
+margin_right = 1828.0
+margin_bottom = 730.0
+Level = "08"
 
-[node name="Levels_Set_1" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_02/Onetouch" instance=ExtResource( 4 )]
-Level_Mode = 2
+[node name="Button_9" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_left = 1832.0
+margin_right = 2057.0
+margin_bottom = 730.0
+Level = "09"
 
-[node name="Level_Set_03" type="TabContainer" parent="Set_1/ScrollContainer/HBoxContainer"]
-margin_left = 1442.0
-margin_right = 2880.0
-margin_bottom = 742.0
-rect_min_size = Vector2( 1438, 742 )
-custom_fonts/font = SubResource( 2 )
-tab_align = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Normal" type="Control" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_03"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 40.0
-margin_top = 91.0
-margin_right = -40.0
-margin_bottom = -40.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="bg" type="ColorRect" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_03/Normal"]
-material = SubResource( 3 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color( 0.0745098, 0.0745098, 0.0745098, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Levels_Set_1" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_03/Normal" instance=ExtResource( 4 )]
-
-[node name="Dark" type="Control" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_03"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 40.0
-margin_top = 91.0
-margin_right = -40.0
-margin_bottom = -40.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="bg" type="ColorRect" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_03/Dark"]
-material = SubResource( 4 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color( 0.623529, 0.623529, 0.623529, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Levels_Set_1" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_03/Dark" instance=ExtResource( 4 )]
-Level_Mode = 1
-
-[node name="Onetouch" type="Control" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_03"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 40.0
-margin_top = 91.0
-margin_right = -40.0
-margin_bottom = -40.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Levels_Set_1" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_03/Onetouch" instance=ExtResource( 4 )]
-Level_Mode = 2
-
-[node name="Level_Set_04" type="TabContainer" parent="Set_1/ScrollContainer/HBoxContainer"]
-margin_left = 2884.0
-margin_right = 4322.0
-margin_bottom = 742.0
-rect_min_size = Vector2( 1438, 742 )
-custom_fonts/font = SubResource( 2 )
-tab_align = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Normal" type="Control" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_04"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 40.0
-margin_top = 91.0
-margin_right = -40.0
-margin_bottom = -40.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="bg" type="ColorRect" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_04/Normal"]
-material = SubResource( 3 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color( 0.0745098, 0.0745098, 0.0745098, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Levels_Set_1" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_04/Normal" instance=ExtResource( 4 )]
-
-[node name="Dark" type="Control" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_04"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 40.0
-margin_top = 91.0
-margin_right = -40.0
-margin_bottom = -40.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="bg" type="ColorRect" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_04/Dark"]
-material = SubResource( 4 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color( 0.623529, 0.623529, 0.623529, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Levels_Set_1" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_04/Dark" instance=ExtResource( 4 )]
-Level_Mode = 1
-
-[node name="Onetouch" type="Control" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_04"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 40.0
-margin_top = 91.0
-margin_right = -40.0
-margin_bottom = -40.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Levels_Set_1" parent="Set_1/ScrollContainer/HBoxContainer/Level_Set_04/Onetouch" instance=ExtResource( 4 )]
-Level_Mode = 2
+[node name="Button_10" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_left = 2061.0
+margin_right = 2286.0
+margin_bottom = 730.0
+Level = "10"
 
 [node name="rightbuttonholder" type="Control" parent="."]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -157.0
+margin_left = -264.756
 margin_top = -241.022
+margin_right = -107.756
 margin_bottom = 168.978
 __meta__ = {
 "_edit_use_anchors_": false
@@ -390,8 +160,9 @@ normal = ExtResource( 7 )
 [node name="leftbuttonholder" type="Control" parent="."]
 anchor_top = 0.5
 anchor_bottom = 0.5
+margin_left = 103.266
 margin_top = -241.0
-margin_right = 62.0
+margin_right = 165.266
 margin_bottom = 169.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -407,15 +178,3 @@ normal = ExtResource( 7 )
 visible = false
 Autoload = false
 [connection signal="Play_Level" from="." to="LoadingScreen" method="_on_Levels_menu_Play_Level"]
-[connection signal="Play_Level_Path" from="Set_1/Level_Set_01/Normal/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]
-[connection signal="Play_Level_Path" from="Set_1/Level_Set_01/Dark/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]
-[connection signal="Play_Level_Path" from="Set_1/Level_Set_01/Onetouch/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]
-[connection signal="Play_Level_Path" from="Set_1/ScrollContainer/HBoxContainer/Level_Set_02/Normal/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]
-[connection signal="Play_Level_Path" from="Set_1/ScrollContainer/HBoxContainer/Level_Set_02/Dark/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]
-[connection signal="Play_Level_Path" from="Set_1/ScrollContainer/HBoxContainer/Level_Set_02/Onetouch/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]
-[connection signal="Play_Level_Path" from="Set_1/ScrollContainer/HBoxContainer/Level_Set_03/Normal/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]
-[connection signal="Play_Level_Path" from="Set_1/ScrollContainer/HBoxContainer/Level_Set_03/Dark/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]
-[connection signal="Play_Level_Path" from="Set_1/ScrollContainer/HBoxContainer/Level_Set_03/Onetouch/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]
-[connection signal="Play_Level_Path" from="Set_1/ScrollContainer/HBoxContainer/Level_Set_04/Normal/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]
-[connection signal="Play_Level_Path" from="Set_1/ScrollContainer/HBoxContainer/Level_Set_04/Dark/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]
-[connection signal="Play_Level_Path" from="Set_1/ScrollContainer/HBoxContainer/Level_Set_04/Onetouch/Levels_Set_1" to="." method="_on_Levels_Set_1_Play_Level_Path"]

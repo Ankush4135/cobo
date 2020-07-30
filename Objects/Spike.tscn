@@ -10,7 +10,9 @@ extents = Vector3( 0.832168, 0.170629, 0.676372 )
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 0.759731, 0.299593, 0.776379 )
 
-[node name="Spike" type="Area"]
+[node name="Spike" type="Area" groups=[
+"spikes",
+]]
 script = ExtResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
