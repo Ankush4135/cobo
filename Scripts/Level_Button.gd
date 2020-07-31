@@ -8,7 +8,6 @@ export(String) var Level = ""
 export(int, "Normal", "Dark", "Onetouch") var Level_Mode
 
 var Level_Scene = ""
-var path = "res://Scenes/Levels/Level_01.tscn"
 
 func _ready():
 	$Level_Button.text = Level

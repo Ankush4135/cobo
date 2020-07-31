@@ -84,54 +84,55 @@ size_flags_vertical = 3
 
 [node name="Button_1" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
 margin_bottom = 730.0
+Level = "1"
 
 [node name="Button_2" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
 margin_left = 229.0
 margin_right = 454.0
 margin_bottom = 730.0
-Level = "02"
+Level = "2"
 
 [node name="Button_3" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
 margin_left = 458.0
 margin_right = 683.0
 margin_bottom = 730.0
-Level = "03"
+Level = "3"
 
 [node name="Button_4" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
 margin_left = 687.0
 margin_right = 912.0
 margin_bottom = 730.0
-Level = "04"
+Level = "4"
 
 [node name="Button_5" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
 margin_left = 916.0
 margin_right = 1141.0
 margin_bottom = 730.0
-Level = "05"
+Level = "5"
 
 [node name="Button_6" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
 margin_left = 1145.0
 margin_right = 1370.0
 margin_bottom = 730.0
-Level = "06"
+Level = "6"
 
 [node name="Button_7" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
 margin_left = 1374.0
 margin_right = 1599.0
 margin_bottom = 730.0
-Level = "07"
+Level = "7"
 
 [node name="Button_8" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
 margin_left = 1603.0
 margin_right = 1828.0
 margin_bottom = 730.0
-Level = "08"
+Level = "8"
 
 [node name="Button_9" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
 margin_left = 1832.0
 margin_right = 2057.0
 margin_bottom = 730.0
-Level = "09"
+Level = "9"
 
 [node name="Button_10" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
 margin_left = 2061.0

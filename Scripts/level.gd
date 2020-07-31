@@ -6,22 +6,23 @@ onready var playeranim = $Ball/AnimationPlayer
 onready var UI_anim = $UserInterfaceLayer/UserInterface/Pause/AnimationPlayer
 onready var pause = $UserInterfaceLayer/UserInterface/Pause
 
-export(String, FILE) var Current_Scene_Path = ""
-export(String, FILE) var Next_Scene_Path = ""
+export(int, "Level 01", "Level 02", "Level 03", "Level 04", "Level 05",
+		 "Level 06", "Level 07", "Level 08", "Level 09", "Level 10",
+		 "Level 11") var Current_Level
+
+var Current_Scene_Path = ""
+var Next_Scene_Path = ""
 var timescale = 1
 
 var coin_count = 0
 var play_anim = ""
 
 func _ready():
+	Current_Scene_Path = "res://Scenes/Levels/Level_" + str(Current_Level + 1) + ".tscn"
+	Next_Scene_Path = "res://Scenes/Levels/Level_" + str(Current_Level + 2) + ".tscn"
+	_level_selector()
 	Audio.BG2.play()
-	if LevelManager.level_mode == 0:
-		pass
-	if LevelManager.level_mode == 1:
-		$DirectionalLight.visible = false
-		$DirectionalLight2.visible = false
-	if LevelManager.level_mode == 2:
-		PlayerData.health_reduced = 1
+
 	get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_DISABLED, SceneTree.STRETCH_ASPECT_IGNORE, Vector2(1920, 1080))
 	var coin_list
 	coin_list = get_tree().get_nodes_in_group("coins")
@@ -29,6 +30,21 @@ func _ready():
 
 func _process(delta):
 	Engine.time_scale = timescale
+
+func _level_selector():
+	#for level mode 
+	if LevelManager.level_mode == 0:
+		pass
+	if LevelManager.level_mode == 1:
+		$DirectionalLight.visible = false
+		$DirectionalLight2.visible = false
+	if LevelManager.level_mode == 2:
+		PlayerData.health_reduced = 1
+	
+	#for level clear
+	if Current_Level == 0:
+		LevelManager.level_1_cleared
+
 
 func _on_reload_scene_pressed():
 	fadeanim.play("Fadeout")

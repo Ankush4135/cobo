@@ -118,8 +118,7 @@ node_connections = [ "output", 0, "left_right_blend" ]
 
 [node name="level" type="Spatial"]
 script = ExtResource( 21 )
-Current_Scene_Path = "res://Scenes/Levels/Level_10.tscn"
-Next_Scene_Path = "res://Scenes/Game_End.tscn"
+Current_Level = 9
 
 [node name="overlay" type="CanvasLayer" parent="."]
 layer = 25

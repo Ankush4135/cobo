@@ -7,7 +7,7 @@ func _on_Coin_body_entered(body):
 		PlayerData.score += 1
 		anim.play("picked")
 		$Coin_Pickup_Detect.queue_free()
-		Audio.Coin.play(0.0)
+		Audio.Coin.play_audio(0)
 		yield(anim,"animation_finished")
 		queue_free()
 

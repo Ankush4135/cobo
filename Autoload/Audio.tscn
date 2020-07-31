@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Audio/BG/Background_music_01.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Audio/SFX/Whoosh Glitch Doppler FX 002.wav" type="AudioStream" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Audio/SFX/coin1.wav" type="AudioStream" id=6]
 [ext_resource path="res://Audio/BG/Background_music_02.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Audio/SFX/select_006.ogg" type="AudioStream" id=8]
+[ext_resource path="res://addons/smart_audio_stream/SmartAudioStream.gd" type="Script" id=9]
 
 [node name="Audio" type="Node"]
 pause_mode = 2
@@ -29,6 +30,7 @@ bus = "sfx"
 
 [node name="Bounce_object" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+volume_db = 8.21
 bus = "sfx"
 
 [node name="Orb" type="AudioStreamPlayer" parent="."]
@@ -36,7 +38,9 @@ stream = ExtResource( 5 )
 bus = "sfx"
 
 [node name="Coin" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
+script = ExtResource( 9 )
+initial_streams = 12
+samples = [ ExtResource( 6 ) ]
 
 [node name="Select" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )

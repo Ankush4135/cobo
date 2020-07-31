@@ -9,6 +9,7 @@ onready var timer_label = $main_UI/Timer_Text
 onready var timer = $main_UI/Timer
 onready var health_value = $main_UI/health
 onready var scene_trans_anim = get_node("../../Scene_trans/AnimationPlayer")
+onready var player_anim = get_node("../../Ball/AnimationPlayer")
 onready var pause = $Pause
 onready var orbs = get_node("../../Orbs")
 onready var camera = get_node("../../Shake_Camera/Camera_Pivot")

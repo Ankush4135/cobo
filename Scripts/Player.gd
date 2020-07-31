@@ -63,8 +63,6 @@ func _on_Attract_Force_position_colides(x, y, z, boolen):
 	attract_pos.x = x
 	attract_pos.y = y
 
-func _on_Ball_body_entered(body):
-	anim.play("Simple_collision")
 
 func _player_died(): # this will happen when the player is died
 	if PlayerData.Die == true:
