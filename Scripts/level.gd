@@ -41,9 +41,9 @@ func _level_selector():
 	if LevelManager.level_mode == 2:
 		PlayerData.health_reduced = 1
 	
-	#for level clear
-	if Current_Level == 0:
-		LevelManager.level_1_cleared
+#	#for level clear
+#	if Current_Level == 0:
+#		LevelManager.level_1_cleared
 
 
 func _on_reload_scene_pressed():
@@ -69,6 +69,9 @@ func _on_Game_End_Triger_body_entered(body):
 		timescale = 1
 		UI_anim.play("end_button_animation")
 		pause.paused = true
+	if LevelManager.level_info.has(int(Current_Level + 2)): # it unlocks next level
+		LevelManager.level_info[int(Current_Level + 2)]["disabled"] = false
+		LevelManager.save_data()
 
 func _on_next_scene_pressed():
 	fadeanim.play("Fadeout")

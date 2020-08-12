@@ -600,6 +600,7 @@ config/windows_native_icon="res://cobo.ico"
 PlayerData="*res://Autoload/PlayerData.tscn"
 LevelManager="*res://Autoload/LevelManager.gd"
 Audio="*res://Autoload/Audio.tscn"
+ConfigManager="*res://Autoload/ConfigManager.gd"
 
 [display]
 
