@@ -38,4 +38,9 @@ text = "01"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+[connection signal="button_down" from="Level_Button" to="." method="_on_Level_Button_button_down"]
 [connection signal="pressed" from="Level_Button" to="." method="_on_Level_Button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -7,7 +7,9 @@ export(String) var Level = ""
 export(int, "Normal", "Dark", "Onetouch") var Level_Mode
 export (bool) var score_goal_met
 
+onready var timer = $Timer
 var Level_Scene = ""
+var timeouted = false
 
 func _ready():
 	if LevelManager.level_info.has(int(Level)):
@@ -24,6 +26,19 @@ func _ready():
 
 
 func _on_Level_Button_pressed():
-	Audio.Select.play()
-	LevelManager.level_mode = Level_Mode
-	emit_signal("Play_Level_Path",Level_Scene)
+	if timeouted == true:
+		timeouted = false
+		return
+	else:
+		Audio.Select.play()
+		LevelManager.level_mode = Level_Mode
+		emit_signal("Play_Level_Path",Level_Scene)
+
+
+func _on_Timer_timeout():
+	timeouted = true
+
+
+func _on_Level_Button_button_down():
+	timer.wait_time = .15
+	timer.start()
