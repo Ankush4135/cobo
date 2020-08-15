@@ -28,7 +28,11 @@
         android:name=".GodotInstrumentation"
         android:icon="@mipmap/icon"
         android:label="@string/godot_project_name_string"
-        android:targetPackage="org.godotengine.godot" /> <!-- Custom user permissions XML added by add-ons. It's recommended to add them from the export preset, though. -->
+        android:targetPackage="org.godotengine.godot" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Custom user permissions XML added by add-ons. It's recommended to add them from the export preset, though. -->
     <!-- CHUNK_USER_PERMISSIONS_BEGIN -->
     <!-- CHUNK_USER_PERMISSIONS_END -->
     <!-- Any tag in this line after android:icon will be erased when doing custom builds. -->
@@ -56,6 +60,11 @@
             android:name="plugins"
             android:value="plugins_value" />
 
+        <!-- for Admob -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-5812806136228402~4986325188" />
+
         <activity
             android:name="com.godot.game.GodotApp"
             android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize|density|keyboard|navigation|screenLayout|uiMode"
@@ -82,6 +91,25 @@
         <!-- CHUNK_APPLICATION_END -->
 
         <service android:name="org.godotengine.godot.GodotDownloaderService" />
+
+        <meta-data
+            android:name="org.godotengine.plugin.v1.GodotAdMob"
+            android:value="shinnil.godot.plugin.android.godotadmob.GodotAdMob" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <provider
+            android:name="com.google.android.gms.ads.MobileAdsInitProvider"
+            android:authorities="com.sleakdev.cobo.mobileadsinitprovider"
+            android:exported="false"
+            android:initOrder="100" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>

@@ -15,12 +15,19 @@ onready var orbs = get_node("../../Orbs")
 onready var camera = get_node("../../Shake_Camera/Camera_Pivot")
 onready var tween = get_node("../../Shake_Camera/Camera_Pivot/Camera/Tween")
 onready var wait_time = $main_UI/health_update_Wait_time
+onready var admob = $AdMob
+
 var wait = true
+var ad_loaded = false
 
 export(float) var Max_Time
 export(String) var Level_Number = 01
 
 func _ready():
+	if OS.get_name() == "Android":
+		admob.load_interstitial()
+		admob.load_banner()
+		admob.hide_banner()
 	$main_UI/level_indicate.text = "LEVEL " +  str(Level_Number)
 	PlayerData.orbs = 0
 	PlayerData.score = 0
@@ -38,7 +45,6 @@ func _process(delta):
 	if time_left < 31:
 		timer_label.add_color_override("font_color", Color(1,0,0))
 		timer_label.rect_scale = Vector2(1.5,1.5)
-	
 
 func update_text(): #coin collected 
 	coinscore.text = str(PlayerData.score)
@@ -52,7 +58,11 @@ func update_health(): #Current Health
 			wait = true
 		health_value.value = float(PlayerData.health)
 
+func _on_Pause_pressed():
+	admob.show_banner()
+
 func _on_Pause_gotohome(): # this will change scene to the main scene
+	admob.hide_banner()
 	scene_trans_anim.play("Fadeout")
 	yield(scene_trans_anim, "animation_finished")
 	scene_trans_anim.play("strech")
@@ -61,8 +71,12 @@ func _on_Pause_gotohome(): # this will change scene to the main scene
 	get_tree().change_scene("res://Scenes/Main.tscn")
 
 func _on_Pause_restart_level(): # restart the level
+	if OS.get_name() == "Android":
+		admob.hide_banner()
+		if ad_loaded:
+			admob.show_interstitial()
+			yield(admob,"interstitial_closed")
 	emit_signal("reload_scene")
-
 
 func _on_health_value_changed(value):
 	emit_signal("health_changed")
@@ -87,4 +101,17 @@ func _on_Pause_goto_orb():
 	pause.paused = false
 
 func _on_Pause_goto_next_level():
+	if OS.get_name() == "Android":
+		admob.hide_banner()
+		if ad_loaded:
+			admob.show_interstitial()
+			yield(admob,"interstitial_closed")
 	emit_signal("next_scene")
+
+func _on_AdMob_interstitial_loaded():
+	ad_loaded = true
+
+func _on_Pause_playbutton_pressed(): # for banner
+	admob.hide_banner()
+
+

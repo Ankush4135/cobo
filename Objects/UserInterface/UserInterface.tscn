@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Fonts/Gasalt-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/UserInterface.gd" type="Script" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Assets/Buttons/next-button.png" type="Texture" id=14]
 [ext_resource path="res://Assets/UI/star_empty.png" type="Texture" id=15]
 [ext_resource path="res://Assets/UI/star.png" type="Texture" id=16]
+[ext_resource path="res://admob-lib/admob.gd" type="Script" id=17]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -1376,11 +1377,19 @@ anims/one_Star = SubResource( 19 )
 anims/pause_out = SubResource( 20 )
 anims/three_Star = SubResource( 21 )
 anims/two_Star = SubResource( 22 )
+
+[node name="AdMob" type="Node" parent="."]
+script = ExtResource( 17 )
+banner_on_top = false
+banner_id = "ca-app-pub-5812806136228402/9330686880"
+interstitial_id = "ca-app-pub-5812806136228402/8798234225"
 [connection signal="value_changed" from="main_UI/health" to="." method="_on_health_value_changed"]
 [connection signal="timeout" from="main_UI/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="main_UI/TouchScreenButton" to="." method="_on_Pause_pressed"]
 [connection signal="goto_next_level" from="Pause" to="." method="_on_Pause_goto_next_level"]
 [connection signal="goto_orb" from="Pause" to="." method="_on_Pause_goto_orb"]
 [connection signal="gotohome" from="Pause" to="." method="_on_Pause_gotohome"]
+[connection signal="playbutton_pressed" from="Pause" to="." method="_on_Pause_playbutton_pressed"]
 [connection signal="restart_level" from="Pause" to="." method="_on_Pause_restart_level"]
 [connection signal="button_up" from="Pause/pause_menu/ColorRect/HBoxContainer/Restart" to="Pause" method="_on_Restart_button_up"]
 [connection signal="pressed" from="Pause/pause_menu/ColorRect/HBoxContainer/Home" to="Pause" method="_on_Home_pressed"]
@@ -1391,3 +1400,4 @@ anims/two_Star = SubResource( 22 )
 [connection signal="button_up" from="Pause/End_score/ColorRect2/button_HBoxContainer/Restart" to="Pause" method="_on_Restart_button_up"]
 [connection signal="pressed" from="Pause/End_score/ColorRect2/button_HBoxContainer/Home" to="Pause" method="_on_Home_pressed"]
 [connection signal="pressed" from="Pause/End_score/ColorRect2/button_HBoxContainer/Next" to="Pause" method="_on_Next_pressed"]
+[connection signal="interstitial_loaded" from="AdMob" to="." method="_on_AdMob_interstitial_loaded"]

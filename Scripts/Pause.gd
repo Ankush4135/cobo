@@ -4,6 +4,7 @@ signal gotohome
 signal restart_level
 signal goto_orb
 signal goto_next_level
+signal playbutton_pressed
 
 onready var scene_tree = get_tree()
 onready var animation = $AnimationPlayer
@@ -21,6 +22,8 @@ func _ready():
 	hint_count_text.text = str(PlayerData.hints)
 
 func _unhandled_input(event):
+	if LevelManager.winned:
+		return
 	if event.is_action_pressed("ui_cancel"):
 		if paused == false:
 			animation.play("Pause_in")
@@ -52,6 +55,7 @@ func _on_Restart_button_up():
 
 func _on_Play_pressed():
 	animation.play("pause_out")
+	emit_signal("playbutton_pressed")
 	yield(animation,"animation_finished")
 	resume_count.visible = true
 	timer.start()

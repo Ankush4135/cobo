@@ -41,7 +41,11 @@
         <meta-data
             android:name="plugins"
             android:value="plugins_value"/>
-
+       
+        <!--for Admob-->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-5812806136228402~4986325188"/>
         <activity
             android:name=".GodotApp"
             android:label="@string/godot_project_name_string"

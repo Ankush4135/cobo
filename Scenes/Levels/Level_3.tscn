@@ -456,13 +456,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -264.199, -24.8957, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -261.199, -19.8957, 0 )
 
 [node name="Coin39" parent="Coins" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -257.199, -15.8957, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -257.199, -16.9412, 0 )
 
 [node name="Coin40" parent="Coins" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -251.199, -13.8957, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -251.199, -15.856, 0 )
 
 [node name="Coin41" parent="Coins" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -244.199, -15.8957, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -244.199, -16.9412, 0 )
 
 [node name="Coin42" parent="Coins" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -238.199, -18.8957, 0 )

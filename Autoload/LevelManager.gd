@@ -4,6 +4,7 @@ var restart_level = "" setget set_restart_level
 var play_level = "" setget set_play_level
 var next_level = "" setget set_next_level
 var level_mode = 0
+var winned = false
 
 var level_info = {}
 var default_level_info = {

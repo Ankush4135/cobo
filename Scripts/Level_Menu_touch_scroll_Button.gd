@@ -17,7 +17,6 @@ func _process(delta):
 	current_scroll_value = scroller.get_h_scroll()
 	new_scroll_Value = current_scroll_value + scroll
 	scroller.set_h_scroll(new_scroll_Value)
-	print(new_scroll_Value)
 
 func _on_TouchScreenButton_pressed():
 	set_process(true)

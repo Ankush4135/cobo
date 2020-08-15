@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "AdMob",
+"language": "GDScript",
+"path": "res://admob-lib/admob.gd"
+}, {
 "base": "CanvasLayer",
 "class": "FpsLabel",
 "language": "GDScript",
@@ -490,6 +495,7 @@ _global_script_classes=[ {
 "path": "res://addons/shaderV/tools/vec2Compose.gd"
 } ]
 _global_script_class_icons={
+"AdMob": "res://admob-lib/icon.png",
 "FpsLabel": "",
 "SmartAudioStream": "",
 "VisualShaderNodeNoiseGeneric2d": "",

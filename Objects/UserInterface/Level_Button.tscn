@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Fonts/Gasalt-Black.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Level_Button.gd" type="Script" id=2]
+[ext_resource path="res://Assets/UI/star_empty.png" type="Texture" id=3]
+[ext_resource path="res://Assets/UI/star.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 150
@@ -21,6 +23,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 Level = "01"
+Star = ExtResource( 4 )
+Star_empty = ExtResource( 3 )
 
 [node name="Level_Button" type="Button" parent="."]
 anchor_left = 0.5
@@ -38,6 +42,43 @@ text = "01"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Stars" type="HBoxContainer" parent="Level_Button"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = 199.0
+margin_right = -15.0
+margin_bottom = 54.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Star1" type="TextureRect" parent="Level_Button/Stars"]
+margin_right = 54.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Star2" type="TextureRect" parent="Level_Button/Stars"]
+margin_left = 58.0
+margin_right = 112.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Star3" type="TextureRect" parent="Level_Button/Stars"]
+margin_left = 116.0
+margin_right = 170.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
