@@ -71,6 +71,10 @@ func _on_Game_End_Triger_body_entered(body):
 		timescale = 1
 		UI_anim.play("end_button_animation")
 		pause.paused = true
+		PlayerData.total_score += 2/PlayerData.score
+		PlayerData.player_info[1]["total score"] = PlayerData.total_score
+		PlayerData.save_data()
+		print(str(PlayerData.player_info[1]["total score"]))
 	if LevelManager.level_info.has(int(Current_Level + 2)): # it unlocks next level
 		 #it set the stars on the current level button
 		if star_count > LevelManager.level_info[int(Current_Level + 1)]["stars unlocked"]:

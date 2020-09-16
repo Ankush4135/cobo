@@ -49,5 +49,5 @@ func _on_Timer_timeout():
 	timeouted = true
 
 func _on_Level_Button_button_down():
-	timer.wait_time = .15
+	timer.wait_time = .3
 	timer.start()

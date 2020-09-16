@@ -69,7 +69,7 @@ var default_level_info = {
 		"stars unlocked": 0
 		},
 	}
-onready var path = "user://save.dat"
+onready var path = "user://level.dat"
 
 func _ready():
 	level_info = load_data()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/ScrollContainer.gd" type="Script" id=1]
 [ext_resource path="res://Objects/UserInterface/Base_UI.theme" type="Theme" id=2]
@@ -10,13 +10,23 @@
 [ext_resource path="res://Scenes/LoadingScreen.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Scene_trans.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Objects/UserInterface/Level_Button.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Buttons/cart-button.png" type="Texture" id=11]
+[ext_resource path="res://Fonts/Gasalt-Regular.ttf" type="DynamicFontData" id=12]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )
 shader_param/radius = 0.855
 shader_param/softness = 0.601
 
-[sub_resource type="CanvasItemMaterial" id=2]
+[sub_resource type="DynamicFont" id=4]
+size = 50
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 80
+font_data = ExtResource( 12 )
+
+[sub_resource type="CanvasItemMaterial" id=5]
 blend_mode = 3
 
 [sub_resource type="StyleBoxFlat" id=3]
@@ -62,6 +72,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="coinstext" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -162.993
+margin_top = 22.0
+margin_right = -40.9927
+margin_bottom = 73.0
+custom_fonts/font = SubResource( 4 )
+text = ":Coins"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="total_coinscount" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -354.829
+margin_top = 16.0
+margin_right = -165.829
+margin_bottom = 97.0
+custom_fonts/font = SubResource( 2 )
+text = "0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Set" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -74,7 +111,7 @@ __meta__ = {
 }
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Set"]
-material = SubResource( 2 )
+material = SubResource( 5 )
 margin_right = 1330.0
 margin_bottom = 742.0
 theme = ExtResource( 2 )
@@ -178,6 +215,18 @@ dir = -1
 [node name="LoadingScreen" parent="." instance=ExtResource( 8 )]
 visible = false
 Autoload = false
+
+[node name="Store" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Store_Button" type="TouchScreenButton" parent="Store"]
+position = Vector2( 39.6875, 33.3879 )
+scale = Vector2( 0.381922, 0.381922 )
+normal = ExtResource( 11 )
 [connection signal="Play_Level" from="." to="LoadingScreen" method="_on_Levels_menu_Play_Level"]
 [connection signal="pressed" from="rightbuttonholder/TouchScreenButton" to="rightbuttonholder/TouchScreenButton" method="_on_TouchScreenButton_pressed"]
 [connection signal="released" from="rightbuttonholder/TouchScreenButton" to="rightbuttonholder/TouchScreenButton" method="_on_TouchScreenButton_released"]

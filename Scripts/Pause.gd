@@ -24,7 +24,7 @@ func _ready():
 func _unhandled_input(event):
 	if LevelManager.winned:
 		return
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("pause"):
 		if paused == false:
 			animation.play("Pause_in")
 			self.paused = !self.paused
