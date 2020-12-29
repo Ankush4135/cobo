@@ -186,10 +186,76 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Quit" type="Button" parent="Menu/Buttons_Lists"]
+[node name="Customise" type="Button" parent="Menu/Buttons_Lists"]
 margin_top = 87.0
 margin_right = 700.0
 margin_bottom = 159.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+text = "Customise"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="customize_tex" type="Label" parent="Menu/Buttons_Lists/Customise"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+text = "Customise"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Store" type="Button" parent="Menu/Buttons_Lists"]
+margin_top = 174.0
+margin_right = 700.0
+margin_bottom = 246.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+text = "Store"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Store_tex" type="Label" parent="Menu/Buttons_Lists/Store"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+text = "Store"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="Button" parent="Menu/Buttons_Lists"]
+margin_top = 261.0
+margin_right = 700.0
+margin_bottom = 333.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+text = "Options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options_tex" type="Label" parent="Menu/Buttons_Lists/Options"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+text = "Options"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="Menu/Buttons_Lists"]
+margin_top = 348.0
+margin_right = 700.0
+margin_bottom = 420.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 8 )
 text = "Quit"
