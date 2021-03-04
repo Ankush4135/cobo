@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scenes/LoadingScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fonts/Gasalt-Regular.ttf" type="DynamicFontData" id=2]
@@ -59,6 +59,58 @@ func _on_Quit_button_up():
 	get_tree().quit()
 "
 
+[sub_resource type="Animation" id=10]
+resource_name = "Start_Up"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Title:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 320, -20 ), Vector2( 320, -20 ), Vector2( 320, 185 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Menu:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 250 ), Vector2( 0, 250 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Menu:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Title:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="Main" type="Node"]
 script = ExtResource( 3 )
 Change_Scene = "res://Scenes/Levels_menu.tscn"
@@ -107,14 +159,15 @@ scale_amount_curve = SubResource( 2 )
 color_ramp = SubResource( 3 )
 
 [node name="Title" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -640.0
-margin_top = -355.0
+margin_top = -560.0
 margin_right = 640.0
-margin_bottom = -101.0
+margin_bottom = -306.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -142,8 +195,11 @@ __meta__ = {
 }
 
 [node name="Menu" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 250.0
+margin_bottom = 250.001
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -278,6 +334,10 @@ __meta__ = {
 [node name="LoadingScreen" parent="." instance=ExtResource( 1 )]
 visible = false
 Autoload = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Start_Up"
+anims/Start_Up = SubResource( 10 )
 [connection signal="scene_changed" from="." to="LoadingScreen" method="_on_Main_scene_changed"]
 [connection signal="pressed" from="Menu/Buttons_Lists/Play" to="." method="_on_Button_pressed"]
 [connection signal="button_up" from="Menu/Buttons_Lists/Quit" to="Menu/Buttons_Lists/Quit" method="_on_Quit_button_up"]

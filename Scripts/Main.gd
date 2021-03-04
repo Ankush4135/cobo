@@ -9,6 +9,7 @@ onready var colorec = $Scene_trans/ColorRect
 export(String, FILE) var Change_Scene = ""
 
 func _ready():
+	PlayerData.total_score = PlayerData.player_info[1]["total score"]
 	get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_2D, SceneTree.STRETCH_ASPECT_EXPAND, Vector2(1920, 1080))
 	$Menu/Buttons_Lists/Play.grab_focus()
 	Audio.BG.play()

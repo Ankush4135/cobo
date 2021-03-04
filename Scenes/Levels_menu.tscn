@@ -191,6 +191,7 @@ position = Vector2( 0.966431, -3.69189 )
 rotation = -1.80291e-13
 scale = Vector2( 0.630574, 1.66508 )
 normal = ExtResource( 7 )
+action = "scroll_right"
 script = ExtResource( 4 )
 
 [node name="leftbuttonholder" type="Control" parent="."]
@@ -209,6 +210,7 @@ position = Vector2( 155.71, 413.03 )
 rotation = -3.14159
 scale = Vector2( 0.630574, 1.66508 )
 normal = ExtResource( 7 )
+action = "scroll_left"
 script = ExtResource( 4 )
 dir = -1
 

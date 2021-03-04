@@ -6,7 +6,7 @@ signal player_died
 
 onready var path = "user://player.dat"
 
-var total_score = 0 setget set_total_score
+var total_score = 0 setget set_total_score, get_total_score
 var score = 0 setget set_score, get_score
 var health = 100 setget set_health
 var orbs = 0 setget _set_orbs
@@ -47,6 +47,9 @@ func load_data():
 
 func set_total_score(totalscore):
 	total_score = totalscore
+
+func get_total_score():
+	return total_score
 
 func set_score(updated_Score):
 	score = updated_Score

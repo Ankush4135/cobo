@@ -30,7 +30,7 @@ bus = "sfx"
 
 [node name="Bounce_object" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = 8.21
+volume_db = 20.0
 bus = "sfx"
 
 [node name="Orb" type="AudioStreamPlayer" parent="."]
@@ -38,6 +38,7 @@ stream = ExtResource( 5 )
 bus = "sfx"
 
 [node name="Coin" type="AudioStreamPlayer" parent="."]
+bus = "sfx"
 script = ExtResource( 9 )
 initial_streams = 12
 samples = [ ExtResource( 6 ) ]

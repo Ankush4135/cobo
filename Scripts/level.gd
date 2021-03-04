@@ -7,7 +7,6 @@ onready var UI_anim = $UserInterfaceLayer/UserInterface/Pause/AnimationPlayer
 onready var pause = $UserInterfaceLayer/UserInterface/Pause
 onready var admob  = $AdMob
 
-
 export(int, "Level 01", "Level 02", "Level 03", "Level 04", "Level 05",
 		 "Level 06", "Level 07", "Level 08", "Level 09", "Level 10",
 		 "Level 11") var Current_Level
@@ -19,6 +18,8 @@ var timescale = 1
 var coin_count = 0
 var play_anim = ""
 var star_count = 0
+var total_score = 0
+var save_score = 0
 
 func _ready():
 	Current_Scene_Path = "res://Scenes/Levels/Level_" + str(Current_Level + 1) + ".tscn"
@@ -33,6 +34,13 @@ func _ready():
 
 func _process(delta):
 	Engine.time_scale = timescale
+	
+	if LevelManager.winned == true or PlayerData.Die == true: # check weather player is cleared or either die then save total score
+		if save_score == 0:
+			PlayerData.total_score += PlayerData.score # it will add current score to total
+			PlayerData.player_info[1]["total score"] = PlayerData.total_score 
+			PlayerData.save_data()
+			save_score += 1   # this will stop this loop
 
 func _level_selector():
 	#for level mode 
@@ -71,16 +79,14 @@ func _on_Game_End_Triger_body_entered(body):
 		timescale = 1
 		UI_anim.play("end_button_animation")
 		pause.paused = true
-		PlayerData.total_score += 2/PlayerData.score
-		PlayerData.player_info[1]["total score"] = PlayerData.total_score
-		PlayerData.save_data()
-		print(str(PlayerData.player_info[1]["total score"]))
+
 	if LevelManager.level_info.has(int(Current_Level + 2)): # it unlocks next level
 		 #it set the stars on the current level button
 		if star_count > LevelManager.level_info[int(Current_Level + 1)]["stars unlocked"]:
 			LevelManager.level_info[int(Current_Level + 1)]["stars unlocked"] = star_count
 		LevelManager.level_info[int(Current_Level + 2)]["disabled"] = false
 		LevelManager.save_data()
+	
 
 func _on_next_scene_pressed():
 	fadeanim.play("Fadeout")
@@ -95,6 +101,5 @@ func _on_health_changed(): #chamera shake on every hit when the helth is decreas
 
 func _exit_tree():
 	Audio.BG2.stop()
-	PlayerData.total_score += PlayerData.score
 
 
