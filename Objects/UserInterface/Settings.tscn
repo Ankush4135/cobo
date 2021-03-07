@@ -11,8 +11,8 @@
 bg_color = Color( 0.211765, 0.211765, 0.211765, 1 )
 corner_radius_top_left = 100
 corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [sub_resource type="DynamicFont" id=2]
 size = 60
@@ -137,14 +137,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CheckButton" type="CheckButton" parent="Panel/Fullscreen"]
+[node name="Fullscreen_CheckButton" type="CheckButton" parent="Panel/Fullscreen"]
 anchor_right = 0.393
 anchor_bottom = 1.0
 margin_left = 506.0
 margin_top = 35.0
 margin_right = -0.426025
 margin_bottom = -37.0
-pressed = true
 expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -185,5 +184,6 @@ __meta__ = {
 }
 [connection signal="value_changed" from="Panel/music_Sound/music_Volume" to="." method="_on_music_Volume_value_changed"]
 [connection signal="value_changed" from="Panel/sfx_Sound/sfx_Volume" to="." method="_on_sfx_Volume_value_changed"]
+[connection signal="toggled" from="Panel/Fullscreen/Fullscreen_CheckButton" to="." method="_on_Fullscreen_CheckButton_toggled"]
 [connection signal="pressed" from="confirm_settings" to="." method="_on_confirm_settings_pressed"]
 [connection signal="pressed" from="cancel settings" to="." method="_on_cancel_settings_pressed"]

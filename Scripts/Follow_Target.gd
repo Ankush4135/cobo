@@ -12,8 +12,7 @@ func _ready():
 	Target_position = Target.get_translation()
 	offset = self.get_translation() - Target_position
 
-
-func _process(delta):
+func _process(delta): # _physics_process is creating visual intrest(delay) in character mounts
 	var Changing_Position = Vector3()
 	Target_position = Target.get_translation()
 	Changing_Position = Target_position + offset

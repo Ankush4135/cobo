@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Projects\\cobo\\cobo\\android\\build\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-kn\\values-kn.xml",
+            "outputFile": "F:\\Game Dev\\cobo\\cobo\\android\\build\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-kn\\values-kn.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Ankush Gupta\\.gradle\\caches\\transforms-2\\files-2.1\\a360ead1bcc8be2b9cd1b01ac5b0c5f4\\jetified-play-services-basement-17.0.0\\res\\values-kn\\values.xml",

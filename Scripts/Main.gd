@@ -16,6 +16,10 @@ func _ready():
 	$quit_popup.visible = false
 	Audio.BG.play()
 
+func _process(delta):
+	if Input.is_action_just_pressed("back"):
+		_on_Quit_button_up()
+
 func _on_Button_pressed():
 	emit_signal("scene_changed", Change_Scene)
 	Audio.Select.play()

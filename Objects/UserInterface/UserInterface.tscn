@@ -1045,7 +1045,7 @@ __meta__ = {
 }
 
 [node name="find" type="Button" parent="Pause/not_enough_orbs/HBoxContainer"]
-margin_right = 190.0
+margin_right = 350.0
 margin_bottom = 63.0
 size_flags_horizontal = 3
 theme = ExtResource( 12 )
@@ -1056,20 +1056,20 @@ __meta__ = {
 }
 
 [node name="Control" type="Control" parent="Pause/not_enough_orbs/HBoxContainer"]
-margin_left = 194.0
-margin_right = 384.0
+margin_left = 354.0
+margin_right = 704.0
 margin_bottom = 63.0
 size_flags_horizontal = 3
 
 [node name="Control2" type="Control" parent="Pause/not_enough_orbs/HBoxContainer"]
-margin_left = 388.0
-margin_right = 578.0
+margin_left = 708.0
+margin_right = 1058.0
 margin_bottom = 63.0
 size_flags_horizontal = 3
 
 [node name="hint" type="Button" parent="Pause/not_enough_orbs/HBoxContainer"]
-margin_left = 582.0
-margin_right = 775.0
+margin_left = 1062.0
+margin_right = 1415.0
 margin_bottom = 63.0
 size_flags_horizontal = 3
 theme = ExtResource( 12 )

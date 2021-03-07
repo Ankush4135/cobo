@@ -20,12 +20,19 @@ func _on_music_Volume_value_changed(value):
 
 func _on_sfx_Volume_value_changed(value):
 	var volume =0
+	if ConfigManager.sfx_volume == value:
+		pass
+	else:
+		Audio.Select.play()
+	
 	if value <= -40:
 		volume = -80
 	else:
 		volume = value
+	
 	ConfigManager.sfx_volume = volume
-	Audio.Select.play()
+	
+
 
 func _on_confirm_settings_pressed():
 	emit_signal("close_settings")
@@ -33,3 +40,8 @@ func _on_confirm_settings_pressed():
 
 func _on_cancel_settings_pressed():
 	emit_signal("close_settings")
+
+
+func _on_Fullscreen_CheckButton_toggled(button_pressed):
+	 OS.window_fullscreen = button_pressed
+

@@ -204,14 +204,12 @@ scale_amount_curve = SubResource( 2 )
 color_ramp = SubResource( 3 )
 
 [node name="Title" type="Control" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -640.0
-margin_top = -355.0
-margin_right = 640.0
-margin_bottom = -101.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 320.0
+margin_top = 185.0
+margin_right = -320.0
+margin_bottom = -641.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -262,13 +260,13 @@ size_flags_vertical = 3
 theme = ExtResource( 9 )
 custom_constants/separation = 15
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Play" type="Button" parent="Menu/Buttons_Lists"]
 margin_right = 700.0
 margin_bottom = 72.0
+focus_neighbour_top = NodePath("../Quit")
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 6 )
 text = "Play"
@@ -379,6 +377,7 @@ __meta__ = {
 margin_top = 435.0
 margin_right = 700.0
 margin_bottom = 507.0
+focus_neighbour_bottom = NodePath("../Play")
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 8 )
 text = "Quit"
@@ -479,7 +478,7 @@ modulate = Color( 1, 1, 1, 0 )
 margin_left = 100.0
 margin_top = 1104.0
 margin_right = -100.0
-margin_bottom = 834.003
+margin_bottom = 834.004
 
 [node name="LoadingScreen" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -493,7 +492,6 @@ anims/settings = SubResource( 13 )
 [connection signal="pressed" from="Menu/Buttons_Lists/Play" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Menu/Buttons_Lists/Options" to="." method="_on_Options_pressed"]
 [connection signal="button_up" from="Menu/Buttons_Lists/Quit" to="." method="_on_Quit_button_up"]
-[connection signal="button_up" from="Menu/Buttons_Lists/Quit" to="Menu/Buttons_Lists/Quit" method="_on_Quit_button_up"]
 [connection signal="button_up" from="quit_popup/Panel/quit_ok" to="." method="_on_quit_ok_button_up"]
 [connection signal="pressed" from="quit_popup/Panel/quit_cancel" to="." method="_on_quit_cancel_pressed"]
 [connection signal="close_settings" from="Settings" to="." method="_on_Settings_close_settings"]

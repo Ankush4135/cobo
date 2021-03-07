@@ -600,6 +600,7 @@ config/name="cobo"
 run/main_scene="res://Scenes/Main.tscn"
 config/icon="res://icon.png"
 config/windows_native_icon="res://cobo.ico"
+config/quit_on_go_back=false
 
 [autoload]
 
@@ -615,6 +616,7 @@ window/size/height=1080
 window/size/always_on_top=true
 window/size/test_width=960
 window/size/test_height=540
+window/dpi/allow_hidpi=true
 
 [editor_plugins]
 

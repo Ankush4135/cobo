@@ -12,3 +12,4 @@ func _process(delta):
 	mouse_position = get_viewport().get_mouse_position()
 	camera_pivot.rotation.x = gyro.x / speed
 	camera_pivot.rotation.y = gyro.y / speed
+#	print(mouse_position)

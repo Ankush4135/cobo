@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Projects\\cobo\\cobo\\android\\build\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-uk\\values-uk.xml",
+            "outputFile": "F:\\Game Dev\\cobo\\cobo\\android\\build\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-uk\\values-uk.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Ankush Gupta\\.gradle\\caches\\transforms-2\\files-2.1\\94cba374a529e32e15017b9cb1f583e7\\godot-lib.release\\res\\values-uk\\values-uk.xml",

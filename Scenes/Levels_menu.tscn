@@ -221,10 +221,6 @@ action = "scroll_left"
 script = ExtResource( 4 )
 dir = -1
 
-[node name="LoadingScreen" parent="." instance=ExtResource( 8 )]
-visible = false
-Autoload = false
-
 [node name="Store" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -251,6 +247,10 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="LoadingScreen" parent="." instance=ExtResource( 8 )]
+visible = false
+Autoload = false
 [connection signal="Play_Level" from="." to="LoadingScreen" method="_on_Levels_menu_Play_Level"]
 [connection signal="pressed" from="rightbuttonholder/TouchScreenButton" to="rightbuttonholder/TouchScreenButton" method="_on_TouchScreenButton_pressed"]
 [connection signal="released" from="rightbuttonholder/TouchScreenButton" to="rightbuttonholder/TouchScreenButton" method="_on_TouchScreenButton_released"]
