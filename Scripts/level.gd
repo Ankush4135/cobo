@@ -86,7 +86,6 @@ func _on_Game_End_Triger_body_entered(body):
 		if star_count > LevelManager.level_info[int(Current_Level + 1)]["stars unlocked"]:
 			LevelManager.level_info[int(Current_Level + 1)]["stars unlocked"] = star_count
 		LevelManager.level_info[int(Current_Level + 2)]["disabled"] = false
-		LevelManager.level_info[int(Current_Level + 2)]["enabled focus mode"] = 2
 		LevelManager.save_data()
 	
 

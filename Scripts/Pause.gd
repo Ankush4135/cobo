@@ -26,6 +26,7 @@ func _unhandled_input(event):
 		return
 	if event.is_action_pressed("pause"):
 		if paused == false:
+			$pause_menu/ColorRect/HBoxContainer/Play.grab_focus()
 			animation.play("Pause_in")
 			self.paused = !self.paused
 			if paused == false:
@@ -78,6 +79,7 @@ func _player_died():
 		$pause_menu/ColorRect/HBoxContainer/Play.visible = false
 		title.text = "Died"
 		yield(get_tree().create_timer(1), "timeout") #delay it then execute
+		$pause_menu/ColorRect/HBoxContainer/Restart.grab_focus()
 		animation.play("Pause_in")
 		yield(animation,"animation_finished")
 

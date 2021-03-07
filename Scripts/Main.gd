@@ -18,7 +18,12 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("back"):
-		_on_Quit_button_up()
+		if $Settings.visible:
+			_on_Settings_close_settings()
+		elif $quit_popup.visible:
+			_on_quit_cancel_pressed()
+		else:
+			_on_Quit_button_up()
 
 func _on_Button_pressed():
 	emit_signal("scene_changed", Change_Scene)

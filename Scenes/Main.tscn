@@ -204,12 +204,13 @@ scale_amount_curve = SubResource( 2 )
 color_ramp = SubResource( 3 )
 
 [node name="Title" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 320.0
-margin_top = 185.0
+margin_top = -20.0
 margin_right = -320.0
-margin_bottom = -641.0
+margin_bottom = -846.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -237,9 +238,11 @@ __meta__ = {
 }
 
 [node name="Menu" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = 0.000976563
+margin_top = 250.0
+margin_bottom = 250.001
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -475,9 +478,9 @@ __meta__ = {
 [node name="Settings" parent="." instance=ExtResource( 12 )]
 visible = false
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 100.0
+margin_left = 300.0
 margin_top = 1104.0
-margin_right = -100.0
+margin_right = -300.0
 margin_bottom = 834.004
 
 [node name="LoadingScreen" parent="." instance=ExtResource( 1 )]

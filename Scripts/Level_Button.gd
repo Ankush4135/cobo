@@ -18,7 +18,6 @@ var star_value
 func _ready():
 	if LevelManager.level_info.has(int(Level)):
 		Disable = LevelManager.level_info[int(Level)]["disabled"]
-		focus = LevelManager.level_info[int(Level)]["enabled focus mode"]
 		
 		if LevelManager.level_info[int(Level)]["stars unlocked"] == 1:
 			$Level_Button/Stars/Star1.texture = Star
@@ -35,7 +34,11 @@ func _ready():
 		Disable = false
 	$Level_Button.text = Level
 	$Level_Button.disabled = Disable
-	$Level_Button.enabled_focus_mode = focus
+	if Disable:
+		$Level_Button.focus_mode = 0
+	else:
+		$Level_Button.focus_mode = 2
+		
 	$Level_Button/Stars.visible = not Disable
 	Level_Scene = "res://Scenes/Levels/Level_" + Level + ".tscn"
 		

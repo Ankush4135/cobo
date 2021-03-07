@@ -206,37 +206,23 @@ tracks/1/keys = {
 "update": 1,
 "values": [ false, true ]
 }
-tracks/2/type = "method"
-tracks/2/path = NodePath("pause_menu/ColorRect/HBoxContainer/Home")
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("pause_menu:rect_position:y")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.259664 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "grab_focus"
-} ]
+"points": PoolRealArray( -304.459, -0.25, 0, 0.130605, 10.459, -1, -0.121332, 59, 0.0264881, -12, 0, -0.00978979, -1, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.402448, 0.5 )
 }
-tracks/3/type = "bezier"
-tracks/3/path = NodePath("pause_menu:rect_position:y")
+tracks/3/type = "value"
+tracks/3/path = NodePath("End_score:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"points": PoolRealArray( -304.459, -0.25, 0, 0.130605, 10.459, -1, -0.121332, 59, 0.0264881, -12, 0, -0.00978979, -1, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.402448, 0.5 )
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("End_score:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,

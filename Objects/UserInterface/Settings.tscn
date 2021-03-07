@@ -19,7 +19,7 @@ size = 60
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 80
+size = 60
 font_data = ExtResource( 6 )
 
 [node name="Settings" type="Control"]
@@ -154,9 +154,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -378.0
-margin_top = -45.8494
-margin_bottom = 44.1506
+margin_left = -297.0
+margin_top = -30.3015
+margin_bottom = 29.6985
 focus_neighbour_left = NodePath("../cancel settings")
 theme = ExtResource( 5 )
 custom_fonts/font = SubResource( 3 )
@@ -170,9 +170,9 @@ __meta__ = {
 [node name="cancel settings" type="Button" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_top = -44.4438
-margin_right = 378.0
-margin_bottom = 45.5562
+margin_top = -30.3015
+margin_right = 286.0
+margin_bottom = 29.6985
 focus_neighbour_right = NodePath("../confirm_settings")
 theme = ExtResource( 5 )
 custom_fonts/font = SubResource( 3 )
