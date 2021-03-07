@@ -48,10 +48,9 @@ func _on_level_button_pressed(path):
 	$LoadingScreen.visible = true
 	emit_signal("Play_Level",path)
 
-#func _exit_tree():
-#	Audio.BG.stop()
 
 func _on_Back_Button_pressed():
+	Audio.Select.play()
 	var path = "res://Scenes/Main.tscn"
 	$LoadingScreen.visible = true
 	emit_signal("Play_Level",path)

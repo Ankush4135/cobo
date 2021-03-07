@@ -41,11 +41,11 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
-[sub_resource type="InputEventKey" id=8]
+[sub_resource type="InputEventKey" id=6]
 scancode = 27
 
 [sub_resource type="ShortCut" id=7]
-shortcut = SubResource( 8 )
+shortcut = SubResource( 6 )
 
 [node name="Levels_menu" type="Control"]
 anchor_right = 1.0

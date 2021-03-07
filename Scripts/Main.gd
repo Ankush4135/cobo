@@ -36,9 +36,11 @@ func _on_quit_ok_button_up():
 	get_tree().quit()
 
 func _on_Options_pressed():
+	Audio.Select.play()
 	$Settings/confirm_settings.grab_focus()
 	$AnimationPlayer.play("settings")
 
 func _on_Settings_close_settings():
+	Audio.Select.play()
 	$AnimationPlayer.play_backwards("settings")
 	$Menu/Buttons_Lists/Play.grab_focus()

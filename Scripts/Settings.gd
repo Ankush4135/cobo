@@ -10,13 +10,21 @@ func _ready():
 	music_slider.value = ConfigManager.music_volume
 	sfx_slider.value = ConfigManager.sfx_volume
 
-
 func _on_music_Volume_value_changed(value):
-	ConfigManager.music_volume = value
-
+	var volume =0
+	if value <= -40:
+		volume = -80
+	else:
+		volume = value
+	ConfigManager.music_volume = volume
 
 func _on_sfx_Volume_value_changed(value):
-	ConfigManager.sfx_volume = value
+	var volume =0
+	if value <= -40:
+		volume = -80
+	else:
+		volume = value
+	ConfigManager.sfx_volume = volume
 	Audio.Select.play()
 
 func _on_confirm_settings_pressed():

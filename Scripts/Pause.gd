@@ -49,11 +49,13 @@ func set_paused(value):
 
 
 func _on_Restart_button_up():
+	Audio.Select.play()
 	if PlayerData.Die == false:
 		self.paused = !self.paused
 	emit_signal("restart_level")
 
 func _on_Play_pressed():
+	Audio.Select.play()
 	animation.play("pause_out")
 	emit_signal("playbutton_pressed")
 	yield(animation,"animation_finished")
@@ -65,6 +67,7 @@ func _on_Play_pressed():
 	
 
 func _on_Home_pressed():
+	Audio.Select.play()
 	if PlayerData.Die == false:
 		self.paused = !self.paused
 	emit_signal("gotohome")
@@ -92,5 +95,6 @@ func _on_hint_pressed():
 		$not_enough_orbs/HBoxContainer/hint.disabled = true
 
 func _on_Next_pressed():
+	Audio.Select.play()
 	self.paused = !self.paused
 	emit_signal("goto_next_level")
