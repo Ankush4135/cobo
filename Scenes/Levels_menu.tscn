@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/ScrollContainer.gd" type="Script" id=1]
 [ext_resource path="res://Objects/UserInterface/Base_UI.theme" type="Theme" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Objects/UserInterface/Level_Button.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Buttons/cart-button.png" type="Texture" id=11]
 [ext_resource path="res://Fonts/Gasalt-Regular.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://Assets/Buttons/arrow-button.png" type="Texture" id=13]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )
@@ -39,6 +40,12 @@ corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
+
+[sub_resource type="InputEventKey" id=8]
+scancode = 27
+
+[sub_resource type="ShortCut" id=7]
+shortcut = SubResource( 8 )
 
 [node name="Levels_menu" type="Control"]
 anchor_right = 1.0
@@ -229,8 +236,24 @@ __meta__ = {
 position = Vector2( 39.6875, 33.3879 )
 scale = Vector2( 0.381922, 0.381922 )
 normal = ExtResource( 11 )
+
+[node name="Back_Button" type="TextureButton" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 175.0
+margin_top = -29.0
+margin_right = 323.0
+margin_bottom = 119.0
+rect_rotation = -180.0
+shortcut = SubResource( 7 )
+texture_normal = ExtResource( 13 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="Play_Level" from="." to="LoadingScreen" method="_on_Levels_menu_Play_Level"]
 [connection signal="pressed" from="rightbuttonholder/TouchScreenButton" to="rightbuttonholder/TouchScreenButton" method="_on_TouchScreenButton_pressed"]
 [connection signal="released" from="rightbuttonholder/TouchScreenButton" to="rightbuttonholder/TouchScreenButton" method="_on_TouchScreenButton_released"]
 [connection signal="pressed" from="leftbuttonholder/TouchScreenButton" to="leftbuttonholder/TouchScreenButton" method="_on_TouchScreenButton_pressed"]
 [connection signal="released" from="leftbuttonholder/TouchScreenButton" to="leftbuttonholder/TouchScreenButton" method="_on_TouchScreenButton_released"]
+[connection signal="pressed" from="Back_Button" to="." method="_on_Back_Button_pressed"]

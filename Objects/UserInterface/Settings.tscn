@@ -1,0 +1,189 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Objects/UserInterface/Panel.stylebox" type="StyleBox" id=2]
+[ext_resource path="res://Scripts/Settings.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Buttons/ok-button.png" type="Texture" id=4]
+[ext_resource path="res://Objects/UserInterface/Base_UI.theme" type="Theme" id=5]
+[ext_resource path="res://Fonts/Gasalt-Black.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Assets/Buttons/cross-button.png" type="Texture" id=7]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.211765, 0.211765, 0.211765, 1 )
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 80
+font_data = ExtResource( 6 )
+
+[node name="Settings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="music_Sound" type="Panel" parent="Panel"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 150.0
+margin_top = -294.0
+margin_right = -150.0
+margin_bottom = -182.0
+custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="music_text" type="Label" parent="Panel/music_Sound"]
+anchor_bottom = 1.0
+margin_right = 237.0
+custom_fonts/font = SubResource( 2 )
+text = "Music"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="music_Volume" type="HSlider" parent="Panel/music_Sound"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 261.0
+margin_right = -59.0
+min_value = -40.0
+max_value = 6.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sfx_Sound" type="Panel" parent="Panel"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 150.0
+margin_top = -159.473
+margin_right = -150.0
+margin_bottom = -47.4731
+custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sfx_text" type="Label" parent="Panel/sfx_Sound"]
+anchor_bottom = 1.0
+margin_right = 237.0
+custom_fonts/font = SubResource( 2 )
+text = "SFX"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sfx_Volume" type="HSlider" parent="Panel/sfx_Sound"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 261.0
+margin_right = -59.0
+min_value = -40.0
+max_value = 6.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fullscreen" type="Panel" parent="Panel"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 150.0
+margin_top = -28.1888
+margin_right = -150.0
+margin_bottom = 83.8112
+custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fullscreen_text" type="Label" parent="Panel/Fullscreen"]
+anchor_bottom = 1.0
+margin_right = 325.0
+custom_fonts/font = SubResource( 2 )
+text = "Fullscreen"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckButton" type="CheckButton" parent="Panel/Fullscreen"]
+anchor_right = 0.393
+anchor_bottom = 1.0
+margin_left = 506.0
+margin_top = 35.0
+margin_right = -0.426025
+margin_bottom = -37.0
+pressed = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="confirm_settings" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -470.0
+margin_top = -58.603
+margin_bottom = 59.397
+focus_neighbour_left = NodePath("../cancel settings")
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 3 )
+text = "Confirm"
+icon = ExtResource( 4 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cancel settings" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -60.0
+margin_right = 470.0
+margin_bottom = 58.0
+focus_neighbour_right = NodePath("../confirm_settings")
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 3 )
+text = "Cancel"
+icon = ExtResource( 7 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="value_changed" from="Panel/music_Sound/music_Volume" to="." method="_on_music_Volume_value_changed"]
+[connection signal="value_changed" from="Panel/sfx_Sound/sfx_Volume" to="." method="_on_sfx_Volume_value_changed"]
+[connection signal="pressed" from="confirm_settings" to="." method="_on_confirm_settings_pressed"]
+[connection signal="pressed" from="cancel settings" to="." method="_on_cancel_settings_pressed"]

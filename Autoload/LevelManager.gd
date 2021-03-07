@@ -11,62 +11,74 @@ var default_level_info = {
 	1:{
 		"disabled": false,
 		"high score": 0,
-		"stars unlocked": 0
+		"stars unlocked": 0,
+		"enabled focus mode": 2
 		},
 	2:{
 		"disabled": true,
 		"high score": 0,
-		"stars unlocked": 0
+		"stars unlocked": 0,
+		"enabled focus mode": 0
 		},
 	3:{
 		"disabled": true,
 		"high score": 0,
-		"stars unlocked": 0
+		"stars unlocked": 0,
+		"enabled focus mode": 0
 		},
 	4:{
 		"disabled": true,
 		"high score": 0,
-		"stars unlocked": 0
+		"stars unlocked": 0,
+		"enabled focus mode": 0
 		},
 	5:{
 		"disabled": true,
 		"high score": 0,
-		"stars unlocked": 0
+		"stars unlocked": 0,
+		"enabled focus mode": 0
 		},
 	6:{
 		"disabled": true,
 		"high score": 0,
-		"stars unlocked": 0
+		"stars unlocked": 0,
+		"enabled focus mode": 0
 		},
 	7:{
 		"disabled": true,
 		"high score": 0,
-		"stars unlocked": 0
+		"stars unlocked": 0,
+		"enabled focus mode": 0
 		},
 	8:{
 		"disabled": true,
 		"high score": 0,
-		"stars unlocked": 0
+		"stars unlocked": 0,
+		"enabled focus mode": 0
 		},
 	9:{
 		"disabled": true,
 		"high score": 0,
-		"stars unlocked": 0
+		"stars unlocked": 0,
+		"enabled focus mode": 0
 		},
 	10:{
 		"disabled": true,
 		"high score": 0,
-		"stars unlocked": 0
+		"stars unlocked": 0,
+		"enabled focus mode": 0
 		},
 	11:{
 		"disabled": true,
 		"high score": 0,
-		"stars unlocked": 0
+		"stars unlocked": 0,
+		"enabled focus mode": 0
 		},
 	12:{
 		"disabled": true,
 		"high score": 0,
-		"stars unlocked": 0
+		"stars unlocked": 0,
+		"enabled focus mode": 0
 		},
 	}
 onready var path = "user://level.dat"

@@ -3,10 +3,12 @@ extends Control
 signal Play_Level_Path(path) 
 
 export(bool) var Disable = false
+export var focus = 0
 export(String) var Level = ""
 export(int, "Normal", "Dark", "Onetouch") var Level_Mode
 export (Texture) var Star
 export (Texture) var Star_empty
+
 
 onready var timer = $Timer
 var Level_Scene = ""
@@ -16,6 +18,7 @@ var star_value
 func _ready():
 	if LevelManager.level_info.has(int(Level)):
 		Disable = LevelManager.level_info[int(Level)]["disabled"]
+		focus = LevelManager.level_info[int(Level)]["enabled focus mode"]
 		
 		if LevelManager.level_info[int(Level)]["stars unlocked"] == 1:
 			$Level_Button/Stars/Star1.texture = Star
@@ -32,6 +35,7 @@ func _ready():
 		Disable = false
 	$Level_Button.text = Level
 	$Level_Button.disabled = Disable
+	$Level_Button.enabled_focus_mode = focus
 	$Level_Button/Stars.visible = not Disable
 	Level_Scene = "res://Scenes/Levels/Level_" + Level + ".tscn"
 		

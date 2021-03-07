@@ -22,6 +22,7 @@ var total_score = 0
 var save_score = 0
 
 func _ready():
+	Audio.BG.stop()
 	Current_Scene_Path = "res://Scenes/Levels/Level_" + str(Current_Level + 1) + ".tscn"
 	Next_Scene_Path = "res://Scenes/Levels/Level_" + str(Current_Level + 2) + ".tscn"
 	_level_selector()
@@ -85,6 +86,7 @@ func _on_Game_End_Triger_body_entered(body):
 		if star_count > LevelManager.level_info[int(Current_Level + 1)]["stars unlocked"]:
 			LevelManager.level_info[int(Current_Level + 1)]["stars unlocked"] = star_count
 		LevelManager.level_info[int(Current_Level + 2)]["disabled"] = false
+		LevelManager.level_info[int(Current_Level + 2)]["enabled focus mode"] = 2
 		LevelManager.save_data()
 	
 
