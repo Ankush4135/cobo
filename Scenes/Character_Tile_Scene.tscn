@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Assets/Material/Player_Ball.material" type="Material" id=1]
 [ext_resource path="res://Assets/Objects/Character_Ball.obj" type="ArrayMesh" id=2]
@@ -98,20 +98,182 @@ blend_point_2/node = SubResource( 8 )
 blend_point_2/pos = -1.0
 
 [sub_resource type="AnimationNodeBlendTree" id=10]
-graph_offset = Vector2( -379, 102 )
+graph_offset = Vector2( -416, 87 )
 nodes/left_right_blend/node = SubResource( 9 )
-nodes/left_right_blend/position = Vector2( -140, 160 )
+nodes/left_right_blend/position = Vector2( -160, 160 )
 nodes/output/position = Vector2( 380, 160 )
 node_connections = [ "output", 0, "left_right_blend" ]
 
 [sub_resource type="QuadMesh" id=11]
 size = Vector2( 100, 100 )
 
+[sub_resource type="Animation" id=12]
+resource_name = "Customise"
+tracks/0/type = "value"
+tracks/0/path = NodePath("character:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Floor:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Side_Wall:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Camera_pivot:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.392291, 1 ),
+"update": 0,
+"values": [ Vector3( 9.973, 17.319, 0 ), Vector3( -0.140462, 1.47743, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Camera_pivot/Camera:translation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.392291, 1 ),
+"update": 0,
+"values": [ Vector3( -9.53674e-07, -0.000299454, 54 ), Vector3( -2.47359e-06, -0.000302792, 11.096 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Camera_pivot:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -10.058, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "Default"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera_pivot:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 9.973, 17.319, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera_pivot:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Camera_pivot/Camera:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -9.53674e-07, -0.000299454, 54 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Camera_pivot/Camera:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -3.03321e-21, 3.41509e-06, 1.01778e-13 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Side_Wall:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Floor:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("character:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
 [node name="Character_Tile_Scene" type="Spatial"]
 script = ExtResource( 8 )
 
 [node name="character" type="Spatial" parent="."]
-transform = Transform( 0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 1.15, 0 )
+transform = Transform( 0.5713, 0, -0.820741, 0, 0.999999, 0, 0.82074, 0, 0.571301, 0, 1.15, 0 )
 visible = false
 
 [node name="Ball" type="MeshInstance" parent="character"]
@@ -123,7 +285,7 @@ mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
 [node name="Character_mounts" type="Spatial" parent="character"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.53674e-07, 1.45435e-05 )
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -4.54747e-13, -9.53674e-07, 1.45435e-05 )
 script = ExtResource( 6 )
 
 [node name="Rot_Z" type="Spatial" parent="character/Character_mounts"]
@@ -148,7 +310,7 @@ anims/turnright = SubResource( 5 )
 [node name="Character_Animation_Blend" type="AnimationTree" parent="character/Character_mounts"]
 tree_root = SubResource( 10 )
 anim_player = NodePath("../Chanacter_Animation")
-parameters/left_right_blend/blend_position = 0.998201
+parameters/left_right_blend/blend_position = 1.23837
 script = ExtResource( 7 )
 
 [node name="Back_Wall" type="MeshInstance" parent="."]
@@ -169,7 +331,7 @@ mesh = SubResource( 11 )
 material/0 = ExtResource( 3 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.897766, -6.3842e-08, 0.440472, -0.295281, 0.742023, 0.60184, -0.32684, -0.670375, 0.666163, 0, 7.81383, 8.00698 )
+transform = Transform( 0.897766, -7.72197e-08, 0.440472, -0.295281, 0.742023, 0.60184, -0.32684, -0.670375, 0.666163, 0, 7.81383, 8.00698 )
 shadow_enabled = true
 shadow_bias = -0.2
 shadow_reverse_cull_face = true
@@ -178,7 +340,12 @@ shadow_reverse_cull_face = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.973, 17.319, 0 )
 
 [node name="Camera" type="Camera" parent="Camera_pivot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53674e-07, -0.000299454, 54 )
+transform = Transform( 1, -1.77636e-15, 5.96046e-08, 1.77636e-15, 1, 5.29396e-23, -5.96046e-08, 5.29395e-23, 1, -9.53674e-07, -0.000299454, 54 )
 keep_aspect = 0
 environment = ExtResource( 5 )
 fov = 35.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Default"
+anims/Customise = SubResource( 12 )
+anims/Default = SubResource( 13 )

@@ -22,6 +22,9 @@ func _process(delta):
 			_on_Settings_close_settings()
 		elif $quit_popup.visible:
 			_on_quit_cancel_pressed()
+		elif $Particles/CPUParticles2D.emitting == false:
+			$AnimationPlayer.play_backwards("Customise")
+			$Character_Tile_Scene/AnimationPlayer.play_backwards("Customise")
 		else:
 			_on_Quit_button_up()
 
@@ -46,10 +49,16 @@ func _on_quit_ok_button_up():
 
 func _on_Options_pressed():
 	Audio.Select.play()
-	$Settings/confirm_settings.grab_focus()
+	$Settings/Settings_Pannel/confirm_settings.grab_focus()
 	$AnimationPlayer.play("settings")
 
 func _on_Settings_close_settings():
 	Audio.Select.play()
 	$AnimationPlayer.play_backwards("settings")
 	$Menu/Buttons_Lists/Play.grab_focus()
+
+func _on_Customise_pressed():
+#	$AnimationPlayer.play_backwards("Start_Up")
+	$AnimationPlayer.play("Customise")
+	$Character_Tile_Scene/AnimationPlayer.play("Customise")
+	

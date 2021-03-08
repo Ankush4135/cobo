@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scenes/LoadingScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fonts/Gasalt-Regular.ttf" type="DynamicFontData" id=2]
@@ -68,7 +68,94 @@ size = 50
 font_data = ExtResource( 6 )
 
 [sub_resource type="Animation" id=12]
-length = 2.0
+resource_name = "Customise"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Title:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 320, 185 ), Vector2( 320, -20 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Menu:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 250 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Menu:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Title:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Particles/CPUParticles2D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Particles:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Vignette:material:shader_param/softness")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.45 ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Title:rect_position")
 tracks/0/interp = 1
@@ -117,43 +204,102 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Settings:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Vignette:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Particles/CPUParticles2D:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Particles:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
-[sub_resource type="Animation" id=13]
-resource_name = "settings"
+[sub_resource type="Animation" id=14]
 length = 0.7
-tracks/0/type = "value"
-tracks/0/path = NodePath("Settings:visible")
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Settings/Settings_Pannel:rect_position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.0514277 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
+"points": PoolRealArray( 1104, -0.25, 0, 0.25, 0, 150, -0.429623, -274.521, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.7 )
 }
-tracks/1/type = "bezier"
-tracks/1/path = NodePath("Settings:rect_position:y")
+tracks/1/type = "value"
+tracks/1/path = NodePath("Settings/Settings_Pannel:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( 1104, -0.25, 0, 0.25, 0, 150, -0.429623, -274.521, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.7 )
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Settings:modulate")
+tracks/2/path = NodePath("Settings:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.3 ),
+"times": PoolRealArray( 0, 0.0503316 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Settings/ColorRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.0553648, 0.481506 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.568627 ) ]
 }
 
 [node name="Main" type="Node"]
@@ -166,9 +312,11 @@ Fadein = true
 [node name="Character_Tile_Scene" parent="." instance=ExtResource( 4 )]
 
 [node name="Vignette" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0.647059 )
 material = SubResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0.996078 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -204,13 +352,12 @@ scale_amount_curve = SubResource( 2 )
 color_ramp = SubResource( 3 )
 
 [node name="Title" type="Control" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 320.0
-margin_top = -20.0
+margin_top = 185.0
 margin_right = -320.0
-margin_bottom = -846.0
+margin_bottom = -640.995
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -238,11 +385,9 @@ __meta__ = {
 }
 
 [node name="Menu" type="Control" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 250.0
-margin_bottom = 250.001
+margin_bottom = 0.000976563
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -475,13 +620,52 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Settings" parent="." instance=ExtResource( 12 )]
+[node name="Settings" type="Control" parent="."]
 visible = false
-modulate = Color( 1, 1, 1, 0 )
-margin_left = 300.0
-margin_top = 1104.0
-margin_right = -300.0
-margin_bottom = 834.004
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Settings"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.568627 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings_Pannel" parent="Settings" instance=ExtResource( 12 )]
+anchor_left = 0.15625
+anchor_top = 0.138889
+anchor_right = 0.84375
+anchor_bottom = 0.888888
+margin_bottom = 0.000244141
+
+[node name="Customise" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="Customise"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = 100.0
+margin_right = -100.0
+margin_bottom = -100.0
+theme = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="LoadingScreen" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -489,12 +673,14 @@ Autoload = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Start_Up"
-anims/Start_Up = SubResource( 12 )
-anims/settings = SubResource( 13 )
+anims/Customise = SubResource( 12 )
+anims/Start_Up = SubResource( 13 )
+anims/settings = SubResource( 14 )
 [connection signal="scene_changed" from="." to="LoadingScreen" method="_on_Main_scene_changed"]
 [connection signal="pressed" from="Menu/Buttons_Lists/Play" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Menu/Buttons_Lists/Customise" to="." method="_on_Customise_pressed"]
 [connection signal="pressed" from="Menu/Buttons_Lists/Options" to="." method="_on_Options_pressed"]
 [connection signal="button_up" from="Menu/Buttons_Lists/Quit" to="." method="_on_Quit_button_up"]
 [connection signal="button_up" from="quit_popup/Panel/quit_ok" to="." method="_on_quit_ok_button_up"]
 [connection signal="pressed" from="quit_popup/Panel/quit_cancel" to="." method="_on_quit_cancel_pressed"]
-[connection signal="close_settings" from="Settings" to="." method="_on_Settings_close_settings"]
+[connection signal="close_settings" from="Settings/Settings_Pannel" to="." method="_on_Settings_close_settings"]
