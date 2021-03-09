@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Scenes/LoadingScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fonts/Gasalt-Regular.ttf" type="DynamicFontData" id=2]
@@ -12,11 +12,14 @@
 [ext_resource path="res://Assets/Buttons/ok-button.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Buttons/cross-button.png" type="Texture" id=11]
 [ext_resource path="res://Objects/UserInterface/Settings.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Buttons/arrow-button.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Buttons/cart-button.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Buttons/play-button.png" type="Texture" id=15]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 5 )
 shader_param/radius = 0.75
-shader_param/softness = 1.0
+shader_param/softness = 0.45
 
 [sub_resource type="Curve" id=2]
 _data = [ Vector2( 0, 0.290909 ), 0.0, 1.6, 0, 0, Vector2( 0.996212, 1 ), -0.150001, 0.0, 0, 0 ]
@@ -153,6 +156,30 @@ tracks/6/keys = {
 "update": 0,
 "values": [ 1.0, 0.45 ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("Customise:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Customise:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=13]
 length = 1.5
@@ -252,6 +279,18 @@ tracks/7/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath("Customise:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=14]
 length = 0.7
@@ -312,7 +351,6 @@ Fadein = true
 [node name="Character_Tile_Scene" parent="." instance=ExtResource( 4 )]
 
 [node name="Vignette" type="ColorRect" parent="."]
-modulate = Color( 1, 1, 1, 0.647059 )
 material = SubResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -322,6 +360,7 @@ __meta__ = {
 }
 
 [node name="Particles" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -335,6 +374,7 @@ __meta__ = {
 }
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Particles"]
+emitting = false
 amount = 10
 lifetime = 8.0
 preprocess = 5.0
@@ -352,12 +392,13 @@ scale_amount_curve = SubResource( 2 )
 color_ramp = SubResource( 3 )
 
 [node name="Title" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 320.0
-margin_top = 185.0
+margin_top = -20.0
 margin_right = -320.0
-margin_bottom = -640.995
+margin_bottom = -845.995
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -385,9 +426,11 @@ __meta__ = {
 }
 
 [node name="Menu" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = 0.000976563
+margin_top = 250.0
+margin_bottom = 250.001
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -648,24 +691,135 @@ anchor_bottom = 0.888888
 margin_bottom = 0.000244141
 
 [node name="Customise" type="Control" parent="."]
-visible = false
+light_mask = -2147483647
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="rightbuttonholder" type="Control" parent="Customise"]
+modulate = Color( 1, 1, 1, 0.921569 )
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -264.756
+margin_top = -241.022
+margin_right = -107.756
+margin_bottom = 168.978
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rigth_Customise_Button" type="TextureButton" parent="Customise/rightbuttonholder"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture_normal = ExtResource( 15 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="leftbuttonholder" type="Control" parent="Customise"]
+modulate = Color( 1, 1, 1, 0.921569 )
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 103.266
+margin_top = -241.0
+margin_right = 165.266
+margin_bottom = 169.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="left_Customise_Button" type="TextureButton" parent="Customise/leftbuttonholder"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 155.408
+margin_top = 409.878
+margin_right = 250.408
+margin_bottom = 409.878
+rect_rotation = -180.0
+texture_normal = ExtResource( 15 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Store" type="Control" parent="Customise"]
+modulate = Color( 1, 1, 1, 0.921569 )
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Store_Button" type="TouchScreenButton" parent="Customise/Store"]
+position = Vector2( 39.6875, 33.3879 )
+scale = Vector2( 0.381922, 0.381922 )
+normal = ExtResource( 14 )
+
+[node name="backbuttonholder" type="Control" parent="Customise"]
+modulate = Color( 1, 1, 1, 0.921569 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back_Button" type="TouchScreenButton" parent="Customise/backbuttonholder"]
+position = Vector2( 176.789, 12.2866 )
+rotation = 3.14159
+scale = Vector2( 0.599975, 0.599975 )
+normal = ExtResource( 13 )
+action = "back"
+
 [node name="TabContainer" type="TabContainer" parent="Customise"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 100.0
-margin_top = 100.0
-margin_right = -100.0
-margin_bottom = -100.0
+margin_left = 300.0
+margin_top = 109.0
+margin_right = -300.0
+margin_bottom = -167.0
 theme = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Player" type="Control" parent="Customise/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 100.0
+margin_right = -40.0
+margin_bottom = -40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Ear Mount" type="Control" parent="Customise/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 100.0
+margin_right = -40.0
+margin_bottom = -40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Antina Mount" type="Control" parent="Customise/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 100.0
+margin_right = -40.0
+margin_bottom = -40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="LoadingScreen" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -684,3 +838,5 @@ anims/settings = SubResource( 14 )
 [connection signal="button_up" from="quit_popup/Panel/quit_ok" to="." method="_on_quit_ok_button_up"]
 [connection signal="pressed" from="quit_popup/Panel/quit_cancel" to="." method="_on_quit_cancel_pressed"]
 [connection signal="close_settings" from="Settings/Settings_Pannel" to="." method="_on_Settings_close_settings"]
+[connection signal="pressed" from="Customise/rightbuttonholder/rigth_Customise_Button" to="Character_Tile_Scene" method="_on_rigth_Customise_Button_pressed"]
+[connection signal="pressed" from="Customise/leftbuttonholder/left_Customise_Button" to="Character_Tile_Scene" method="_on_left_Customise_Button_pressed"]

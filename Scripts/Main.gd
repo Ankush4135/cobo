@@ -58,7 +58,7 @@ func _on_Settings_close_settings():
 	$Menu/Buttons_Lists/Play.grab_focus()
 
 func _on_Customise_pressed():
-#	$AnimationPlayer.play_backwards("Start_Up")
+	
 	$AnimationPlayer.play("Customise")
 	$Character_Tile_Scene/AnimationPlayer.play("Customise")
 	

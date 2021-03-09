@@ -1,10 +1,13 @@
 [gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Material/Player_Ball.material" type="Material" id=2]
+[ext_resource path="res://Assets/Material/Player_Ball_1.material" type="Material" id=2]
 [ext_resource path="res://Assets/Textures/glow_With_alpha.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Objects/Character_Ball.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://addons/Trail/trail_3d.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Material/Trail/Trail_1.material" type="Material" id=6]
+[ext_resource path="res://Assets/Material/Trail/trail_width_profile_1.tres" type="Curve" id=7]
+
 
 [sub_resource type="SphereShape" id=1]
 
@@ -28,20 +31,7 @@ params_specular_mode = 4
 params_blend_mode = 1
 albedo_color = Color( 0.258824, 0.258824, 0.258824, 1 )
 
-[sub_resource type="SpatialMaterial" id=4]
-flags_transparent = true
-flags_unshaded = true
-flags_vertex_lighting = true
-flags_disable_ambient_light = true
-params_diffuse_mode = 1
-params_specular_mode = 4
-params_blend_mode = 1
-albedo_color = Color( 1, 1, 1, 0.4 )
-
-[sub_resource type="Curve" id=5]
-_data = [ Vector2( 0.505338, 1 ), 0.0, -0.222135, 0, 0, Vector2( 1, 0 ), -6.20389, 0.0, 0, 0 ]
-
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("MeshInstance:material/0:shader_param/Emission")
@@ -68,7 +58,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 resource_name = "Simple_collision"
 tracks/0/type = "value"
 tracks/0/path = NodePath("for_Collision:emitting")
@@ -83,7 +73,7 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="SpatialMaterial" id=8]
+[sub_resource type="SpatialMaterial" id=6]
 flags_transparent = true
 flags_unshaded = true
 flags_vertex_lighting = true
@@ -97,10 +87,10 @@ particles_anim_loop = false
 albedo_color = Color( 1, 0.631373, 0, 1 )
 albedo_texture = ExtResource( 3 )
 
-[sub_resource type="QuadMesh" id=9]
-material = SubResource( 8 )
+[sub_resource type="QuadMesh" id=7]
+material = SubResource( 6 )
 
-[sub_resource type="Curve" id=10]
+[sub_resource type="Curve" id=8]
 _data = [ Vector2( 0.278388, 0.748062 ), 0.0, -0.344148, 0, 0, Vector2( 1, 0.111699 ), -3.15867, 0.0, 0, 0 ]
 
 [node name="Ball" type="RigidBody"]
@@ -119,16 +109,16 @@ mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
 [node name="Trail3D" type="ImmediateGeometry" parent="MeshInstance"]
-material_override = SubResource( 4 )
+material_override = ExtResource( 6 )
 cast_shadow = 0
 script = ExtResource( 5 )
 base_width = 2.0
-width_profile = SubResource( 5 )
+width_profile = ExtResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 method_call_mode = 1
-anims/Collided = SubResource( 6 )
-anims/Simple_collision = SubResource( 7 )
+anims/Collided = SubResource( 4 )
+anims/Simple_collision = SubResource( 5 )
 
 [node name="for_Collision" type="CPUParticles" parent="."]
 emitting = false
@@ -136,7 +126,7 @@ one_shot = true
 explosiveness = 1.0
 local_coords = false
 draw_order = 2
-mesh = SubResource( 9 )
+mesh = SubResource( 7 )
 emission_shape = 1
 emission_sphere_radius = 1.0
 direction = Vector3( 0, 0, 0 )
@@ -145,7 +135,7 @@ initial_velocity = 10.0
 damping = 4.76
 damping_random = 1.0
 scale_amount_random = 0.13
-scale_amount_curve = SubResource( 10 )
+scale_amount_curve = SubResource( 8 )
 
 [node name="for_Heath_decrease" type="CPUParticles" parent="."]
 emitting = false
@@ -154,7 +144,7 @@ one_shot = true
 explosiveness = 1.0
 local_coords = false
 draw_order = 2
-mesh = SubResource( 9 )
+mesh = SubResource( 7 )
 emission_shape = 1
 emission_sphere_radius = 1.0
 direction = Vector3( 0, 0, 1 )
@@ -166,5 +156,5 @@ tangential_accel = 1.59
 tangential_accel_random = 1.0
 damping = 10.0
 damping_random = 1.0
-scale_amount_curve = SubResource( 10 )
+scale_amount_curve = SubResource( 8 )
 [connection signal="body_entered" from="." to="." method="_on_Ball_body_entered"]

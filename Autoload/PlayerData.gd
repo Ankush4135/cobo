@@ -17,7 +17,19 @@ var Die = false setget set_die
 var player_info = {}
 var default_player_info = {
 	1:{
-		"total score": 5
+		"total score": 5,
+		},
+	2:{
+		"current ear mount": 1,
+		"ear mount 1 unlocked" : true,
+		"ear mount 2 unlocked" : true,
+		"ear mount 3 unlocked" : true,
+		},
+	3:{
+		"current antina mount": 1,
+		"ear antina 1 unlocked" : true,
+		"ear antina 2 unlocked" : true,
+		"ear antina 3 unlocked" : true,
 		}
 	}
 

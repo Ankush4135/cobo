@@ -1,13 +1,19 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=44 format=2]
 
-[ext_resource path="res://Assets/Material/Player_Ball.material" type="Material" id=1]
+[ext_resource path="res://Assets/Material/Player_Ball_1.material" type="Material" id=1]
 [ext_resource path="res://Assets/Objects/Character_Ball.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://Assets/Material/Level.material" type="Material" id=3]
 [ext_resource path="res://Assets/Material/Wall.material" type="Material" id=4]
 [ext_resource path="res://Assets/Material/Environment/Environment_Cyan.tres" type="Environment" id=5]
-[ext_resource path="res://Scripts/Character_mounts.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Character_mounts_Customise.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/Character_Animation_Blend.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/Character_Tile_Scene.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Ball_Customise.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/Character_Customise.gd" type="Script" id=10]
+[ext_resource path="res://Assets/Material/Player_Ball_2.material" type="Material" id=11]
+[ext_resource path="res://Assets/Material/Player_Ball_4.material" type="Material" id=12]
+[ext_resource path="res://Assets/Material/Player_Ball_3.material" type="Material" id=13]
+[ext_resource path="res://Assets/Material/Player_Ball_5.material" type="Material" id=14]
 
 [sub_resource type="ArrayMesh" id=1]
 surfaces/0 = {
@@ -104,13 +110,216 @@ nodes/left_right_blend/position = Vector2( -160, 160 )
 nodes/output/position = Vector2( 380, 160 )
 node_connections = [ "output", 0, "left_right_blend" ]
 
-[sub_resource type="QuadMesh" id=11]
-size = Vector2( 100, 100 )
+[sub_resource type="Animation" id=11]
+resource_name = "collision"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Rot_Z/Rot_X:rotation_degrees:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -8.53774e-07, -0.25, 0, 0.25, 0, -5.5, -0.25, 0, 0.25, 0, -5.5, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 0.8, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Rot_Z:rotation_degrees:z")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 720, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
 
 [sub_resource type="Animation" id=12]
-resource_name = "Customise"
 tracks/0/type = "value"
-tracks/0/path = NodePath("character:visible")
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -180, 0 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "collision"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Rot_Z/Rot_X:rotation_degrees:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -8.53774e-07, -0.25, 0, 0.25, 0, -5.5, -0.25, 0, 0.25, 0, -5.5, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 0.8, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Rot_Z:rotation_degrees:z")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 720, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Animation" id=15]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -180, 0 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "collision"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Rot_Z/Rot_X:rotation_degrees:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -8.53774e-07, -0.25, 0, 0.25, 0, -5.5, -0.25, 0, 0.25, 0, -5.5, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 0.8, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Rot_Z:rotation_degrees:z")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 720, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Animation" id=18]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -180, 0 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "collision"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Rot_Z/Rot_X:rotation_degrees:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -8.53774e-07, -0.25, 0, 0.25, 0, -5.5, -0.25, 0, 0.25, 0, -5.5, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 0.8, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Rot_Z:rotation_degrees:z")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 720, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Animation" id=24]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -180, 0 ) ]
+}
+
+[sub_resource type="Animation" id=25]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="QuadMesh" id=20]
+size = Vector2( 100, 100 )
+
+[sub_resource type="Animation" id=21]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Character/character_1:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -134,19 +343,19 @@ tracks/1/keys = {
 "values": [ false, true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Side_Wall:visible")
+tracks/2/path = NodePath("Camera_pivot:translation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.392291, 1 ),
+"update": 0,
+"values": [ Vector3( 9.973, 17.319, 0 ), Vector3( -0.140462, 1.47743, 0 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Camera_pivot:translation")
+tracks/3/path = NodePath("Camera_pivot/Camera:translation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -155,35 +364,22 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 0.392291, 1 ),
 "update": 0,
-"values": [ Vector3( 9.973, 17.319, 0 ), Vector3( -0.140462, 1.47743, 0 ) ]
+"values": [ Vector3( -9.53674e-07, -0.000299454, 54 ), Vector3( -2.47359e-06, -0.158864, 11.99 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Camera_pivot/Camera:translation")
+tracks/4/path = NodePath("Camera_pivot:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
 "times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.392291, 1 ),
-"update": 0,
-"values": [ Vector3( -9.53674e-07, -0.000299454, 54 ), Vector3( -2.47359e-06, -0.000302792, 11.096 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("Camera_pivot:rotation_degrees")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( -10.058, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=13]
-resource_name = "Default"
+[sub_resource type="Animation" id=22]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera_pivot:translation")
 tracks/0/interp = 1
@@ -233,7 +429,7 @@ tracks/3/keys = {
 "values": [ Vector3( -3.03321e-21, 3.41509e-06, 1.01778e-13 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Side_Wall:visible")
+tracks/4/path = NodePath("Floor:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -245,7 +441,7 @@ tracks/4/keys = {
 "values": [ false ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Floor:visible")
+tracks/5/path = NodePath("Character/character_1:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -256,58 +452,376 @@ tracks/5/keys = {
 "update": 1,
 "values": [ false ]
 }
-tracks/6/type = "value"
-tracks/6/path = NodePath("character:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
+
+[sub_resource type="Animation" id=26]
+resource_name = "character_customise_2"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Character:translation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -7, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Character:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Character:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "character_customise_3"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Character:translation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -7, -0.25, 0, 0.25, 0, -14, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Character:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Character:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "character_customise_4"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Character:translation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -14, -0.25, 0, 0.25, 0, -21, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Character:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Character:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "character_customise_5"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Character:translation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -21, -0.25, 0, 0.25, 0, -28, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Character:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Character:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
 }
 
 [node name="Character_Tile_Scene" type="Spatial"]
 script = ExtResource( 8 )
 
-[node name="character" type="Spatial" parent="."]
-transform = Transform( 0.5713, 0, -0.820741, 0, 0.999999, 0, 0.82074, 0, 0.571301, 0, 1.15, 0 )
-visible = false
+[node name="Character" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0 )
+script = ExtResource( 10 )
+Ball_Color = Color( 1, 0.45, 0, 1 )
+Mount_Color = Color( 1, 0.7, 0, 1 )
 
-[node name="Ball" type="MeshInstance" parent="character"]
+[node name="character_1" type="Spatial" parent="Character"]
+transform = Transform( 0.5713, 0, -0.820741, 0, 0.999999, 0, 0.82074, 0, 0.571301, 0, 1.15, 0 )
+
+[node name="Ball" type="MeshInstance" parent="Character/character_1"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0 )
 mesh = ExtResource( 2 )
 material/0 = ExtResource( 1 )
+script = ExtResource( 9 )
+color = Color( 1, 0.45098, 0, 1 )
 
-[node name="Outline" type="MeshInstance" parent="character/Ball"]
+[node name="Outline" type="MeshInstance" parent="Character/character_1/Ball"]
+layers = 2147483649
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
-[node name="Character_mounts" type="Spatial" parent="character"]
+[node name="Character_mounts" type="Spatial" parent="Character/character_1"]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -4.54747e-13, -9.53674e-07, 1.45435e-05 )
 script = ExtResource( 6 )
+mount_color = Color( 1, 0.701961, 0, 1 )
 
-[node name="Rot_Z" type="Spatial" parent="character/Character_mounts"]
+[node name="Rot_Z" type="Spatial" parent="Character/character_1/Character_mounts"]
+transform = Transform( 1, -3.49691e-07, 0, 3.49691e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
 
-[node name="Rot_X" type="Spatial" parent="character/Character_mounts/Rot_Z"]
-transform = Transform( 1, 0, 0, 0, 1, 1.49012e-08, 0, -1.49012e-08, 1, 0, 0, 0 )
+[node name="Rot_X" type="Spatial" parent="Character/character_1/Character_mounts/Rot_Z"]
 
-[node name="mount_right" type="Position3D" parent="character/Character_mounts/Rot_Z/Rot_X"]
+[node name="mount_right" type="Position3D" parent="Character/character_1/Character_mounts/Rot_Z/Rot_X"]
 transform = Transform( 1, 0, 5.68434e-14, 0, 1, -1.49012e-08, -5.68434e-14, 1.49012e-08, 1, 0, 0, 0 )
 
-[node name="mount_antina" type="Position3D" parent="character/Character_mounts/Rot_Z/Rot_X"]
+[node name="mount_antina" type="Position3D" parent="Character/character_1/Character_mounts/Rot_Z/Rot_X"]
 transform = Transform( 1, 0, 5.68434e-14, 0, 1, -1.49012e-08, -5.68434e-14, 1.49012e-08, 1, 0, 0.106881, 1.14465 )
 
-[node name="mount_left" type="Position3D" parent="character/Character_mounts/Rot_Z/Rot_X"]
+[node name="mount_left" type="Position3D" parent="Character/character_1/Character_mounts/Rot_Z/Rot_X"]
 transform = Transform( 1, 0, -5.68434e-14, 0, 1, 1.49012e-08, -5.68434e-14, 1.49012e-08, -1, 0, 0, 0 )
 
-[node name="Chanacter_Animation" type="AnimationPlayer" parent="character/Character_mounts"]
+[node name="Chanacter_Animation" type="AnimationPlayer" parent="Character/character_1/Character_mounts"]
 anims/collision = SubResource( 3 )
 anims/turnleft = SubResource( 4 )
 anims/turnright = SubResource( 5 )
 
-[node name="Character_Animation_Blend" type="AnimationTree" parent="character/Character_mounts"]
+[node name="Character_Animation_Blend" type="AnimationTree" parent="Character/character_1/Character_mounts"]
+tree_root = SubResource( 10 )
+anim_player = NodePath("../Chanacter_Animation")
+parameters/left_right_blend/blend_position = 1.23837
+script = ExtResource( 7 )
+
+[node name="character_2" type="Spatial" parent="Character"]
+transform = Transform( 0.5713, 0, -0.820741, 0, 0.999999, 0, 0.82074, 0, 0.571301, 7, 1.15, 0 )
+
+[node name="Ball" type="MeshInstance" parent="Character/character_2"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0 )
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 11 )
+script = ExtResource( 9 )
+color = Color( 1, 0.45098, 0, 1 )
+
+[node name="Outline" type="MeshInstance" parent="Character/character_2/Ball"]
+layers = 2147483649
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="Character_mounts" type="Spatial" parent="Character/character_2"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -4.54747e-13, -9.53674e-07, 1.45435e-05 )
+script = ExtResource( 6 )
+Ear_Mount = 2
+mount_color = Color( 1, 0.701961, 0, 1 )
+
+[node name="Rot_Z" type="Spatial" parent="Character/character_2/Character_mounts"]
+transform = Transform( 1, -3.49691e-07, 0, 3.49691e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Rot_X" type="Spatial" parent="Character/character_2/Character_mounts/Rot_Z"]
+
+[node name="mount_right" type="Position3D" parent="Character/character_2/Character_mounts/Rot_Z/Rot_X"]
+transform = Transform( 1, 0, 5.68434e-14, 0, 1, -1.49012e-08, -5.68434e-14, 1.49012e-08, 1, 0, 0, 0 )
+
+[node name="mount_antina" type="Position3D" parent="Character/character_2/Character_mounts/Rot_Z/Rot_X"]
+transform = Transform( 1, 0, 5.68434e-14, 0, 1, -1.49012e-08, -5.68434e-14, 1.49012e-08, 1, 0, 0.106881, 1.14465 )
+
+[node name="mount_left" type="Position3D" parent="Character/character_2/Character_mounts/Rot_Z/Rot_X"]
+transform = Transform( 1, 0, -5.68434e-14, 0, 1, 1.49012e-08, -5.68434e-14, 1.49012e-08, -1, 0, 0, 0 )
+
+[node name="Chanacter_Animation" type="AnimationPlayer" parent="Character/character_2/Character_mounts"]
+anims/collision = SubResource( 11 )
+anims/turnleft = SubResource( 12 )
+anims/turnright = SubResource( 13 )
+
+[node name="Character_Animation_Blend" type="AnimationTree" parent="Character/character_2/Character_mounts"]
+tree_root = SubResource( 10 )
+anim_player = NodePath("../Chanacter_Animation")
+parameters/left_right_blend/blend_position = 1.23837
+script = ExtResource( 7 )
+
+[node name="character_3" type="Spatial" parent="Character"]
+transform = Transform( 0.5713, 0, -0.820741, 0, 0.999999, 0, 0.82074, 0, 0.571301, 14, 1.15, 0 )
+
+[node name="Ball" type="MeshInstance" parent="Character/character_3"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0 )
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 13 )
+script = ExtResource( 9 )
+color = Color( 1, 0.45098, 0, 1 )
+
+[node name="Outline" type="MeshInstance" parent="Character/character_3/Ball"]
+layers = 2147483649
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="Character_mounts" type="Spatial" parent="Character/character_3"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -4.54747e-13, -9.53674e-07, 1.45435e-05 )
+script = ExtResource( 6 )
+Ear_Mount = 3
+mount_color = Color( 1, 0.701961, 0, 1 )
+
+[node name="Rot_Z" type="Spatial" parent="Character/character_3/Character_mounts"]
+transform = Transform( 1, -3.49691e-07, 0, 3.49691e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Rot_X" type="Spatial" parent="Character/character_3/Character_mounts/Rot_Z"]
+
+[node name="mount_right" type="Position3D" parent="Character/character_3/Character_mounts/Rot_Z/Rot_X"]
+transform = Transform( 1, 0, 5.68434e-14, 0, 1, -1.49012e-08, -5.68434e-14, 1.49012e-08, 1, 0, 0, 0 )
+
+[node name="mount_antina" type="Position3D" parent="Character/character_3/Character_mounts/Rot_Z/Rot_X"]
+transform = Transform( 1, 0, 5.68434e-14, 0, 1, -1.49012e-08, -5.68434e-14, 1.49012e-08, 1, 0, 0.106881, 1.14465 )
+
+[node name="mount_left" type="Position3D" parent="Character/character_3/Character_mounts/Rot_Z/Rot_X"]
+transform = Transform( 1, 0, -5.68434e-14, 0, 1, 1.49012e-08, -5.68434e-14, 1.49012e-08, -1, 0, 0, 0 )
+
+[node name="Chanacter_Animation" type="AnimationPlayer" parent="Character/character_3/Character_mounts"]
+anims/collision = SubResource( 14 )
+anims/turnleft = SubResource( 15 )
+anims/turnright = SubResource( 16 )
+
+[node name="Character_Animation_Blend" type="AnimationTree" parent="Character/character_3/Character_mounts"]
+tree_root = SubResource( 10 )
+anim_player = NodePath("../Chanacter_Animation")
+parameters/left_right_blend/blend_position = 1.23837
+script = ExtResource( 7 )
+
+[node name="character_4" type="Spatial" parent="Character"]
+transform = Transform( 0.5713, 0, -0.820741, 0, 0.999999, 0, 0.82074, 0, 0.571301, 21, 1.15, 0 )
+
+[node name="Ball" type="MeshInstance" parent="Character/character_4"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0 )
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 12 )
+script = ExtResource( 9 )
+color = Color( 1, 0.45098, 0, 1 )
+
+[node name="Outline" type="MeshInstance" parent="Character/character_4/Ball"]
+layers = 2147483649
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="Character_mounts" type="Spatial" parent="Character/character_4"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -4.54747e-13, -9.53674e-07, 1.45435e-05 )
+script = ExtResource( 6 )
+Ear_Mount = 3
+mount_color = Color( 1, 0.701961, 0, 1 )
+
+[node name="Rot_Z" type="Spatial" parent="Character/character_4/Character_mounts"]
+transform = Transform( 1, -3.49691e-07, 0, 3.49691e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Rot_X" type="Spatial" parent="Character/character_4/Character_mounts/Rot_Z"]
+
+[node name="mount_right" type="Position3D" parent="Character/character_4/Character_mounts/Rot_Z/Rot_X"]
+transform = Transform( 1, 0, 5.68434e-14, 0, 1, -1.49012e-08, -5.68434e-14, 1.49012e-08, 1, 0, 0, 0 )
+
+[node name="mount_antina" type="Position3D" parent="Character/character_4/Character_mounts/Rot_Z/Rot_X"]
+transform = Transform( 1, 0, 5.68434e-14, 0, 1, -1.49012e-08, -5.68434e-14, 1.49012e-08, 1, 0, 0.106881, 1.14465 )
+
+[node name="mount_left" type="Position3D" parent="Character/character_4/Character_mounts/Rot_Z/Rot_X"]
+transform = Transform( 1, 0, -5.68434e-14, 0, 1, 1.49012e-08, -5.68434e-14, 1.49012e-08, -1, 0, 0, 0 )
+
+[node name="Chanacter_Animation" type="AnimationPlayer" parent="Character/character_4/Character_mounts"]
+anims/collision = SubResource( 17 )
+anims/turnleft = SubResource( 18 )
+anims/turnright = SubResource( 19 )
+
+[node name="Character_Animation_Blend" type="AnimationTree" parent="Character/character_4/Character_mounts"]
+tree_root = SubResource( 10 )
+anim_player = NodePath("../Chanacter_Animation")
+parameters/left_right_blend/blend_position = 1.23837
+script = ExtResource( 7 )
+
+[node name="character_5" type="Spatial" parent="Character"]
+transform = Transform( 0.5713, 0, -0.820741, 0, 0.999999, 0, 0.82074, 0, 0.571301, 28, 1.15, 0 )
+
+[node name="Ball" type="MeshInstance" parent="Character/character_5"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0 )
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 14 )
+script = ExtResource( 9 )
+color = Color( 1, 0.45098, 0, 1 )
+
+[node name="Outline" type="MeshInstance" parent="Character/character_5/Ball"]
+layers = 2147483649
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="Character_mounts" type="Spatial" parent="Character/character_5"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -4.54747e-13, -9.53674e-07, 1.45435e-05 )
+script = ExtResource( 6 )
+Ear_Mount = 3
+mount_color = Color( 1, 0.701961, 0, 1 )
+
+[node name="Rot_Z" type="Spatial" parent="Character/character_5/Character_mounts"]
+transform = Transform( 1, -3.49691e-07, 0, 3.49691e-07, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Rot_X" type="Spatial" parent="Character/character_5/Character_mounts/Rot_Z"]
+
+[node name="mount_right" type="Position3D" parent="Character/character_5/Character_mounts/Rot_Z/Rot_X"]
+transform = Transform( 1, 0, 5.68434e-14, 0, 1, -1.49012e-08, -5.68434e-14, 1.49012e-08, 1, 0, 0, 0 )
+
+[node name="mount_antina" type="Position3D" parent="Character/character_5/Character_mounts/Rot_Z/Rot_X"]
+transform = Transform( 1, 0, 5.68434e-14, 0, 1, -1.49012e-08, -5.68434e-14, 1.49012e-08, 1, 0, 0.106881, 1.14465 )
+
+[node name="mount_left" type="Position3D" parent="Character/character_5/Character_mounts/Rot_Z/Rot_X"]
+transform = Transform( 1, 0, -5.68434e-14, 0, 1, 1.49012e-08, -5.68434e-14, 1.49012e-08, -1, 0, 0, 0 )
+
+[node name="Chanacter_Animation" type="AnimationPlayer" parent="Character/character_5/Character_mounts"]
+anims/collision = SubResource( 23 )
+anims/turnleft = SubResource( 24 )
+anims/turnright = SubResource( 25 )
+
+[node name="Character_Animation_Blend" type="AnimationTree" parent="Character/character_5/Character_mounts"]
 tree_root = SubResource( 10 )
 anim_player = NodePath("../Chanacter_Animation")
 parameters/left_right_blend/blend_position = 1.23837
@@ -315,19 +829,12 @@ script = ExtResource( 7 )
 
 [node name="Back_Wall" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.6513 )
-mesh = SubResource( 11 )
+mesh = SubResource( 20 )
 material/0 = ExtResource( 4 )
 
 [node name="Floor" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 43.6721 )
-visible = false
-mesh = SubResource( 11 )
-material/0 = ExtResource( 3 )
-
-[node name="Side_Wall" type="MeshInstance" parent="."]
-transform = Transform( 2.65431e-14, -1.62921e-07, 1, -1, -1.62921e-07, 0, 1.62921e-07, -1, -1.62921e-07, -9, 0, 43.672 )
-visible = false
-mesh = SubResource( 11 )
+mesh = SubResource( 20 )
 material/0 = ExtResource( 3 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
@@ -337,15 +844,21 @@ shadow_bias = -0.2
 shadow_reverse_cull_face = true
 
 [node name="Camera_pivot" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.973, 17.319, 0 )
+transform = Transform( 1, 0, 0, 0, 0.990155, 0.139975, 0, -0.139975, 0.990155, 0.0266991, 1.73927, 0 )
 
 [node name="Camera" type="Camera" parent="Camera_pivot"]
-transform = Transform( 1, -1.77636e-15, 5.96046e-08, 1.77636e-15, 1, 5.29396e-23, -5.96046e-08, 5.29395e-23, 1, -9.53674e-07, -0.000299454, 54 )
+transform = Transform( 1, -1.77636e-15, 5.96046e-08, 1.77636e-15, 1, 5.29395e-23, -5.96046e-08, 5.29397e-23, 1, -2.44847e-06, -0.156243, 12.6844 )
 keep_aspect = 0
 environment = ExtResource( 5 )
 fov = 35.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Default"
-anims/Customise = SubResource( 12 )
-anims/Default = SubResource( 13 )
+anims/Customise = SubResource( 21 )
+anims/Default = SubResource( 22 )
+anims/character_customise_2 = SubResource( 26 )
+anims/character_customise_3 = SubResource( 27 )
+anims/character_customise_4 = SubResource( 28 )
+anims/character_customise_5 = SubResource( 29 )
+
+[node name="Tween" type="Tween" parent="."]

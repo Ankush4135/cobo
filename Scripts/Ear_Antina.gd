@@ -1,7 +1,5 @@
 extends MeshInstance
 
-
-
 func _ready():
 	if LevelManager.level_mode == 0:
 		$Glow.visible = false
