@@ -63,6 +63,7 @@ func _on_reload_scene_pressed():
 func _on_Game_End_Triger_body_entered(body):
 	LevelManager.winned = true
 	if body.is_in_group("player"):
+		Audio.Wall_Smash.play()
 		timescale = 0.2
 		if PlayerData.score <= coin_count/3:
 			play_anim = "one_Star"

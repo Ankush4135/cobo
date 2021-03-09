@@ -5,4 +5,6 @@ onready var anime = get_node("../../Character_Follow/Character_mounts/Chanacter_
 func _on_Spike_body_entered(body):
 	if body.is_in_group("player"):
 		PlayerData.health = PlayerData.health # it send the signal to the playerdata
+		Audio.Hit.play()
 		anime.play("collision")
+		

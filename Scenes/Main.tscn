@@ -840,3 +840,4 @@ anims/settings = SubResource( 14 )
 [connection signal="close_settings" from="Settings/Settings_Pannel" to="." method="_on_Settings_close_settings"]
 [connection signal="pressed" from="Customise/rightbuttonholder/rigth_Customise_Button" to="Character_Tile_Scene" method="_on_rigth_Customise_Button_pressed"]
 [connection signal="pressed" from="Customise/leftbuttonholder/left_Customise_Button" to="Character_Tile_Scene" method="_on_left_Customise_Button_pressed"]
+[connection signal="tab_changed" from="Customise/TabContainer" to="Character_Tile_Scene" method="_on_TabContainer_tab_changed"]

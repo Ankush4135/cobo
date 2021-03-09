@@ -5,8 +5,8 @@ onready var leftmount = $Rot_Z/Rot_X/mount_left
 onready var antinamount = $Rot_Z/Rot_X/mount_antina
 
 func _ready():
-	var current_ear_mount = PlayerData.player_info[2]["current ear mount"]
-	var current_antina_mount = PlayerData.player_info[3]["current antina mount"]
+	var current_ear_mount = PlayerData.player_info[3]["current ear mount"]
+	var current_antina_mount = PlayerData.player_info[4]["current antina mount"]
 
 	var ear_mount = load("res://Objects/Character/Ear_mount_" + str(current_ear_mount) + ".tscn")
 	var antina_mount = load("res://Objects/Character/Ear_Antina_"+ str(current_antina_mount) + ".tscn")

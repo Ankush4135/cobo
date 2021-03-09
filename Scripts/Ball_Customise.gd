@@ -1,7 +1,7 @@
 extends MeshInstance
 
-#export var Mat = 1
-export (Color) var color
+var color
+
 
 #func _ready():
 #	var current_mat = Mat
@@ -12,4 +12,5 @@ export (Color) var color
 #	self.get_surface_material(0).set_shader_param("Normal", texture_normal)
 	
 func _process(delta):
+	color = PlayerData.Ball_Color
 	self.get_surface_material(0).set_shader_param("Color", color)

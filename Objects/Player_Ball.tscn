@@ -8,7 +8,6 @@
 [ext_resource path="res://Assets/Material/Trail/Trail_1.material" type="Material" id=6]
 [ext_resource path="res://Assets/Material/Trail/trail_width_profile_1.tres" type="Curve" id=7]
 
-
 [sub_resource type="SphereShape" id=1]
 
 [sub_resource type="ArrayMesh" id=2]

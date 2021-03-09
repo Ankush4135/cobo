@@ -4,6 +4,9 @@ signal score_Update
 signal reduce_health
 signal player_died
 
+export (Color) var Ball_Color
+export (Color) var Mount_Color
+
 onready var path = "user://player.dat"
 
 var total_score = 0 setget set_total_score, get_total_score
@@ -20,12 +23,22 @@ var default_player_info = {
 		"total score": 5,
 		},
 	2:{
-		"current ear mount": 1,
+		"current character" : 1,
+		"character color" : Color(1,0.45,0,1),
+		"character 1 unlocked" : true,
+		"character 2 unlocked" : true,
+		"character 3 unlocked" : true,
+		"character 4 unlocked" : true,
+		"character 5 unlocked" : true,
+		},
+	3:{
+		"current ear mount" : 1,
+		"ear mount color" : Color(1,0.7,0,1),
 		"ear mount 1 unlocked" : true,
 		"ear mount 2 unlocked" : true,
 		"ear mount 3 unlocked" : true,
 		},
-	3:{
+	4:{
 		"current antina mount": 1,
 		"ear antina 1 unlocked" : true,
 		"ear antina 2 unlocked" : true,

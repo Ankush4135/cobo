@@ -7,6 +7,12 @@ onready var Bounce = $Bounce_object
 onready var Orb = $Orb
 onready var Coin = $Coin
 onready var Select = $Select
+onready var Attract = $Attract
+onready var Hit = $Hit
+onready var Wall_Smash = $Wall_Smash
+onready var Speed_Sonic = $speed_sonic
+
+
 
 var music_volume = 0
 var sfx_volume = 0

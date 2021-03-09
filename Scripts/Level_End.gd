@@ -54,4 +54,5 @@ func _on_orb_checker_body_entered(body):
 
 func _on_Entered_Tunnel_body_entered(body):
 	if body.is_in_group("player"):
+		Audio.Speed_Sonic.play()
 		emit_signal("Entered_Tunnel", endside)

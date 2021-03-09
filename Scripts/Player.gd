@@ -1,14 +1,21 @@
 extends RigidBody
 
 onready var anim = $AnimationPlayer
+
+#character customise
+onready var player_mesh = $MeshInstance
+var set_current_character_material = 1
+
 # geting the taget left Position
 export  var Target_L_path = NodePath()
 onready var Target_L = get_node(Target_L_path)
 var Target_L_position = Vector3()
+
 # geting the taget Right Position
 export  var Target_R_path = NodePath()
 onready var Target_R = get_node(Target_R_path)
 var Target_R_position = Vector3()
+
 # how much player will move
 var Player_Pos = Vector3()
 export var  Impulse_power = float(01) 
@@ -23,6 +30,10 @@ var enter_in_tunnel = false # check if the player is enter_in_tunnel or not
 var tunnel_dir = Vector3()
 
 func _ready():
+	set_current_character_material = PlayerData.player_info[2]["current character"]
+	var character_material = load("res://Assets/Material/Player_Ball_" + str(set_current_character_material) + ".material")
+	player_mesh.set_surface_material(0, character_material)
+	
 	PlayerData.connect("player_died", self, "_player_died")
 
 func _physics_process(delta):
@@ -62,6 +73,7 @@ func _on_Attract_Force_position_colides(x, y, z, boolen):
 	attract_force = boolen
 	attract_pos.x = x
 	attract_pos.y = y
+	Audio.Attract.play()
 
 
 func _player_died(): # this will happen when the player is died
@@ -75,5 +87,5 @@ func _on_Level_End_Entered_Tunnel(x):
 	tunnel_dir.x = x 
 	yield(get_tree().create_timer(.65),"timeout")	
 	enter_in_tunnel = false
-
+	
 

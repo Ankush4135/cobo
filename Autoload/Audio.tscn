@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Audio/BG/Background_music_01.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Audio/SFX/Whoosh Glitch Doppler FX 002.wav" type="AudioStream" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://Audio/BG/Background_music_02.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Audio/SFX/select_006.ogg" type="AudioStream" id=8]
 [ext_resource path="res://addons/smart_audio_stream/SmartAudioStream.gd" type="Script" id=9]
+[ext_resource path="res://Audio/SFX/Hit.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Audio/SFX/Wall_Smash.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Audio/SFX/speed_sonic.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Audio/SFX/Attract.ogg" type="AudioStream" id=13]
 
 [node name="Audio" type="Node"]
 pause_mode = 2
@@ -45,4 +49,23 @@ samples = [ ExtResource( 6 ) ]
 
 [node name="Select" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+bus = "sfx"
+
+[node name="Attract" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+bus = "sfx"
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -6.988
+pitch_scale = 0.36
+bus = "sfx"
+
+[node name="Wall_Smash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = 6.0
+bus = "sfx"
+
+[node name="speed_sonic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
 bus = "sfx"
