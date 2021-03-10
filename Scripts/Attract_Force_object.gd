@@ -14,6 +14,7 @@ func _on_Area_body_entered(body):
 	if body.is_in_group("player"):
 		emit_signal("force_position", force_pos.x, force_pos.y, force_pos.z, true)
 		anim.play("activate")
+		Audio.Attract.play()
 		yield(get_tree().create_timer(3),"timeout")
 		emit_signal("force_position", force_pos.x, force_pos.y, force_pos.z, false)
 		anim.play("deactivate")

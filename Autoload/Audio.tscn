@@ -53,11 +53,12 @@ bus = "sfx"
 
 [node name="Attract" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
+volume_db = -6.228
 bus = "sfx"
 
 [node name="Hit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
-volume_db = -6.988
+volume_db = -5.683
 pitch_scale = 0.36
 bus = "sfx"
 

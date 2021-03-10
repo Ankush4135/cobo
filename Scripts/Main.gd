@@ -18,11 +18,13 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("back"):
-		if $Settings.visible:
+		if $Settings.visible: # setting menue close and save settings
+			ConfigManager.save_config()
 			_on_Settings_close_settings()
-		elif $quit_popup.visible:
+		elif $quit_popup.visible: # quit popup close
 			_on_quit_cancel_pressed()
-		elif $Particles/CPUParticles2D.emitting == false:
+		elif $Particles/CPUParticles2D.emitting == false: # character customiser close and save customise data 
+			PlayerData.save_data()
 			$AnimationPlayer.play_backwards("Customise")
 			$Character_Tile_Scene/AnimationPlayer.play_backwards("Customise")
 		else:

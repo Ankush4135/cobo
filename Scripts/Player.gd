@@ -53,7 +53,7 @@ func _physics_process(delta):
 		var attract_dir
 		attract_dir = (Player_Pos - attract_pos).normalized() * 200 * delta
 		apply_impulse(Vector3(), -attract_dir)
-	
+
 	if enter_in_tunnel == true:
 		var speed_multiplyer = 500
 		var speed = tunnel_dir * speed_multiplyer * delta
@@ -73,7 +73,6 @@ func _on_Attract_Force_position_colides(x, y, z, boolen):
 	attract_force = boolen
 	attract_pos.x = x
 	attract_pos.y = y
-	Audio.Attract.play()
 
 
 func _player_died(): # this will happen when the player is died
