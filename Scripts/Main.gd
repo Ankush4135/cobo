@@ -24,9 +24,15 @@ func _process(delta):
 		elif $quit_popup.visible: # quit popup close
 			_on_quit_cancel_pressed()
 		elif $Particles/CPUParticles2D.emitting == false: # character customiser close and save customise data 
-			PlayerData.save_data()
-			$AnimationPlayer.play_backwards("Customise")
-			$Character_Tile_Scene/AnimationPlayer.play_backwards("Customise")
+			if $Customise/no_enough_coins_popup.visible == false:
+				Audio.Select.play()
+				PlayerData.save_data()
+				$Menu/Buttons_Lists/Play.grab_focus()
+				$AnimationPlayer.play_backwards("Customise")
+				$Character_Tile_Scene/AnimationPlayer.play_backwards("Customise")
+			else:
+				$Customise/no_enough_coins_popup.visible = false
+				Audio.Select.play()
 		else:
 			_on_Quit_button_up()
 
@@ -60,7 +66,8 @@ func _on_Settings_close_settings():
 	$Menu/Buttons_Lists/Play.grab_focus()
 
 func _on_Customise_pressed():
-	
+	Audio.Select.play()
+	$Customise/Purchase/Buy_Button.grab_focus()
 	$AnimationPlayer.play("Customise")
 	$Character_Tile_Scene/AnimationPlayer.play("Customise")
 	

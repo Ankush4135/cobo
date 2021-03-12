@@ -20,7 +20,7 @@ var Die = false setget set_die
 var player_info = {}
 var default_player_info = {
 	1:{
-		"total score": 5,
+		"total score": 5000,
 		},
 	2:{
 		"current character" : 1,

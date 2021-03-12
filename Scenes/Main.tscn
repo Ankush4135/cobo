@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Scenes/LoadingScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fonts/Gasalt-Regular.ttf" type="DynamicFontData" id=2]
@@ -55,31 +55,39 @@ size = 60
 extra_spacing_top = 12
 font_data = ExtResource( 2 )
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="DynamicFont" id=9]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 80
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 64
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 60
+extra_spacing_bottom = -14
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=13]
 bg_color = Color( 0.113725, 0.113725, 0.113725, 1 )
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=14]
 size = 60
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=15]
 size = 50
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=12]
-size = 64
-font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=13]
-size = 60
-extra_spacing_bottom = -14
-font_data = ExtResource( 2 )
-
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=16]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Title:rect_position")
 tracks/0/interp = 1
@@ -189,7 +197,7 @@ tracks/8/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=17]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Title:rect_position")
@@ -300,7 +308,7 @@ tracks/8/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=18]
 length = 0.7
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Settings/Settings_Pannel:rect_position:y")
@@ -369,6 +377,8 @@ Change_Scene = "res://Scenes/Levels_menu.tscn"
 Fadein = true
 
 [node name="Character_Tile_Scene" parent="." instance=ExtResource( 4 )]
+Ball_Color = Color( 1, 0.45098, 0, 1 )
+Mount_Color = Color( 1, 0.701961, 0, 1 )
 
 [node name="Vignette" type="ColorRect" parent="."]
 material = SubResource( 1 )
@@ -418,7 +428,7 @@ anchor_bottom = 1.0
 margin_left = 320.0
 margin_top = -20.0
 margin_right = -320.0
-margin_bottom = -845.995
+margin_bottom = -845.994
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -608,132 +618,37 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="quit_popup" type="Control" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-theme = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="quit_popup"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color( 0, 0, 0, 0.858824 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Panel" type="Panel" parent="quit_popup"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -400.5
-margin_top = -93.0
-margin_right = 400.5
-margin_bottom = 93.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_styles/panel = SubResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="quit_popup/Panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = SubResource( 10 )
-text = "Do You Want to Quit"
-align = 1
-valign = 1
-autowrap = true
-
-[node name="quit_ok" type="Button" parent="quit_popup/Panel"]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_top = -29.0
-margin_right = 250.0
-margin_bottom = 31.0
-custom_fonts/font = SubResource( 11 )
-text = "OK"
-icon = ExtResource( 10 )
-expand_icon = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="quit_cancel" type="Button" parent="quit_popup/Panel"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -250.0
-margin_top = -29.0
-margin_bottom = 31.0
-custom_fonts/font = SubResource( 11 )
-text = "Cancle"
-icon = ExtResource( 11 )
-expand_icon = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Settings" type="Control" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="Settings"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color( 0, 0, 0, 0.192996 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Settings_Pannel" parent="Settings" instance=ExtResource( 12 )]
-modulate = Color( 1, 1, 1, 0 )
-anchor_left = 0.15625
-anchor_top = 0.138889
-anchor_right = 0.84375
-anchor_bottom = 0.888888
-margin_top = 954.0
-margin_bottom = 954.004
-
-[node name="backbuttonholder" type="Control" parent="Settings"]
-modulate = Color( 1, 1, 1, 0 )
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_top = -40.0
-margin_right = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Back_Button" type="TouchScreenButton" parent="Settings/backbuttonholder"]
-position = Vector2( 147.124, 12.2867 )
-rotation = 3.14159
-scale = Vector2( 0.481315, 0.481315 )
-normal = ExtResource( 13 )
-action = "back"
-
 [node name="Customise" type="Control" parent="."]
 light_mask = -2147483647
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coinstext" type="Label" parent="Customise"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -162.993
+margin_top = 22.0
+margin_right = -40.9927
+margin_bottom = 73.0
+custom_fonts/font = SubResource( 9 )
+text = ":Coins"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="total_coinscount" type="Label" parent="Customise"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -354.829
+margin_top = 16.0
+margin_right = -165.829
+margin_bottom = 97.0
+custom_fonts/font = SubResource( 10 )
+text = "0"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -798,7 +713,7 @@ anchor_bottom = 1.0
 margin_left = -67.0
 margin_top = -65.0
 margin_right = 67.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 text = "1/5"
 align = 1
 valign = 1
@@ -874,7 +789,7 @@ anchor_bottom = 1.0
 margin_left = -67.0
 margin_top = -65.0
 margin_right = 67.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 text = "1/3"
 align = 1
 valign = 1
@@ -950,7 +865,7 @@ anchor_bottom = 1.0
 margin_left = -67.0
 margin_top = -65.0
 margin_right = 67.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 text = "1/3"
 align = 1
 valign = 1
@@ -1007,7 +922,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="Customise"]
+[node name="Purchase" type="Control" parent="Customise"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buy_Button" type="Button" parent="Customise/Purchase"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -1017,8 +940,193 @@ margin_top = -265.0
 margin_right = -353.0
 margin_bottom = -197.0
 theme = ExtResource( 9 )
-custom_fonts/font = SubResource( 13 )
-text = "4000"
+custom_fonts/font = SubResource( 12 )
+text = "0000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="no_enough_coins_popup" type="Control" parent="Customise"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Customise/no_enough_coins_popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.588235 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Customise/no_enough_coins_popup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.5
+margin_top = -93.0
+margin_right = 400.5
+margin_bottom = 93.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Customise/no_enough_coins_popup/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 14 )
+text = "You Don't Have Enough Coins"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="no_enough_coins_ok" type="Button" parent="Customise/no_enough_coins_popup/Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -125.0
+margin_top = -30.0
+margin_right = 125.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 15 )
+text = "OK"
+icon = ExtResource( 10 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Settings"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.192996 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings_Pannel" parent="Settings" instance=ExtResource( 12 )]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.15625
+anchor_top = 0.138889
+anchor_right = 0.84375
+anchor_bottom = 0.888888
+margin_top = 954.0
+margin_bottom = 954.004
+
+[node name="backbuttonholder" type="Control" parent="Settings"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back_Button" type="TouchScreenButton" parent="Settings/backbuttonholder"]
+position = Vector2( 147.124, 12.2867 )
+rotation = 3.14159
+scale = Vector2( 0.481315, 0.481315 )
+normal = ExtResource( 13 )
+action = "back"
+
+[node name="quit_popup" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="quit_popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.858824 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="quit_popup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.5
+margin_top = -93.0
+margin_right = 400.5
+margin_bottom = 93.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="quit_popup/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 14 )
+text = "Do You Want to Quit"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="quit_ok" type="Button" parent="quit_popup/Panel"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -29.0
+margin_right = 250.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 15 )
+text = "OK"
+icon = ExtResource( 10 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quit_cancel" type="Button" parent="quit_popup/Panel"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -250.0
+margin_top = -29.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 15 )
+text = "Cancle"
+icon = ExtResource( 11 )
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1029,17 +1137,14 @@ Autoload = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Start_Up"
-anims/Customise = SubResource( 14 )
-anims/Start_Up = SubResource( 15 )
-anims/settings = SubResource( 16 )
+anims/Customise = SubResource( 16 )
+anims/Start_Up = SubResource( 17 )
+anims/settings = SubResource( 18 )
 [connection signal="scene_changed" from="." to="LoadingScreen" method="_on_Main_scene_changed"]
 [connection signal="pressed" from="Menu/Buttons_Lists/Play" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Menu/Buttons_Lists/Customise" to="." method="_on_Customise_pressed"]
 [connection signal="pressed" from="Menu/Buttons_Lists/Options" to="." method="_on_Options_pressed"]
 [connection signal="button_up" from="Menu/Buttons_Lists/Quit" to="." method="_on_Quit_button_up"]
-[connection signal="button_up" from="quit_popup/Panel/quit_ok" to="." method="_on_quit_ok_button_up"]
-[connection signal="pressed" from="quit_popup/Panel/quit_cancel" to="." method="_on_quit_cancel_pressed"]
-[connection signal="close_settings" from="Settings/Settings_Pannel" to="." method="_on_Settings_close_settings"]
 [connection signal="tab_changed" from="Customise/TabContainer" to="Character_Tile_Scene" method="_on_TabContainer_tab_changed"]
 [connection signal="pressed" from="Customise/TabContainer/Player/rightbuttonholder/rigth_Customise_Button" to="Character_Tile_Scene" method="_on_rigth_Customise_Button_pressed"]
 [connection signal="pressed" from="Customise/TabContainer/Player/leftbuttonholder/left_Customise_Button" to="Character_Tile_Scene" method="_on_left_Customise_Button_pressed"]
@@ -1047,3 +1152,8 @@ anims/settings = SubResource( 16 )
 [connection signal="pressed" from="Customise/TabContainer/Ear Mount/leftbuttonholder2/left_Customise_Button" to="Character_Tile_Scene" method="_on_left_Customise_Button_pressed"]
 [connection signal="pressed" from="Customise/TabContainer/Antina/rightbuttonholder3/rigth_Customise_Button" to="Character_Tile_Scene" method="_on_rigth_Customise_Button_pressed"]
 [connection signal="pressed" from="Customise/TabContainer/Antina/leftbuttonholder3/left_Customise_Button" to="Character_Tile_Scene" method="_on_left_Customise_Button_pressed"]
+[connection signal="pressed" from="Customise/Purchase/Buy_Button" to="Character_Tile_Scene" method="_on_Buy_Button_pressed"]
+[connection signal="pressed" from="Customise/no_enough_coins_popup/Panel/no_enough_coins_ok" to="Character_Tile_Scene" method="_on_no_enough_coins_ok_pressed"]
+[connection signal="close_settings" from="Settings/Settings_Pannel" to="." method="_on_Settings_close_settings"]
+[connection signal="button_up" from="quit_popup/Panel/quit_ok" to="." method="_on_quit_ok_button_up"]
+[connection signal="pressed" from="quit_popup/Panel/quit_cancel" to="." method="_on_quit_cancel_pressed"]
