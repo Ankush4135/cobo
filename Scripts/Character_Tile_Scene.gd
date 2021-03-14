@@ -14,6 +14,7 @@ onready var left_button_a = get_node("../Customise/TabContainer/Antina/leftbutto
 onready var purchase = get_node("../Customise/Purchase")
 onready var popup = get_node("../Customise/no_enough_coins_popup")
 onready var coin_coint = get_node("../Customise/total_coinscount")
+onready var tab = get_node("../Customise/TabContainer")
 
 export (Color) var Ball_Color
 export (Color) var Mount_Color
@@ -68,6 +69,18 @@ func _process(delta):
 	PlayerData.Ball_Color = Ball_Color
 	PlayerData.Mount_Color = Mount_Color
 	_selector_visisbality()
+	
+	if get_node("../Customise").visible == true:
+		if Input.is_action_just_pressed("left"):
+			_on_left_Customise_Button_pressed()
+		if Input.is_action_just_pressed("right"):
+			_on_rigth_Customise_Button_pressed()
+		if Input.is_action_just_pressed("scroll_left"):
+			tab.current_tab -=1
+		if Input.is_action_just_pressed("scroll_right"):
+			tab.current_tab +=1
+		
+
 
 func _on_TabContainer_tab_changed(tab): # it will set current tab from player to ear mount to antina mount
 	Audio.Select.play()
@@ -221,6 +234,7 @@ func _on_Buy_Button_pressed():
 	var update_coins
 	if int(purchase.get_child(0).text) <= PlayerData.player_info[1]["total score"]:
 		update_coins = PlayerData.player_info[1]["total score"] - int(purchase.get_child(0).text)
+		$AnimationPlayer.play("Purchase")
 		PlayerData.player_info[1]["total score"] = update_coins
 		PlayerData.player_info[2]["character " + str(character_select) + " unlocked"] = true
 		PlayerData.player_info[3]["ear mount " + str(ear_mount_select) + " unlocked"] = true

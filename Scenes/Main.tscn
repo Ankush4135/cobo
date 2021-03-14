@@ -19,7 +19,7 @@
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 5 )
 shader_param/radius = 0.75
-shader_param/softness = 0.45
+shader_param/softness = 1.0
 
 [sub_resource type="Curve" id=2]
 _data = [ Vector2( 0, 0.290909 ), 0.0, 1.6, 0, 0, Vector2( 0.996212, 1 ), -0.150001, 0.0, 0, 0 ]
@@ -377,8 +377,6 @@ Change_Scene = "res://Scenes/Levels_menu.tscn"
 Fadein = true
 
 [node name="Character_Tile_Scene" parent="." instance=ExtResource( 4 )]
-Ball_Color = Color( 1, 0.45098, 0, 1 )
-Mount_Color = Color( 1, 0.701961, 0, 1 )
 
 [node name="Vignette" type="ColorRect" parent="."]
 material = SubResource( 1 )
@@ -390,7 +388,6 @@ __meta__ = {
 }
 
 [node name="Particles" type="Control" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -404,7 +401,6 @@ __meta__ = {
 }
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Particles"]
-emitting = false
 amount = 10
 lifetime = 8.0
 preprocess = 5.0
@@ -422,13 +418,12 @@ scale_amount_curve = SubResource( 2 )
 color_ramp = SubResource( 3 )
 
 [node name="Title" type="Control" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 320.0
-margin_top = -20.0
+margin_top = 185.0
 margin_right = -320.0
-margin_bottom = -845.994
+margin_bottom = -640.993
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -456,11 +451,9 @@ __meta__ = {
 }
 
 [node name="Menu" type="Control" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 250.0
-margin_bottom = 250.001
+margin_bottom = 0.000976563
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -619,6 +612,8 @@ __meta__ = {
 }
 
 [node name="Customise" type="Control" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
 light_mask = -2147483647
 anchor_right = 1.0
 anchor_bottom = 1.0
