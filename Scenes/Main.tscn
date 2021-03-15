@@ -841,7 +841,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Antina" type="Control" parent="Customise/TabContainer"]
+[node name="Antenna" type="Control" parent="Customise/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -852,7 +852,7 @@ margin_bottom = -40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="antina_mount_counter" type="Label" parent="Customise/TabContainer/Antina"]
+[node name="antina_mount_counter" type="Label" parent="Customise/TabContainer/Antenna"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -868,7 +868,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="rightbuttonholder3" type="Control" parent="Customise/TabContainer/Antina"]
+[node name="rightbuttonholder3" type="Control" parent="Customise/TabContainer/Antenna"]
 modulate = Color( 1, 1, 1, 0.921569 )
 anchor_left = 1.0
 anchor_top = 0.5
@@ -882,7 +882,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="rigth_Customise_Button" type="TextureButton" parent="Customise/TabContainer/Antina/rightbuttonholder3"]
+[node name="rigth_Customise_Button" type="TextureButton" parent="Customise/TabContainer/Antenna/rightbuttonholder3"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture_normal = ExtResource( 15 )
@@ -891,7 +891,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="leftbuttonholder3" type="Control" parent="Customise/TabContainer/Antina"]
+[node name="leftbuttonholder3" type="Control" parent="Customise/TabContainer/Antenna"]
 modulate = Color( 1, 1, 1, 0.921569 )
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -903,7 +903,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="left_Customise_Button" type="TextureButton" parent="Customise/TabContainer/Antina/leftbuttonholder3"]
+[node name="left_Customise_Button" type="TextureButton" parent="Customise/TabContainer/Antenna/leftbuttonholder3"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 155.408
@@ -1145,8 +1145,8 @@ anims/settings = SubResource( 18 )
 [connection signal="pressed" from="Customise/TabContainer/Player/leftbuttonholder/left_Customise_Button" to="Character_Tile_Scene" method="_on_left_Customise_Button_pressed"]
 [connection signal="pressed" from="Customise/TabContainer/Ear Mount/rightbuttonholder2/rigth_Customise_Button" to="Character_Tile_Scene" method="_on_rigth_Customise_Button_pressed"]
 [connection signal="pressed" from="Customise/TabContainer/Ear Mount/leftbuttonholder2/left_Customise_Button" to="Character_Tile_Scene" method="_on_left_Customise_Button_pressed"]
-[connection signal="pressed" from="Customise/TabContainer/Antina/rightbuttonholder3/rigth_Customise_Button" to="Character_Tile_Scene" method="_on_rigth_Customise_Button_pressed"]
-[connection signal="pressed" from="Customise/TabContainer/Antina/leftbuttonholder3/left_Customise_Button" to="Character_Tile_Scene" method="_on_left_Customise_Button_pressed"]
+[connection signal="pressed" from="Customise/TabContainer/Antenna/rightbuttonholder3/rigth_Customise_Button" to="Character_Tile_Scene" method="_on_rigth_Customise_Button_pressed"]
+[connection signal="pressed" from="Customise/TabContainer/Antenna/leftbuttonholder3/left_Customise_Button" to="Character_Tile_Scene" method="_on_left_Customise_Button_pressed"]
 [connection signal="pressed" from="Customise/Purchase/Buy_Button" to="Character_Tile_Scene" method="_on_Buy_Button_pressed"]
 [connection signal="pressed" from="Customise/no_enough_coins_popup/Panel/no_enough_coins_ok" to="Character_Tile_Scene" method="_on_no_enough_coins_ok_pressed"]
 [connection signal="close_settings" from="Settings/Settings_Pannel" to="." method="_on_Settings_close_settings"]

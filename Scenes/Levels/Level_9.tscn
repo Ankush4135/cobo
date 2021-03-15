@@ -330,6 +330,7 @@ light_energy = 0.2
 layer = 50
 
 [node name="UserInterface" parent="UserInterfaceLayer" instance=ExtResource( 11 )]
+Max_Time = 241.0
 Level_Number = "09"
 
 [node name="TouchcontolsLayer" type="CanvasLayer" parent="."]

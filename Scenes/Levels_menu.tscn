@@ -122,7 +122,7 @@ script = ExtResource( 1 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Set/ScrollContainer"]
 margin_left = 20.0
-margin_right = 2306.0
+margin_right = 2764.0
 margin_bottom = 742.0
 size_flags_vertical = 3
 
@@ -173,6 +173,16 @@ Level = "9"
 margin_left = 2061.0
 margin_right = 2286.0
 Level = "10"
+
+[node name="Button_11" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_left = 2290.0
+margin_right = 2515.0
+Level = "11"
+
+[node name="Button_12" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_left = 2519.0
+margin_right = 2744.0
+Level = "12"
 
 [node name="rightbuttonholder" type="Control" parent="."]
 modulate = Color( 1, 1, 1, 0.921569 )

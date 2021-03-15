@@ -57,3 +57,11 @@ func _on_Levels_menu_Play_Level(path): # this one is for Level Menu
 	yield(animation, "animation_finished")
 	set_process(true)
 	queue.queue_resource(Play_Scene, true)
+
+
+func _on_End_Screen_Main_Menu_pressed():
+	self.visible = true
+	animation.play("Fadeout")
+	yield(animation, "animation_finished")
+	set_process(true)
+	queue.queue_resource(Play_Scene, true)

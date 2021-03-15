@@ -68,6 +68,96 @@ var default_level_info = {
 		"high score": 0,
 		"stars unlocked": 0,
 		},
+	13:{
+		"disabled": true,
+		"high score": 0,
+		"stars unlocked": 0,
+		},
+	14:{
+		"disabled": true,
+		"high score": 0,
+		"stars unlocked": 0,
+		},
+	15:{
+		"disabled": true,
+		"high score": 0,
+		"stars unlocked": 0,
+		},
+	16:{
+		"disabled": true,
+		"high score": 0,
+		"stars unlocked": 0,
+		},
+	17:{
+		"disabled": true,
+		"high score": 0,
+		"stars unlocked": 0,
+		},
+	18:{
+		"disabled": true,
+		"high score": 0,
+		"stars unlocked": 0,
+		},
+	19:{
+		"disabled": true,
+		"high score": 0,
+		"stars unlocked": 0,
+		},
+	20:{
+		"disabled": true,
+		"high score": 0,
+		"stars unlocked": 0,
+		},
+	21:{
+		"disabled": true,
+		"high score": 0,
+		"stars unlocked": 0,
+		},
+	22:{
+		"disabled": true,
+		"high score": 0,
+		"stars unlocked": 0,
+		},
+	23:{
+		"disabled": true,
+		"high score": 0,
+		"stars unlocked": 0,
+		},
+	24:{
+		"disabled": true,
+		"high score": 0,
+		"stars unlocked": 0,
+		},
+	25:{
+		"disabled": true,
+		"high score": 0,
+		"stars unlocked": 0,
+		},
+	26:{
+		"disabled": true,
+		"high score": 0,
+		"stars unlocked": 0,
+		},
+	27:{
+		"disabled": true,
+		"high score": 0,
+		"stars unlocked": 0,
+		},
+	28:{
+		"disabled": true,
+		"high score": 0,
+		"stars unlocked": 0,
+		},
+	29:{
+		"disabled": true,
+		"high score": 0,
+		"stars unlocked": 0,
+		},
+	30:{
+		"disabled": true,
+		"high score": 0,
+		"stars unlocked": 0,
+		},
 	}
 onready var path = "user://level.dat"
 
