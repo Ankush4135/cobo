@@ -597,7 +597,9 @@ _global_script_class_icons={
 [application]
 
 config/name="cobo"
-run/main_scene="res://Scenes/Main.tscn"
+run/main_scene="res://Scenes/Splash_Screen.tscn"
+boot_splash/image="res://Assets/Buttons/transparent.png"
+boot_splash/bg_color=Color( 1, 1, 1, 1 )
 config/icon="res://icon.png"
 config/windows_native_icon="res://cobo.ico"
 config/quit_on_go_back=false

@@ -65,3 +65,11 @@ func _on_End_Screen_Main_Menu_pressed():
 	yield(animation, "animation_finished")
 	set_process(true)
 	queue.queue_resource(Play_Scene, true)
+
+
+func _on_Splash_Time_timeout():
+	self.visible = true
+	animation.play("Fadeout")
+	yield(animation, "animation_finished")
+	set_process(true)
+	queue.queue_resource(Play_Scene, true)
