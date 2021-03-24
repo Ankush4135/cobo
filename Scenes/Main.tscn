@@ -87,14 +87,14 @@ font_data = ExtResource( 2 )
 size = 50
 font_data = ExtResource( 6 )
 
-[sub_resource type="StyleBoxFlat" id=19]
+[sub_resource type="StyleBoxFlat" id=16]
 bg_color = Color( 0.211765, 0.211765, 0.211765, 1 )
 corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=17]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Title:rect_position")
 tracks/0/interp = 1
@@ -204,7 +204,7 @@ tracks/8/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=18]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Title:rect_position")
@@ -315,7 +315,7 @@ tracks/8/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=19]
 length = 0.7
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Settings/Settings_Pannel:rect_position:y")
@@ -943,7 +943,6 @@ margin_right = -353.0
 margin_bottom = -197.0
 theme = ExtResource( 9 )
 custom_fonts/font = SubResource( 12 )
-text = "0000"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1040,7 +1039,7 @@ margin_right = -100.0
 margin_bottom = -168.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 19 )
+custom_styles/panel = SubResource( 16 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1077,7 +1076,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0, 0, 0, 0.459868 )
+color = Color( 0, 0, 0, 0.0595596 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1190,9 +1189,9 @@ Autoload = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Start_Up"
-anims/Customise = SubResource( 16 )
-anims/Start_Up = SubResource( 17 )
-anims/settings = SubResource( 18 )
+anims/Customise = SubResource( 17 )
+anims/Start_Up = SubResource( 18 )
+anims/settings = SubResource( 19 )
 [connection signal="scene_changed" from="." to="LoadingScreen" method="_on_Main_scene_changed"]
 [connection signal="pressed" from="Menu/Buttons_Lists/Play" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Menu/Buttons_Lists/Customise" to="." method="_on_Customise_pressed"]

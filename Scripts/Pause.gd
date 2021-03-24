@@ -47,13 +47,14 @@ func set_paused(value):
 	paused = value
 	scene_tree.paused = value
 	pausebg.visible = value
-
+	Input.set_mouse_mode(0)
 
 func _on_Restart_button_up():
 	Audio.Select.play()
 	if PlayerData.Die == false:
 		self.paused = !self.paused
 	emit_signal("restart_level")
+	Input.set_mouse_mode(1)
 
 func _on_Play_pressed():
 	Audio.Select.play()
@@ -65,6 +66,7 @@ func _on_Play_pressed():
 	yield(timer,"timeout")
 	self.paused = !self.paused
 	resume_count.visible = false
+	Input.set_mouse_mode(1)
 	
 
 func _on_Home_pressed():
@@ -72,7 +74,6 @@ func _on_Home_pressed():
 	if PlayerData.Die == false:
 		self.paused = !self.paused
 	emit_signal("gotohome")
-	
 
 func _player_died():
 	if PlayerData.Die == true:
@@ -82,10 +83,12 @@ func _player_died():
 		$pause_menu/ColorRect/HBoxContainer/Restart.grab_focus()
 		animation.play("Pause_in")
 		yield(animation,"animation_finished")
+		Input.set_mouse_mode(1)
 
 func _on_find_pressed():
 	self.paused = !self.paused
 	orb_prompt.visible = false
+	Input.set_mouse_mode(1)
 
 func _on_hint_pressed():
 	if PlayerData.hints > 0:
@@ -93,6 +96,7 @@ func _on_hint_pressed():
 		hint_count_text.text = str(PlayerData.hints)
 		orb_prompt.visible = false
 		emit_signal("goto_orb")
+		Input.set_mouse_mode(1)
 	else:
 		$not_enough_orbs/HBoxContainer/hint.disabled = true
 
@@ -100,3 +104,4 @@ func _on_Next_pressed():
 	Audio.Select.play()
 	self.paused = !self.paused
 	emit_signal("goto_next_level")
+	Input.set_mouse_mode(1)

@@ -19,6 +19,8 @@ func _ready() -> void:
 	add_child(label)
 	get_tree().get_root().connect("size_changed", self, "update_position")
 	update_position()
+	self.get_child(0).visible = ConfigManager.ToggleFps
+	
 
 # pos should be of type Position
 func set_position(pos : int):

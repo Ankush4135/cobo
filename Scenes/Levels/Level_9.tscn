@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Assets/Material/Wall.material" type="Material" id=1]
 [ext_resource path="res://Scripts/Follow_Target.gd" type="Script" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Objects/End_Shatered.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Scripts/Shake_Camera.gd" type="Script" id=24]
 [ext_resource path="res://Objects/Orb.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Objects/UserInterface/Control_Touch_Buttons.tscn" type="PackedScene" id=26]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 16 )
@@ -389,6 +390,7 @@ size_flags_vertical = 3
 [node name="Left_TouchScreenButton" type="TouchScreenButton" parent="TouchcontolsLayer/Touch_Contols/MarginContainer/VBoxContainer/HBoxContainer/Left_Button_Con"]
 normal = ExtResource( 3 )
 action = "left"
+visibility_mode = 1
 script = ExtResource( 7 )
 
 [node name="Center" type="Control" parent="TouchcontolsLayer/Touch_Contols/MarginContainer/VBoxContainer/HBoxContainer"]
@@ -408,6 +410,7 @@ size_flags_vertical = 3
 [node name="Right_TouchScreenButton" type="TouchScreenButton" parent="TouchcontolsLayer/Touch_Contols/MarginContainer/VBoxContainer/HBoxContainer/Right_Button_Con"]
 normal = ExtResource( 3 )
 action = "right"
+visibility_mode = 1
 script = ExtResource( 7 )
 
 [node name="Right" type="Control" parent="TouchcontolsLayer/Touch_Contols/MarginContainer/VBoxContainer/HBoxContainer"]
@@ -426,6 +429,9 @@ size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Touch_Buttons" parent="TouchcontolsLayer" instance=ExtResource( 26 )]
+visible = false
 
 [node name="Fps_lable" type="CanvasLayer" parent="."]
 script = ExtResource( 5 )

@@ -43,20 +43,20 @@ albedo_color = Color( 0.258824, 0.258824, 0.258824, 1 )
 [sub_resource type="QuadMesh" id=3]
 size = Vector2( 100, 100 )
 
-[sub_resource type="SpatialMaterial" id=17]
+[sub_resource type="SpatialMaterial" id=4]
 flags_do_not_receive_shadows = true
 
-[sub_resource type="SphereMesh" id=15]
-material = SubResource( 17 )
+[sub_resource type="SphereMesh" id=5]
+material = SubResource( 4 )
 radius = 0.2
 height = 0.4
 
-[sub_resource type="Curve" id=16]
+[sub_resource type="Curve" id=6]
 _data = [ Vector2( 0.966942, 1 ), 0.0, -0.0812741, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="PlaneMesh" id=18]
+[sub_resource type="PlaneMesh" id=7]
 
-[sub_resource type="SpatialMaterial" id=19]
+[sub_resource type="SpatialMaterial" id=8]
 flags_transparent = true
 flags_vertex_lighting = true
 flags_do_not_receive_shadows = true
@@ -74,7 +74,7 @@ emission_energy = 1.0
 emission_operator = 0
 emission_on_uv2 = false
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=9]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Floor:visible")
 tracks/0/interp = 1
@@ -112,7 +112,7 @@ tracks/2/keys = {
 "values": [ Vector3( -9.53674e-07, -0.000299454, 54 ), Vector3( 0, 0, 17 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=10]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera_pivot:translation")
 tracks/0/interp = 1
@@ -174,8 +174,7 @@ tracks/4/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "Purchase"
+[sub_resource type="Animation" id=11]
 tracks/0/type = "value"
 tracks/0/path = NodePath("purchase_effect/Particles:emitting")
 tracks/0/interp = 1
@@ -213,7 +212,7 @@ tracks/2/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=12]
 length = 0.5
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Character_Antina_mounts:translation:x")
@@ -246,7 +245,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.5 )
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=13]
 length = 0.5
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Character_Antina_mounts:translation:x")
@@ -279,7 +278,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.5 )
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=14]
 length = 0.5
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Character:translation:x")
@@ -312,7 +311,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.5 )
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=15]
 length = 0.5
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Character:translation:x")
@@ -345,7 +344,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.5 )
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=16]
 length = 0.5
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Character:translation:x")
@@ -378,7 +377,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.5 )
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=17]
 length = 0.5
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Character:translation:x")
@@ -411,7 +410,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.5 )
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=18]
 length = 0.5
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Character_ear_mounts:translation:x")
@@ -444,7 +443,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.5 )
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=19]
 length = 0.5
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Character_ear_mounts:translation:x")
@@ -733,7 +732,7 @@ one_shot = true
 explosiveness = 1.0
 randomness = 1.0
 draw_order = 2
-mesh = SubResource( 15 )
+mesh = SubResource( 5 )
 emission_shape = 1
 emission_sphere_radius = 1.5
 direction = Vector3( 0, 0, 0 )
@@ -746,12 +745,12 @@ tangential_accel = 2.14
 tangential_accel_random = 1.0
 damping = 9.81
 damping_random = 1.0
-scale_amount_curve = SubResource( 16 )
+scale_amount_curve = SubResource( 6 )
 
 [node name="glow" type="MeshInstance" parent="purchase_effect"]
 transform = Transform( 2.51255, 0, 0, 0, -4.09346e-07, -2.51255, 0, 2.51255, -4.09346e-07, 0, 1.15, 0 )
-mesh = SubResource( 18 )
-material/0 = SubResource( 19 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )
 
 [node name="Floor" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 43.6721 )
@@ -775,16 +774,16 @@ fov = 35.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Default"
-anims/Customise = SubResource( 4 )
-anims/Default = SubResource( 5 )
-anims/Purchase = SubResource( 6 )
-anims/antina_customise_2 = SubResource( 7 )
-anims/antina_customise_3 = SubResource( 8 )
-anims/character_customise_2 = SubResource( 9 )
-anims/character_customise_3 = SubResource( 10 )
-anims/character_customise_4 = SubResource( 11 )
-anims/character_customise_5 = SubResource( 12 )
-anims/ear_customise_2 = SubResource( 13 )
-anims/ear_customise_3 = SubResource( 14 )
+anims/Customise = SubResource( 9 )
+anims/Default = SubResource( 10 )
+anims/Purchase = SubResource( 11 )
+anims/antina_customise_2 = SubResource( 12 )
+anims/antina_customise_3 = SubResource( 13 )
+anims/character_customise_2 = SubResource( 14 )
+anims/character_customise_3 = SubResource( 15 )
+anims/character_customise_4 = SubResource( 16 )
+anims/character_customise_5 = SubResource( 17 )
+anims/ear_customise_2 = SubResource( 18 )
+anims/ear_customise_3 = SubResource( 19 )
 
 [node name="Tween" type="Tween" parent="."]

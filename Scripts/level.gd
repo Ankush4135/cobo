@@ -22,6 +22,8 @@ var total_score = 0
 var save_score = 0
 
 func _ready():
+#	Input.set_mouse_mode(1)
+	OS.get_window_size()
 	Audio.BG.stop()
 	Current_Scene_Path = "res://Scenes/Levels/Level_" + str(Current_Level + 1) + ".tscn"
 	Next_Scene_Path = "res://Scenes/Levels/Level_" + str(Current_Level + 2) + ".tscn"
@@ -102,6 +104,7 @@ func _on_health_changed(): #chamera shake on every hit when the helth is decreas
 	playeranim.play("Collided")
 
 func _exit_tree():
+	Input.set_mouse_mode(0)
 	Audio.BG2.stop()
 
 
