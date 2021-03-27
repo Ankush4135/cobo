@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Buttons/on-button.png" type="Texture" id=1]
 [ext_resource path="res://Objects/UserInterface/Panel.stylebox" type="StyleBox" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Assets/Buttons/cross-button.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Buttons/off-button.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Buttons/on-off-focused-button.png" type="Texture" id=9]
+[ext_resource path="res://Assets/UI/Screen_Controls_Fulltouch.png" type="Texture" id=10]
+[ext_resource path="res://Assets/UI/Screen_Controls_TouchButtons.png" type="Texture" id=11]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.211765, 0.211765, 0.211765, 1 )
@@ -48,9 +50,9 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 margin_left = 150.0
-margin_top = -294.0
+margin_top = -334.0
 margin_right = -150.0
-margin_bottom = -182.0
+margin_bottom = -222.0
 custom_styles/panel = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -85,9 +87,9 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 margin_left = 150.0
-margin_top = -159.473
+margin_top = -199.473
 margin_right = -150.0
-margin_bottom = -47.4731
+margin_bottom = -87.4731
 custom_styles/panel = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -122,9 +124,9 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 margin_left = 150.0
-margin_top = -28.1888
+margin_top = -68.1888
 margin_right = -150.0
-margin_bottom = 83.8112
+margin_bottom = 43.8112
 custom_styles/panel = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -163,13 +165,14 @@ __meta__ = {
 }
 
 [node name="Fullscreen" type="Panel" parent="Panel"]
+visible = false
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 margin_left = 150.0
-margin_top = 99.7062
+margin_top = 62.7062
 margin_right = -150.0
-margin_bottom = 211.706
+margin_bottom = 174.706
 custom_styles/panel = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -208,24 +211,25 @@ __meta__ = {
 }
 
 [node name="Android_control_mode" type="Panel" parent="Panel"]
-visible = false
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 margin_left = 150.0
-margin_top = 100.0
+margin_top = 60.0
 margin_right = -150.0
-margin_bottom = 366.0
+margin_bottom = 326.0
 custom_styles/panel = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Fullscreen_text" type="Label" parent="Panel/Android_control_mode"]
+[node name="Android_control_text" type="Label" parent="Panel/Android_control_mode"]
+visible = false
 anchor_bottom = 1.0
-margin_right = 325.0
+margin_right = 381.0
+margin_bottom = -129.0
 custom_fonts/font = SubResource( 2 )
-text = "Fullscreen"
+text = "Control Mode"
 align = 1
 valign = 1
 autowrap = true
@@ -233,24 +237,37 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Fullscreen_CheckButton" type="TextureButton" parent="Panel/Android_control_mode"]
-anchor_left = 0.408192
-anchor_top = 0.00792585
-anchor_right = 0.488499
-anchor_bottom = 1.01154
-margin_top = 2.38419e-07
-margin_right = 119.902
-margin_bottom = 103.596
-rect_scale = Vector2( 0.520391, 0.520391 )
-toggle_mode = true
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 1 )
-texture_hover = ExtResource( 8 )
-texture_focused = ExtResource( 9 )
-expand = true
-stretch_mode = 5
+[node name="TouchButton" type="CheckBox" parent="Panel/Android_control_mode"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -466.5
+margin_top = -123.5
+margin_right = -29.5
+margin_bottom = 123.5
+theme = ExtResource( 5 )
+icon = ExtResource( 11 )
+expand_icon = true
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
+}
+
+[node name="FullTouch" type="CheckBox" parent="Panel/Android_control_mode"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 29.5
+margin_top = -123.5
+margin_right = 466.5
+margin_bottom = 123.5
+focus_neighbour_left = NodePath("../FullTouch")
+theme = ExtResource( 5 )
+icon = ExtResource( 10 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
 }
 
 [node name="confirm_settings" type="Button" parent="."]
@@ -292,6 +309,7 @@ __meta__ = {
 [connection signal="value_changed" from="Panel/sfx_Sound/sfx_Volume" to="." method="_on_sfx_Volume_value_changed"]
 [connection signal="toggled" from="Panel/Fps/Fps_CheckButton" to="." method="_on_Fps_CheckButton_toggled"]
 [connection signal="toggled" from="Panel/Fullscreen/Fullscreen_CheckButton" to="." method="_on_Fullscreen_CheckButton_toggled"]
-[connection signal="toggled" from="Panel/Android_control_mode/Fullscreen_CheckButton" to="." method="_on_Fullscreen_CheckButton_toggled"]
+[connection signal="toggled" from="Panel/Android_control_mode/TouchButton" to="." method="_on_TouchButton_toggled"]
+[connection signal="toggled" from="Panel/Android_control_mode/FullTouch" to="." method="_on_FullTouch_toggled"]
 [connection signal="pressed" from="confirm_settings" to="." method="_on_confirm_settings_pressed"]
 [connection signal="pressed" from="cancel settings" to="." method="_on_cancel_settings_pressed"]

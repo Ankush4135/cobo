@@ -99,6 +99,7 @@ func _on_Pause_goto_orb():
 	camera.follow = true
 	yield(get_tree().create_timer(.5),"timeout")
 	pause.paused = false
+	Input.set_mouse_mode(1)
 
 func _on_Pause_goto_next_level():
 	if OS.get_name() == "Android":

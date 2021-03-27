@@ -42,13 +42,21 @@ func _physics_process(delta):
 	Player_Pos = get_translation()
 	
 	if PlayerData.Die == false && enter_in_tunnel == false:
-		if Input.is_action_pressed("left") or Input.is_mouse_button_pressed(1):
+		if Input.is_action_pressed("left"):
 			Impulse_dir_L = (Player_Pos - Target_L_position).normalized() * -Impulse_power * delta
 			apply_impulse(Vector3(), Impulse_dir_L)
-		if Input.is_action_pressed("right") or Input.is_mouse_button_pressed(2):
+		if Input.is_action_pressed("right"):
 			Impulse_dir_R = (Player_Pos - Target_R_position).normalized() * -Impulse_power * delta
 			apply_impulse(Vector3(), Impulse_dir_R)
-	
+		
+		if OS.get_name() != "Android":
+			if Input.is_mouse_button_pressed(1):
+				Impulse_dir_L = (Player_Pos - Target_L_position).normalized() * -Impulse_power * delta
+				apply_impulse(Vector3(), Impulse_dir_L)
+			if Input.is_mouse_button_pressed(2):
+				Impulse_dir_R = (Player_Pos - Target_R_position).normalized() * -Impulse_power * delta
+				apply_impulse(Vector3(), Impulse_dir_R)
+		
 	if attract_force == true:
 		var attract_dir
 		attract_dir = (Player_Pos - attract_pos).normalized() * 200 * delta

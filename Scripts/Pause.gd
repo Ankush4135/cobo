@@ -77,13 +77,14 @@ func _on_Home_pressed():
 
 func _player_died():
 	if PlayerData.Die == true:
+		Input.set_mouse_mode(0)
 		$pause_menu/ColorRect/HBoxContainer/Play.visible = false
 		title.text = "Died"
 		yield(get_tree().create_timer(1), "timeout") #delay it then execute
 		$pause_menu/ColorRect/HBoxContainer/Restart.grab_focus()
 		animation.play("Pause_in")
 		yield(animation,"animation_finished")
-		Input.set_mouse_mode(1)
+
 
 func _on_find_pressed():
 	self.paused = !self.paused
@@ -96,7 +97,6 @@ func _on_hint_pressed():
 		hint_count_text.text = str(PlayerData.hints)
 		orb_prompt.visible = false
 		emit_signal("goto_orb")
-		Input.set_mouse_mode(1)
 	else:
 		$not_enough_orbs/HBoxContainer/hint.disabled = true
 

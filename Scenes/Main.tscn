@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Scenes/LoadingScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fonts/Gasalt-Regular.ttf" type="DynamicFontData" id=2]
@@ -15,6 +15,9 @@
 [ext_resource path="res://Assets/Buttons/arrow-button.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Buttons/cart-button.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Buttons/play-button.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Buttons/arrow_button_pressed.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Buttons/Play_button_pressed.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Buttons/cart_button_pressed.png" type="Texture" id=18]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 5 )
@@ -667,6 +670,7 @@ __meta__ = {
 position = Vector2( 39.6875, 33.3879 )
 scale = Vector2( 0.381922, 0.381922 )
 normal = ExtResource( 14 )
+pressed = ExtResource( 18 )
 
 [node name="backbuttonholder" type="Control" parent="Customise"]
 modulate = Color( 1, 1, 1, 0.921569 )
@@ -683,6 +687,7 @@ position = Vector2( 147.124, 12.2867 )
 rotation = 3.14159
 scale = Vector2( 0.481315, 0.481315 )
 normal = ExtResource( 13 )
+pressed = ExtResource( 16 )
 action = "back"
 
 [node name="TabContainer" type="TabContainer" parent="Customise"]
@@ -741,6 +746,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 17 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -767,6 +773,7 @@ margin_right = 250.408
 margin_bottom = 409.878
 rect_rotation = -180.0
 texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 17 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -817,6 +824,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 17 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -843,6 +851,7 @@ margin_right = 250.408
 margin_bottom = 409.878
 rect_rotation = -180.0
 texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 17 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -893,6 +902,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 17 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -919,6 +929,7 @@ margin_right = 250.408
 margin_bottom = 409.878
 rect_rotation = -180.0
 texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 17 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1059,6 +1070,7 @@ position = Vector2( 147.124, 12.2867 )
 rotation = 3.14159
 scale = Vector2( 0.481315, 0.481315 )
 normal = ExtResource( 13 )
+pressed = ExtResource( 16 )
 action = "back"
 
 [node name="Settings" type="Control" parent="."]
@@ -1088,7 +1100,7 @@ anchor_top = 0.138889
 anchor_right = 0.84375
 anchor_bottom = 0.888888
 margin_top = 954.0
-margin_bottom = 954.004
+margin_bottom = 954.005
 
 [node name="backbuttonholder" type="Control" parent="Settings"]
 modulate = Color( 1, 1, 1, 0 )
@@ -1105,6 +1117,7 @@ position = Vector2( 147.124, 12.2867 )
 rotation = 3.14159
 scale = Vector2( 0.481315, 0.481315 )
 normal = ExtResource( 13 )
+pressed = ExtResource( 16 )
 action = "back"
 
 [node name="quit_popup" type="Control" parent="."]

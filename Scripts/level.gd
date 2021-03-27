@@ -6,6 +6,8 @@ onready var playeranim = $Ball/AnimationPlayer
 onready var UI_anim = $UserInterfaceLayer/UserInterface/Pause/AnimationPlayer
 onready var pause = $UserInterfaceLayer/UserInterface/Pause
 onready var admob  = $AdMob
+onready var touchbuttons = $TouchcontolsLayer/Touch_Buttons
+onready var fulltouch = $TouchcontolsLayer/Touch_Contols
 
 export(int, "Level 01", "Level 02", "Level 03", "Level 04", "Level 05",
 		 "Level 06", "Level 07", "Level 08", "Level 09", "Level 10",
@@ -22,8 +24,19 @@ var total_score = 0
 var save_score = 0
 
 func _ready():
-#	Input.set_mouse_mode(1)
-	OS.get_window_size()
+	Input.set_mouse_mode(1)
+	if OS.get_name() == "Android":
+		if ConfigManager.control_mode == 0:
+			touchbuttons.visible = true
+			fulltouch.visible = false
+		else:
+			touchbuttons.visible = false
+			fulltouch.visible = true
+	else:
+		touchbuttons.visible = false
+		fulltouch.visible = false
+	
+
 	Audio.BG.stop()
 	Current_Scene_Path = "res://Scenes/Levels/Level_" + str(Current_Level + 1) + ".tscn"
 	Next_Scene_Path = "res://Scenes/Levels/Level_" + str(Current_Level + 2) + ".tscn"

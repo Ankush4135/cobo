@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/ScrollContainer.gd" type="Script" id=1]
 [ext_resource path="res://Objects/UserInterface/Base_UI.theme" type="Theme" id=2]
@@ -13,6 +13,9 @@
 [ext_resource path="res://Assets/Buttons/cart-button.png" type="Texture" id=11]
 [ext_resource path="res://Fonts/Gasalt-Regular.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://Assets/Buttons/arrow-button.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Buttons/Play_button_pressed.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Buttons/arrow_button_pressed.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Buttons/cart_button_pressed.png" type="Texture" id=16]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )
@@ -203,6 +206,7 @@ position = Vector2( 0.966431, -3.69189 )
 rotation = -1.80291e-13
 scale = Vector2( 0.630574, 1.66508 )
 normal = ExtResource( 7 )
+pressed = ExtResource( 14 )
 action = "scroll_right"
 script = ExtResource( 4 )
 
@@ -223,6 +227,7 @@ position = Vector2( 155.71, 413.03 )
 rotation = -3.14159
 scale = Vector2( 0.630574, 1.66508 )
 normal = ExtResource( 7 )
+pressed = ExtResource( 14 )
 action = "scroll_left"
 script = ExtResource( 4 )
 dir = -1
@@ -239,6 +244,7 @@ __meta__ = {
 position = Vector2( 39.6875, 33.3879 )
 scale = Vector2( 0.381922, 0.381922 )
 normal = ExtResource( 11 )
+pressed = ExtResource( 16 )
 
 [node name="backbuttonholder" type="Control" parent="."]
 modulate = Color( 1, 1, 1, 0.921569 )
@@ -255,6 +261,7 @@ position = Vector2( 147.124, 12.287 )
 rotation = 3.14159
 scale = Vector2( 0.481, 0.481 )
 normal = ExtResource( 13 )
+pressed = ExtResource( 15 )
 
 [node name="LoadingScreen" parent="." instance=ExtResource( 8 )]
 visible = false
