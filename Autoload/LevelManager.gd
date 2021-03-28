@@ -8,6 +8,11 @@ var winned = false
 
 var level_info = {}
 var default_level_info = {
+	0:{
+		"disabled": false,
+		"high score": 0,
+		"stars unlocked": 0,
+		},
 	1:{
 		"disabled": false,
 		"high score": 0,

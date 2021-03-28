@@ -15,6 +15,10 @@ func _physics_process(delta):
 			rot_dig.x = -1
 		if Input.is_action_pressed("right"):
 			rot_dig.x = 1
-	
+		if OS.get_name() != "Android":
+			if Input.is_mouse_button_pressed(1):
+				rot_dig.x = -1
+			if Input.is_mouse_button_pressed(2):
+				rot_dig.x = 1
 	rot_trans = rot_trans.linear_interpolate(rot_dig, rotspeed * delta)
 	self["parameters/left_right_blend/blend_position"] = rot_trans.x

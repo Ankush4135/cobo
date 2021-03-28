@@ -119,7 +119,7 @@ node_connections = [ "output", 0, "left_right_blend" ]
 
 [node name="level" type="Spatial"]
 script = ExtResource( 21 )
-Current_Level = 5
+Current_Level = 6
 
 [node name="overlay" type="CanvasLayer" parent="."]
 layer = 25

@@ -9,7 +9,7 @@ onready var admob  = $AdMob
 onready var touchbuttons = $TouchcontolsLayer/Touch_Buttons
 onready var fulltouch = $TouchcontolsLayer/Touch_Contols
 
-export(int, "Level 01", "Level 02", "Level 03", "Level 04", "Level 05",
+export(int,"Level 00", "Level 01", "Level 02", "Level 03", "Level 04", "Level 05",
 		 "Level 06", "Level 07", "Level 08", "Level 09", "Level 10",
 		 "Level 11") var Current_Level
 
@@ -38,11 +38,12 @@ func _ready():
 	
 
 	Audio.BG.stop()
-	Current_Scene_Path = "res://Scenes/Levels/Level_" + str(Current_Level + 1) + ".tscn"
-	Next_Scene_Path = "res://Scenes/Levels/Level_" + str(Current_Level + 2) + ".tscn"
+	Current_Scene_Path = "res://Scenes/Levels/Level_" + str(Current_Level) + ".tscn"
+	Next_Scene_Path = "res://Scenes/Levels/Level_" + str(Current_Level + 1) + ".tscn"
 	_level_selector()
 	Audio.BG2.play()
 	LevelManager.winned = false
+#	get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_2D, SceneTree.STRETCH_ASPECT_EXPAND, Vector2(1920, 1080))
 	get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_DISABLED, SceneTree.STRETCH_ASPECT_IGNORE, Vector2(1920, 1080))
 	var coin_list
 	coin_list = get_tree().get_nodes_in_group("coins")
@@ -113,7 +114,7 @@ func _on_next_scene_pressed():
 	queue_free()
 
 func _on_health_changed(): #chamera shake on every hit when the helth is decreased
-	camerashake.shake(0.1, 20, 0.18)
+	camerashake.shake(0.5, 20, 0.18)
 	playeranim.play("Collided")
 
 func _exit_tree():
