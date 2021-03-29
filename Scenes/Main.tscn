@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://Scenes/LoadingScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fonts/Gasalt-Regular.ttf" type="DynamicFontData" id=2]
@@ -18,11 +18,23 @@
 [ext_resource path="res://Assets/Buttons/arrow_button_pressed.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Buttons/Play_button_pressed.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Buttons/cart_button_pressed.png" type="Texture" id=18]
+[ext_resource path="res://Assets/UI/Screen_Controls_TouchButtons.png" type="Texture" id=19]
+[ext_resource path="res://Assets/UI/Screen_Controls_Fulltouch.png" type="Texture" id=20]
+[ext_resource path="res://Assets/UI/ScreenShot/ScreenShot_1.png" type="Texture" id=21]
+[ext_resource path="res://Assets/UI/ScreenShot/ScreenShot_2.png" type="Texture" id=22]
+[ext_resource path="res://Assets/UI/ScreenShot/ScreenShot_3.png" type="Texture" id=23]
+[ext_resource path="res://Assets/UI/ScreenShot/ScreenShot_4.png" type="Texture" id=24]
+[ext_resource path="res://Assets/UI/ScreenShot/ScreenShot_5.png" type="Texture" id=25]
+[ext_resource path="res://Assets/UI/ScreenShot/ScreenShot_6.png" type="Texture" id=26]
+[ext_resource path="res://Assets/UI/ScreenShot/ScreenShot_7.png" type="Texture" id=27]
+[ext_resource path="res://Scripts/ScrollContainer.gd" type="Script" id=28]
+[ext_resource path="res://Assets/UI/Screen_Controls_Computer_left.png" type="Texture" id=29]
+[ext_resource path="res://Assets/UI/Screen_Controls_Computer_right.png" type="Texture" id=30]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 5 )
 shader_param/radius = 0.75
-shader_param/softness = 0.45
+shader_param/softness = 1.0
 
 [sub_resource type="Curve" id=2]
 _data = [ Vector2( 0, 0.290909 ), 0.0, 1.6, 0, 0, Vector2( 0.996212, 1 ), -0.150001, 0.0, 0, 0 ]
@@ -97,7 +109,18 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="DynamicFont" id=17]
+size = 64
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0.254902, 0.254902, 0.254902, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Animation" id=19]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Title:rect_position")
 tracks/0/interp = 1
@@ -207,7 +230,7 @@ tracks/8/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=20]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Title:rect_position")
@@ -318,7 +341,80 @@ tracks/8/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=21]
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("how_to_play/backbuttonholder:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.784314 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("how_to_play:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0547139 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("how_to_play/ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.0572484, 0.481058 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 0.568627 ) ]
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("how_to_play/Panel:rect_position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1100.13, -0.25, 0, 0.25, 0, 100, -0.255684, -214.207, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.7 )
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("how_to_play/Panel:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.300768 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("how_to_play/Play_Tutorial:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=22]
 length = 0.7
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Settings/Settings_Pannel:rect_position:y")
@@ -382,6 +478,7 @@ tracks/4/keys = {
 [node name="Main" type="Node"]
 script = ExtResource( 3 )
 Change_Scene = "res://Scenes/Levels_menu.tscn"
+Tutorial_Level = "res://Scenes/Levels/Level_0.tscn"
 
 [node name="Scene_trans" parent="." instance=ExtResource( 8 )]
 Fadein = true
@@ -398,7 +495,6 @@ __meta__ = {
 }
 
 [node name="Particles" type="Control" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -412,7 +508,6 @@ __meta__ = {
 }
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Particles"]
-emitting = false
 amount = 10
 lifetime = 8.0
 preprocess = 5.0
@@ -430,13 +525,12 @@ scale_amount_curve = SubResource( 2 )
 color_ramp = SubResource( 3 )
 
 [node name="Title" type="Control" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 320.0
-margin_top = -20.0
+margin_top = 185.0
 margin_right = -320.0
-margin_bottom = -845.993
+margin_bottom = -640.994
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -464,11 +558,9 @@ __meta__ = {
 }
 
 [node name="Menu" type="Control" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 250.0
-margin_bottom = 250.001
+margin_bottom = 0.000976563
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -627,6 +719,8 @@ __meta__ = {
 }
 
 [node name="Customise" type="Control" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
 light_mask = -2147483647
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1035,6 +1129,7 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="how_to_play"]
+modulate = Color( 0.899125, 0.899125, 0.899125, 0.05736 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -1047,12 +1142,13 @@ __meta__ = {
 }
 
 [node name="Panel" type="Panel" parent="how_to_play"]
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 100.0
-margin_top = 100.0
+margin_top = 1100.13
 margin_right = -100.0
-margin_bottom = -168.0
+margin_bottom = 832.131
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 16 )
@@ -1060,8 +1156,486 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="MarginContainer" type="MarginContainer" parent="how_to_play/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 50.0
+margin_right = -50.0
+margin_bottom = -50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="how_to_play/Panel/MarginContainer"]
+margin_right = 1620.0
+margin_bottom = 730.0
+scroll_vertical_enabled = false
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="how_to_play/Panel/MarginContainer/ScrollContainer"]
+margin_right = 4982.0
+margin_bottom = 730.0
+
+[node name="Android1" type="Control" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer"]
+margin_right = 550.0
+margin_bottom = 730.0
+rect_min_size = Vector2( 550, 730 )
+
+[node name="Label" type="Label" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Android1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 17 )
+text = "To play you have to tap Left side / RIght side of the screen on 1st control mode and Left / right Button on 2nd control mode."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Android1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = 428.0
+margin_right = -24.0
+margin_bottom = -14.0001
+custom_styles/panel = SubResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Android1/Panel"]
+margin_left = 11.0
+margin_top = 9.42261
+margin_right = 1345.0
+margin_bottom = 759.423
+rect_scale = Vector2( 0.360142, 0.360142 )
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Android2" type="Control" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer"]
+margin_left = 554.0
+margin_right = 1104.0
+margin_bottom = 730.0
+rect_min_size = Vector2( 550, 730 )
+
+[node name="Label" type="Label" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Android2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 17 )
+text = "The Character Will Go UP and Right (Diagonal) if Right Button / Right Side if screen is pressed and vice versa."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Android2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = 428.0
+margin_right = -26.0
+margin_bottom = -14.0001
+custom_styles/panel = SubResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Android2/Panel"]
+margin_left = 10.0
+margin_top = 9.42261
+margin_right = 1344.0
+margin_bottom = 759.423
+rect_scale = Vector2( 0.360142, 0.360142 )
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Computer1" type="Control" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer"]
+visible = false
+margin_left = 1108.0
+margin_right = 1658.0
+margin_bottom = 730.0
+rect_min_size = Vector2( 550, 730 )
+
+[node name="Label" type="Label" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Computer1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 17 )
+text = "To play you have to press Left / Left Mouse Button / A to move left and up (Diagonal)."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Computer1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = 428.0
+margin_right = -26.0
+margin_bottom = -14.0001
+custom_styles/panel = SubResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Computer1/Panel"]
+margin_left = 10.0
+margin_top = 9.42261
+margin_right = 1344.0
+margin_bottom = 759.423
+rect_scale = Vector2( 0.360142, 0.360142 )
+texture = ExtResource( 29 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Computer2" type="Control" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer"]
+visible = false
+margin_left = 1662.0
+margin_right = 2212.0
+margin_bottom = 730.0
+rect_min_size = Vector2( 550, 730 )
+
+[node name="Label" type="Label" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Computer2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 17 )
+text = "Right / Right Mouse Button / D  to move Right and up (Diagonal)."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Computer2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = 428.0
+margin_right = -26.0
+margin_bottom = -14.0001
+custom_styles/panel = SubResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Computer2/Panel"]
+margin_left = 10.0
+margin_top = 9.42261
+margin_right = 1344.0
+margin_bottom = 759.423
+rect_scale = Vector2( 0.360142, 0.360142 )
+texture = ExtResource( 30 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gameplay1" type="Control" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer"]
+margin_left = 1108.0
+margin_right = 1658.0
+margin_bottom = 730.0
+rect_min_size = Vector2( 550, 730 )
+
+[node name="Label" type="Label" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 17 )
+text = "Both side of the screen or Both Left and Right Button is pressed then Character goes straight upward"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = 428.0
+margin_right = -26.0
+margin_bottom = -14.0001
+custom_styles/panel = SubResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay1/Panel"]
+margin_left = 10.0
+margin_top = 9.42261
+margin_right = 1344.0
+margin_bottom = 759.423
+rect_scale = Vector2( 0.360142, 0.360142 )
+texture = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gameplay2" type="Control" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer"]
+margin_left = 1662.0
+margin_right = 2212.0
+margin_bottom = 730.0
+rect_min_size = Vector2( 550, 730 )
+
+[node name="Label" type="Label" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 17 )
+text = "Collect all Coins to get 3 Stars on the Level and Buy Character Skins"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = 428.0
+margin_right = -26.0
+margin_bottom = -14.0001
+custom_styles/panel = SubResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay2/Panel"]
+margin_left = 10.0
+margin_top = 9.42261
+margin_right = 1344.0
+margin_bottom = 759.423
+rect_scale = Vector2( 0.360142, 0.360142 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gameplay3" type="Control" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer"]
+margin_left = 2216.0
+margin_right = 2766.0
+margin_bottom = 730.0
+rect_min_size = Vector2( 550, 730 )
+
+[node name="Label" type="Label" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 17 )
+text = "Avoid this Obstacle it will Attract toward Them. If you get into it's field."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = 428.0
+margin_right = -26.0
+margin_bottom = -14.0001
+custom_styles/panel = SubResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay3/Panel"]
+margin_left = 10.0
+margin_top = 9.42261
+margin_right = 1344.0
+margin_bottom = 759.423
+rect_scale = Vector2( 0.360142, 0.360142 )
+texture = ExtResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gameplay4" type="Control" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer"]
+margin_left = 2770.0
+margin_right = 3320.0
+margin_bottom = 730.0
+rect_min_size = Vector2( 550, 730 )
+
+[node name="Label" type="Label" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 17 )
+text = "Avoid this Obstacle it will Boune Back  If player touch this Obstacle."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = 428.0
+margin_right = -26.0
+margin_bottom = -14.0001
+custom_styles/panel = SubResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay4/Panel"]
+margin_left = 10.0
+margin_top = 9.42261
+margin_right = 1344.0
+margin_bottom = 759.423
+rect_scale = Vector2( 0.360142, 0.360142 )
+texture = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gameplay5" type="Control" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer"]
+margin_left = 3324.0
+margin_right = 3874.0
+margin_bottom = 730.0
+rect_min_size = Vector2( 550, 730 )
+
+[node name="Label" type="Label" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 17 )
+text = "Collect all Orbs to Clear Level. You have to find Orbs in leves."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = 428.0
+margin_right = -26.0
+margin_bottom = -14.0001
+custom_styles/panel = SubResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay5/Panel"]
+margin_left = 10.0
+margin_top = 9.42261
+margin_right = 1344.0
+margin_bottom = 759.423
+rect_scale = Vector2( 0.360142, 0.360142 )
+texture = ExtResource( 25 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gameplay6" type="Control" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer"]
+margin_left = 3878.0
+margin_right = 4428.0
+margin_bottom = 730.0
+rect_min_size = Vector2( 550, 730 )
+
+[node name="Label" type="Label" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay6"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 17 )
+text = "Avoid this Spikes Obstacle, It will reduce your Health. and if your all health reduced then you die."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay6"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = 428.0
+margin_right = -26.0
+margin_bottom = -14.0001
+custom_styles/panel = SubResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay6/Panel"]
+margin_left = 10.0
+margin_top = 9.42261
+margin_right = 1344.0
+margin_bottom = 759.423
+rect_scale = Vector2( 0.360142, 0.360142 )
+texture = ExtResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gameplay7" type="Control" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer"]
+margin_left = 4432.0
+margin_right = 4982.0
+margin_bottom = 730.0
+rect_min_size = Vector2( 550, 730 )
+
+[node name="Label" type="Label" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay7"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 17 )
+text = "Once you Collect all Orbs then this gate will open and when you enter this tunnel, you Cleared that level"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay7"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = 428.0
+margin_right = -26.0
+margin_bottom = -14.0001
+custom_styles/panel = SubResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay7/Panel"]
+margin_left = 10.0
+margin_top = 9.42261
+margin_right = 1344.0
+margin_bottom = 759.423
+rect_scale = Vector2( 0.360142, 0.360142 )
+texture = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="backbuttonholder" type="Control" parent="how_to_play"]
-modulate = Color( 1, 1, 1, 0.784314 )
+modulate = Color( 1, 1, 1, 0 )
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -40.0
@@ -1078,6 +1652,23 @@ normal = ExtResource( 13 )
 pressed = ExtResource( 16 )
 action = "back"
 
+[node name="Play_Tutorial" type="Button" parent="how_to_play"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -460.181
+margin_top = -149.584
+margin_right = -132.181
+margin_bottom = -62.5836
+theme = ExtResource( 9 )
+custom_fonts/font = SubResource( 12 )
+text = "Play Tutorial"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Settings" type="Control" parent="."]
 visible = false
 anchor_right = 1.0
@@ -1093,7 +1684,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0, 0, 0, 0.0595596 )
+color = Color( 0, 0, 0, 0.327457 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1105,7 +1696,7 @@ anchor_top = 0.138889
 anchor_right = 0.84375
 anchor_bottom = 0.888888
 margin_top = 954.0
-margin_bottom = 954.005
+margin_bottom = 954.006
 
 [node name="backbuttonholder" type="Control" parent="Settings"]
 modulate = Color( 1, 1, 1, 0 )
@@ -1207,12 +1798,14 @@ Autoload = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Start_Up"
-anims/Customise = SubResource( 17 )
-anims/Start_Up = SubResource( 18 )
-anims/settings = SubResource( 19 )
+anims/Customise = SubResource( 19 )
+anims/Start_Up = SubResource( 20 )
+anims/how_to_play = SubResource( 21 )
+anims/settings = SubResource( 22 )
 [connection signal="scene_changed" from="." to="LoadingScreen" method="_on_Main_scene_changed"]
 [connection signal="pressed" from="Menu/Buttons_Lists/Play" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Menu/Buttons_Lists/Customise" to="." method="_on_Customise_pressed"]
+[connection signal="pressed" from="Menu/Buttons_Lists/How_to_play" to="." method="_on_How_to_play_pressed"]
 [connection signal="pressed" from="Menu/Buttons_Lists/Options" to="." method="_on_Options_pressed"]
 [connection signal="button_up" from="Menu/Buttons_Lists/Quit" to="." method="_on_Quit_button_up"]
 [connection signal="tab_changed" from="Customise/TabContainer" to="Character_Tile_Scene" method="_on_TabContainer_tab_changed"]
@@ -1224,6 +1817,7 @@ anims/settings = SubResource( 19 )
 [connection signal="pressed" from="Customise/TabContainer/Antenna/leftbuttonholder3/left_Customise_Button" to="Character_Tile_Scene" method="_on_left_Customise_Button_pressed"]
 [connection signal="pressed" from="Customise/Purchase/Buy_Button" to="Character_Tile_Scene" method="_on_Buy_Button_pressed"]
 [connection signal="pressed" from="Customise/no_enough_coins_popup/Panel/no_enough_coins_ok" to="Character_Tile_Scene" method="_on_no_enough_coins_ok_pressed"]
+[connection signal="pressed" from="how_to_play/Play_Tutorial" to="." method="_on_Play_Tutorial_pressed"]
 [connection signal="close_settings" from="Settings/Settings_Pannel" to="." method="_on_Settings_close_settings"]
 [connection signal="button_up" from="quit_popup/Panel/quit_ok" to="." method="_on_quit_ok_button_up"]
 [connection signal="pressed" from="quit_popup/Panel/quit_cancel" to="." method="_on_quit_cancel_pressed"]

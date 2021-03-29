@@ -22,13 +22,20 @@ var ad_loaded = false
 
 export(float) var Max_Time
 export(String) var Level_Number = 01
+export(bool) var Level_Indicater_Visibility = true
 
 func _ready():
 	if OS.get_name() == "Android":
 		admob.load_interstitial()
 		admob.load_banner()
 		admob.hide_banner()
-	$main_UI/level_indicate.text = "LEVEL " +  str(Level_Number)
+	if Level_Indicater_Visibility:
+		$main_UI/level_indicate.text = "LEVEL " +  str(Level_Number)
+	else:
+		$main_UI/AnimationPlayer.stop()
+		$main_UI/level_indicate.visible = false
+	
+	
 	PlayerData.orbs = 0
 	PlayerData.score = 0
 	PlayerData.health = 100 #reset helth on start

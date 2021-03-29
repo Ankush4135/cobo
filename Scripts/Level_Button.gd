@@ -5,7 +5,8 @@ signal Play_Level_Path(path)
 export(bool) var Disable = false
 export var focus = 0
 export(String) var Level = ""
-export(int, "Normal", "Dark", "Onetouch") var Level_Mode
+export(int, "Cyan", "Dark", "Fog") var Level_Theme
+export(int, "Normal", "Dark", "Fog") var Level_Mode
 export (Texture) var Star
 export (Texture) var Star_empty
 

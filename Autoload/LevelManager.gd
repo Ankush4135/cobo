@@ -6,6 +6,27 @@ var next_level = "" setget set_next_level
 var level_mode = 0
 var winned = false
 
+var Levels_Theme = {
+	1:{ #cyan
+		"ambient_color": Color("004c4c"),
+		"character_color": Color("ff7200"),
+		"character_mount_Color": Color("ffb300"),
+		"wall_albedo": Color("052d2d"),
+		"wall_emission": Color("00caca"),
+		"level_floor": Color("008e8e"),
+		"fog": false
+		},
+	2:{ #yellow
+		"ambient_color": Color("484c00"),
+		"character_color": Color("ff0095"),
+		"character_mount_Color": Color("f100ff"),
+		"wall_albedo": Color("2c2e05"),
+		"wall_emission": Color("b5ca00"),
+		"level_floor": Color("8a8e00"),
+		"fog": false
+		},
+	}
+
 var level_info = {}
 var default_level_info = {
 	0:{
@@ -14,7 +35,7 @@ var default_level_info = {
 		"stars unlocked": 0,
 		},
 	1:{
-		"disabled": false,
+		"disabled": true,
 		"high score": 0,
 		"stars unlocked": 0,
 		},

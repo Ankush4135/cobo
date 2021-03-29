@@ -796,6 +796,7 @@ passby_press = true
 action = "pause"
 
 [node name="level_indicate" type="Label" parent="main_UI"]
+visible = false
 modulate = Color( 1, 1, 1, 0 )
 material = SubResource( 5 )
 anchor_left = 0.5

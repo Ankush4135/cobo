@@ -8,6 +8,8 @@ onready var colorec = $Scene_trans/ColorRect
 
 
 export(String, FILE) var Change_Scene = ""
+export(String, FILE) var Tutorial_Level = ""
+
 
 func _ready():
 	PlayerData.total_score = PlayerData.player_info[1]["total score"]
@@ -15,7 +17,17 @@ func _ready():
 	$Menu/Buttons_Lists/Play.grab_focus()
 	$quit_popup.visible = false
 	Audio.BG.play()
-
+	if OS.get_name() == "Android":
+		$how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Android1.visible = true
+		$how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Android2.visible = true
+		$how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Computer1.visible = false
+		$how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Computer2.visible = false
+	else:
+		$how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Android1.visible = false
+		$how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Android2.visible = false
+		$how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Computer1.visible = true
+		$how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Computer2.visible = true
+		
 func _process(delta):
 	if Input.is_action_just_pressed("back"):
 		if $Settings.visible: # setting menue close and save settings
@@ -33,6 +45,10 @@ func _process(delta):
 			else:
 				$Customise/no_enough_coins_popup.visible = false
 				Audio.Select.play()
+		elif $how_to_play.visible == true:
+			Audio.Select.play()
+			$AnimationPlayer.play_backwards("how_to_play")
+			$Menu/Buttons_Lists/Play.grab_focus()
 		else:
 			_on_Quit_button_up()
 
@@ -71,3 +87,15 @@ func _on_Customise_pressed():
 	$AnimationPlayer.play("Customise")
 	$Character_Tile_Scene/AnimationPlayer.play("Customise")
 	
+
+func _on_How_to_play_pressed():
+	Audio.Select.play()
+	$how_to_play/Play_Tutorial.grab_focus()
+	$AnimationPlayer.play("how_to_play")
+
+
+func _on_Play_Tutorial_pressed():
+	emit_signal("scene_changed", Tutorial_Level)
+	Audio.Select.play()
+	loading_scene.visible = true
+
