@@ -199,7 +199,7 @@ func _last_selected_unlocked():
 			while PlayerData.player_info[2]["character " + str(selected_character) +" unlocked"] == false and selected_character < max_characters:
 				selected_character +=1
 			purchase.visible = true
-			purchase.get_child(0).text = str(PlayerData.player_info[2]["character " + str(character_select) + " prise"])
+			purchase.get_child(0).text = "Buy " + str(PlayerData.player_info[2]["character " + str(character_select) + " prise"])
 		else:
 			selected_character = character_select
 			purchase.visible = false
@@ -209,7 +209,7 @@ func _last_selected_unlocked():
 			while PlayerData.player_info[3]["ear mount " + str(selected_ear_mount) +" unlocked"] == false and selected_ear_mount < max_ear_mount:
 				selected_ear_mount +=1
 			purchase.visible = true
-			purchase.get_child(0).text = str(PlayerData.player_info[3]["ear mount " + str(ear_mount_select) + " prise"])
+			purchase.get_child(0).text = "Buy " + str(PlayerData.player_info[3]["ear mount " + str(ear_mount_select) + " prise"])
 		else:
 			selected_ear_mount = ear_mount_select
 			purchase.visible = false
@@ -219,7 +219,7 @@ func _last_selected_unlocked():
 			while PlayerData.player_info[4]["ear antina " + str(selected_antina_mount) +" unlocked"] == false and selected_antina_mount < max_antina_mount:
 				selected_character +=1
 			purchase.visible = true
-			purchase.get_child(0).text = str(PlayerData.player_info[4]["ear antina " + str(antina_mounts_select) + " prise"])
+			purchase.get_child(0).text = "Buy " + str(PlayerData.player_info[4]["ear antina " + str(antina_mounts_select) + " prise"])
 		else:
 			selected_antina_mount = antina_mounts_select
 			purchase.visible = false

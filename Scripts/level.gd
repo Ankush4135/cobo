@@ -114,8 +114,13 @@ func _on_next_scene_pressed():
 	queue_free()
 
 func _on_health_changed(): #chamera shake on every hit when the helth is decreased
+	timescale = 0.2
+	Audio.BG2.set_pitch_scale(0.8)
 	camerashake.shake(0.5, 20, 0.18)
 	playeranim.play("Collided")
+	yield(get_tree().create_timer(0.5), "timeout")
+	timescale = 1
+	Audio.BG2.set_pitch_scale(1)
 
 func _exit_tree():
 	Input.set_mouse_mode(0)
