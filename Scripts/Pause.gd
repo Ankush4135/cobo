@@ -12,8 +12,8 @@ onready var pausebg = $PauseBG
 onready var timer = $Resume_Counter_Text/Timer
 onready var resume_count = $Resume_Counter_Text
 onready var title = $pause_menu/ColorRect/Title
-onready var orb_prompt = $not_enough_orbs
-onready var hint_count_text = $not_enough_orbs/HBoxContainer/hint/TextureRect/Label
+onready var orb_prompt = $Control/not_enough_orbs
+onready var hint_count_text = $Control/not_enough_orbs/HBoxContainer/hint/TextureRect/Label
 
 var paused: = false setget set_paused
 

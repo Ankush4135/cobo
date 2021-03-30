@@ -98,11 +98,11 @@ func _on_Game_End_Triger_body_entered(body):
 		UI_anim.play("end_button_animation")
 		pause.paused = true
 
-	if LevelManager.level_info.has(int(Current_Level + 2)): # it unlocks next level
+	if LevelManager.level_info.has(int(Current_Level + 1)): # it unlocks next level
 		 #it set the stars on the current level button
-		if star_count > LevelManager.level_info[int(Current_Level + 1)]["stars unlocked"]:
-			LevelManager.level_info[int(Current_Level + 1)]["stars unlocked"] = star_count
-		LevelManager.level_info[int(Current_Level + 2)]["disabled"] = false
+		if star_count > LevelManager.level_info[int(Current_Level)]["stars unlocked"]:
+			LevelManager.level_info[int(Current_Level)]["stars unlocked"] = star_count
+		LevelManager.level_info[int(Current_Level + 1)]["disabled"] = false
 		LevelManager.save_data()
 	
 

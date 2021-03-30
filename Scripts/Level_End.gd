@@ -3,9 +3,9 @@ extends Spatial
 signal Entered_Tunnel(x)
 
 onready var anim = $AnimationPlayer
-onready var orb_prompt = get_node("../UserInterfaceLayer/UserInterface/Pause/not_enough_orbs")
+onready var orb_prompt = get_node("../UserInterfaceLayer/UserInterface/Pause/Control/not_enough_orbs")
 onready var pause = get_node("../UserInterfaceLayer/UserInterface/Pause")
-onready var find_button = get_node("../UserInterfaceLayer/UserInterface/Pause/not_enough_orbs/HBoxContainer/find")
+onready var find_button = get_node("../UserInterfaceLayer/UserInterface/Pause/Control/not_enough_orbs/HBoxContainer/find")
 onready var camera = get_node("../Shake_Camera/Camera_Pivot")
 onready var tween = get_node("../Shake_Camera/Camera_Pivot/Camera/Tween")
 

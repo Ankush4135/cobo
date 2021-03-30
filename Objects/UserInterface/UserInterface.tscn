@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Fonts/Gasalt-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/UserInterface.gd" type="Script" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Assets/UI/star_empty.png" type="Texture" id=15]
 [ext_resource path="res://Assets/UI/star.png" type="Texture" id=16]
 [ext_resource path="res://admob-lib/admob.gd" type="Script" id=17]
+[ext_resource path="res://Scripts/Resize_Based_On_Screen_rez.gd" type="Script" id=18]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -37,7 +38,7 @@ extents = Vector2( 200, 200 )
 blend_mode = 1
 
 [sub_resource type="DynamicFont" id=6]
-size = 120
+size = 150
 outline_size = 3
 font_data = ExtResource( 3 )
 
@@ -45,7 +46,7 @@ font_data = ExtResource( 3 )
 resource_name = "level_title"
 length = 2.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("level_indicate:modulate")
+tracks/0/path = NodePath("Control/level_indicate:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -57,7 +58,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0.999999 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("level_indicate:visible")
+tracks/1/path = NodePath("Control/level_indicate:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -82,6 +83,11 @@ font_data = ExtResource( 1 )
 [sub_resource type="DynamicFont" id=10]
 size = 200
 font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=23]
+bg_color = Color( 0.517647, 0.517647, 0.517647, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
 
 [sub_resource type="DynamicFont" id=11]
 size = 50
@@ -795,7 +801,17 @@ shape = SubResource( 4 )
 passby_press = true
 action = "pause"
 
-[node name="level_indicate" type="Label" parent="main_UI"]
+[node name="Control" type="Control" parent="main_UI"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="level_indicate" type="Label" parent="main_UI/Control"]
 visible = false
 modulate = Color( 1, 1, 1, 0 )
 material = SubResource( 5 )
@@ -803,10 +819,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -211.5
-margin_top = -198.823
-margin_right = 211.5
-margin_bottom = -78.8234
+margin_left = -265.5
+margin_top = -235.0
+margin_right = 265.5
+margin_bottom = -85.0
 custom_fonts/font = SubResource( 6 )
 text = "LEVEL 01"
 align = 1
@@ -988,28 +1004,40 @@ __meta__ = {
 wait_time = 3.0
 one_shot = true
 
-[node name="not_enough_orbs" type="Popup" parent="Pause"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 250.0
-margin_top = 255.0
-margin_right = -255.0
-margin_bottom = -335.0
+[node name="Control" type="Control" parent="Pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="not_enough_orbs" type="Popup" parent="Pause/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -346.5
+margin_top = -48.5
+margin_right = 346.5
+margin_bottom = 48.5
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BG" type="ColorRect" parent="Pause/not_enough_orbs"]
+[node name="Panel" type="Panel" parent="Pause/Control/not_enough_orbs"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.517647, 0.517647, 0.517647, 1 )
+custom_styles/panel = SubResource( 23 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Pause/not_enough_orbs"]
+[node name="Label" type="Label" parent="Pause/Control/not_enough_orbs"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 11 )
@@ -1021,7 +1049,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Pause/not_enough_orbs"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Pause/Control/not_enough_orbs"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1031,8 +1059,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="find" type="Button" parent="Pause/not_enough_orbs/HBoxContainer"]
-margin_right = 350.0
+[node name="find" type="Button" parent="Pause/Control/not_enough_orbs/HBoxContainer"]
+margin_right = 170.0
 margin_bottom = 63.0
 size_flags_horizontal = 3
 theme = ExtResource( 12 )
@@ -1042,21 +1070,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" type="Control" parent="Pause/not_enough_orbs/HBoxContainer"]
-margin_left = 354.0
-margin_right = 704.0
+[node name="Control" type="Control" parent="Pause/Control/not_enough_orbs/HBoxContainer"]
+margin_left = 174.0
+margin_right = 344.0
 margin_bottom = 63.0
 size_flags_horizontal = 3
 
-[node name="Control2" type="Control" parent="Pause/not_enough_orbs/HBoxContainer"]
-margin_left = 708.0
-margin_right = 1058.0
+[node name="Control2" type="Control" parent="Pause/Control/not_enough_orbs/HBoxContainer"]
+margin_left = 348.0
+margin_right = 518.0
 margin_bottom = 63.0
 size_flags_horizontal = 3
 
-[node name="hint" type="Button" parent="Pause/not_enough_orbs/HBoxContainer"]
-margin_left = 1062.0
-margin_right = 1415.0
+[node name="hint" type="Button" parent="Pause/Control/not_enough_orbs/HBoxContainer"]
+margin_left = 522.0
+margin_right = 693.0
 margin_bottom = 63.0
 size_flags_horizontal = 3
 theme = ExtResource( 12 )
@@ -1066,7 +1094,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="Pause/not_enough_orbs/HBoxContainer/hint"]
+[node name="TextureRect" type="TextureRect" parent="Pause/Control/not_enough_orbs/HBoxContainer/hint"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -1083,7 +1111,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Pause/not_enough_orbs/HBoxContainer/hint/TextureRect"]
+[node name="Label" type="Label" parent="Pause/Control/not_enough_orbs/HBoxContainer/hint/TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 3.0
@@ -1384,8 +1412,8 @@ rewarded_id = "ca-app-pub-5812806136228402/2291854712"
 [connection signal="pressed" from="Pause/pause_menu/ColorRect/HBoxContainer/Home" to="Pause" method="_on_Home_pressed"]
 [connection signal="pressed" from="Pause/pause_menu/ColorRect/HBoxContainer/Play" to="Pause" method="_on_Play_pressed"]
 [connection signal="pressed" from="Pause/pause_menu/ColorRect/HBoxContainer/Next" to="Pause" method="_on_Play_pressed"]
-[connection signal="pressed" from="Pause/not_enough_orbs/HBoxContainer/find" to="Pause" method="_on_find_pressed"]
-[connection signal="pressed" from="Pause/not_enough_orbs/HBoxContainer/hint" to="Pause" method="_on_hint_pressed"]
+[connection signal="pressed" from="Pause/Control/not_enough_orbs/HBoxContainer/find" to="Pause" method="_on_find_pressed"]
+[connection signal="pressed" from="Pause/Control/not_enough_orbs/HBoxContainer/hint" to="Pause" method="_on_hint_pressed"]
 [connection signal="button_up" from="Pause/End_score/ColorRect2/button_HBoxContainer/Restart" to="Pause" method="_on_Restart_button_up"]
 [connection signal="pressed" from="Pause/End_score/ColorRect2/button_HBoxContainer/Home" to="Pause" method="_on_Home_pressed"]
 [connection signal="pressed" from="Pause/End_score/ColorRect2/button_HBoxContainer/Next" to="Pause" method="_on_Next_pressed"]

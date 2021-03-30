@@ -30,7 +30,7 @@ func _ready():
 		admob.load_banner()
 		admob.hide_banner()
 	if Level_Indicater_Visibility:
-		$main_UI/level_indicate.text = "LEVEL " +  str(Level_Number)
+		$main_UI/Control/level_indicate.text = "LEVEL " +  str(Level_Number)
 	else:
 		$main_UI/AnimationPlayer.stop()
 		$main_UI/level_indicate.visible = false
