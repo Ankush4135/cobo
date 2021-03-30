@@ -7,7 +7,7 @@ onready var touchbutton = $For_Activate_Buttons/Android_Controls_Selection/Touch
 onready var Touch_Controls = get_node("../TouchcontolsLayer/Touch_Contols")
 onready var Touch_Buttons = get_node("../TouchcontolsLayer/Touch_Buttons")
 onready var Android_Controls = $For_Activate_Buttons/Android_Controls_Selection
-onready var Level_Indicater = get_node("../UserInterfaceLayer/UserInterface/main_UI/level_indicate")
+onready var Level_Indicater = get_node("../UserInterfaceLayer/UserInterface/main_UI/Control/level_indicate")
 var timescale = 1
 
 func _ready():
@@ -17,13 +17,6 @@ func _ready():
 		yield(get_tree().create_timer(1), "timeout")
 		Input.set_mouse_mode(0)
 		pause.paused = true
-#		$Controls_Info/Controls_Info/Computer_Controls.visible = false
-#		if ConfigManager.control_mode == 0:
-#			$Controls_Info/Controls_Info/Android_Touch_Buttons.visible = true
-#			$Controls_Info/Controls_Info/Android_Full_Touch.visible = false
-#		else:
-#			$Controls_Info/Controls_Info/Android_Touch_Buttons.visible = false
-#			$Controls_Info/Controls_Info/Android_Touch_Buttons.visible = true
 	else:
 		Android_Controls.visible = false
 		$Controls_Info/Controls_Info/Computer_Controls.visible = true

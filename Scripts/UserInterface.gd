@@ -33,7 +33,7 @@ func _ready():
 		$main_UI/Control/level_indicate.text = "LEVEL " +  str(Level_Number)
 	else:
 		$main_UI/AnimationPlayer.stop()
-		$main_UI/level_indicate.visible = false
+		$main_UI/Control/level_indicate.visible = false
 	
 	
 	PlayerData.orbs = 0

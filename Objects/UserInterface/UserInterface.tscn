@@ -84,35 +84,35 @@ font_data = ExtResource( 1 )
 size = 200
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=23]
+[sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 0.517647, 0.517647, 0.517647, 1 )
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=12]
 size = 50
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=13]
 size = 50
 extra_spacing_top = 12
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=14]
 size = 40
 extra_spacing_top = 7
 font_data = ExtResource( 1 )
 
-[sub_resource type="Curve" id=14]
+[sub_resource type="Curve" id=15]
 _data = [ Vector2( 0, 0.263636 ), 0.0, 0.673171, 0, 0, Vector2( 1, 0.939436 ), 0.043125, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=15]
+[sub_resource type="Gradient" id=16]
 offsets = PoolRealArray( 0.634783, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=17]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("pause_menu:rect_position")
@@ -186,7 +186,7 @@ tracks/5/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=18]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("../main_UI:rect_position")
@@ -235,7 +235,7 @@ tracks/3/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=19]
 length = 0.1
 tracks/0/type = "method"
 tracks/0/path = NodePath("End_score/ColorRect2/button_HBoxContainer/Next")
@@ -276,7 +276,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=20]
 tracks/0/type = "value"
 tracks/0/path = NodePath("End_score:visible")
 tracks/0/interp = 1
@@ -386,7 +386,7 @@ tracks/8/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.203922 ) ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=21]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("../main_UI:rect_position")
@@ -435,7 +435,7 @@ tracks/3/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=22]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("End_score:visible")
@@ -570,7 +570,7 @@ tracks/10/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=23]
 tracks/0/type = "value"
 tracks/0/path = NodePath("End_score:visible")
 tracks/0/interp = 1
@@ -1032,7 +1032,7 @@ __meta__ = {
 [node name="Panel" type="Panel" parent="Pause/Control/not_enough_orbs"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 23 )
+custom_styles/panel = SubResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1040,7 +1040,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="Pause/Control/not_enough_orbs"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 text = "You don't have enough Orbs"
 align = 1
 valign = 1
@@ -1064,7 +1064,7 @@ margin_right = 170.0
 margin_bottom = 63.0
 size_flags_horizontal = 3
 theme = ExtResource( 12 )
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
 text = "Find"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1088,7 +1088,7 @@ margin_right = 693.0
 margin_bottom = 63.0
 size_flags_horizontal = 3
 theme = ExtResource( 12 )
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
 text = "Hint"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1115,7 +1115,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 3.0
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
 text = "00"
 align = 1
 valign = 1
@@ -1196,8 +1196,8 @@ tangential_accel = 41.38
 tangential_accel_random = 1.0
 angle = 24.8
 scale_amount = 0.05
-scale_amount_curve = SubResource( 14 )
-color_ramp = SubResource( 15 )
+scale_amount_curve = SubResource( 15 )
+color_ramp = SubResource( 16 )
 hue_variation = 0.09
 hue_variation_random = 0.64
 
@@ -1243,8 +1243,8 @@ tangential_accel = 41.38
 tangential_accel_random = 1.0
 angle = 24.8
 scale_amount = 0.05
-scale_amount_curve = SubResource( 14 )
-color_ramp = SubResource( 15 )
+scale_amount_curve = SubResource( 15 )
+color_ramp = SubResource( 16 )
 hue_variation = 0.09
 hue_variation_random = 0.64
 
@@ -1291,8 +1291,8 @@ tangential_accel = 41.38
 tangential_accel_random = 1.0
 angle = 24.8
 scale_amount = 0.05
-scale_amount_curve = SubResource( 14 )
-color_ramp = SubResource( 15 )
+scale_amount_curve = SubResource( 15 )
+color_ramp = SubResource( 16 )
 hue_variation = 0.09
 hue_variation_random = 0.64
 
@@ -1385,13 +1385,13 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pause"]
 autoplay = "Default"
-anims/Default = SubResource( 16 )
-anims/Pause_in = SubResource( 17 )
-anims/end_button_animation = SubResource( 18 )
-anims/one_Star = SubResource( 19 )
-anims/pause_out = SubResource( 20 )
-anims/three_Star = SubResource( 21 )
-anims/two_Star = SubResource( 22 )
+anims/Default = SubResource( 17 )
+anims/Pause_in = SubResource( 18 )
+anims/end_button_animation = SubResource( 19 )
+anims/one_Star = SubResource( 20 )
+anims/pause_out = SubResource( 21 )
+anims/three_Star = SubResource( 22 )
+anims/two_Star = SubResource( 23 )
 
 [node name="AdMob" type="Node" parent="."]
 script = ExtResource( 17 )
