@@ -1367,6 +1367,7 @@ anims/two_Star = SubResource( 22 )
 
 [node name="AdMob" type="Node" parent="."]
 script = ExtResource( 17 )
+is_real = true
 banner_on_top = false
 banner_id = "ca-app-pub-5812806136228402/9330686880"
 interstitial_id = "ca-app-pub-5812806136228402/8798234225"

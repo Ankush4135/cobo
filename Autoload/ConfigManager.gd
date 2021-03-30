@@ -5,7 +5,7 @@ onready var path = "user://config.cfg"
 var sfx_volume = 0
 var music_volume = 0
 var ToggleFps = false
-var ToggleFullScreen = false
+var ToggleFullScreen = true
 var control_mode = 0
 
 func _ready():
