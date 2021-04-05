@@ -16,6 +16,8 @@ onready var orb_prompt = $Control/not_enough_orbs
 onready var hint_count_text = $Control/not_enough_orbs/HBoxContainer/hint/TextureRect/Label
 
 var paused: = false setget set_paused
+var health_reduced_ui_pause = false
+var timescale = 1
 
 func _ready():
 	PlayerData.connect("player_died", self, "_player_died")
@@ -25,7 +27,9 @@ func _unhandled_input(event):
 	if LevelManager.winned:
 		return
 	if event.is_action_pressed("pause"):
-		if paused == false:
+		if paused == false and PlayerData.Die == false:
+			if health_reduced_ui_pause == true:
+				Engine.time_scale = timescale
 			$pause_menu/ColorRect/HBoxContainer/Play.grab_focus()
 			animation.play("Pause_in")
 			self.paused = !self.paused
@@ -105,3 +109,9 @@ func _on_Next_pressed():
 	self.paused = !self.paused
 	emit_signal("goto_next_level")
 	Input.set_mouse_mode(1)
+
+
+func _on_health_value_changed(value):
+	health_reduced_ui_pause = true
+	yield(get_tree().create_timer(0.5), "timeout")
+	health_reduced_ui_pause = false

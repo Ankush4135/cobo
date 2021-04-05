@@ -1401,6 +1401,7 @@ banner_id = "ca-app-pub-5812806136228402/9330686880"
 interstitial_id = "ca-app-pub-5812806136228402/8798234225"
 rewarded_id = "ca-app-pub-5812806136228402/2291854712"
 [connection signal="value_changed" from="main_UI/health" to="." method="_on_health_value_changed"]
+[connection signal="value_changed" from="main_UI/health" to="Pause" method="_on_health_value_changed"]
 [connection signal="timeout" from="main_UI/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="main_UI/TouchScreenButton" to="." method="_on_Pause_pressed"]
 [connection signal="goto_next_level" from="Pause" to="." method="_on_Pause_goto_next_level"]

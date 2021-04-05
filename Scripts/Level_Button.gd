@@ -17,7 +17,6 @@ var timeouted = false
 var star_value
 
 func _ready():
-	print(Level)
 	if LevelManager.level_info.has(int(Level)):
 		Disable = LevelManager.level_info[int(Level)]["disabled"]
 		
