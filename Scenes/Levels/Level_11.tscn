@@ -138,6 +138,7 @@ material/0 = ExtResource( 2 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Character_Tile_Scene"]
 transform = Transform( 0.897766, -7.72197e-08, 0.440472, -0.295281, 0.742023, 0.60184, -0.32684, -0.670375, 0.666163, 0, 7.81383, 8.00698 )
+light_specular = 0.0
 shadow_enabled = true
 shadow_bias = -0.2
 shadow_reverse_cull_face = true
@@ -297,4 +298,5 @@ texture = ExtResource( 11 )
 visible = false
 Play_Scene = "res://Scenes/Main.tscn"
 Autoload = false
+
 [connection signal="pressed" from="End_Screen_Main_Menu" to="LoadingScreen" method="_on_End_Screen_Main_Menu_pressed"]

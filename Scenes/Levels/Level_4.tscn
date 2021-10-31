@@ -329,6 +329,7 @@ environment = ExtResource( 20 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( -0.973916, -0.0952142, 0.205968, 0.225666, -0.50138, 0.83528, 0.0237378, 0.859972, 0.509789, -41.2129, 20.404, 13.2258 )
+light_specular = 0.0
 shadow_enabled = true
 shadow_bias = -0.1
 shadow_reverse_cull_face = true
@@ -338,6 +339,7 @@ directional_shadow_depth_range = 1
 [node name="DirectionalLight2" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.587785, -0.809017, 0, 0.809017, 0.587785, -41.2129, 20.404, 13.2258 )
 light_energy = 0.2
+light_specular = 0.0
 
 [node name="UserInterfaceLayer" type="CanvasLayer" parent="."]
 layer = 50
@@ -1272,6 +1274,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -178.945, 168.713, 0 )
 
 [node name="Orb2" parent="Orbs" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 123.055, 143.713, 0 )
+
 [connection signal="Entered_Tunnel" from="Level_End" to="Ball" method="_on_Level_End_Entered_Tunnel"]
 [connection signal="body_entered" from="Level_End/Game_End_Triger" to="." method="_on_Game_End_Triger_body_entered"]
 [connection signal="health_changed" from="UserInterfaceLayer/UserInterface" to="." method="_on_health_changed"]

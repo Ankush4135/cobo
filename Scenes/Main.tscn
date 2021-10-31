@@ -1802,6 +1802,7 @@ anims/Customise = SubResource( 19 )
 anims/Start_Up = SubResource( 20 )
 anims/how_to_play = SubResource( 21 )
 anims/settings = SubResource( 22 )
+
 [connection signal="scene_changed" from="." to="LoadingScreen" method="_on_Main_scene_changed"]
 [connection signal="pressed" from="Menu/Buttons_Lists/Play" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Menu/Buttons_Lists/Customise" to="." method="_on_Customise_pressed"]

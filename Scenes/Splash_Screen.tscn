@@ -124,4 +124,5 @@ autostart = true
 visible = false
 Play_Scene = "res://Scenes/Main.tscn"
 Autoload = false
+
 [connection signal="timeout" from="Splash_Time" to="LoadingScreen" method="_on_Splash_Time_timeout"]
