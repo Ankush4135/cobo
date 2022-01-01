@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Energy01.obj-ff2821c0f5a3474a3775df59d27f75f4.mesh"
+
+[deps]
+
+files=[ "res://.import/Energy01.obj-ff2821c0f5a3474a3775df59d27f75f4.mesh" ]
+
+source_file="res://Assets/Tiles/Energy01.obj"
+dest_files=[ "res://.import/Energy01.obj-ff2821c0f5a3474a3775df59d27f75f4.mesh", "res://.import/Energy01.obj-ff2821c0f5a3474a3775df59d27f75f4.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

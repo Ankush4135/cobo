@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/CubeShatter03.obj-50e193a613f2a905e45cab3ee71b3223.mesh"
+
+[deps]
+
+files=[ "res://.import/CubeShatter03.obj-50e193a613f2a905e45cab3ee71b3223.mesh" ]
+
+source_file="res://Assets/Tiles/CubeShatter03.obj"
+dest_files=[ "res://.import/CubeShatter03.obj-50e193a613f2a905e45cab3ee71b3223.mesh", "res://.import/CubeShatter03.obj-50e193a613f2a905e45cab3ee71b3223.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

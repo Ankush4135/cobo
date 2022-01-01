@@ -1,0 +1,250 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://Assets/Sets/End_Tunnel.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Assets/Sets/End_Base.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://Assets/Material/Level.material" type="Material" id=3]
+[ext_resource path="res://Assets/Textures/perlin_noise.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Level_End.gd" type="Script" id=5]
+
+[sub_resource type="ConcavePolygonShape" id=1]
+data = PoolVector3Array( 4.9604, 3, -1, 4.0541, 2.8457, -1, 34, 3, -1, 34, 3, -1, 4.0541, 2.8457, -1, 34, -1, -1, 34, -1, -1, 4.0541, 2.8457, -1, -1, -1, -1, -1, -1, -1, 4.0541, 2.8457, -1, 3.2501, 2.4001, -1, 3.2501, 2.4001, 1, 4.0541, 2.8457, 1, -1, -1, 1, -1, -1, 1, 4.0541, 2.8457, 1, 34, -1, 1, 34, -1, 1, 4.0541, 2.8457, 1, 34, 3, 1, 34, 3, 1, 4.0541, 2.8457, 1, 4.9604, 3, 1, 4.0541, 2.8457, -1, 4.0541, 2.8457, 1, 3.2501, 2.4001, -1, 3.2501, 2.4001, -1, 4.0541, 2.8457, 1, 3.2501, 2.4001, 1, 3.2501, 2.4001, -1, 3.2501, 2.4001, 1, -1, -1, -1, -1, -1, -1, 3.2501, 2.4001, 1, -1, -1, 1, 34, -1, -1, 34, -1, 1, 34, 3, -1, 34, 3, -1, 34, -1, 1, 34, 3, 1, 34, 3, -1, 34, 3, 1, 4.9604, 3, -1, 4.9604, 3, -1, 34, 3, 1, 4.9604, 3, 1, 4.9604, 3, -1, 4.9604, 3, 1, 4.0541, 2.8457, -1, 4.0541, 2.8457, -1, 4.9604, 3, 1, 4.0541, 2.8457, 1 )
+
+[sub_resource type="ConcavePolygonShape" id=2]
+data = PoolVector3Array( 4.9604, 3, -1, 4.0541, 2.8457, -1, 34, 3, -1, 34, 3, -1, 4.0541, 2.8457, -1, 34, -1, -1, 34, -1, -1, 4.0541, 2.8457, -1, -1, -1, -1, -1, -1, -1, 4.0541, 2.8457, -1, 3.2501, 2.4001, -1, 3.2501, 2.4001, 1, 4.0541, 2.8457, 1, -1, -1, 1, -1, -1, 1, 4.0541, 2.8457, 1, 34, -1, 1, 34, -1, 1, 4.0541, 2.8457, 1, 34, 3, 1, 34, 3, 1, 4.0541, 2.8457, 1, 4.9604, 3, 1, 4.0541, 2.8457, -1, 4.0541, 2.8457, 1, 3.2501, 2.4001, -1, 3.2501, 2.4001, -1, 4.0541, 2.8457, 1, 3.2501, 2.4001, 1, 3.2501, 2.4001, -1, 3.2501, 2.4001, 1, -1, -1, -1, -1, -1, -1, 3.2501, 2.4001, 1, -1, -1, 1, 34, -1, -1, 34, -1, 1, 34, 3, -1, 34, 3, -1, 34, -1, 1, 34, 3, 1, 34, 3, -1, 34, 3, 1, 4.9604, 3, -1, 4.9604, 3, -1, 34, 3, 1, 4.9604, 3, 1, 4.9604, 3, -1, 4.9604, 3, 1, 4.0541, 2.8457, -1, 4.0541, 2.8457, -1, 4.9604, 3, 1, 4.0541, 2.8457, 1 )
+
+[sub_resource type="VisualShaderNodeVectorCompose" id=3]
+
+[sub_resource type="VisualShaderNodeScalarOp" id=4]
+output_port_for_preview = 0
+
+[sub_resource type="VisualShaderNodeScalarOp" id=5]
+operator = 2
+
+[sub_resource type="VisualShaderNodeScalarUniform" id=6]
+uniform_name = "UV_Strech"
+
+[sub_resource type="VisualShaderNodeInput" id=7]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeInput" id=8]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeScalarOp" id=9]
+output_port_for_preview = 0
+default_input_values = [ 0, 0.0, 1, -0.5 ]
+operator = 2
+
+[sub_resource type="VisualShaderNodeColorConstant" id=10]
+
+[sub_resource type="VisualShaderNodeTextureUniform" id=11]
+output_port_for_preview = 0
+uniform_name = "Noise"
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id=12]
+
+[sub_resource type="VisualShader" id=13]
+code = "shader_type spatial;
+render_mode blend_add;
+
+uniform float UV_Strech;
+uniform sampler2D Noise;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Color:6
+	vec3 n_out6p0 = vec3(1.000000, 1.000000, 1.000000);
+	float n_out6p1 = 1.000000;
+
+// ScalarUniform:13
+	float n_out13p0 = UV_Strech;
+
+// Input:2
+	vec3 n_out2p0 = vec3(UV, 0.0);
+
+// VectorDecompose:9
+	float n_out9p0 = n_out2p0.x;
+	float n_out9p1 = n_out2p0.y;
+	float n_out9p2 = n_out2p0.z;
+
+// ScalarOp:12
+	float n_out12p0 = n_out13p0 * n_out9p0;
+
+// Input:4
+	float n_out4p0 = TIME;
+
+// ScalarOp:5
+	float n_in5p1 = -0.50000;
+	float n_out5p0 = n_out4p0 * n_in5p1;
+
+// ScalarOp:11
+	float n_out11p0 = n_out12p0 + n_out5p0;
+
+// VectorCompose:10
+	vec3 n_out10p0 = vec3(n_out11p0, n_out9p1, n_out9p2);
+
+// TextureUniform:8
+	vec3 n_out8p0;
+	float n_out8p1;
+	{
+		vec4 n_tex_read = texture(Noise, n_out10p0.xy);
+		n_out8p0 = n_tex_read.rgb;
+		n_out8p1 = n_tex_read.a;
+	}
+
+// Output:0
+	ALBEDO = n_out6p0;
+	ALPHA = dot(n_out8p0, vec3(0.333333, 0.333333, 0.333333));
+	EMISSION = n_out8p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( -1589, 365 )
+modes/blend = 1
+nodes/fragment/2/node = SubResource( 7 )
+nodes/fragment/2/position = Vector2( -1380, 500 )
+nodes/fragment/4/node = SubResource( 8 )
+nodes/fragment/4/position = Vector2( -1100, 680 )
+nodes/fragment/5/node = SubResource( 9 )
+nodes/fragment/5/position = Vector2( -820, 660 )
+nodes/fragment/6/node = SubResource( 10 )
+nodes/fragment/6/position = Vector2( 120, 80 )
+nodes/fragment/8/node = SubResource( 11 )
+nodes/fragment/8/position = Vector2( -180, 440 )
+nodes/fragment/9/node = SubResource( 12 )
+nodes/fragment/9/position = Vector2( -1180, 500 )
+nodes/fragment/10/node = SubResource( 3 )
+nodes/fragment/10/position = Vector2( -400, 520 )
+nodes/fragment/11/node = SubResource( 4 )
+nodes/fragment/11/position = Vector2( -600, 660 )
+nodes/fragment/12/node = SubResource( 5 )
+nodes/fragment/12/position = Vector2( -880, 440 )
+nodes/fragment/13/node = SubResource( 6 )
+nodes/fragment/13/position = Vector2( -1080, 400 )
+nodes/fragment/connections = PoolIntArray( 4, 0, 5, 0, 6, 0, 0, 0, 2, 0, 9, 0, 10, 0, 8, 0, 9, 1, 10, 1, 9, 2, 10, 2, 5, 0, 11, 1, 11, 0, 10, 0, 9, 0, 12, 1, 13, 0, 12, 0, 12, 0, 11, 0, 8, 0, 0, 1, 8, 0, 0, 5 )
+
+[sub_resource type="ShaderMaterial" id=14]
+shader = SubResource( 13 )
+shader_param/UV_Strech = 0.5
+shader_param/Noise = ExtResource( 4 )
+
+[sub_resource type="CubeMesh" id=15]
+size = Vector3( 0.5, 1.85, 1.6 )
+
+[sub_resource type="ConcavePolygonShape" id=16]
+data = PoolVector3Array( -0.25, 0.925, 0.8, 0.25, 0.925, 0.8, -0.25, -0.925, 0.8, 0.25, 0.925, 0.8, 0.25, -0.925, 0.8, -0.25, -0.925, 0.8, 0.25, 0.925, -0.8, -0.25, 0.925, -0.8, 0.25, -0.925, -0.8, -0.25, 0.925, -0.8, -0.25, -0.925, -0.8, 0.25, -0.925, -0.8, 0.25, 0.925, 0.8, 0.25, 0.925, -0.8, 0.25, -0.925, 0.8, 0.25, 0.925, -0.8, 0.25, -0.925, -0.8, 0.25, -0.925, 0.8, -0.25, 0.925, -0.8, -0.25, 0.925, 0.8, -0.25, -0.925, -0.8, -0.25, 0.925, 0.8, -0.25, -0.925, 0.8, -0.25, -0.925, -0.8, 0.25, 0.925, 0.8, -0.25, 0.925, 0.8, 0.25, 0.925, -0.8, -0.25, 0.925, 0.8, -0.25, 0.925, -0.8, 0.25, 0.925, -0.8, -0.25, -0.925, 0.8, 0.25, -0.925, 0.8, -0.25, -0.925, -0.8, 0.25, -0.925, 0.8, 0.25, -0.925, -0.8, -0.25, -0.925, -0.8 )
+
+[sub_resource type="Animation" id=17]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/path = NodePath("gate:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 3.80847, 3.5, 0 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "opengate"
+tracks/0/type = "value"
+tracks/0/path = NodePath("gate:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.196146, 1 ),
+"update": 0,
+"values": [ Vector3( 3.80847, 3.5, 0 ), Vector3( 3.808, 5.4, 0 ) ]
+}
+
+[sub_resource type="BoxShape" id=19]
+extents = Vector3( 0.821606, 2.2694, 1 )
+
+[sub_resource type="BoxShape" id=20]
+extents = Vector3( 0.327978, 0.403067, 1 )
+
+[node name="Level_End" type="Spatial"]
+pause_mode = 2
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+script = ExtResource( 5 )
+
+[node name="base_bottom" type="MeshInstance" parent="."]
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 3 )
+
+[node name="StaticBody" type="StaticBody" parent="base_bottom"]
+
+[node name="CollisionShape" type="CollisionShape" parent="base_bottom/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="base_top" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 7, 0 )
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 3 )
+
+[node name="StaticBody" type="StaticBody" parent="base_top"]
+
+[node name="CollisionShape" type="CollisionShape" parent="base_top/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="Tunnel" type="MeshInstance" parent="."]
+pause_mode = 2
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 14 )
+
+[node name="Tunnel2" type="MeshInstance" parent="."]
+pause_mode = 2
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 3, 0 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 14 )
+
+[node name="camera_target" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.80847, 3.5, 0 )
+
+[node name="gate" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.80847, 3.5, 0 )
+mesh = SubResource( 15 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="gate"]
+
+[node name="CollisionShape" type="CollisionShape" parent="gate/StaticBody"]
+shape = SubResource( 16 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+anims/default = SubResource( 17 )
+anims/opengate = SubResource( 18 )
+
+[node name="orb_checker" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.07778, 3.5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="orb_checker"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0514812, 0, 0 )
+shape = SubResource( 19 )
+
+[node name="Entered_Tunnel" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50754, 3.5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Entered_Tunnel"]
+shape = SubResource( 20 )
+[connection signal="body_entered" from="orb_checker" to="." method="_on_orb_checker_body_entered"]
+[connection signal="body_entered" from="Entered_Tunnel" to="." method="_on_Entered_Tunnel_body_entered"]

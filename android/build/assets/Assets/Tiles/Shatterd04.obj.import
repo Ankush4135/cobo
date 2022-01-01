@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Shatterd04.obj-6c6705aa93d3c21329f34d3f02878c8f.mesh"
+
+[deps]
+
+files=[ "res://.import/Shatterd04.obj-6c6705aa93d3c21329f34d3f02878c8f.mesh" ]
+
+source_file="res://Assets/Tiles/Shatterd04.obj"
+dest_files=[ "res://.import/Shatterd04.obj-6c6705aa93d3c21329f34d3f02878c8f.mesh", "res://.import/Shatterd04.obj-6c6705aa93d3c21329f34d3f02878c8f.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

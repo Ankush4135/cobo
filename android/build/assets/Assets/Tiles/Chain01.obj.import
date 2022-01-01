@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Chain01.obj-c1ae159875bfce4129a759344f7a76a9.mesh"
+
+[deps]
+
+files=[ "res://.import/Chain01.obj-c1ae159875bfce4129a759344f7a76a9.mesh" ]
+
+source_file="res://Assets/Tiles/Chain01.obj"
+dest_files=[ "res://.import/Chain01.obj-c1ae159875bfce4129a759344f7a76a9.mesh", "res://.import/Chain01.obj-c1ae159875bfce4129a759344f7a76a9.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

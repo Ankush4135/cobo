@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Character_Ear_Antina03.obj-0d642ba72398f1f2849c08b57773ca5c.mesh"
+
+[deps]
+
+files=[ "res://.import/Character_Ear_Antina03.obj-0d642ba72398f1f2849c08b57773ca5c.mesh" ]
+
+source_file="res://Assets/Objects/Character_Ear_Antina03.obj"
+dest_files=[ "res://.import/Character_Ear_Antina03.obj-0d642ba72398f1f2849c08b57773ca5c.mesh", "res://.import/Character_Ear_Antina03.obj-0d642ba72398f1f2849c08b57773ca5c.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

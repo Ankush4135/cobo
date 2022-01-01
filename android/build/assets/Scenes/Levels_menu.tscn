@@ -1,0 +1,277 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Objects/UserInterface/Base_UI.theme" type="Theme" id=2]
+[ext_resource path="res://Assets/Material/vignette.shader" type="Shader" id=3]
+[ext_resource path="res://Scripts/Level_Menu_touch_scroll_Button.gd" type="Script" id=4]
+[ext_resource path="res://Assets/UI/Blueprint_Texture.jpg" type="Texture" id=5]
+[ext_resource path="res://Scripts/Levels_menu.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Buttons/play-button.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/LoadingScreen.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Scene_trans.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Objects/UserInterface/Level_Button.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Buttons/cart-button.png" type="Texture" id=11]
+[ext_resource path="res://Fonts/Gasalt-Regular.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://Assets/Buttons/arrow-button.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Buttons/Play_button_pressed.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Buttons/arrow_button_pressed.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Buttons/cart_button_pressed.png" type="Texture" id=16]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 3 )
+shader_param/radius = 0.855
+shader_param/softness = 0.601
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 80
+font_data = ExtResource( 12 )
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 3
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.796078, 0.796078, 0.796078, 0 )
+border_width_left = 20
+border_width_right = 20
+border_color = Color( 1, 1, 1, 1 )
+border_blend = true
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="Levels_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scene_trans" parent="." instance=ExtResource( 9 )]
+Fadein = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 0.560784, 0.560784, 0.560784, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 7
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coinstext" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -162.993
+margin_top = 22.0
+margin_right = -40.9927
+margin_bottom = 73.0
+custom_fonts/font = SubResource( 2 )
+text = ":Coins"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="total_coinscount" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -354.829
+margin_top = 16.0
+margin_right = -165.829
+margin_bottom = 97.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Set" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 295.0
+margin_top = 141.0
+margin_right = -295.0
+margin_bottom = -197.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Set"]
+material = SubResource( 4 )
+margin_right = 1330.0
+margin_bottom = 742.0
+theme = ExtResource( 2 )
+custom_styles/bg = SubResource( 5 )
+follow_focus = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Set/ScrollContainer"]
+margin_left = 20.0
+margin_right = 2993.0
+margin_bottom = 742.0
+size_flags_vertical = 3
+
+[node name="Button_0" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+Level = "0"
+
+[node name="Button_1" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_left = 229.0
+margin_right = 454.0
+Level = "1"
+
+[node name="Button_2" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_left = 458.0
+margin_right = 683.0
+Level = "2"
+
+[node name="Button_3" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_left = 687.0
+margin_right = 912.0
+Level = "3"
+
+[node name="Button_4" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_left = 916.0
+margin_right = 1141.0
+Level = "4"
+
+[node name="Button_5" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_left = 1145.0
+margin_right = 1370.0
+Level = "5"
+
+[node name="Button_6" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_left = 1374.0
+margin_right = 1599.0
+Level = "6"
+
+[node name="Button_7" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_left = 1603.0
+margin_right = 1828.0
+Level = "7"
+
+[node name="Button_8" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_left = 1832.0
+margin_right = 2057.0
+Level = "8"
+
+[node name="Button_9" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_left = 2061.0
+margin_right = 2286.0
+Level = "9"
+
+[node name="Button_10" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_left = 2290.0
+margin_right = 2515.0
+Level = "10"
+
+[node name="Button_11" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_left = 2519.0
+margin_right = 2744.0
+Level = "11"
+
+[node name="Button_12" parent="Set/ScrollContainer/HBoxContainer" instance=ExtResource( 10 )]
+margin_left = 2748.0
+margin_right = 2973.0
+Level = "12"
+
+[node name="rightbuttonholder" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0.921569 )
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -264.756
+margin_top = -241.022
+margin_right = -107.756
+margin_bottom = 168.978
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="rightbuttonholder"]
+position = Vector2( 0.966431, -3.69189 )
+rotation = -1.80291e-13
+scale = Vector2( 0.630574, 1.66508 )
+normal = ExtResource( 7 )
+pressed = ExtResource( 14 )
+action = "scroll_right"
+script = ExtResource( 4 )
+
+[node name="leftbuttonholder" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0.921569 )
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 103.266
+margin_top = -241.0
+margin_right = 165.266
+margin_bottom = 169.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="leftbuttonholder"]
+position = Vector2( 155.71, 413.03 )
+rotation = -3.14159
+scale = Vector2( 0.630574, 1.66508 )
+normal = ExtResource( 7 )
+pressed = ExtResource( 14 )
+action = "scroll_left"
+script = ExtResource( 4 )
+dir = -1
+
+[node name="Store" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0.921569 )
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Store_Button" type="TouchScreenButton" parent="Store"]
+position = Vector2( 39.6875, 33.3879 )
+scale = Vector2( 0.381922, 0.381922 )
+normal = ExtResource( 11 )
+pressed = ExtResource( 16 )
+
+[node name="backbuttonholder" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0.921569 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back_Button" type="TouchScreenButton" parent="backbuttonholder"]
+position = Vector2( 147.124, 12.287 )
+rotation = 3.14159
+scale = Vector2( 0.481, 0.481 )
+normal = ExtResource( 13 )
+pressed = ExtResource( 15 )
+
+[node name="LoadingScreen" parent="." instance=ExtResource( 8 )]
+visible = false
+Autoload = false
+[connection signal="Play_Level" from="." to="LoadingScreen" method="_on_Levels_menu_Play_Level"]
+[connection signal="pressed" from="rightbuttonholder/TouchScreenButton" to="rightbuttonholder/TouchScreenButton" method="_on_TouchScreenButton_pressed"]
+[connection signal="released" from="rightbuttonholder/TouchScreenButton" to="rightbuttonholder/TouchScreenButton" method="_on_TouchScreenButton_released"]
+[connection signal="pressed" from="leftbuttonholder/TouchScreenButton" to="leftbuttonholder/TouchScreenButton" method="_on_TouchScreenButton_pressed"]
+[connection signal="released" from="leftbuttonholder/TouchScreenButton" to="leftbuttonholder/TouchScreenButton" method="_on_TouchScreenButton_released"]
+[connection signal="pressed" from="backbuttonholder/Back_Button" to="." method="_on_Back_Button_pressed"]

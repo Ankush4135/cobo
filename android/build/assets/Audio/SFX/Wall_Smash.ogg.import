@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Wall_Smash.ogg-1704caf59413783681128aa549e41eb0.oggstr"
+
+[deps]
+
+source_file="res://Audio/SFX/Wall_Smash.ogg"
+dest_files=[ "res://.import/Wall_Smash.ogg-1704caf59413783681128aa549e41eb0.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

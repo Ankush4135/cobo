@@ -1,0 +1,1824 @@
+[gd_scene load_steps=53 format=2]
+
+[ext_resource path="res://Scenes/LoadingScreen.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Fonts/Gasalt-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Character_Tile_Scene.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Material/vignette.shader" type="Shader" id=5]
+[ext_resource path="res://Fonts/Gasalt-Black.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Assets/Textures/glow_With_alpha.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Scene_trans.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/UserInterface/Base_UI.theme" type="Theme" id=9]
+[ext_resource path="res://Assets/Buttons/ok-button.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Buttons/cross-button.png" type="Texture" id=11]
+[ext_resource path="res://Objects/UserInterface/Settings.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Buttons/arrow-button.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Buttons/cart-button.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Buttons/play-button.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Buttons/arrow_button_pressed.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Buttons/Play_button_pressed.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Buttons/cart_button_pressed.png" type="Texture" id=18]
+[ext_resource path="res://Assets/UI/Screen_Controls_TouchButtons.png" type="Texture" id=19]
+[ext_resource path="res://Assets/UI/Screen_Controls_Fulltouch.png" type="Texture" id=20]
+[ext_resource path="res://Assets/UI/ScreenShot/ScreenShot_1.png" type="Texture" id=21]
+[ext_resource path="res://Assets/UI/ScreenShot/ScreenShot_2.png" type="Texture" id=22]
+[ext_resource path="res://Assets/UI/ScreenShot/ScreenShot_3.png" type="Texture" id=23]
+[ext_resource path="res://Assets/UI/ScreenShot/ScreenShot_4.png" type="Texture" id=24]
+[ext_resource path="res://Assets/UI/ScreenShot/ScreenShot_5.png" type="Texture" id=25]
+[ext_resource path="res://Assets/UI/ScreenShot/ScreenShot_6.png" type="Texture" id=26]
+[ext_resource path="res://Assets/UI/ScreenShot/ScreenShot_7.png" type="Texture" id=27]
+[ext_resource path="res://Scripts/ScrollContainer.gd" type="Script" id=28]
+[ext_resource path="res://Assets/UI/Screen_Controls_Computer_left.png" type="Texture" id=29]
+[ext_resource path="res://Assets/UI/Screen_Controls_Computer_right.png" type="Texture" id=30]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 5 )
+shader_param/radius = 0.75
+shader_param/softness = 1.0
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0.290909 ), 0.0, 1.6, 0, 0, Vector2( 0.996212, 1 ), -0.150001, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0.250712, 1 )
+colors = PoolColorArray( 0, 1, 1, 1, 0, 0, 0, 0 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 300
+outline_size = 14
+outline_color = Color( 0, 1, 1, 0.32549 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 300
+outline_size = 32
+outline_color = Color( 0, 1, 1, 0.117647 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 60
+extra_spacing_top = 12
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 60
+extra_spacing_top = 12
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 60
+extra_spacing_top = 12
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 80
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 64
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 60
+extra_spacing_bottom = -14
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.113725, 0.113725, 0.113725, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=14]
+size = 60
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 50
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0.211765, 0.211765, 0.211765, 1 )
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="DynamicFont" id=17]
+size = 64
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0.254902, 0.254902, 0.254902, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Animation" id=19]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Title:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 320, 185 ), Vector2( 320, -20 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Menu:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 250 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Menu:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Title:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Particles/CPUParticles2D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Particles:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Vignette:material:shader_param/softness")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.45 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Customise:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Customise:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Title:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 320, -20 ), Vector2( 320, -20 ), Vector2( 320, 185 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Menu:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 250 ), Vector2( 0, 250 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Menu:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Title:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Settings:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Vignette:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Particles/CPUParticles2D:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Particles:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Customise:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=21]
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("how_to_play/backbuttonholder:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.784314 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("how_to_play:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0547139 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("how_to_play/ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.0572484, 0.481058 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 0.568627 ) ]
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("how_to_play/Panel:rect_position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1100.13, -0.25, 0, 0.25, 0, 100, -0.255684, -214.207, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.7 )
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("how_to_play/Panel:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.300768 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("how_to_play/Play_Tutorial:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+length = 0.7
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Settings/Settings_Pannel:rect_position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1104, -0.25, 0, 0.25, 0, 150, -0.429623, -274.521, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.7 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Settings/Settings_Pannel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Settings:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.0503316 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Settings/ColorRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.0553648, 0.481506 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.568627 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Settings/backbuttonholder:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.784314 ) ]
+}
+
+[node name="Main" type="Node"]
+script = ExtResource( 3 )
+Change_Scene = "res://Scenes/Levels_menu.tscn"
+Tutorial_Level = "res://Scenes/Levels/Level_0.tscn"
+
+[node name="Scene_trans" parent="." instance=ExtResource( 8 )]
+Fadein = true
+
+[node name="Character_Tile_Scene" parent="." instance=ExtResource( 4 )]
+
+[node name="Vignette" type="ColorRect" parent="."]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0.996078 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Particles" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = 15.5068
+margin_right = 20.0
+margin_bottom = 55.5068
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Particles"]
+amount = 10
+lifetime = 8.0
+preprocess = 5.0
+lifetime_randomness = 1.0
+texture = ExtResource( 7 )
+emission_shape = 2
+emission_rect_extents = Vector2( 960, 0 )
+direction = Vector2( 0.5, -1 )
+initial_velocity = 334.47
+linear_accel_random = 0.46
+angle = 529.7
+angle_random = 0.54
+scale_amount_random = 0.09
+scale_amount_curve = SubResource( 2 )
+color_ramp = SubResource( 3 )
+
+[node name="Title" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 320.0
+margin_top = 185.0
+margin_right = -320.0
+margin_bottom = -640.994
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Title"]
+anchor_right = 1.0
+margin_bottom = 201.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "cobo"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title_Outline" type="Label" parent="Title"]
+anchor_right = 1.0
+margin_bottom = 201.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "cobo"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 0.000976563
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons_Lists" type="VBoxContainer" parent="Menu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -350.0
+margin_top = -85.0
+margin_right = 350.0
+margin_bottom = 444.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 9 )
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="Button" parent="Menu/Buttons_Lists"]
+margin_right = 700.0
+margin_bottom = 72.0
+focus_neighbour_top = NodePath("../Quit")
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="play_text" type="Label" parent="Menu/Buttons_Lists/Play"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+text = "Play"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Customise" type="Button" parent="Menu/Buttons_Lists"]
+margin_top = 87.0
+margin_right = 700.0
+margin_bottom = 159.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+text = "Customise"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="customize_tex" type="Label" parent="Menu/Buttons_Lists/Customise"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+text = "Customise"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="How_to_play" type="Button" parent="Menu/Buttons_Lists"]
+margin_top = 174.0
+margin_right = 700.0
+margin_bottom = 246.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+text = "How to play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="How_to_play_tex" type="Label" parent="Menu/Buttons_Lists/How_to_play"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+text = "How to play"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Store" type="Button" parent="Menu/Buttons_Lists"]
+visible = false
+margin_top = 261.0
+margin_right = 700.0
+margin_bottom = 333.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+text = "Store"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Store_tex" type="Label" parent="Menu/Buttons_Lists/Store"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+text = "Store"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="Button" parent="Menu/Buttons_Lists"]
+margin_top = 261.0
+margin_right = 700.0
+margin_bottom = 333.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+text = "Options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options_tex" type="Label" parent="Menu/Buttons_Lists/Options"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+text = "Options"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="Menu/Buttons_Lists"]
+margin_top = 348.0
+margin_right = 700.0
+margin_bottom = 420.0
+focus_neighbour_bottom = NodePath("../Play")
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 8 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="play_text2" type="Label" parent="Menu/Buttons_Lists/Quit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+text = "Quit"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Customise" type="Control" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+light_mask = -2147483647
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coinstext" type="Label" parent="Customise"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -162.993
+margin_top = 22.0
+margin_right = -40.9927
+margin_bottom = 73.0
+custom_fonts/font = SubResource( 9 )
+text = ":Coins"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="total_coinscount" type="Label" parent="Customise"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -354.829
+margin_top = 16.0
+margin_right = -165.829
+margin_bottom = 97.0
+custom_fonts/font = SubResource( 10 )
+text = "0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Store" type="Control" parent="Customise"]
+modulate = Color( 1, 1, 1, 0.921569 )
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Store_Button" type="TouchScreenButton" parent="Customise/Store"]
+position = Vector2( 39.6875, 33.3879 )
+scale = Vector2( 0.381922, 0.381922 )
+normal = ExtResource( 14 )
+pressed = ExtResource( 18 )
+
+[node name="backbuttonholder" type="Control" parent="Customise"]
+modulate = Color( 1, 1, 1, 0.921569 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back_Button" type="TouchScreenButton" parent="Customise/backbuttonholder"]
+position = Vector2( 147.124, 12.2867 )
+rotation = 3.14159
+scale = Vector2( 0.481315, 0.481315 )
+normal = ExtResource( 13 )
+pressed = ExtResource( 16 )
+action = "back"
+
+[node name="TabContainer" type="TabContainer" parent="Customise"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 300.0
+margin_top = 109.0
+margin_right = -300.0
+margin_bottom = -167.0
+theme = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" type="Control" parent="Customise/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 100.0
+margin_right = -40.0
+margin_bottom = -40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="character_counter" type="Label" parent="Customise/TabContainer/Player"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -67.0
+margin_top = -65.0
+margin_right = 67.0
+custom_fonts/font = SubResource( 11 )
+text = "1/5"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rightbuttonholder" type="Control" parent="Customise/TabContainer/Player"]
+modulate = Color( 1, 1, 1, 0.921569 )
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 75.244
+margin_top = -242.022
+margin_right = 232.244
+margin_bottom = 167.978
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rigth_Customise_Button" type="TextureButton" parent="Customise/TabContainer/Player/rightbuttonholder"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 17 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="leftbuttonholder" type="Control" parent="Customise/TabContainer/Player"]
+modulate = Color( 1, 1, 1, 0.921569 )
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -236.734
+margin_top = -242.0
+margin_right = -174.734
+margin_bottom = 168.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="left_Customise_Button" type="TextureButton" parent="Customise/TabContainer/Player/leftbuttonholder"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 155.408
+margin_top = 409.878
+margin_right = 250.408
+margin_bottom = 409.878
+rect_rotation = -180.0
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 17 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ear Mount" type="Control" parent="Customise/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 100.0
+margin_right = -40.0
+margin_bottom = -40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ear_mount_counter" type="Label" parent="Customise/TabContainer/Ear Mount"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -67.0
+margin_top = -65.0
+margin_right = 67.0
+custom_fonts/font = SubResource( 11 )
+text = "1/3"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rightbuttonholder2" type="Control" parent="Customise/TabContainer/Ear Mount"]
+modulate = Color( 1, 1, 1, 0.921569 )
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 75.244
+margin_top = -242.022
+margin_right = 232.244
+margin_bottom = 167.978
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rigth_Customise_Button" type="TextureButton" parent="Customise/TabContainer/Ear Mount/rightbuttonholder2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 17 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="leftbuttonholder2" type="Control" parent="Customise/TabContainer/Ear Mount"]
+modulate = Color( 1, 1, 1, 0.921569 )
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -236.734
+margin_top = -242.0
+margin_right = -174.734
+margin_bottom = 168.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="left_Customise_Button" type="TextureButton" parent="Customise/TabContainer/Ear Mount/leftbuttonholder2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 155.408
+margin_top = 409.878
+margin_right = 250.408
+margin_bottom = 409.878
+rect_rotation = -180.0
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 17 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Antenna" type="Control" parent="Customise/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 100.0
+margin_right = -40.0
+margin_bottom = -40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="antina_mount_counter" type="Label" parent="Customise/TabContainer/Antenna"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -67.0
+margin_top = -65.0
+margin_right = 67.0
+custom_fonts/font = SubResource( 11 )
+text = "1/3"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rightbuttonholder3" type="Control" parent="Customise/TabContainer/Antenna"]
+modulate = Color( 1, 1, 1, 0.921569 )
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 75.244
+margin_top = -242.022
+margin_right = 232.244
+margin_bottom = 167.978
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="rigth_Customise_Button" type="TextureButton" parent="Customise/TabContainer/Antenna/rightbuttonholder3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 17 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="leftbuttonholder3" type="Control" parent="Customise/TabContainer/Antenna"]
+modulate = Color( 1, 1, 1, 0.921569 )
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -236.734
+margin_top = -242.0
+margin_right = -174.734
+margin_bottom = 168.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="left_Customise_Button" type="TextureButton" parent="Customise/TabContainer/Antenna/leftbuttonholder3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 155.408
+margin_top = 409.878
+margin_right = 250.408
+margin_bottom = 409.878
+rect_rotation = -180.0
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 17 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Purchase" type="Control" parent="Customise"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.05945
+margin_right = -1.05945
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buy_Button" type="Button" parent="Customise/Purchase"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -617.0
+margin_top = -284.0
+margin_right = -353.0
+margin_bottom = -197.0
+theme = ExtResource( 9 )
+custom_fonts/font = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="no_enough_coins_popup" type="Control" parent="Customise"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Customise/no_enough_coins_popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.588235 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Customise/no_enough_coins_popup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.5
+margin_top = -93.0
+margin_right = 400.5
+margin_bottom = 93.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Customise/no_enough_coins_popup/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 14 )
+text = "You Don't Have Enough Coins"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="no_enough_coins_ok" type="Button" parent="Customise/no_enough_coins_popup/Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -125.0
+margin_top = -30.0
+margin_right = 125.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 15 )
+text = "OK"
+icon = ExtResource( 10 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="how_to_play" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="how_to_play"]
+modulate = Color( 0.899125, 0.899125, 0.899125, 0.05736 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.498039 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="how_to_play"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = 1100.13
+margin_right = -100.0
+margin_bottom = 832.131
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="how_to_play/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 50.0
+margin_right = -50.0
+margin_bottom = -50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="how_to_play/Panel/MarginContainer"]
+margin_right = 1620.0
+margin_bottom = 730.0
+scroll_vertical_enabled = false
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="how_to_play/Panel/MarginContainer/ScrollContainer"]
+margin_right = 4982.0
+margin_bottom = 730.0
+
+[node name="Android1" type="Control" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer"]
+margin_right = 550.0
+margin_bottom = 730.0
+rect_min_size = Vector2( 550, 730 )
+
+[node name="Label" type="Label" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Android1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 17 )
+text = "To play you have to tap Left side / RIght side of the screen on 1st control mode and Left / right Button on 2nd control mode."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Android1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = 428.0
+margin_right = -24.0
+margin_bottom = -14.0001
+custom_styles/panel = SubResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Android1/Panel"]
+margin_left = 11.0
+margin_top = 9.42261
+margin_right = 1345.0
+margin_bottom = 759.423
+rect_scale = Vector2( 0.360142, 0.360142 )
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Android2" type="Control" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer"]
+margin_left = 554.0
+margin_right = 1104.0
+margin_bottom = 730.0
+rect_min_size = Vector2( 550, 730 )
+
+[node name="Label" type="Label" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Android2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 17 )
+text = "The Character Will Go UP and Right (Diagonal) if Right Button / Right Side if screen is pressed and vice versa."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Android2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = 428.0
+margin_right = -26.0
+margin_bottom = -14.0001
+custom_styles/panel = SubResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Android2/Panel"]
+margin_left = 10.0
+margin_top = 9.42261
+margin_right = 1344.0
+margin_bottom = 759.423
+rect_scale = Vector2( 0.360142, 0.360142 )
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Computer1" type="Control" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer"]
+visible = false
+margin_left = 1108.0
+margin_right = 1658.0
+margin_bottom = 730.0
+rect_min_size = Vector2( 550, 730 )
+
+[node name="Label" type="Label" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Computer1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 17 )
+text = "To play you have to press Left / Left Mouse Button / A to move left and up (Diagonal)."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Computer1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = 428.0
+margin_right = -26.0
+margin_bottom = -14.0001
+custom_styles/panel = SubResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Computer1/Panel"]
+margin_left = 10.0
+margin_top = 9.42261
+margin_right = 1344.0
+margin_bottom = 759.423
+rect_scale = Vector2( 0.360142, 0.360142 )
+texture = ExtResource( 29 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Computer2" type="Control" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer"]
+visible = false
+margin_left = 1662.0
+margin_right = 2212.0
+margin_bottom = 730.0
+rect_min_size = Vector2( 550, 730 )
+
+[node name="Label" type="Label" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Computer2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 17 )
+text = "Right / Right Mouse Button / D  to move Right and up (Diagonal)."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Computer2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = 428.0
+margin_right = -26.0
+margin_bottom = -14.0001
+custom_styles/panel = SubResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Computer2/Panel"]
+margin_left = 10.0
+margin_top = 9.42261
+margin_right = 1344.0
+margin_bottom = 759.423
+rect_scale = Vector2( 0.360142, 0.360142 )
+texture = ExtResource( 30 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gameplay1" type="Control" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer"]
+margin_left = 1108.0
+margin_right = 1658.0
+margin_bottom = 730.0
+rect_min_size = Vector2( 550, 730 )
+
+[node name="Label" type="Label" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 17 )
+text = "Both side of the screen or Both Left and Right Button is pressed then Character goes straight upward"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = 428.0
+margin_right = -26.0
+margin_bottom = -14.0001
+custom_styles/panel = SubResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay1/Panel"]
+margin_left = 10.0
+margin_top = 9.42261
+margin_right = 1344.0
+margin_bottom = 759.423
+rect_scale = Vector2( 0.360142, 0.360142 )
+texture = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gameplay2" type="Control" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer"]
+margin_left = 1662.0
+margin_right = 2212.0
+margin_bottom = 730.0
+rect_min_size = Vector2( 550, 730 )
+
+[node name="Label" type="Label" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 17 )
+text = "Collect all Coins to get 3 Stars on the Level and Buy Character Skins"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = 428.0
+margin_right = -26.0
+margin_bottom = -14.0001
+custom_styles/panel = SubResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay2/Panel"]
+margin_left = 10.0
+margin_top = 9.42261
+margin_right = 1344.0
+margin_bottom = 759.423
+rect_scale = Vector2( 0.360142, 0.360142 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gameplay3" type="Control" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer"]
+margin_left = 2216.0
+margin_right = 2766.0
+margin_bottom = 730.0
+rect_min_size = Vector2( 550, 730 )
+
+[node name="Label" type="Label" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 17 )
+text = "Avoid this Obstacle it will Attract toward Them. If you get into it's field."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = 428.0
+margin_right = -26.0
+margin_bottom = -14.0001
+custom_styles/panel = SubResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay3/Panel"]
+margin_left = 10.0
+margin_top = 9.42261
+margin_right = 1344.0
+margin_bottom = 759.423
+rect_scale = Vector2( 0.360142, 0.360142 )
+texture = ExtResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gameplay4" type="Control" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer"]
+margin_left = 2770.0
+margin_right = 3320.0
+margin_bottom = 730.0
+rect_min_size = Vector2( 550, 730 )
+
+[node name="Label" type="Label" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 17 )
+text = "Avoid this Obstacle it will Boune Back  If player touch this Obstacle."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = 428.0
+margin_right = -26.0
+margin_bottom = -14.0001
+custom_styles/panel = SubResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay4/Panel"]
+margin_left = 10.0
+margin_top = 9.42261
+margin_right = 1344.0
+margin_bottom = 759.423
+rect_scale = Vector2( 0.360142, 0.360142 )
+texture = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gameplay5" type="Control" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer"]
+margin_left = 3324.0
+margin_right = 3874.0
+margin_bottom = 730.0
+rect_min_size = Vector2( 550, 730 )
+
+[node name="Label" type="Label" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 17 )
+text = "Collect all Orbs to Clear Level. You have to find Orbs in leves."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = 428.0
+margin_right = -26.0
+margin_bottom = -14.0001
+custom_styles/panel = SubResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay5/Panel"]
+margin_left = 10.0
+margin_top = 9.42261
+margin_right = 1344.0
+margin_bottom = 759.423
+rect_scale = Vector2( 0.360142, 0.360142 )
+texture = ExtResource( 25 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gameplay6" type="Control" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer"]
+margin_left = 3878.0
+margin_right = 4428.0
+margin_bottom = 730.0
+rect_min_size = Vector2( 550, 730 )
+
+[node name="Label" type="Label" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay6"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 17 )
+text = "Avoid this Spikes Obstacle, It will reduce your Health. and if your all health reduced then you die."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay6"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = 428.0
+margin_right = -26.0
+margin_bottom = -14.0001
+custom_styles/panel = SubResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay6/Panel"]
+margin_left = 10.0
+margin_top = 9.42261
+margin_right = 1344.0
+margin_bottom = 759.423
+rect_scale = Vector2( 0.360142, 0.360142 )
+texture = ExtResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gameplay7" type="Control" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer"]
+margin_left = 4432.0
+margin_right = 4982.0
+margin_bottom = 730.0
+rect_min_size = Vector2( 550, 730 )
+
+[node name="Label" type="Label" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay7"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 17 )
+text = "Once you Collect all Orbs then this gate will open and when you enter this tunnel, you Cleared that level"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay7"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = 428.0
+margin_right = -26.0
+margin_bottom = -14.0001
+custom_styles/panel = SubResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="how_to_play/Panel/MarginContainer/ScrollContainer/HBoxContainer/Gameplay7/Panel"]
+margin_left = 10.0
+margin_top = 9.42261
+margin_right = 1344.0
+margin_bottom = 759.423
+rect_scale = Vector2( 0.360142, 0.360142 )
+texture = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="backbuttonholder" type="Control" parent="how_to_play"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back_Button" type="TouchScreenButton" parent="how_to_play/backbuttonholder"]
+position = Vector2( 147.124, 12.2867 )
+rotation = 3.14159
+scale = Vector2( 0.481315, 0.481315 )
+normal = ExtResource( 13 )
+pressed = ExtResource( 16 )
+action = "back"
+
+[node name="Play_Tutorial" type="Button" parent="how_to_play"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -460.181
+margin_top = -149.584
+margin_right = -132.181
+margin_bottom = -62.5836
+theme = ExtResource( 9 )
+custom_fonts/font = SubResource( 12 )
+text = "Play Tutorial"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Settings"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.327457 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings_Pannel" parent="Settings" instance=ExtResource( 12 )]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.15625
+anchor_top = 0.138889
+anchor_right = 0.84375
+anchor_bottom = 0.888888
+margin_top = 954.0
+margin_bottom = 954.006
+
+[node name="backbuttonholder" type="Control" parent="Settings"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back_Button" type="TouchScreenButton" parent="Settings/backbuttonholder"]
+position = Vector2( 147.124, 12.2867 )
+rotation = 3.14159
+scale = Vector2( 0.481315, 0.481315 )
+normal = ExtResource( 13 )
+pressed = ExtResource( 16 )
+action = "back"
+
+[node name="quit_popup" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="quit_popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 0.858824 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="quit_popup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.5
+margin_top = -93.0
+margin_right = 400.5
+margin_bottom = 93.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="quit_popup/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 14 )
+text = "Do You Want to Quit"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="quit_ok" type="Button" parent="quit_popup/Panel"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -29.0
+margin_right = 250.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 15 )
+text = "OK"
+icon = ExtResource( 10 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quit_cancel" type="Button" parent="quit_popup/Panel"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -250.0
+margin_top = -29.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 15 )
+text = "Cancle"
+icon = ExtResource( 11 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadingScreen" parent="." instance=ExtResource( 1 )]
+visible = false
+Autoload = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Start_Up"
+anims/Customise = SubResource( 19 )
+anims/Start_Up = SubResource( 20 )
+anims/how_to_play = SubResource( 21 )
+anims/settings = SubResource( 22 )
+
+[connection signal="scene_changed" from="." to="LoadingScreen" method="_on_Main_scene_changed"]
+[connection signal="pressed" from="Menu/Buttons_Lists/Play" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Menu/Buttons_Lists/Customise" to="." method="_on_Customise_pressed"]
+[connection signal="pressed" from="Menu/Buttons_Lists/How_to_play" to="." method="_on_How_to_play_pressed"]
+[connection signal="pressed" from="Menu/Buttons_Lists/Options" to="." method="_on_Options_pressed"]
+[connection signal="button_up" from="Menu/Buttons_Lists/Quit" to="." method="_on_Quit_button_up"]
+[connection signal="tab_changed" from="Customise/TabContainer" to="Character_Tile_Scene" method="_on_TabContainer_tab_changed"]
+[connection signal="pressed" from="Customise/TabContainer/Player/rightbuttonholder/rigth_Customise_Button" to="Character_Tile_Scene" method="_on_rigth_Customise_Button_pressed"]
+[connection signal="pressed" from="Customise/TabContainer/Player/leftbuttonholder/left_Customise_Button" to="Character_Tile_Scene" method="_on_left_Customise_Button_pressed"]
+[connection signal="pressed" from="Customise/TabContainer/Ear Mount/rightbuttonholder2/rigth_Customise_Button" to="Character_Tile_Scene" method="_on_rigth_Customise_Button_pressed"]
+[connection signal="pressed" from="Customise/TabContainer/Ear Mount/leftbuttonholder2/left_Customise_Button" to="Character_Tile_Scene" method="_on_left_Customise_Button_pressed"]
+[connection signal="pressed" from="Customise/TabContainer/Antenna/rightbuttonholder3/rigth_Customise_Button" to="Character_Tile_Scene" method="_on_rigth_Customise_Button_pressed"]
+[connection signal="pressed" from="Customise/TabContainer/Antenna/leftbuttonholder3/left_Customise_Button" to="Character_Tile_Scene" method="_on_left_Customise_Button_pressed"]
+[connection signal="pressed" from="Customise/Purchase/Buy_Button" to="Character_Tile_Scene" method="_on_Buy_Button_pressed"]
+[connection signal="pressed" from="Customise/no_enough_coins_popup/Panel/no_enough_coins_ok" to="Character_Tile_Scene" method="_on_no_enough_coins_ok_pressed"]
+[connection signal="pressed" from="how_to_play/Play_Tutorial" to="." method="_on_Play_Tutorial_pressed"]
+[connection signal="close_settings" from="Settings/Settings_Pannel" to="." method="_on_Settings_close_settings"]
+[connection signal="button_up" from="quit_popup/Panel/quit_ok" to="." method="_on_quit_ok_button_up"]
+[connection signal="pressed" from="quit_popup/Panel/quit_cancel" to="." method="_on_quit_cancel_pressed"]

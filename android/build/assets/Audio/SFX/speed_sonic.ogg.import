@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/speed_sonic.ogg-97ccb8c915b214b69be80eb3810394a5.oggstr"
+
+[deps]
+
+source_file="res://Audio/SFX/speed_sonic.ogg"
+dest_files=[ "res://.import/speed_sonic.ogg-97ccb8c915b214b69be80eb3810394a5.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

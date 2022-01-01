@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Whoosh Glitch Doppler FX 002.wav-1ad286b7eb5dcb7d9d24acef792feedd.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/Whoosh Glitch Doppler FX 002.wav"
+dest_files=[ "res://.import/Whoosh Glitch Doppler FX 002.wav-1ad286b7eb5dcb7d9d24acef792feedd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

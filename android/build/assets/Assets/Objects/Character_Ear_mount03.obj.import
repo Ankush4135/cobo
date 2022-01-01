@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Character_Ear_mount03.obj-ac42dcf1e3cbb7c3a048a769edefff72.mesh"
+
+[deps]
+
+files=[ "res://.import/Character_Ear_mount03.obj-ac42dcf1e3cbb7c3a048a769edefff72.mesh" ]
+
+source_file="res://Assets/Objects/Character_Ear_mount03.obj"
+dest_files=[ "res://.import/Character_Ear_mount03.obj-ac42dcf1e3cbb7c3a048a769edefff72.mesh", "res://.import/Character_Ear_mount03.obj-ac42dcf1e3cbb7c3a048a769edefff72.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
