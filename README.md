@@ -5,3 +5,10 @@
   </a>
 </p>
 This game has Platformer, Magenic ball, type of gameplay
+
+## Screenshots
+<p align="center">
+  <img src="https://github.com/Ankush4135/cobo/blob/master/ScreenShot/Coin_Pickup%202020-12-18%2022-25-33_1.gif" alt="pickupcoin">
+  <img src="https://github.com/Ankush4135/cobo/blob/master/ScreenShot/cobo_Screenshot_1.png" alt="cobo_Screenshot_1">
+  <img src="https://github.com/Ankush4135/cobo/blob/master/ScreenShot/cobo_Screenshot_2.png" alt="cobo_Screenshot_2">
+</p>
